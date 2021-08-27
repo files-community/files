@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:XamlBrewer.Uwp.Controls"
     xmlns:converters="using:Files.Converters">
 
     <Style x:Key="PropertiesTab" TargetType="StackPanel">
@@ -13,6 +14,10 @@
     <VerticalAlignment x:Key="PropertyValueVerticalAlignment">Center</VerticalAlignment>
     <!--  Might be used for Expander control  -->
     <SolidColorBrush x:Key="SystemControlBackgroundBaseHighBrush" Color="Transparent" />
+
+    <!-- Splitview Pane -->
+    <SolidColorBrush x:Key="SplitViewBackgroundBrush" Color="#2e7dbf" />
+    <SolidColorBrush x:Key="SplitViewForegroundBrush" Color="#718DA5" />
 
     <Style x:Key="PropertyName" TargetType="TextBlock">
         <Setter Property="Margin" Value="{StaticResource PropertyNameMargin}" />

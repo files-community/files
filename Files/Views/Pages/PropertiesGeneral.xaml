@@ -6,6 +6,7 @@
     xmlns:local="using:Files.ViewModels.Properties"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:controls="using:XamlBrewer.Uwp.Controls"
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:usercontrols="using:Files.UserControls"
     Loaded="Properties_Loaded"
@@ -333,17 +334,67 @@
                 Text="{x:Bind ViewModel.DriveCapacity, Mode=OneWay}"
                 Visibility="{x:Bind ViewModel.DriveCapacityVisibiity, Mode=OneWay}" />
 
-            <muxc:ProgressRing
+            <controls:PercentageRing 
+                Value="{x:Bind ViewModel.DriveUsedSpaceDoubleValue, Mode=OneWay}"
+                MaxAngle="{x:Bind ViewModel.DriveMaxCapacityDoubleValue, Mode=OneWay}"
+                MinAngle="{x:Bind ViewModel.DriveMinCapacityDoubleValue, Mode=OneWay}"
+                Visibility="{x:Bind ViewModel.DriveCapacityVisibiity, Mode=OneWay}"
+                TrailBrush="{StaticResource SplitViewBackgroundBrush}"
+                ValueBrush="{StaticResource SplitViewForegroundBrush}"
+                IsInteractive="True"
+                ScaleBrush="#7f858a"
                 Grid.Row="17"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Width="70"
                 Height="70"
-                Margin="10"
-                IsIndeterminate="False"
-                Maximum="{x:Bind ViewModel.DriveCapacityDoubleValue, Mode=OneWay}"
-                Visibility="{x:Bind ViewModel.DriveCapacityVisibiity, Mode=OneWay}"
-                Value="{x:Bind ViewModel.DriveUsedSpaceDoubleValue, Mode=OneWay}" />
+                Margin="10">
+                <controls:PercentageRing.Resources>
+                    <Style TargetType="controls:PercentageRing">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="controls:PercentageRing">
+                                    <Border Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                        <Viewbox>
+                                            <Grid x:Name="PART_Container"
+                                              Height="200"
+                                              Width="200"
+                                              Background="Transparent">
+
+                                                <Path Name="PART_Scale"
+                                                  Stroke="{TemplateBinding ScaleBrush}"
+                                                  StrokeThickness="{TemplateBinding ScaleWidth}"
+                                                  StrokeStartLineCap="Round"
+                                                  StrokeEndLineCap="Round" />
+
+                                                <Path Name="PART_Trail"
+                                                  Stroke="{TemplateBinding TrailBrush}"
+                                                  StrokeThickness="{TemplateBinding ScaleWidth}"
+                                                  StrokeStartLineCap="Round"
+                                                  StrokeEndLineCap="Round"
+                                                  StrokeDashCap="Round" />
+
+                                                <StackPanel VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center">
+                                                    <TextBlock Name="PART_ValueText"
+                                                           Foreground="{TemplateBinding ValueBrush}"
+                                                           FontSize="40"
+                                                           FontWeight="SemiBold"
+                                                           Text="{TemplateBinding Value}"
+                                                           TextAlignment="Center"
+                                                           Margin="0" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Viewbox>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </controls:PercentageRing.Resources>
+            </controls:PercentageRing>
 
             <TextBlock
                 x:Uid="PropertiesAttributes"

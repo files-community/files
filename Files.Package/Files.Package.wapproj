@@ -477,5 +477,8 @@
     <Content Include="Assets\AppTiles\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\AppTiles\Wide310x150Logo.scale-400.png" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="XamlBrewer.Uwp.PercentageRing" Version="1.0.0" />
+  </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>

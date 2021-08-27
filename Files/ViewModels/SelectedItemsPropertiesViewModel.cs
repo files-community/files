@@ -288,7 +288,8 @@ namespace Files.ViewModels
             {
                 SetProperty(ref driveUsedSpaceValue, value);
                 DriveUsedSpace = $"{ByteSize.FromBytes(DriveUsedSpaceValue).ToBinaryString().ConvertSizeAbbreviation()} ({ByteSize.FromBytes(DriveUsedSpaceValue).Bytes:#,##0} {"ItemSizeBytes".GetLocalized()})";
-                DriveUsedSpaceDoubleValue = Convert.ToDouble(DriveUsedSpaceValue);
+                var angle = ((DriveUsedSpaceValue * (ulong)DriveMaxCapacityDoubleValue) / DriveCapacityValue);
+                DriveUsedSpaceDoubleValue = Convert.ToDouble(((angle * 100) / (ulong)DriveMaxCapacityDoubleValue));
             }
         }
 
@@ -421,7 +422,6 @@ namespace Files.ViewModels
             {
                 SetProperty(ref driveCapacityValue, value);
                 DriveCapacity = $"{ByteSize.FromBytes(DriveCapacityValue).ToBinaryString().ConvertSizeAbbreviation()} ({ByteSize.FromBytes(DriveCapacityValue).Bytes:#,##0} {"ItemSizeBytes".GetLocalized()})";
-                DriveCapacityDoubleValue = Convert.ToDouble(DriveCapacityValue);
             }
         }
 
@@ -445,12 +445,17 @@ namespace Files.ViewModels
             set => SetProperty(ref driveCapacityVisibiity, value);
         }
 
-        private double driveCapacityDoubleValue;
+        private const int driveMaxCapacityDoubleValue = 360;
 
-        public double DriveCapacityDoubleValue
+        public int DriveMaxCapacityDoubleValue
         {
-            get => driveCapacityDoubleValue;
-            set => SetProperty(ref driveCapacityDoubleValue, value);
+            get => driveMaxCapacityDoubleValue;
+        }
+
+        private const int driveMinCapacityDoubleValue = 0;
+        public int DriveMinCapacityDoubleValue
+        {
+            get => driveMinCapacityDoubleValue;
         }
 
         private double driveUsedSpaceDoubleValue;
