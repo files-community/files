@@ -1164,13 +1164,16 @@ namespace Files.ViewModels
                     AdaptiveLayoutHelpers.PredictLayoutMode(folderSettings, this);
                 }
 
-                // Find and select README file
-                foreach (var item in filesAndFolders)
+                if (AppSettings.PreviewPaneEnabled)
                 {
-                    if (item.ItemName.Contains("readme", StringComparison.InvariantCultureIgnoreCase))
+                    // Find and select README file
+                    foreach (var item in filesAndFolders)
                     {
-                        OnSelectionRequestedEvent?.Invoke(this, new List<ListedItem>() { item });
-                        break;
+                        if (item.ItemName.Contains("readme", StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            OnSelectionRequestedEvent?.Invoke(this, new List<ListedItem>() { item });
+                            break;
+                        }
                     }
                 }
             }

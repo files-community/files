@@ -28,6 +28,8 @@ namespace Files.Views
     /// </summary>
     public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
+        public static MainPage Instance => (MainPage)((Frame)Window.Current.Content).Content;
+
         public SettingsViewModel AppSettings => App.AppSettings;
         public MainViewModel MainViewModel => App.MainViewModel;
 
