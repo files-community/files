@@ -1,7 +1,7 @@
 ﻿using Common;
 using Files.Common;
 using FilesFullTrust.Helpers;
-using Newtonsoft.Json;
+using System.Text.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -217,7 +217,7 @@ namespace FilesFullTrust.MessageHandlers
                         });
                         await Win32API.SendMessageAsync(connection, new ValueSet() {
                             { "Success", success },
-                            { "Result", JsonConvert.SerializeObject(shellOperationResult) }
+                            { "Result", JsonSerializer.Serialize(shellOperationResult) }
                         }, message.Get("RequestID", (string)null));
                     }
                     break;
@@ -272,7 +272,7 @@ namespace FilesFullTrust.MessageHandlers
                         });
                         await Win32API.SendMessageAsync(connection, new ValueSet() {
                             { "Success", succcess },
-                            { "Result", JsonConvert.SerializeObject(shellOperationResult) },
+                            { "Result", JsonSerializer.Serialize(shellOperationResult) },
                         }, message.Get("RequestID", (string)null));
                     }
                     break;
@@ -347,7 +347,7 @@ namespace FilesFullTrust.MessageHandlers
                         });
                         await Win32API.SendMessageAsync(connection, new ValueSet() {
                             { "Success", success },
-                            { "Result", JsonConvert.SerializeObject(shellOperationResult) }
+                            { "Result", JsonSerializer.Serialize(shellOperationResult) }
                         }, message.Get("RequestID", (string)null));
                     }
                     break;
@@ -422,7 +422,7 @@ namespace FilesFullTrust.MessageHandlers
                         });
                         await Win32API.SendMessageAsync(connection, new ValueSet() {
                             { "Success", succcess },
-                            { "Result", JsonConvert.SerializeObject(shellOperationResult) }
+                            { "Result", JsonSerializer.Serialize(shellOperationResult) }
                         }, message.Get("RequestID", (string)null));
                     }
                     break;
@@ -528,7 +528,7 @@ namespace FilesFullTrust.MessageHandlers
                         var filePermissions = FilePermissions.FromFilePath(filePathForPerm, isFolder);
                         await Win32API.SendMessageAsync(connection, new ValueSet()
                         {
-                            { "FilePermissions", JsonConvert.SerializeObject(filePermissions) }
+                            { "FilePermissions", JsonSerializer.Serialize(filePermissions) }
                         }, message.Get("RequestID", (string)null));
                     }
                     break;
@@ -536,7 +536,7 @@ namespace FilesFullTrust.MessageHandlers
                 case "SetFilePermissions":
                     {
                         var filePermissionsString = (string)message["permissions"];
-                        var filePermissionsToSet = JsonConvert.DeserializeObject<FilePermissions>(filePermissionsString);
+                        var filePermissionsToSet = JsonSerializer.Deserialize<FilePermissions>(filePermissionsString);
                         await Win32API.SendMessageAsync(connection, new ValueSet()
                         {
                             { "Success", filePermissionsToSet.SetPermissions() }

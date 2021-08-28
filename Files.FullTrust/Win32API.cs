@@ -1,19 +1,13 @@
 ﻿using Files.Common;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+using System.Text.Json;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 using System.IO.Pipes;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vanara.PInvoke;
 using Windows.Foundation.Collections;
@@ -346,7 +340,7 @@ namespace FilesFullTrust
         {
             var message = new Dictionary<string, object>(valueSet);
             message.Add("RequestID", requestID);
-            var serialized = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message));
+            var serialized = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
             await pipe.WriteAsync(serialized, 0, serialized.Length);
         }
 

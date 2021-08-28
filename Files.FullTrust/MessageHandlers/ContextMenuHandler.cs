@@ -1,15 +1,11 @@
 ﻿using Files.Common;
 using FilesFullTrust.Helpers;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO.Pipes;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Vanara.PInvoke;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using System.Text.Json;
 
 namespace FilesFullTrust.MessageHandlers
 {
@@ -40,8 +36,8 @@ namespace FilesFullTrust.MessageHandlers
                     var loadThreadWithMessageQueue = new ThreadWithMessageQueue<Dictionary<string, object>>(HandleMenuMessage);
                     var cMenuLoad = await loadThreadWithMessageQueue.PostMessageAsync<ContextMenu>(message);
                     contextMenuResponse.Add("Handle", handleTable.AddValue(loadThreadWithMessageQueue));
-                    contextMenuResponse.Add("ContextMenu", JsonConvert.SerializeObject(cMenuLoad));
-                    var serializedCm = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(contextMenuResponse));
+                    contextMenuResponse.Add("ContextMenu", JsonSerializer.Serialize(cMenuLoad, Program.IncludeFieldsOptions));
+                    var serializedCm = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(contextMenuResponse, Program.IncludeFieldsOptions));
                     await Win32API.SendMessageAsync(connection, contextMenuResponse, message.Get("RequestID", (string)null));
                     break;
 

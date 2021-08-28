@@ -1,13 +1,9 @@
 ﻿using Files.Common;
 using FilesFullTrust.Helpers;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Text.Json;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
-using System.Threading.Tasks;
 using Vanara.PInvoke;
 using Vanara.Windows.Shell;
 using Windows.Foundation.Collections;
@@ -126,7 +122,7 @@ namespace FilesFullTrust.MessageHandlers
                 {
                     using var folderItem = new ShellItem(e.FullPath);
                     var shellFileItem = ShellFolderExtensions.GetShellFileItem(folderItem);
-                    response["Item"] = JsonConvert.SerializeObject(shellFileItem);
+                    response["Item"] = JsonSerializer.Serialize(shellFileItem, Program.IncludeFieldsOptions);
                 }
                 // Send message to UWP app to refresh items
                 await Win32API.SendMessageAsync(connection, response);

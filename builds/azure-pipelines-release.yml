@@ -2,14 +2,14 @@ trigger: none
 pr: none
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-2022'
 
 variables:
 - group: BuildPipelineVariables
 - name: solution
   value: '**/*.sln'
 - name: buildPlatform
-  value: 'x86|x64'
+  value: 'x86|x64|arm64'
 - name: buildConfiguration
   value: 'Release'
 - name: appxPackageDir

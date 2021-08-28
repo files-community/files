@@ -1,18 +1,13 @@
 using Files.Common;
 using FilesFullTrust.MessageHandlers;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
 using System.IO.Pipes;
-using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 
@@ -21,6 +16,7 @@ namespace FilesFullTrust
     internal class Program
     {
         public static Logger Logger { get; private set; }
+        public static JsonSerializerOptions IncludeFieldsOptions = new JsonSerializerOptions { IncludeFields = true };
         private static readonly LogWriter logWriter = new LogWriter();
 
         [STAThread]
@@ -89,7 +85,7 @@ namespace FilesFullTrust
 
         private static async void InitializeAppServiceConnection()
         {
-            connection = new NamedPipeServerStream($@"FilesInteropService_ServerPipe", PipeDirection.InOut, NamedPipeServerStream.MaxAllowedServerInstances, PipeTransmissionMode.Message, PipeOptions.Asynchronous, 2048, 2048, null, HandleInheritability.None, PipeAccessRights.ChangePermissions);
+            connection = NamedPipeServerStreamConstructors.New($@"FilesInteropService_ServerPipe", PipeDirection.InOut, NamedPipeServerStream.MaxAllowedServerInstances, PipeTransmissionMode.Message, PipeOptions.Asynchronous, 2048, 2048, null, HandleInheritability.None, PipeAccessRights.ChangePermissions);
 
             PipeSecurity Security = connection.GetAccessControl();
             PipeAccessRule ClientRule = new PipeAccessRule(new SecurityIdentifier("S-1-15-2-1"), PipeAccessRights.ReadWrite | PipeAccessRights.CreateNewInstance, AccessControlType.Allow);
@@ -116,6 +112,7 @@ namespace FilesFullTrust
 
             if (connection.IsConnected)
             {
+                connection.ReadMode = PipeTransmissionMode.Message;
                 var info = (Buffer: new byte[connection.InBufferSize], Message: new StringBuilder());
                 BeginRead(info);
             }
@@ -157,8 +154,15 @@ namespace FilesFullTrust
                 if (connection.IsMessageComplete) // Message is completed
                 {
                     var message = info.Message.ToString().TrimEnd('\0');
-
-                    Connection_RequestReceived(connection, JsonConvert.DeserializeObject<Dictionary<string, object>>(message));
+                    var options = new JsonSerializerOptions
+                    {
+                        Converters =
+                        {
+                            new DictionaryStringObjectJsonConverter()
+                        },
+                        IncludeFields = true
+                    };
+                    Connection_RequestReceived(connection, JsonSerializer.Deserialize<Dictionary<string, object>>(message, options));
 
                     // Begin a new reading operation
                     var nextInfo = (Buffer: new byte[connection.InBufferSize], Message: new StringBuilder());
@@ -274,6 +278,85 @@ namespace FilesFullTrust
                 }
             }
             return false;
+        }
+    }
+
+    public class DictionaryStringObjectJsonConverter : JsonConverter<Dictionary<string, object>>
+    {
+        public override Dictionary<string, object> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            if (reader.TokenType != JsonTokenType.StartObject)
+            {
+                throw new JsonException($"JsonTokenType was of type {reader.TokenType}, only objects are supported");
+            }
+
+            var dictionary = new Dictionary<string, object>();
+            while (reader.Read())
+            {
+                if (reader.TokenType == JsonTokenType.EndObject)
+                {
+                    return dictionary;
+                }
+
+                if (reader.TokenType != JsonTokenType.PropertyName)
+                {
+                    throw new JsonException("JsonTokenType was not PropertyName");
+                }
+
+                var propertyName = reader.GetString();
+
+                if (string.IsNullOrWhiteSpace(propertyName))
+                {
+                    throw new JsonException("Failed to get property name");
+                }
+
+                reader.Read();
+
+                dictionary.Add(propertyName, ExtractValue(ref reader, options));
+            }
+
+            return dictionary;
+        }
+
+        public override void Write(Utf8JsonWriter writer, Dictionary<string, object> value, JsonSerializerOptions options)
+        {
+            JsonSerializer.Serialize(writer, value, options);
+        }
+
+        private object ExtractValue(ref Utf8JsonReader reader, JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case JsonTokenType.String:
+                    if (reader.TryGetDateTime(out var date))
+                    {
+                        return date;
+                    }
+                    return reader.GetString();
+                case JsonTokenType.False:
+                    return false;
+                case JsonTokenType.True:
+                    return true;
+                case JsonTokenType.Null:
+                    return null;
+                case JsonTokenType.Number:
+                    if (reader.TryGetInt64(out var result))
+                    {
+                        return result;
+                    }
+                    return reader.GetDecimal();
+                case JsonTokenType.StartObject:
+                    return Read(ref reader, null, options);
+                case JsonTokenType.StartArray:
+                    var list = new List<object>();
+                    while (reader.Read() && reader.TokenType != JsonTokenType.EndArray)
+                    {
+                        list.Add(ExtractValue(ref reader, options));
+                    }
+                    return list;
+                default:
+                    throw new JsonException($"'{reader.TokenType}' is not supported");
+            }
         }
     }
 }

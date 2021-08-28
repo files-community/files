@@ -1,11 +1,7 @@
 ﻿using Files.Common;
 using FilesFullTrust.Helpers;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Text.Json;
 using System.IO.Pipes;
-using System.Threading.Tasks;
 using Vanara.Windows.Shell;
 using Windows.Foundation.Collections;
 
@@ -95,15 +91,15 @@ namespace FilesFullTrust.MessageHandlers
                         }
                         return flc;
                     });
-                    responseEnum.Add("Enumerate", JsonConvert.SerializeObject(folderContentsList));
+                    responseEnum.Add("Enumerate", JsonSerializer.Serialize(folderContentsList, Program.IncludeFieldsOptions));
                     await Win32API.SendMessageAsync(connection, responseEnum, message.Get("RequestID", (string)null));
                     break;
 
                 case "GetSelectedIconsFromDLL":
-                    var selectedIconInfos = Win32API.ExtractSelectedIconsFromDLL((string)message["iconFile"], JsonConvert.DeserializeObject<List<int>>((string)message["iconIndexes"]), Convert.ToInt32(message["requestedIconSize"]));
+                    var selectedIconInfos = Win32API.ExtractSelectedIconsFromDLL((string)message["iconFile"], JsonSerializer.Deserialize<List<int>>((string)message["iconIndexes"]), Convert.ToInt32(message["requestedIconSize"]));
                     await Win32API.SendMessageAsync(connection, new ValueSet()
                     {
-                        { "IconInfos", JsonConvert.SerializeObject(selectedIconInfos) },
+                        { "IconInfos", JsonSerializer.Serialize(selectedIconInfos) },
                     }, message.Get("RequestID", (string)null));
                     break;
             }

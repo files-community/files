@@ -1,14 +1,9 @@
 ﻿using Files.Common;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+using System.Text.Json;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.IO;
 using System.IO.Pipes;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Vanara.PInvoke;
 using Vanara.Windows.Shell;
 
@@ -32,7 +27,7 @@ namespace FilesFullTrust.MessageHandlers
                     }
                     else if (message.ContainsKey("ApplicationList"))
                     {
-                        var applicationList = JsonConvert.DeserializeObject<IEnumerable<string>>((string)message["ApplicationList"]);
+                        var applicationList = JsonSerializer.Deserialize<IEnumerable<string>>((string)message["ApplicationList"]);
                         HandleApplicationsLaunch(applicationList, message);
                     }
                     break;

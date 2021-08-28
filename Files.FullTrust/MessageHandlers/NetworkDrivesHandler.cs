@@ -1,11 +1,6 @@
 ﻿using Files.Common;
 using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.IO.Pipes;
-using System.Linq;
-using System.Threading.Tasks;
 using Vanara.PInvoke;
 using Vanara.Windows.Shell;
 using Windows.Foundation.Collections;

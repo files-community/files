@@ -1,11 +1,10 @@
 ﻿using Files.Common;
-using System;
 using System.Diagnostics;
 using System.Text;
-using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using static Vanara.PInvoke.Kernel32;
+using FileAccess = Vanara.PInvoke.Kernel32.FileAccess;
 
 namespace FilesFullTrust
 {

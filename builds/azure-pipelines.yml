@@ -2,13 +2,15 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'windows-2022'
 
 variables:
   solution: '**/*.sln'
   buildPlatform: 'x64'
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
+  msBuildExtPath: 'C:\Program Files\Microsoft Visual Studio\2022\Preview\Msbuild'
+  WapPath: 'C:\Program Files\Microsoft Visual Studio\2022\Preview\Msbuild\Microsoft\DesktopBridge'
 
 steps:
 - task: PowerShell@2
@@ -59,7 +61,7 @@ steps:
     platform: 'x64'
     solution: '**/*.wapproj'
     configuration: '$(buildConfiguration)'
-    msbuildArguments: '/t:build;_GenerateAppxPackage /p:Configuration=Release;Platform="$(buildPlatform)";AppxBundle=Always;AppxBundlePlatforms="$(buildPlatform)"'
+    msbuildArguments: '/t:build;_GenerateAppxPackage /p:Configuration=Release;Platform="$(buildPlatform)";AppxBundle=Always;AppxBundlePlatforms="$(buildPlatform)";WapProjPath="$(WapPath)";MSBuildExtensionsPath="$(msBuildExtPath)"'
     maximumCpuCount: true
 
 - task: CopyFiles@2

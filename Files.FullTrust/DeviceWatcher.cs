@@ -1,8 +1,6 @@
 ﻿using Files.Common;
-using System;
 using System.IO.Pipes;
 using System.Management;
-using System.Threading.Tasks;
 using Windows.Foundation.Collections;
 
 namespace FilesFullTrust

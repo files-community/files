@@ -1,10 +1,6 @@
 ﻿using Files.Common;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.IO.Pipes;
 using System.Security.Principal;
-using System.Threading.Tasks;
 using Windows.Foundation.Collections;
 
 namespace FilesFullTrust.MessageHandlers

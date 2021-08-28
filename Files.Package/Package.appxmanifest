@@ -40,7 +40,7 @@
                   <uap3:Name>com.files.filepreview</uap3:Name>
                 </uap3:AppExtensionHost>
               </uap3:Extension>
-              <desktop:Extension Category="windows.fullTrustProcess" Executable="Files.Launcher\FilesFullTrust.exe">
+              <desktop:Extension Category="windows.fullTrustProcess" Executable="Files.FullTrust\FilesFullTrust.exe">
                   <desktop:FullTrustProcess>
                       <!--<desktop:ParameterGroup GroupId="DesktopAppExeGroup" Parameters="/DesktopApp"/>
                       <desktop:ParameterGroup GroupId="TerminalGroup" Parameters="/Terminal"/>
