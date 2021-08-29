@@ -141,7 +141,7 @@
   <data name="SettingsAboutTitle.Text" xml:space="preserve">
     <value>შესახებ</value>
   </data>
-  <data name="SettingsAppearanceTheme.Title" xml:space="preserve">
+  <data name="SettingsAppearanceTheme" xml:space="preserve">
     <value>აირჩიეთ თქვენი ფერი</value>
   </data>
   <data name="SettingsAppearanceTitle.Text" xml:space="preserve">
@@ -507,9 +507,6 @@
   <data name="RenameDialogSymbolsTip.Text" xml:space="preserve">
     <value>ნივთის სახელი არ უნდა შეიცავდეს შემდეგ სიმბოლოებს: \ / : * ? " &lt; &gt; |</value>
   </data>
-  <data name="SettingsAboutOpenLogLocationButton.AutomationProperties.Name" xml:space="preserve">
-    <value>ჟურნალის გახსნა</value>
-  </data>
   <data name="ItemSelected.Text" xml:space="preserve">
     <value>არჩეული ნივთი</value>
   </data>
@@ -870,7 +867,7 @@
   <data name="SettingsPreferencesAppLanguage.Title" xml:space="preserve">
     <value>ენა</value>
   </data>
-  <data name="SettingsContextMenuOverflowSwitch.Title" xml:space="preserve">
+  <data name="SettingsContextMenuOverflow" xml:space="preserve">
     <value>გადავსებული ნივთების ქვემენიუში გადატანა</value>
   </data>
   <data name="SettingsPinRecycleBin.Title" xml:space="preserve">
@@ -1185,9 +1182,6 @@
   <data name="NavToolbarSelectionOptions.Label" xml:space="preserve">
     <value>არჩევა</value>
   </data>
-  <data name="StatusCenter.AutomationProperties.Name" xml:space="preserve">
-    <value>სტატუს ცენტრი</value>
-  </data>
   <data name="SettingsOpenItemsWithOneclick.Title" xml:space="preserve">
     <value>ელემენტების გახსნა ერთი დაჭერით</value>
   </data>
@@ -1251,10 +1245,10 @@
   <data name="ClearPropertiesButton.Content" xml:space="preserve">
     <value>ყველა თვისების გასუფთავება</value>
   </data>
-  <data name="StatusCenterTeachingTip.Subtitle" xml:space="preserve">
+  <data name="OngoingTasksTeachingTip.Subtitle" xml:space="preserve">
     <value>შეამოწმეთ ფაილების მოქმედებების სტატუსი აქ</value>
   </data>
-  <data name="StatusCenterTeachingTip.Title" xml:space="preserve">
+  <data name="OngoingTasksTeachingTip.Title" xml:space="preserve">
     <value>სტატუს ცენტრი</value>
   </data>
   <data name="NavSearchButton.AutomationProperties.Name" xml:space="preserve">
@@ -1326,16 +1320,10 @@
   <data name="ItemAlreadyExistsDialogCloseButtonText" xml:space="preserve">
     <value>გაუქმება</value>
   </data>
-  <data name="StatusCenter.ToolTipService.ToolTip" xml:space="preserve">
-    <value>მიმდინარე დავალებები</value>
-  </data>
-  <data name="StatusCenterFlyoutTitle.Text" xml:space="preserve">
-    <value>მიმდინარე დავალებები</value>
-  </data>
-  <data name="SettingsMultitaskingAlwaysOpenDualPane.Title" xml:space="preserve">
+  <data name="SettingsMultitaskingAlwaysOpenDualPane" xml:space="preserve">
     <value>ახალი ჩანართების ყოველთვის გახსნა ორმაგი სარკმლის რეჟიმში</value>
   </data>
-  <data name="SettingsMultitaskingEnableDualPane.Title" xml:space="preserve">
+  <data name="SettingsMultitaskingEnableDualPane" xml:space="preserve">
     <value>ორმაგი სარკმლის ხედის ჩართვა</value>
   </data>
   <data name="BaseLayoutItemContextFlyoutOpenInNewPane.Text" xml:space="preserve">
@@ -1530,7 +1518,7 @@
   <data name="SettingsAboutDocumentationListViewItem.AutomationProperties.Name" xml:space="preserve">
     <value>ეწვიეთ ფაილების დოკუმენტაციის ვებ-გვერდს</value>
   </data>
-  <data name="StatusCenterFlyout.AutomationProperties.Name" xml:space="preserve">
+  <data name="OngoingTasksFlyout.AutomationProperties.Name" xml:space="preserve">
     <value>მიმდინარე მომსახურებები</value>
   </data>
   <data name="CloudDriveSyncStatus_Online" xml:space="preserve">
@@ -1635,7 +1623,7 @@
   <data name="DefaultTheme" xml:space="preserve">
     <value>ნაგულისხმევი</value>
   </data>
-  <data name="SettingsAppearanceCustomThemes.Title" xml:space="preserve">
+  <data name="SettingsAppearanceCustomThemes" xml:space="preserve">
     <value>მორგებული თემები</value>
   </data>
   <data name="PropertyItemCount" xml:space="preserve">
@@ -2106,16 +2094,16 @@
   <data name="StatusCancellingOp" xml:space="preserve">
     <value>მიმდინარეობს გაუქმება</value>
   </data>
-  <data name="StatusCenterDismissBannerButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="OngoingTasksDismissBannerButton.AutomationProperties.Name" xml:space="preserve">
     <value>გათავისუფლება</value>
   </data>
-  <data name="StatusCenterDismissBannerButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="OngoingTasksDismissBannerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>გათავისუფლება</value>
   </data>
-  <data name="StatusCenterCancelBannerButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="OngoingTasksCancelBannerButton.AutomationProperties.Name" xml:space="preserve">
     <value>გაუქმება</value>
   </data>
-  <data name="StatusCenterCancelBannerButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="OngoingTasksCancelBannerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>გაუქმება</value>
   </data>
   <data name="NavToolbarWidgets.Label" xml:space="preserve">
@@ -2178,7 +2166,7 @@
   <data name="SettingsSidebarTitle.Text" xml:space="preserve">
     <value>გვერდითა ზოლი</value>
   </data>
-  <data name="SettingsVerticalTabFlyoutSwitch.Title" xml:space="preserve">
+  <data name="SettingsVerticalTabFlyout" xml:space="preserve">
     <value>ვერტიკალური ჩანართის გამოფრენის ჩვენება სათაურის ზოლზე</value>
   </data>
   <data name="SettingsThemesLearnMoreButton.AutomationProperties.Name" xml:space="preserve">
@@ -2397,9 +2385,6 @@
   <data name="PropertySyncStatus" xml:space="preserve">
     <value>სინქრონიზაციის სტატუსი</value>
   </data>
-  <data name="PreviewPaneLoadCloudItemButton.Content" xml:space="preserve">
-    <value>სრული გადახედვის ჩატვირთვა</value>
-  </data>
   <data name="PreviewPaneLoadCloudItemButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>ჩამოტვირთავს ნივთს ღრუბლიდან და ჩატვირთავს გადახედვას</value>
   </data>
@@ -2448,10 +2433,7 @@
   <data name="SettingsPreferencesOpenFoldersNewTab.Title" xml:space="preserve">
     <value>საქაღალდეების გახსნა ახალ ჩანართში</value>
   </data>
-  <data name="NavSettingsButton.AutomationProperties.Name" xml:space="preserve">
-    <value>პარამეტრები</value>
-  </data>
-  <data name="NavSettingsButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="NavSettingsButton" xml:space="preserve">
     <value>პარამეტრები</value>
   </data>
   <data name="NavigationToolbarCopy.ToolTipService.ToolTip" xml:space="preserve">

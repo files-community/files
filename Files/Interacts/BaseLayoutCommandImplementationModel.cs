@@ -655,7 +655,7 @@ namespace Files.Interacts
                     }
 
                     CancellationTokenSource extractCancellation = new CancellationTokenSource();
-                    PostedStatusBanner banner = App.StatusCenterViewModel.PostOperationBanner(
+                    PostedStatusBanner banner = App.OngoingTasksViewModel.PostOperationBanner(
                         string.Empty,
                         "ExtractingArchiveText".GetLocalized(),
                         0,
@@ -682,7 +682,7 @@ namespace Files.Interacts
 
                     if (sw.Elapsed.TotalSeconds >= 6)
                     {
-                        App.StatusCenterViewModel.PostBanner(
+                        App.OngoingTasksViewModel.PostBanner(
                             "ExtractingCompleteText".GetLocalized(),
                             "ArchiveExtractionCompletedSuccessfullyText".GetLocalized(),
                             0,
@@ -706,7 +706,7 @@ namespace Files.Interacts
             if (archive != null && currentFolder != null)
             {
                 CancellationTokenSource extractCancellation = new CancellationTokenSource();
-                PostedStatusBanner banner = App.StatusCenterViewModel.PostOperationBanner(
+                PostedStatusBanner banner = App.OngoingTasksViewModel.PostOperationBanner(
                     string.Empty,
                     "ExtractingArchiveText".GetLocalized(),
                     0,
@@ -724,7 +724,7 @@ namespace Files.Interacts
 
                 if (sw.Elapsed.TotalSeconds >= 6)
                 {
-                    App.StatusCenterViewModel.PostBanner(
+                    App.OngoingTasksViewModel.PostBanner(
                         "ExtractingCompleteText".GetLocalized(),
                         "ArchiveExtractionCompletedSuccessfullyText".GetLocalized(),
                         0,
@@ -748,7 +748,7 @@ namespace Files.Interacts
             if (archive != null && destinationFolder != null)
             {
                 CancellationTokenSource extractCancellation = new CancellationTokenSource();
-                PostedStatusBanner banner = App.StatusCenterViewModel.PostOperationBanner(
+                PostedStatusBanner banner = App.OngoingTasksViewModel.PostOperationBanner(
                     string.Empty,
                     "ExtractingArchiveText".GetLocalized(),
                     0,
@@ -766,7 +766,7 @@ namespace Files.Interacts
 
                 if (sw.Elapsed.TotalSeconds >= 6)
                 {
-                    App.StatusCenterViewModel.PostBanner(
+                    App.OngoingTasksViewModel.PostBanner(
                         "ExtractingCompleteText".GetLocalized(),
                         "ArchiveExtractionCompletedSuccessfullyText".GetLocalized(),
                         0,

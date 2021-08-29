@@ -141,7 +141,7 @@
   <data name="SettingsAboutTitle.Text" xml:space="preserve">
     <value>Sobre</value>
   </data>
-  <data name="SettingsAppearanceTheme.Title" xml:space="preserve">
+  <data name="SettingsAppearanceTheme" xml:space="preserve">
     <value>Tria el teu color</value>
   </data>
   <data name="SettingsAppearanceTitle.Text" xml:space="preserve">
@@ -489,9 +489,6 @@
   <data name="RenameDialogSymbolsTip.Text" xml:space="preserve">
     <value>El nom de l'element no pot tenir els següents caràcters: \ / : * ? " &lt; &gt; |</value>
   </data>
-  <data name="SettingsAboutOpenLogLocationButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Obre històric d'ubicació</value>
-  </data>
   <data name="ItemSelected.Text" xml:space="preserve">
     <value>element seleccionat</value>
   </data>
@@ -828,7 +825,7 @@
   <data name="SettingsPreferencesAppLanguage.Title" xml:space="preserve">
     <value>Idioma</value>
   </data>
-  <data name="SettingsContextMenuOverflowSwitch.Title" xml:space="preserve">
+  <data name="SettingsContextMenuOverflow" xml:space="preserve">
     <value>Move overflow items into a sub menu</value>
   </data>
   <data name="SettingsPinRecycleBin.Title" xml:space="preserve">

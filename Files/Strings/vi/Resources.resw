@@ -141,7 +141,7 @@
   <data name="SettingsAboutTitle.Text" xml:space="preserve">
     <value>Giới thiệu</value>
   </data>
-  <data name="SettingsAppearanceTheme.Title" xml:space="preserve">
+  <data name="SettingsAppearanceTheme" xml:space="preserve">
     <value>Chọn màu của bạn</value>
   </data>
   <data name="SettingsAppearanceTitle.Text" xml:space="preserve">
@@ -507,9 +507,6 @@
   <data name="RenameDialogSymbolsTip.Text" xml:space="preserve">
     <value>Tên mục không được có những ký tự trong danh sách sau: \ / : * ? " &lt; &gt; |</value>
   </data>
-  <data name="SettingsAboutOpenLogLocationButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Mở vị trí log</value>
-  </data>
   <data name="ItemSelected.Text" xml:space="preserve">
     <value>mục đã chọn</value>
   </data>
@@ -870,7 +867,7 @@
   <data name="SettingsPreferencesAppLanguage.Title" xml:space="preserve">
     <value>Ngôn ngữ</value>
   </data>
-  <data name="SettingsContextMenuOverflowSwitch.Title" xml:space="preserve">
+  <data name="SettingsContextMenuOverflow" xml:space="preserve">
     <value>Di chuyển những mục chảy ra vào một thực đơn con</value>
   </data>
   <data name="SettingsPinRecycleBin.Title" xml:space="preserve">
@@ -1167,9 +1164,6 @@
   <data name="NavToolbarSelectionOptions.Label" xml:space="preserve">
     <value>Chọn</value>
   </data>
-  <data name="StatusCenter.AutomationProperties.Name" xml:space="preserve">
-    <value>Trung tâm tình trạng</value>
-  </data>
   <data name="SettingsOpenItemsWithOneclick.Title" xml:space="preserve">
     <value>Mở mục bằng một cú nhấp chuột</value>
   </data>
@@ -1233,10 +1227,10 @@
   <data name="ClearPropertiesButton.Content" xml:space="preserve">
     <value>Xóa cả thuộc tính</value>
   </data>
-  <data name="StatusCenterTeachingTip.Subtitle" xml:space="preserve">
+  <data name="OngoingTasksTeachingTip.Subtitle" xml:space="preserve">
     <value>Kiểm tra tình trạng của hoạt động tệp ở đây</value>
   </data>
-  <data name="StatusCenterTeachingTip.Title" xml:space="preserve">
+  <data name="OngoingTasksTeachingTip.Title" xml:space="preserve">
     <value>Trung tâm tình trạng</value>
   </data>
   <data name="NavSearchButton.AutomationProperties.Name" xml:space="preserve">
@@ -1308,16 +1302,10 @@
   <data name="ItemAlreadyExistsDialogCloseButtonText" xml:space="preserve">
     <value>Hủy bỏ</value>
   </data>
-  <data name="StatusCenter.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Nhiệm vụ đang xảy ra</value>
-  </data>
-  <data name="StatusCenterFlyoutTitle.Text" xml:space="preserve">
-    <value>Nhiệm vụ đang xảy ra</value>
-  </data>
-  <data name="SettingsMultitaskingAlwaysOpenDualPane.Title" xml:space="preserve">
+  <data name="SettingsMultitaskingAlwaysOpenDualPane" xml:space="preserve">
     <value>Mở tab mới bằng chế độ hai phần luôn luôn</value>
   </data>
-  <data name="SettingsMultitaskingEnableDualPane.Title" xml:space="preserve">
+  <data name="SettingsMultitaskingEnableDualPane" xml:space="preserve">
     <value>Bật hiển thị hai phần</value>
   </data>
   <data name="BaseLayoutItemContextFlyoutOpenInNewPane.Text" xml:space="preserve">
@@ -1512,7 +1500,7 @@
   <data name="SettingsAboutDocumentationListViewItem.AutomationProperties.Name" xml:space="preserve">
     <value>Truy cập trang Web cho tài liệu về ứng dụng Files</value>
   </data>
-  <data name="StatusCenterFlyout.AutomationProperties.Name" xml:space="preserve">
+  <data name="OngoingTasksFlyout.AutomationProperties.Name" xml:space="preserve">
     <value>Thực đơn nổi lên về công việc đang xảy ra </value>
   </data>
   <data name="CloudDriveSyncStatus_Online" xml:space="preserve">
@@ -1617,7 +1605,7 @@
   <data name="DefaultTheme" xml:space="preserve">
     <value>Mặc định</value>
   </data>
-  <data name="SettingsAppearanceCustomThemes.Title" xml:space="preserve">
+  <data name="SettingsAppearanceCustomThemes" xml:space="preserve">
     <value>Chủ đề tùy chỉnh</value>
   </data>
   <data name="PropertyItemCount" xml:space="preserve">
@@ -2076,16 +2064,16 @@
   <data name="StatusCancellingOp" xml:space="preserve">
     <value>Hoạt động dọn thùng rác bị hủy bỏ</value>
   </data>
-  <data name="StatusCenterDismissBannerButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="OngoingTasksDismissBannerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Bỏ qua</value>
   </data>
-  <data name="StatusCenterDismissBannerButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="OngoingTasksDismissBannerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Bỏ qua</value>
   </data>
-  <data name="StatusCenterCancelBannerButton.AutomationProperties.Name" xml:space="preserve">
+  <data name="OngoingTasksCancelBannerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Hủy bỏ</value>
   </data>
-  <data name="StatusCenterCancelBannerButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="OngoingTasksCancelBannerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Hủy bỏ</value>
   </data>
   <data name="NavToolbarWidgets.Label" xml:space="preserve">
@@ -2148,7 +2136,7 @@
   <data name="SettingsSidebarTitle.Text" xml:space="preserve">
     <value>Thanh bên</value>
   </data>
-  <data name="SettingsVerticalTabFlyoutSwitch.Title" xml:space="preserve">
+  <data name="SettingsVerticalTabFlyout" xml:space="preserve">
     <value>Hiển thị thực đơn bay ra dọc trên thanh tiểu đề.</value>
   </data>
   <data name="SettingsThemesLearnMoreButton.AutomationProperties.Name" xml:space="preserve">
@@ -2367,9 +2355,6 @@
   <data name="PropertySyncStatus" xml:space="preserve">
     <value>Trạng thái đồng bộ</value>
   </data>
-  <data name="PreviewPaneLoadCloudItemButton.Content" xml:space="preserve">
-    <value>Tải nguyên xem trước</value>
-  </data>
   <data name="PreviewPaneLoadCloudItemButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Tải mục từ đám mây và tải xem trước</value>
   </data>
@@ -2394,10 +2379,7 @@
   <data name="SideBarHideSectionFromSideBar.Text" xml:space="preserve">
     <value>Giấu {0} phần</value>
   </data>
-  <data name="NavSettingsButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Cài đặt</value>
-  </data>
-  <data name="NavSettingsButton.ToolTipService.ToolTip" xml:space="preserve">
+  <data name="NavSettingsButton" xml:space="preserve">
     <value>Cài đặt</value>
   </data>
   <data name="NavigationToolbarCopy.ToolTipService.ToolTip" xml:space="preserve">

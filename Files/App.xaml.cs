@@ -56,7 +56,7 @@ namespace Files
         public static Logger Logger { get; private set; }
         private static readonly UniversalLogWriter logWriter = new UniversalLogWriter();
 
-        public static StatusCenterViewModel StatusCenterViewModel { get; } = new StatusCenterViewModel();
+        public static OngoingTasksViewModel OngoingTasksViewModel { get; } = new OngoingTasksViewModel();
         public static SecondaryTileHelper SecondaryTileHelper { get; private set; } = new SecondaryTileHelper();
 
         public App()

@@ -8,11 +8,11 @@ using Windows.UI.Xaml.Controls;
 
 namespace Files.UserControls
 {
-    public sealed partial class StatusCenter : UserControl
+    public sealed partial class OngoingTasksFlyout : UserControl
     {
-        public StatusCenterViewModel StatusCenterViewModel { get; set; }
+        public OngoingTasksViewModel OngoingTasksViewModel { get; set; }
 
-        public StatusCenter()
+        public OngoingTasksFlyout()
         {
             this.InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace Files.UserControls
         private void DismissBanner(object sender, RoutedEventArgs e)
         {
             StatusBanner itemToDismiss = (sender as Button).DataContext as StatusBanner;
-            StatusCenterViewModel.CloseBanner(itemToDismiss);
+            OngoingTasksViewModel.CloseBanner(itemToDismiss);
         }
 
         // Primary action button click
@@ -29,7 +29,7 @@ namespace Files.UserControls
         {
             StatusBanner itemToDismiss = (sender as Button).DataContext as StatusBanner;
             await Task.Run(itemToDismiss.PrimaryButtonClick);
-            StatusCenterViewModel.CloseBanner(itemToDismiss);
+            OngoingTasksViewModel.CloseBanner(itemToDismiss);
         }
     }
 }

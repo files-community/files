@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:Files.Helpers"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
     xmlns:local="using:Files.UserControls.Settings"
@@ -197,21 +198,17 @@
                 </local:SettingsBlockControl.ExpandableContent>
             </local:SettingsBlockControl>
 
-            <local:SettingsBlockControl
-                x:Uid="OpenLogLocation"
-                Title="Open log location"
-                HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl Title="{helpers:ResourceString Name=OpenLogLocation}" HorizontalAlignment="Stretch">
                 <local:SettingsBlockControl.Icon>
                     <FontIcon Glyph="&#xE838;" />
                 </local:SettingsBlockControl.Icon>
 
                 <Button
                     x:Name="OpenLogLocationButton"
-                    x:Uid="SettingsAboutOpenLogLocationButton"
                     Padding="8"
-                    AutomationProperties.Name="Open log location"
+                    AutomationProperties.Name="{helpers:ResourceString Name=OpenLogLocation}"
                     Command="{Binding OpenLogLocationCommand}"
-                    ToolTipService.ToolTip="Open log location">
+                    ToolTipService.ToolTip="{helpers:ResourceString Name=OpenLogLocation}">
                     <Button.Content>
                         <FontIcon
                             FontSize="14"

@@ -39,7 +39,7 @@ namespace Files.Views
 
         public SidebarViewModel SidebarAdaptiveViewModel = new SidebarViewModel();
 
-        public StatusCenterViewModel StatusCenterViewModel => App.StatusCenterViewModel;
+        public OngoingTasksViewModel OngoingTasksViewModel => App.OngoingTasksViewModel;
 
         public ICommand ToggleFullScreenAcceleratorCommand { get; private set; }
 

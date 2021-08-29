@@ -377,8 +377,8 @@
                         SettingsButtonCommand="{x:Bind MainViewModel.OpenSettingsCommand}"
                         ShowSearchBox="True"
                         ShowSettingsButton="{x:Bind IsCompactOverlay, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
-                        ShowStatusCenter="True"
-                        StatusCenterViewModel="{x:Bind StatusCenterViewModel}"
+                        ShowOngoingTasks="True"
+                        OngoingTasksViewModel="{x:Bind OngoingTasksViewModel}"
                         TabIndex="1" />
                 </Grid>
             </controls:SidebarControl.TabContent>

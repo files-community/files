@@ -175,23 +175,18 @@
                 FontWeight="Medium"
                 Text="Appearance" />
 
-            <local:SettingsBlockControl
-                x:Uid="SettingsAppearanceTheme"
-                Title="Choose your color"
-                HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl Title="{helpers:ResourceString Name=SettingsAppearanceTheme}" HorizontalAlignment="Stretch">
                 <local:SettingsBlockControl.Icon>
                     <FontIcon Glyph="&#xE790;" />
                 </local:SettingsBlockControl.Icon>
                 <ComboBox
                     x:Name="ThemeChooser"
+                    AutomationProperties.Name="{helpers:ResourceString Name=SettingsAppearanceTheme}"
                     ItemsSource="{Binding Themes}"
                     SelectedIndex="{Binding SelectedThemeIndex, Mode=TwoWay}" />
             </local:SettingsBlockControl>
 
-            <local:SettingsBlockControl
-                x:Uid="SettingsAppearanceCustomThemes"
-                Title="Custom themes"
-                HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl Title="{helpers:ResourceString Name=SettingsAppearanceCustomThemes}" HorizontalAlignment="Stretch">
                 <local:SettingsBlockControl.Icon>
                     <FontIcon Glyph="&#xE771;" />
                 </local:SettingsBlockControl.Icon>
@@ -231,14 +226,14 @@
                 FontWeight="Medium"
                 Text="Customize the right click context menu" />
 
-            <local:SettingsBlockControl
-                x:Uid="SettingsContextMenuOverflowSwitch"
-                Title="Move overflow items into a sub menu"
-                HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl Title="{helpers:ResourceString Name=SettingsContextMenuOverflow}" HorizontalAlignment="Stretch">
                 <local:SettingsBlockControl.Icon>
                     <FontIcon Glyph="&#xE10C;" />
                 </local:SettingsBlockControl.Icon>
-                <ToggleSwitch IsOn="{Binding MoveOverflowMenuItemsToSubMenu, Mode=TwoWay}" Style="{StaticResource RightAlignedToggleSwitchStyle}" />
+                <ToggleSwitch
+                    AutomationProperties.Name="{helpers:ResourceString Name=SettingsContextMenuOverflow}"
+                    IsOn="{Binding MoveOverflowMenuItemsToSubMenu, Mode=TwoWay}"
+                    Style="{StaticResource RightAlignedToggleSwitchStyle}" />
             </local:SettingsBlockControl>
         </StackPanel>
 

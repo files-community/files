@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:Files.Helpers"
     xmlns:local="using:Files.UserControls.Settings"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -35,14 +36,14 @@
                 FontWeight="Medium"
                 Text="Tab customization" />
 
-            <local:SettingsBlockControl
-                x:Uid="SettingsVerticalTabFlyoutSwitch"
-                Title="Display the vertical tab flyout on the title bar"
-                HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl Title="{helpers:ResourceString Name=SettingsVerticalTabFlyout}" HorizontalAlignment="Stretch">
                 <local:SettingsBlockControl.Icon>
                     <FontIcon Glyph="&#xF5ED;" />
                 </local:SettingsBlockControl.Icon>
-                <ToggleSwitch IsOn="{x:Bind ViewModel.IsVerticalTabFlyoutEnabled, Mode=TwoWay}" Style="{StaticResource RightAlignedToggleSwitchStyle}" />
+                <ToggleSwitch
+                    AutomationProperties.Name="{helpers:ResourceString Name=SettingsVerticalTabFlyout}"
+                    IsOn="{x:Bind ViewModel.IsVerticalTabFlyoutEnabled, Mode=TwoWay}"
+                    Style="{StaticResource RightAlignedToggleSwitchStyle}" />
             </local:SettingsBlockControl>
 
             <TextBlock
@@ -52,24 +53,22 @@
                 FontWeight="Medium"
                 Text="Dual pane" />
 
-            <local:SettingsBlockControl
-                x:Uid="SettingsMultitaskingEnableDualPane"
-                Title="Enable dual pane view"
-                HorizontalAlignment="Stretch">
-                <local:SettingsBlockControl.Icon>
-                    <FontIcon FontFamily="{StaticResource CustomGlyph}" Glyph="&#xF117;" />
-                </local:SettingsBlockControl.Icon>
-                <ToggleSwitch IsOn="{x:Bind ViewModel.IsDualPaneEnabled, Mode=TwoWay}" Style="{StaticResource RightAlignedToggleSwitchStyle}" />
-            </local:SettingsBlockControl>
-
-            <local:SettingsBlockControl
-                x:Uid="SettingsMultitaskingAlwaysOpenDualPane"
-                Title="Always open new tabs in dual pane mode"
-                HorizontalAlignment="Stretch">
+            <local:SettingsBlockControl Title="{helpers:ResourceString Name=SettingsMultitaskingEnableDualPane}" HorizontalAlignment="Stretch">
                 <local:SettingsBlockControl.Icon>
                     <FontIcon FontFamily="{StaticResource CustomGlyph}" Glyph="&#xF117;" />
                 </local:SettingsBlockControl.Icon>
                 <ToggleSwitch
+                    AutomationProperties.Name="{helpers:ResourceString Name=SettingsMultitaskingEnableDualPane}"
+                    IsOn="{x:Bind ViewModel.IsDualPaneEnabled, Mode=TwoWay}"
+                    Style="{StaticResource RightAlignedToggleSwitchStyle}" />
+            </local:SettingsBlockControl>
+
+            <local:SettingsBlockControl Title="{helpers:ResourceString Name=SettingsMultitaskingAlwaysOpenDualPane}" HorizontalAlignment="Stretch">
+                <local:SettingsBlockControl.Icon>
+                    <FontIcon FontFamily="{StaticResource CustomGlyph}" Glyph="&#xF117;" />
+                </local:SettingsBlockControl.Icon>
+                <ToggleSwitch
+                    AutomationProperties.Name="{helpers:ResourceString Name=SettingsMultitaskingAlwaysOpenDualPane}"
                     IsEnabled="{x:Bind ViewModel.IsDualPaneEnabled, Mode=OneWay}"
                     IsOn="{x:Bind ViewModel.AlwaysOpenDualPaneInNewTab, Mode=TwoWay}"
                     Style="{StaticResource RightAlignedToggleSwitchStyle}" />

@@ -54,7 +54,7 @@ namespace Files.UserControls
 
         private void NavigationToolbar_Loading(FrameworkElement sender, object args)
         {
-            StatusCenterViewModel.ProgressBannerPosted += StatusCenterActions_ProgressBannerPosted;
+            OngoingTasksViewModel.ProgressBannerPosted += OngoingTasksActions_ProgressBannerPosted;
         }
 
         private void VisiblePath_Loaded(object sender, RoutedEventArgs e)
@@ -135,32 +135,32 @@ namespace Files.UserControls
             set => SetValue(SettingsButtonCommandProperty, value);
         }
 
-        public StatusCenterViewModel StatusCenterViewModel { get; set; }
+        public OngoingTasksViewModel OngoingTasksViewModel { get; set; }
 
-        private void StatusCenterActions_ProgressBannerPosted(object sender, PostedStatusBanner e)
+        private void OngoingTasksActions_ProgressBannerPosted(object sender, PostedStatusBanner e)
         {
-            if (AppSettings.ShowStatusCenterTeachingTip)
+            if (AppSettings.ShowOngoingTasksTeachingTip)
             {
-                StatusCenterTeachingTip.IsOpen = true;
-                StatusCenterTeachingTip.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                AppSettings.ShowStatusCenterTeachingTip = false;
+                OngoingTasksTeachingTip.IsOpen = true;
+                OngoingTasksTeachingTip.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                AppSettings.ShowOngoingTasksTeachingTip = false;
             }
             else
             {
-                StatusCenterTeachingTip.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                StatusCenterTeachingTip.IsOpen = false;
+                OngoingTasksTeachingTip.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                OngoingTasksTeachingTip.IsOpen = false;
             }
         }
 
-        public bool ShowStatusCenter
+        public bool ShowOngoingTasks
         {
-            get => (bool)GetValue(ShowStatusCenterProperty);
-            set => SetValue(ShowStatusCenterProperty, value);
+            get => (bool)GetValue(ShowOngoingTasksProperty);
+            set => SetValue(ShowOngoingTasksProperty, value);
         }
 
-        // Using a DependencyProperty as the backing store for ShowStatusCenter.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ShowStatusCenterProperty =
-            DependencyProperty.Register(nameof(ShowStatusCenter), typeof(bool), typeof(NavigationToolbar), new PropertyMetadata(null));
+        // Using a DependencyProperty as the backing store for ShowOngoingTasks.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowOngoingTasksProperty =
+            DependencyProperty.Register(nameof(ShowOngoingTasks), typeof(bool), typeof(NavigationToolbar), new PropertyMetadata(null));
 
         public bool ShowSettingsButton
         {

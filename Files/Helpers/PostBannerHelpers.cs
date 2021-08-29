@@ -7,7 +7,7 @@ namespace Files.Helpers
 {
     public static class PostBannerHelpers
     {
-        private static StatusCenterViewModel statusCenterViewModel => statusCenterViewModel;
+        private static OngoingTasksViewModel OngoingTasksViewModel => OngoingTasksViewModel;
 
         public static void PostBanner_Delete(ReturnResult status, FileOperationType operation, Stopwatch sw, IShellPage associatedInstance)
         {
@@ -18,7 +18,7 @@ namespace Files.Helpers
             {
                 if (status == ReturnResult.AccessUnauthorized)
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "AccessDeniedDeleteDialog/Title".GetLocalized(),
                         "AccessDeniedDeleteDialog/Text".GetLocalized(),
                         0,
@@ -27,7 +27,7 @@ namespace Files.Helpers
                 }
                 else if (status == ReturnResult.IntegrityCheckFailed)
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "FileNotFoundDialog/Title".GetLocalized(),
                         "FileNotFoundDialog/Text".GetLocalized(),
                         0,
@@ -36,7 +36,7 @@ namespace Files.Helpers
                 }
                 else if (status == ReturnResult.Failed || status == ReturnResult.UnknownException)
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "StatusDeletionFailed".GetLocalized(),
                         "StatusUnknownError".GetLocalized(),
                         0,
@@ -47,7 +47,7 @@ namespace Files.Helpers
                 {
                     if (operation == FileOperationType.Delete)
                     {
-                        statusCenterViewModel.PostBanner(
+                        OngoingTasksViewModel.PostBanner(
                         "StatusDeletionComplete".GetLocalized(),
                         "StatusOperationCompleted".GetLocalized(),
                         0,
@@ -56,7 +56,7 @@ namespace Files.Helpers
                     }
                     else if (operation == FileOperationType.Recycle)
                     {
-                        statusCenterViewModel.PostBanner(
+                        OngoingTasksViewModel.PostBanner(
                         "StatusRecycleComplete".GetLocalized(),
                         "StatusOperationCompleted".GetLocalized(),
                         0,

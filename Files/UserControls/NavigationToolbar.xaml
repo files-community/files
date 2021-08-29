@@ -7,6 +7,7 @@
     xmlns:converters1="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI"
+    xmlns:helpers="using:Files.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:triggers="using:Microsoft.Toolkit.Uwp.UI.Triggers"
@@ -515,23 +516,22 @@
                     </Button.KeyboardAccelerators>
                 </Button>
 
-                <Grid x:Name="StatusCenterGrid" Visibility="{x:Bind StatusCenterViewModel.AnyOperationsOngoing, Mode=OneWay}">
+                <Grid x:Name="OngoingTasksGrid" Visibility="{x:Bind OngoingTasksViewModel.AnyOperationsOngoing, Mode=OneWay}">
                     <Button
-                        x:Name="StatusCenter"
-                        x:Uid="StatusCenter"
+                        x:Name="OngoingTasks"
                         Width="36"
                         Height="32"
                         Padding="0"
                         AccessKey="T"
-                        AutomationProperties.Name="Status center"
+                        AutomationProperties.Name="{helpers:ResourceString Name=OngoingTasks}"
                         Background="Transparent"
                         Style="{StaticResource ToolBarButtonStyle}"
-                        ToolTipService.ToolTip="Ongoing Tasks"
+                        ToolTipService.ToolTip="{helpers:ResourceString Name=OngoingTasks}"
                         Visibility="Visible">
                         <Button.Content>
                             <Grid>
                                 <FontIcon
-                                    x:Name="StatusCenterFontIcon"
+                                    x:Name="OngoingTasksFontIcon"
                                     FontSize="16"
                                     Glyph="&#xF16A;" />
                                 <muxc:ProgressRing
@@ -540,24 +540,21 @@
                                     Height="28"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    x:Load="{x:Bind StatusCenterViewModel.AnyOperationsOngoing, Mode=OneWay}"
+                                    x:Load="{x:Bind OngoingTasksViewModel.AnyOperationsOngoing, Mode=OneWay}"
                                     IsIndeterminate="False"
-                                    Value="{x:Bind StatusCenterViewModel.MedianOperationProgressValue, Mode=OneWay}" />
+                                    Value="{x:Bind OngoingTasksViewModel.MedianOperationProgressValue, Mode=OneWay}" />
                             </Grid>
                         </Button.Content>
                         <Button.Flyout>
-                            <Flyout
-                                x:Uid="StatusCenterFlyout"
-                                contract8Present:ShouldConstrainToRootBounds="False"
-                                AutomationProperties.Name="Ongoing tasks flyout">
-                                <uc:StatusCenter
+                            <Flyout contract8Present:ShouldConstrainToRootBounds="False" AutomationProperties.Name="{helpers:ResourceString Name=OngoingTasks}">
+                                <uc:OngoingTasksFlyout
                                     x:Name="OngoingTasksControl"
                                     Width="300"
                                     MinHeight="300"
                                     MaxHeight="400"
                                     x:FieldModifier="public"
                                     IsTabStop="True"
-                                    StatusCenterViewModel="{x:Bind StatusCenterViewModel}" />
+                                    OngoingTasksViewModel="{x:Bind OngoingTasksViewModel}" />
                             </Flyout>
                         </Button.Flyout>
                     </Button>
@@ -565,26 +562,25 @@
 
                 <Button
                     x:Name="SettingsButton"
-                    x:Uid="NavSettingsButton"
                     Width="36"
                     Height="32"
                     AccessKey="I"
-                    AutomationProperties.Name="Settings"
+                    AutomationProperties.Name="{helpers:ResourceString Name=NavSettingsButton}"
                     Background="Transparent"
                     Command="{x:Bind SettingsButtonCommand, Mode=OneWay}"
                     Style="{StaticResource ToolBarButtonStyle}"
-                    ToolTipService.ToolTip="Settings"
+                    ToolTipService.ToolTip="{helpers:ResourceString Name=NavSettingsButton}"
                     Visibility="{x:Bind ShowSettingsButton, Mode=OneWay}">
                     <FontIcon FontSize="14" Glyph="&#xE115;" />
                 </Button>
             </StackPanel>
 
             <muxc:TeachingTip
-                x:Name="StatusCenterTeachingTip"
-                x:Uid="StatusCenterTeachingTip"
+                x:Name="OngoingTasksTeachingTip"
+                x:Uid="OngoingTasksTeachingTip"
                 Title="Status Center"
                 Subtitle="Check the status of file operations here"
-                Target="{x:Bind StatusCenter}"
+                Target="{x:Bind OngoingTasks}"
                 Visibility="Collapsed" />
         </Grid>
 

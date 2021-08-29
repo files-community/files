@@ -683,7 +683,7 @@ namespace Files.ViewModels
         /// <summary>
         /// Gets or sets a value indicating whether or not to show a teaching tip informing the user about the status center.
         /// </summary>
-        public bool ShowStatusCenterTeachingTip
+        public bool ShowOngoingTasksTeachingTip
         {
             get => Get(true);
             set => Set(value);

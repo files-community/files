@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace Files.Interacts
 {
-    public interface IStatusCenterActions
+    public interface IOngoingTasksActions
     {
         event EventHandler<PostedStatusBanner> ProgressBannerPosted;
 

@@ -42,7 +42,7 @@ namespace Files.Filesystem
 
         private Task<NamedPipeAsAppServiceConnection> ServiceConnection => AppServiceConnectionHelper.Instance;
 
-        private StatusCenterViewModel statusCenterViewModel => App.StatusCenterViewModel;
+        private OngoingTasksViewModel OngoingTasksViewModel => App.OngoingTasksViewModel;
 
         #region Helpers Members
 
@@ -154,7 +154,7 @@ namespace Files.Filesystem
             if (permanently)
             {
                 // deleting items from <x>
-                banner = statusCenterViewModel.PostOperationBanner(string.Empty,
+                banner = OngoingTasksViewModel.PostOperationBanner(string.Empty,
                     string.Format(source.Count() > 1 ? "StatusDeletingItemsDetails_Plural".GetLocalized() : "StatusDeletingItemsDetails_Singular".GetLocalized(), source.Count(), sourceDir),
                     0,
                     ReturnResult.InProgress,
@@ -164,7 +164,7 @@ namespace Files.Filesystem
             else
             {
                 // "Moving items from <x> to recycle bin"
-                banner = statusCenterViewModel.PostOperationBanner(string.Empty,
+                banner = OngoingTasksViewModel.PostOperationBanner(string.Empty,
                     string.Format(source.Count() > 1 ? "StatusMovingItemsDetails_Plural".GetLocalized() : "StatusMovingItemsDetails_Singular".GetLocalized(), source.Count(), sourceDir, "TheRecycleBin".GetLocalized()),
                     0,
                     ReturnResult.InProgress,
@@ -198,7 +198,7 @@ namespace Files.Filesystem
             {
                 if (permanently)
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "StatusDeletionCancelled".GetLocalized(),
                         string.Format(source.Count() > 1 ?
                             itemsDeleted > 1 ? "StatusDeleteCanceledDetails_Plural".GetLocalized() : "StatusDeleteCanceledDetails_Plural2".GetLocalized()
@@ -209,7 +209,7 @@ namespace Files.Filesystem
                 }
                 else
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "StatusRecycleCancelled".GetLocalized(),
                         string.Format(source.Count() > 1 ?
                             itemsDeleted > 1 ? "StatusMoveCanceledDetails_Plural".GetLocalized() : "StatusMoveCanceledDetails_Plural2".GetLocalized()
@@ -223,7 +223,7 @@ namespace Files.Filesystem
             {
                 if (permanently)
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "StatusDeletionComplete".GetLocalized(),
                         string.Format(source.Count() > 1 ? "StatusDeletedItemsDetails_Plural".GetLocalized() : "StatusDeletedItemsDetails_Singular".GetLocalized(), source.Count(), sourceDir, itemsDeleted),
                         0,
@@ -232,7 +232,7 @@ namespace Files.Filesystem
                 }
                 else
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "StatusRecycleComplete".GetLocalized(),
                         string.Format(source.Count() > 1 ? "StatusMovedItemsDetails_Plural".GetLocalized() : "StatusMovedItemsDetails_Singular".GetLocalized(), source.Count(), sourceDir, "TheRecycleBin".GetLocalized()),
                         0,
@@ -244,7 +244,7 @@ namespace Files.Filesystem
             {
                 if (permanently)
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "StatusDeletionFailed".GetLocalized(),
                         string.Format(source.Count() > 1 ? "StatusDeletionFailedDetails_Plural".GetLocalized() : "StatusDeletionFailedDetails_Singular".GetLocalized(), source.Count(), sourceDir),
                         0,
@@ -253,7 +253,7 @@ namespace Files.Filesystem
                 }
                 else
                 {
-                    statusCenterViewModel.PostBanner(
+                    OngoingTasksViewModel.PostBanner(
                         "StatusRecycleFailed".GetLocalized(),
                         string.Format(source.Count() > 1 ? "StatusMoveFailedDetails_Plural".GetLocalized() : "StatusMoveFailedDetails_Singular".GetLocalized(), source.Count(), sourceDir, "TheRecycleBin".GetLocalized()),
                         0,
@@ -278,7 +278,7 @@ namespace Files.Filesystem
 
             if (permanently)
             {
-                banner = statusCenterViewModel.PostBanner(string.Empty,
+                banner = OngoingTasksViewModel.PostBanner(string.Empty,
                 associatedInstance.FilesystemViewModel.WorkingDirectory,
                 0,
                 ReturnResult.InProgress,
@@ -286,7 +286,7 @@ namespace Files.Filesystem
             }
             else
             {
-                banner = statusCenterViewModel.PostBanner(string.Empty,
+                banner = OngoingTasksViewModel.PostBanner(string.Empty,
                 associatedInstance.FilesystemViewModel.WorkingDirectory,
                 0,
                 ReturnResult.InProgress,
@@ -459,7 +459,7 @@ namespace Files.Filesystem
             var sourceDir = PathNormalization.GetParentDir(source.FirstOrDefault()?.Path);
             var destinationDir = PathNormalization.GetParentDir(destination.FirstOrDefault());
 
-            PostedStatusBanner banner = statusCenterViewModel.PostOperationBanner(
+            PostedStatusBanner banner = OngoingTasksViewModel.PostOperationBanner(
                 string.Empty,
                 string.Format(source.Count() > 1 ? "StatusCopyingItemsDetails_Plural".GetLocalized() : "StatusCopyingItemsDetails_Singular".GetLocalized(), source.Count(), destinationDir),
                 0,
@@ -499,7 +499,7 @@ namespace Files.Filesystem
 
             if (!token.IsCancellationRequested)
             {
-                statusCenterViewModel.PostBanner(
+                OngoingTasksViewModel.PostBanner(
                     "StatusCopyComplete".GetLocalized(),
                     string.Format(source.Count() > 1 ? "StatusCopiedItemsDetails_Plural".GetLocalized() : "StatusCopiedItemsDetails_Singular".GetLocalized(), source.Count(), destinationDir, itemsCopied),
                     0,
@@ -508,7 +508,7 @@ namespace Files.Filesystem
             }
             else
             {
-                statusCenterViewModel.PostBanner(
+                OngoingTasksViewModel.PostBanner(
                     "StatusCopyCanceled".GetLocalized(),
                     string.Format(source.Count() > 1 ?
                         itemsCopied > 1 ? "StatusCopyCanceledDetails_Plural".GetLocalized() : "StatusCopyCanceledDetails_Plural2".GetLocalized() :
@@ -523,7 +523,7 @@ namespace Files.Filesystem
 
         public async Task<ReturnResult> CopyItemAsync(IStorageItemWithPath source, string destination, bool showDialog, bool registerHistory)
         {
-            PostedStatusBanner banner = statusCenterViewModel.PostBanner(
+            PostedStatusBanner banner = OngoingTasksViewModel.PostBanner(
                 string.Empty,
                 associatedInstance.FilesystemViewModel.WorkingDirectory,
                 0,
@@ -569,7 +569,7 @@ namespace Files.Filesystem
 
             if (sw.Elapsed.TotalSeconds >= 10)
             {
-                statusCenterViewModel.PostBanner(
+                OngoingTasksViewModel.PostBanner(
                     "StatusCopyComplete".GetLocalized(),
                     "StatusOperationCompleted".GetLocalized(),
                     0,
@@ -673,7 +673,7 @@ namespace Files.Filesystem
             var sourceDir = PathNormalization.GetParentDir(source.FirstOrDefault()?.Path);
             var destinationDir = PathNormalization.GetParentDir(destination.FirstOrDefault());
 
-            PostedStatusBanner banner = statusCenterViewModel.PostOperationBanner(
+            PostedStatusBanner banner = OngoingTasksViewModel.PostOperationBanner(
                 string.Empty,
                 string.Format(source.Count() > 1 ? "StatusMovingItemsDetails_Plural".GetLocalized() : "StatusMovingItemsDetails_Singular".GetLocalized(), source.Count(), sourceDir, destinationDir),
                 0,
@@ -715,7 +715,7 @@ namespace Files.Filesystem
 
             if (!token.IsCancellationRequested)
             {
-                statusCenterViewModel.PostBanner(
+                OngoingTasksViewModel.PostBanner(
                     "StatusMoveComplete".GetLocalized(),
                     string.Format(source.Count() > 1 ? "StatusMovedItemsDetails_Plural".GetLocalized() : "StatusMovedItemsDetails_Singular".GetLocalized(), source.Count(), sourceDir, destinationDir, itemsMoved),
                     0,
@@ -724,7 +724,7 @@ namespace Files.Filesystem
             }
             else
             {
-                statusCenterViewModel.PostBanner(
+                OngoingTasksViewModel.PostBanner(
                     "StatusMoveCanceled".GetLocalized(),
                     string.Format(source.Count() > 1 ?
                         itemsMoved > 1 ? "StatusMoveCanceledDetails_Plural".GetLocalized() : "StatusMoveCanceledDetails_Plural2".GetLocalized()
@@ -739,7 +739,7 @@ namespace Files.Filesystem
 
         public async Task<ReturnResult> MoveItemAsync(IStorageItemWithPath source, string destination, bool showDialog, bool registerHistory)
         {
-            PostedStatusBanner banner = statusCenterViewModel.PostBanner(
+            PostedStatusBanner banner = OngoingTasksViewModel.PostBanner(
                 string.Empty,
                 associatedInstance.FilesystemViewModel.WorkingDirectory,
                 0,
@@ -794,7 +794,7 @@ namespace Files.Filesystem
 
             if (sw.Elapsed.TotalSeconds >= 10)
             {
-                statusCenterViewModel.PostBanner(
+                OngoingTasksViewModel.PostBanner(
                     "StatusMoveComplete".GetLocalized(),
                     "StatusOperationCompleted".GetLocalized(),
                     0,
