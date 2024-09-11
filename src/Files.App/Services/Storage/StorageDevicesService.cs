@@ -25,25 +25,27 @@ namespace Files.App.Services
 			var googleDrivePath = GoogleDriveCloudDetector.GetRegistryBasePath();
 			sw.Stop();
 			Debug.WriteLine($"In RemovableDrivesService: Time elapsed for registry check: {sw.Elapsed}");
-			App.AppModel.GoogleDrivePath = googleDrivePath ?? string.Empty;
+			var googleDrivePathWithMyDrive = googleDrivePath ?? string.Empty;
+			var gdPathIsValid = GoogleDriveCloudDetector.AddMyDriveToPathAndValidate(ref googleDrivePathWithMyDrive);
+			App.AppModel.GoogleDrivePath = gdPathIsValid ? googleDrivePathWithMyDrive : string.Empty;
 
 			foreach (var drive in list)
 			{
 				// We don't want cloud drives to appear in a plain "Drives" section.
-				if (drive.Name.Equals(googleDrivePath) || drive.Name.Equals(pCloudDrivePath))
+				if ((gdPathIsValid && drive.Name.Equals(googleDrivePath)) || drive.Name.Equals(pCloudDrivePath))
 					continue;
 
 				var res = await FilesystemTasks.Wrap(() => StorageFolder.GetFolderFromPathAsync(drive.Name).AsTask());
 				if (res.ErrorCode is FileSystemStatusCode.Unauthorized)
 				{
 					App.Logger.LogWarning($"{res.ErrorCode}: Attempting to add the device, {drive.Name},"
-						+ " failed at the StorageFolder initialization step. This device will be ignored.");
+					                      + " failed at the StorageFolder initialization step. This device will be ignored.");
 					continue;
 				}
 				else if (!res)
 				{
 					App.Logger.LogWarning($"{res.ErrorCode}: Attempting to add the device, {drive.Name},"
-						+ " failed at the StorageFolder initialization step. This device will be ignored.");
+					                      + " failed at the StorageFolder initialization step. This device will be ignored.");
 					continue;
 				}
 

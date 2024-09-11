@@ -108,7 +108,7 @@ namespace Files.App.Utils.Cloud
 			await Inspect(database, "SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY 1", "root_preferences db, all tables");
 
 			var registryPath = App.AppModel.GoogleDrivePath;
-			if (!AddMyDriveToPathAndValidate(ref registryPath))
+			if (registryPath.Equals(string.Empty))
 				yield break;
 			yield return new CloudProvider(CloudProviders.GoogleDrive)
 			{
@@ -258,7 +258,7 @@ namespace Files.App.Utils.Cloud
 			return await FilesystemTasks.Wrap(() => StorageFile.GetFileFromPathAsync(iconPath).AsTask());
 		}
 
-		private static bool AddMyDriveToPathAndValidate(ref string path)
+		public static bool AddMyDriveToPathAndValidate(ref string path)
 		{ 
 			// If `path` contains a shortcut named "My Drive", store its target in `shellFolderBaseFirst`.
 			// This happens when "My Drive syncing options" is set to "Mirror files".
