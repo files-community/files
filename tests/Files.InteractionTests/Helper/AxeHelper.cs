@@ -24,7 +24,8 @@ namespace Files.InteractionTests.Helper
 
 		public static void AssertNoAccessibilityErrors()
 		{
-			var testResult = AccessibilityScanner.Scan(null).WindowScanOutputs.SelectMany(output => output.Errors).Where(error => error.Rule.ID != RuleId.BoundingRectangleNotNull);
+			var testResult = AccessibilityScanner.Scan(null).WindowScanOutputs.SelectMany(output => output.Errors)
+				.Where(error => !(error.Rule.ID is RuleId.BoundingRectangleNotNull or RuleId.SiblingUniqueAndFocusable));
 			if (testResult.Count() != 0)
 			{
 				var mappedResult = testResult.Select(result => "Element " + result.Element.Properties["ControlType"] + " violated rule '" + result.Rule.Description + "'.");

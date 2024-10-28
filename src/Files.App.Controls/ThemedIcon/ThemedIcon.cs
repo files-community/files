@@ -6,11 +6,11 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Markup;
 using Microsoft.UI.Xaml.Shapes;
-using CommunityToolkit.WinUI.UI;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using System.Linq;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using System;
 
 namespace Files.App.Controls
 {
@@ -371,6 +371,30 @@ namespace Files.App.Controls
                         layer.IconColorType = IconColorType;
                 }
             }
-        }
-    }
+		}
+
+		private T? FindAscendant<T>() where T : notnull, DependencyObject
+		{
+			T val;
+			DependencyObject element = this;
+			while (true)
+			{
+				DependencyObject parent = VisualTreeHelper.GetParent(element);
+				if (parent is null)
+				{
+					return null;
+				}
+
+				if (parent is T target)
+				{
+					val = target;
+					break;
+				}
+
+				element = parent;
+			}
+
+			return val;
+		}
+	}
 }

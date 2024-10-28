@@ -54,20 +54,6 @@ namespace Files.App.Data.Items
 
 				if (AppWindow.Presenter is OverlappedPresenter overlapped)
 					overlapped.IsMaximizable = value;
-
-				if (value)
-				{
-					// WORKAROUND:
-					//  https://github.com/microsoft/microsoft-ui-xaml/issues/8431
-					// NOTE:
-					//  Indicates to the Shell that the window should not be treated as full-screen
-					//  not to mess up the taskbar when being full-screen mode.
-					//  This property should only be set if the "Automatically hide the taskbar" in Windows 11,
-					//  or "Automatically hide the taskbar in desktop mode" in Windows 10 is enabled.
-					//  Setting this property when the setting is disabled will result in the taskbar overlapping the application.
-					if (AppLifecycleHelper.IsAutoHideTaskbarEnabled())
-						Win32PInvoke.SetPropW(WindowHandle, "NonRudeHWND", new IntPtr(1));
-				}
 			}
 		}
 

@@ -465,7 +465,7 @@ namespace Files.App.Helpers
 			[MarshalAs(UnmanagedType.LPWStr)] string pszPath);
 
 		[DllImport("shlwapi.dll", CallingConvention = CallingConvention.StdCall, PreserveSig = true, CharSet = CharSet.Unicode)]
-		public static extern HRESULT SHCreateStreamOnFileEx(
+		public static extern int SHCreateStreamOnFileEx(
 			string pszFile,
 			STGM grfMode,
 			uint dwAttributes,
@@ -475,7 +475,7 @@ namespace Files.App.Helpers
 		);
 
 		[DllImport("shell32.dll", CallingConvention = CallingConvention.StdCall, PreserveSig = true, CharSet = CharSet.Unicode)]
-		public static extern HRESULT SHCreateItemFromParsingName(
+		public static extern int SHCreateItemFromParsingName(
 			string pszPath,
 			IntPtr pbc,
 			ref Guid riid,
@@ -483,7 +483,7 @@ namespace Files.App.Helpers
 		);
 
 		[DllImport("ole32.dll", CallingConvention = CallingConvention.StdCall)]
-		public static extern HRESULT CoCreateInstance(
+		public static extern int CoCreateInstance(
 			ref Guid rclsid,
 			IntPtr pUnkOuter,
 			ClassContext dwClsContext,

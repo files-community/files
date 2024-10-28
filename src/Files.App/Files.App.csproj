@@ -9,6 +9,7 @@
         <AppxBundleAutoResourcePackageQualifiers>Scale|DXFeatureLevel</AppxBundleAutoResourcePackageQualifiers>
         <AppxDefaultResourceQualifiers>Language=en-US;af;ar;be-BY;bg;ca;cs-CZ;da;de-DE;el;en-GB;es-ES;es-419;fa-IR;fi-FI;fil-PH;fr-FR;he-IL;hi-IN;hr-HR;hu-HU;id-ID;it-IT;ja-JP;ka;km-KH;ko-KR;lt-LT;lv-LV;ms-MY;nb-NO;nl-NL;pl-PL;pt-BR;pt-PT;ro-RO;ru-RU;sk-SK;sq-AL;sr-Cyrl;sv-SE;ta;th-TH;tr-TR;uk-UA;vi;zh-Hans;zh-Hant</AppxDefaultResourceQualifiers>
         <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
+        <WindowsSdkPackageVersion>10.0.22621.42</WindowsSdkPackageVersion>
         <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
         <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
         <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
@@ -67,31 +68,32 @@
 
     <ItemGroup>
         <PackageReference Include="ByteSize" Version="2.1.2" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
         <PackageReference Include="DiscUtils.Udf" Version="0.16.13" />
         <PackageReference Include="FluentFTP" Version="43.0.1" />
         <PackageReference Include="LibGit2Sharp" Version="0.30.0" />
-        <PackageReference Include="MessageFormat" Version="7.1.0" />
+        <PackageReference Include="MessageFormat" Version="7.1.1" />
         <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.8" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
-        <PackageReference Include="Sentry" Version="4.10.2" />
+        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2792.45" />
+        <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
+        <PackageReference Include="Sentry" Version="4.11.0" />
         <PackageReference Include="SevenZipSharp" Version="1.0.2" />
-        <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.8" />
-        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240627000" />
+        <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10" />
+        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.240923002" />
         <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.2.0" />
         <PackageReference Include="CommunityToolkit.WinUI.UI.Behaviors" Version="7.1.2" />
         <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
         <PackageReference Include="TagLibSharp" Version="2.3.0" />
         <PackageReference Include="Tulpep.ActiveDirectoryObjectPicker" Version="3.0.11" />
-        <PackageReference Include="WinUIEx" Version="2.3.4" />
-        <PackageReference Include="Vanara.Windows.Extensions" Version="4.0.1" />
-        <PackageReference Include="Vanara.Windows.Shell" Version="4.0.1" />
+        <PackageReference Include="WinUIEx" Version="2.4.2" />
+        <PackageReference Include="Vanara.Windows.Extensions" Version="4.0.4" />
+        <PackageReference Include="Vanara.Windows.Shell" Version="4.0.4" />
         <PackageReference Include="Microsoft.Management.Infrastructure" Version="3.0.0" />
         <PackageReference Include="Microsoft.Management.Infrastructure.Runtime.Win" Version="3.0.0" />
-        <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.0.7" />
+        <PackageReference Include="Microsoft.Windows.CsWinRT" Version="2.1.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -136,8 +138,8 @@
         <TrimmerRootAssembly Include="CommunityToolkit.WinUI.UI.Controls.Primitives" />
     </ItemGroup>
 
-	<ItemGroup>
-		<AdditionalFiles Include="Strings\en-US\Resources.resw" />
-	</ItemGroup>
+    <ItemGroup>
+        <AdditionalFiles Include="Strings\en-US\Resources.resw" />
+    </ItemGroup>
   
 </Project>

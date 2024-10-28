@@ -3,6 +3,7 @@
 
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using System.Linq;
 using System.Threading;
 
 namespace Files.InteractionTests.Tests
@@ -64,6 +65,8 @@ namespace Files.InteractionTests.Tests
 
 			// Check for accessibility issues in the new folder prompt
 			AxeHelper.AssertNoAccessibilityErrors();
+
+			SessionManager.Session.FindElementsByClassName("TextBox").Last().Click();
 
 			// Type the folder name
 			var action = new Actions(SessionManager.Session);
@@ -137,6 +140,7 @@ namespace Files.InteractionTests.Tests
 			var action = new Actions(SessionManager.Session);
 			action.SendKeys(Keys.Enter).Perform();
 
+			Thread.Sleep(3000);
 
 			// Select the "Renamed Folder - Copy" folder and clicks the "delete" button on the toolbar
 			TestHelper.InvokeButtonByName("Renamed Folder - Copy");

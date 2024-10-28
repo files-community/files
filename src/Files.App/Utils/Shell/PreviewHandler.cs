@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
+﻿using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.Marshalling;
 using Vanara.PInvoke;
 using Windows.UI;
 
@@ -10,8 +8,22 @@ namespace Files.App.Utils.Shell
 	/// <summary>
 	/// Credits: https://github.com/GeeLaw/PreviewHost/
 	/// </summary>
-	public sealed class PreviewHandler : IDisposable
+	public sealed partial class PreviewHandler : IDisposable
 	{
+		const int S_OK = 0;
+		const int S_FALSE = 1;
+		const int E_FAIL = unchecked((int)0x80004005);
+		const int E_SERVER_EXEC_FAILURE = unchecked((int)0x80080005);
+
+		[StructLayout(LayoutKind.Sequential)]
+		public struct RECT(int left, int top, int right, int bottom)
+		{
+			public int Left = left;
+			public int Top = top;
+			public int Right = right;
+			public int Bottom = bottom;
+		}
+
 		#region IPreviewHandlerFrame support
 
 		[StructLayout(LayoutKind.Sequential)]
@@ -21,16 +33,17 @@ namespace Files.App.Utils.Shell
 			public uint AcceleratorEntryCount;
 		}
 
-		[ComImport, Guid("fec87aaf-35f9-447a-adb7-20234491401a"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-		public interface IPreviewHandlerFrame
+		[GeneratedComInterface, Guid("fec87aaf-35f9-447a-adb7-20234491401a"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		public partial interface IPreviewHandlerFrame
 		{
 			[PreserveSig]
-			HRESULT GetWindowContext(out PreviewHandlerFrameInfo pinfo);
+			int GetWindowContext(out PreviewHandlerFrameInfo pinfo);
 			[PreserveSig]
-			HRESULT TranslateAccelerator(ref MSG pmsg);
+			int TranslateAccelerator(nint pmsg);
 		}
 
-		public sealed class PreviewHandlerFrame : IPreviewHandlerFrame, IDisposable
+		[GeneratedComClass]
+		public sealed partial class PreviewHandlerFrame : IPreviewHandlerFrame, IDisposable
 		{
 			bool disposed;
 			nint hwnd;
@@ -47,20 +60,20 @@ namespace Files.App.Utils.Shell
 				disposed = true;
 			}
 
-			public HRESULT GetWindowContext(out PreviewHandlerFrameInfo pinfo)
+			public int GetWindowContext(out PreviewHandlerFrameInfo pinfo)
 			{
 				pinfo.AcceleratorTableHandle = IntPtr.Zero;
 				pinfo.AcceleratorEntryCount = 0;
 				if (disposed)
-					return HRESULT.E_FAIL;
-				return HRESULT.S_OK;
+					return E_FAIL;
+				return S_OK;
 			}
 
-			public HRESULT TranslateAccelerator(ref MSG pmsg)
+			public int TranslateAccelerator(nint pmsg)
 			{
 				if (disposed)
-					return HRESULT.E_FAIL;
-				return HRESULT.S_FALSE;
+					return E_FAIL;
+				return S_FALSE;
 			}
 		}
 
@@ -68,33 +81,33 @@ namespace Files.App.Utils.Shell
 
 		#region IPreviewHandler major interfaces
 
-		[ComImport, Guid("8895b1c6-b41f-4c1c-a562-0d564250836f"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-		interface IPreviewHandler
+		[GeneratedComInterface, Guid("8895b1c6-b41f-4c1c-a562-0d564250836f"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		internal partial interface IPreviewHandler
 		{
 			[PreserveSig]
-			HRESULT SetWindow(IntPtr hwnd, ref RECT prc);
+			int SetWindow(nint hwnd, in RECT prc);
 			[PreserveSig]
-			HRESULT SetRect(ref RECT prc);
+			int SetRect(in RECT prc);
 			[PreserveSig]
-			HRESULT DoPreview();
+			int DoPreview();
 			[PreserveSig]
-			HRESULT Unload();
+			int Unload();
 			[PreserveSig]
-			HRESULT SetFocus();
+			int SetFocus();
 			[PreserveSig]
-			HRESULT QueryFocus(out IntPtr phwnd);
+			int QueryFocus(out nint phwnd);
 			// TranslateAccelerator is not used here.
 		}
 
-		[ComImport, Guid("196bf9a5-b346-4ef0-aa1e-5dcdb76768b1"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-		interface IPreviewHandlerVisuals
+		[GeneratedComInterface, Guid("196bf9a5-b346-4ef0-aa1e-5dcdb76768b1"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		internal partial interface IPreviewHandlerVisuals
 		{
 			[PreserveSig]
-			HRESULT SetBackgroundColor(uint color);
+			int SetBackgroundColor(uint color);
 			[PreserveSig]
-			HRESULT SetFont(ref LOGFONT plf);
+			int SetFont(nint plf);
 			[PreserveSig]
-			HRESULT SetTextColor(uint color);
+			int SetTextColor(uint color);
 		}
 
 		static uint ColorRefFromColor(Color color)
@@ -102,11 +115,11 @@ namespace Files.App.Utils.Shell
 			return (((uint)color.B) << 16) | (((uint)color.G) << 8) | ((uint)color.R);
 		}
 
-		[ComImport, Guid("fc4801a3-2ba9-11cf-a229-00aa003d7352"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-		interface IObjectWithSite
+		[GeneratedComInterface, Guid("fc4801a3-2ba9-11cf-a229-00aa003d7352"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		internal partial interface IObjectWithSite
 		{
 			[PreserveSig]
-			HRESULT SetSite([In, MarshalAs(UnmanagedType.IUnknown)] object pUnkSite);
+			int SetSite(nint pUnkSite);
 			// GetSite is not used.
 		}
 
@@ -115,11 +128,11 @@ namespace Files.App.Utils.Shell
 		bool disposed;
 		bool init;
 		bool shown;
-		PreviewHandlerFrame comSite;
+		PreviewHandlerFrame? comSite;
 		nint hwnd;
-		IPreviewHandler previewHandler;
-		IPreviewHandlerVisuals visuals;
-		IntPtr pPreviewHandler;
+		IPreviewHandler? previewHandler;
+		IPreviewHandlerVisuals? visuals;
+		readonly ComWrappers comWrappers = new StrategyBasedComWrappers();
 
 		public PreviewHandler(Guid clsid, nint frame)
 		{
@@ -135,12 +148,7 @@ namespace Files.App.Utils.Shell
 			}
 			catch
 			{
-				if (previewHandler != null)
-					Marshal.ReleaseComObject(previewHandler);
 				previewHandler = null;
-				if (pPreviewHandler != IntPtr.Zero)
-					Marshal.Release(pPreviewHandler);
-				pPreviewHandler = IntPtr.Zero;
 				comSite.Dispose();
 				comSite = null;
 				throw;
@@ -160,65 +168,80 @@ namespace Files.App.Utils.Shell
 			// If we use Activator.CreateInstance(Type.GetTypeFromCLSID(...)),
 			// CLR will allow in-process server, which defeats isolation and
 			// creates strange bugs.
-			HRESULT hr = Win32PInvoke.CoCreateInstance(ref clsid, IntPtr.Zero, Win32PInvoke.ClassContext.LocalServer, ref iid, out pph);
+			int hr = Win32PInvoke.CoCreateInstance(ref clsid, IntPtr.Zero, Win32PInvoke.ClassContext.LocalServer, ref iid, out pph);
 			// See https://blogs.msdn.microsoft.com/adioltean/2005/06/24/when-cocreateinstance-returns-0x80080005-co_e_server_exec_failure/
 			// CO_E_SERVER_EXEC_FAILURE also tends to happen when debugging in Visual Studio.
 			// Moreover, to create the instance in a server at low integrity level, we need
 			// to use another thread with low mandatory label. We keep it simple by creating
 			// a same-integrity object.
-			//if (hr == HRESULT.CO_E_SERVER_EXEC_FAILURE)
-			//	hr = CoCreateInstance(ref clsid, IntPtr.Zero, ClassContext.LocalServer, ref iid, out pph);
-			if ((int)hr < 0)
-				throw new COMException(cannotCreate, (int)hr);
-			pPreviewHandler = pph;
-			var previewHandlerObject = Marshal.GetUniqueObjectForIUnknown(pph);
+			if (hr == E_SERVER_EXEC_FAILURE)
+				hr = Win32PInvoke.CoCreateInstance(ref clsid, IntPtr.Zero, Win32PInvoke.ClassContext.LocalServer, ref iid, out pph);
+			if (hr < 0)
+				throw new COMException(cannotCreate, hr);
+			var previewHandlerObject = comWrappers.GetOrCreateObjectForComInstance(pph, CreateObjectFlags.UniqueInstance);
 			previewHandler = previewHandlerObject as IPreviewHandler;
+
 			if (previewHandler == null)
 			{
-				Marshal.ReleaseComObject(previewHandlerObject);
 				throw new COMException(cannotCreate);
 			}
 			var objectWithSite = previewHandlerObject as IObjectWithSite;
 			if (objectWithSite == null)
 				throw new COMException(cannotCast);
-			hr = objectWithSite.SetSite(comSite);
-			if ((int)hr < 0)
-				throw new COMException(cannotSetSite, (int)hr);
+			hr = objectWithSite.SetSite(comWrappers.GetOrCreateComInterfaceForObject(comSite, CreateComInterfaceFlags.None));
+			if (hr < 0)
+				throw new COMException(cannotSetSite, hr);
 			visuals = previewHandlerObject as IPreviewHandlerVisuals;
 		}
 
 		#region Initialization interfaces
-
-		[ComImport, Guid("b824b49d-22ac-4161-ac8a-9916e8fa3f7f"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-		interface IInitializeWithStream
+		[GeneratedComInterface, Guid("0000000c-0000-0000-C000-000000000046"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		public partial interface IStream
 		{
-			[PreserveSig]
-			HRESULT Initialize(IStream psi, STGM grfMode);
+			// ISequentialStream portion
+			void Read([MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1), Out] byte[] pv, int cb, nint pcbRead);
+			void Write([MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)] byte[] pv, int cb, nint pcbWritten);
+
+			// IStream portion
+			void Seek(long dlibMove, int dwOrigin, nint plibNewPosition);
+			void SetSize(long libNewSize);
+			void CopyTo(IStream pstm, long cb, nint pcbRead, nint pcbWritten);
+			void Commit(int grfCommitFlags);
+			void Revert();
+			void LockRegion(long libOffset, long cb, int dwLockType);
+			void UnlockRegion(long libOffset, long cb, int dwLockType);
 		}
 
-		[ComImport, Guid("b824b49d-22ac-4161-ac8a-9916e8fa3f7f"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-		interface IInitializeWithStreamNative
+		[GeneratedComInterface, Guid("b824b49d-22ac-4161-ac8a-9916e8fa3f7f"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		internal partial interface IInitializeWithStream
 		{
 			[PreserveSig]
-			HRESULT Initialize(IntPtr psi, STGM grfMode);
+			int Initialize(IStream psi, STGM grfMode);
+		}
+
+		[GeneratedComInterface, Guid("b824b49d-22ac-4161-ac8a-9916e8fa3f7f"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		internal partial interface IInitializeWithStreamNative
+		{
+			[PreserveSig]
+			int Initialize(IntPtr psi, STGM grfMode);
 		}
 
 		static readonly Guid IInitializeWithStreamIid = Guid.ParseExact("b824b49d-22ac-4161-ac8a-9916e8fa3f7f", "d");
 
-		[ComImport, Guid("b7d14566-0509-4cce-a71f-0a554233bd9b"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-		interface IInitializeWithFile
+		[GeneratedComInterface, Guid("b7d14566-0509-4cce-a71f-0a554233bd9b"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		internal partial interface IInitializeWithFile
 		{
 			[PreserveSig]
-			HRESULT Initialize([MarshalAs(UnmanagedType.LPWStr)] string pszFilePath, STGM grfMode);
+			int Initialize([MarshalAs(UnmanagedType.LPWStr)] string pszFilePath, STGM grfMode);
 		}
 
 		static readonly Guid IInitializeWithFileIid = Guid.ParseExact("b7d14566-0509-4cce-a71f-0a554233bd9b", "d");
 
-		[ComImport, Guid("7f73be3f-fb79-493c-a6c7-7ee14e245841"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-		interface IInitializeWithItem
+		[GeneratedComInterface, Guid("7f73be3f-fb79-493c-a6c7-7ee14e245841"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+		internal partial interface IInitializeWithItem
 		{
 			[PreserveSig]
-			HRESULT Initialize(IntPtr psi, STGM grfMode);
+			int Initialize(IntPtr psi, STGM grfMode);
 		}
 
 		static readonly Guid IInitializeWithItemIid = Guid.ParseExact("7f73be3f-fb79-493c-a6c7-7ee14e245841", "d");
@@ -243,8 +266,8 @@ namespace Files.App.Utils.Shell
 			var hr = iws.Initialize(stream, mode);
 			if (hr == HRESULT.E_NOTIMPL)
 				return false;
-			if ((int)hr < 0)
-				throw new COMException("IInitializeWithStream.Initialize failed.", (int)hr);
+			if (hr < 0)
+				throw new COMException("IInitializeWithStream.Initialize failed.", hr);
 			init = true;
 			return true;
 		}
@@ -269,8 +292,8 @@ namespace Files.App.Utils.Shell
 			var hr = iws.Initialize(pStream, mode);
 			if (hr == HRESULT.E_NOTIMPL)
 				return false;
-			if ((int)hr < 0)
-				throw new COMException("IInitializeWithStream.Initialize failed.", (int)hr);
+			if (hr < 0)
+				throw new COMException("IInitializeWithStream.Initialize failed.", hr);
 			init = true;
 			return true;
 		}
@@ -295,8 +318,8 @@ namespace Files.App.Utils.Shell
 			var hr = iwi.Initialize(psi, mode);
 			if (hr == HRESULT.E_NOTIMPL)
 				return false;
-			if ((int)hr < 0)
-				throw new COMException("IInitializeWithItem.Initialize failed.", (int)hr);
+			if (hr < 0)
+				throw new COMException("IInitializeWithItem.Initialize failed.", hr);
 			init = true;
 			return true;
 		}
@@ -321,8 +344,8 @@ namespace Files.App.Utils.Shell
 			var hr = iwf.Initialize(path, mode);
 			if (hr == HRESULT.E_NOTIMPL)
 				return false;
-			if ((int)hr < 0)
-				throw new COMException("IInitializeWithFile.Initialize failed.", (int)hr);
+			if (hr < 0)
+				throw new COMException("IInitializeWithFile.Initialize failed.", hr);
 			init = true;
 			return true;
 		}
@@ -401,7 +424,7 @@ namespace Files.App.Utils.Shell
 			if (!init)
 				return false;
 			var hr = previewHandler.SetWindow(hwnd, new());
-			return (int)hr >= 0;
+			return hr >= 0;
 		}
 
 		/// <summary>
@@ -414,7 +437,7 @@ namespace Files.App.Utils.Shell
 			if (!init)
 				return false;
 			var hr = previewHandler.SetRect(previewerBounds);
-			return (int)hr >= 0;
+			return hr >= 0;
 		}
 
 		/// <summary>
@@ -425,7 +448,7 @@ namespace Files.App.Utils.Shell
 		public bool SetBackground(Color color)
 		{
 			var hr = visuals?.SetBackgroundColor(ColorRefFromColor(color));
-			return hr.HasValue && (int)hr.Value >= 0;
+			return hr.HasValue && hr.Value >= 0;
 		}
 
 		/// <summary>
@@ -436,7 +459,7 @@ namespace Files.App.Utils.Shell
 		public bool SetForeground(Color color)
 		{
 			var hr = visuals?.SetTextColor(ColorRefFromColor(color));
-			return hr.HasValue && (int)hr.Value >= 0;
+			return hr.HasValue && hr.Value >= 0;
 		}
 
 		/// <summary>
@@ -444,10 +467,10 @@ namespace Files.App.Utils.Shell
 		/// </summary>
 		/// <param name="font">The LogFontW reference.</param>
 		/// <returns>Whether the call succeeds.</returns>
-		public bool SetFont(ref LOGFONT font)
+		public bool SetFont(nint font)
 		{
-			var hr = visuals?.SetFont(ref font);
-			return hr.HasValue && (int)hr.Value >= 0;
+			var hr = visuals?.SetFont(font);
+			return hr.HasValue && hr.Value >= 0;
 		}
 
 		/// <summary>
@@ -461,7 +484,7 @@ namespace Files.App.Utils.Shell
 				return;
 			EnsureNotShown();
 			ResetWindow();
-			previewHandler.DoPreview();
+			previewHandler?.DoPreview();
 			shown = true;
 		}
 
@@ -475,33 +498,25 @@ namespace Files.App.Utils.Shell
 			if (!init)
 				return;
 			EnsureShown();
-			previewHandler.SetFocus();
+			previewHandler?.SetFocus();
 		}
 
 		/// <summary>
 		/// Tells the preview handler to query focus.
 		/// </summary>
 		/// <returns>The focused window.</returns>
-		public IntPtr QueryFocus()
+		public nint QueryFocus()
 		{
 			EnsureNotDisposed();
 			//EnsureInitialized();
 			if (!init)
 				return IntPtr.Zero;
 			EnsureShown();
-			IntPtr result;
+			nint result;
 			var hr = previewHandler.QueryFocus(out result);
-			if ((int)hr < 0)
+			if (hr < 0)
 				return IntPtr.Zero;
 			return result;
-		}
-
-		/// <summary>
-		/// Unloads the preview and disposes the object. This method is idempotent.
-		/// </summary>
-		public void UnloadPreview()
-		{
-			Dispose(true);
 		}
 
 		void EnsureNotDisposed()
@@ -536,40 +551,21 @@ namespace Files.App.Utils.Shell
 
 		#region IDisposable pattern
 
-		void Dispose(bool disposing)
+		~PreviewHandler()
+		{
+			Dispose();
+		}
+
+		public void Dispose()
 		{
 			if (disposed)
 				return;
 			disposed = true;
 			init = false;
-			if (disposing)
-			{
-				previewHandler.Unload();
-				comSite.Dispose();
-				Marshal.ReleaseComObject(previewHandler);
-			}
-			else
-			{
-				// We're in the finalizer.
-				// Field previewHandler might have been finalized at this point.
-				// Get a new RCW.
-				var phObject = Marshal.GetUniqueObjectForIUnknown(pPreviewHandler);
-				var ph = phObject as IPreviewHandler;
-				if (ph != null)
-					ph.Unload();
-				Marshal.ReleaseComObject(phObject);
-			}
-			Marshal.Release(pPreviewHandler);
-		}
 
-		~PreviewHandler()
-		{
-			Dispose(false);
-		}
+			previewHandler?.Unload();
+			comSite?.Dispose();
 
-		void IDisposable.Dispose()
-		{
-			Dispose(true);
 			GC.SuppressFinalize(this);
 		}
 

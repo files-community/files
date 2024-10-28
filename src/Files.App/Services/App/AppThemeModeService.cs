@@ -2,7 +2,6 @@
 // Licensed under the MIT License. See the LICENSE.
 
 using Microsoft.Extensions.Logging;
-using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
@@ -88,8 +87,8 @@ namespace Files.App.Services
 
 				if (titleBar is not null)
 				{
-					titleBar.ButtonBackgroundColor = Colors.Transparent;
-					titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+					titleBar.ButtonBackgroundColor = Microsoft.UI.Colors.Transparent;
+					titleBar.ButtonInactiveBackgroundColor = Microsoft.UI.Colors.Transparent;
 
 					switch (rootTheme)
 					{
@@ -99,11 +98,11 @@ namespace Files.App.Services
 							break;
 						case ElementTheme.Light:
 							titleBar.ButtonHoverBackgroundColor = Color.FromArgb(51, 0, 0, 0);
-							titleBar.ButtonForegroundColor = Colors.Black;
+							titleBar.ButtonForegroundColor = Microsoft.UI.Colors.Black;
 							break;
 						case ElementTheme.Dark:
 							titleBar.ButtonHoverBackgroundColor = Color.FromArgb(51, 255, 255, 255);
-							titleBar.ButtonForegroundColor = Colors.White;
+							titleBar.ButtonForegroundColor = Microsoft.UI.Colors.White;
 							break;
 					}
 				}
