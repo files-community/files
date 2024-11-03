@@ -1,11 +1,98 @@
 root = true
 
+[**/*.xaml]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
 [**/*.cs]
 indent_style = tab
 indent_size = 4
 tab_width = 4
 
-[**/*.xaml]
-indent_style = tab
-indent_size = 4
-tab_width = 4
+# https://files.community/docs/contributing/code-style
+
+dotnet_naming_rule.pascal_case_for_classes.symbols = classes
+dotnet_naming_symbols.classes.applicable_kinds = class
+dotnet_naming_symbols.classes.applicable_accessibilities = *
+dotnet_naming_symbols.classes.required_prefix = 
+dotnet_naming_symbols.classes.required_suffix = 
+
+dotnet_naming_rule.pascal_case_for_interfaces.symbols = interfaces
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+dotnet_naming_symbols.interfaces.applicable_accessibilities = *
+dotnet_naming_symbols.interfaces.required_prefix = I
+dotnet_naming_symbols.interfaces.required_suffix = 
+
+dotnet_naming_rule.pascal_case_for_structs.symbols = structs
+dotnet_naming_symbols.structs.applicable_kinds = struct
+dotnet_naming_symbols.structs.applicable_accessibilities = *
+dotnet_naming_symbols.structs.required_prefix = 
+dotnet_naming_symbols.structs.required_suffix = 
+
+dotnet_naming_rule.pascal_case_for_methods.symbols = methods
+dotnet_naming_symbols.methods.applicable_kinds = method
+dotnet_naming_symbols.methods.applicable_accessibilities = *
+dotnet_naming_symbols.methods.required_prefix = 
+dotnet_naming_symbols.methods.required_suffix = Async
+
+dotnet_naming_rule.camel_case_for_variables.symbols = variables
+dotnet_naming_symbols.variables.applicable_kinds = field
+dotnet_naming_symbols.variables.applicable_accessibilities = private
+dotnet_naming_symbols.variables.required_prefix = _
+dotnet_naming_symbols.variables.required_suffix = 
+
+dotnet_naming_rule.camel_case_for_parameters.symbols = parameters
+dotnet_naming_symbols.parameters.applicable_kinds = parameter
+dotnet_naming_symbols.parameters.applicable_accessibilities = *
+dotnet_naming_symbols.parameters.required_prefix = 
+dotnet_naming_symbols.parameters.required_suffix = 
+
+dotnet_naming_rule.pascal_case_for_properties.symbols = properties
+dotnet_naming_symbols.properties.applicable_kinds = property
+dotnet_naming_symbols.properties.applicable_accessibilities = *
+dotnet_naming_symbols.properties.required_prefix = 
+dotnet_naming_symbols.properties.required_suffix = 
+
+dotnet_naming_rule.upper_case_for_constants.symbols = constants
+dotnet_naming_symbols.constants.applicable_kinds = field
+dotnet_naming_symbols.constants.applicable_accessibilities = *
+dotnet_naming_symbols.constants.required_prefix = 
+dotnet_naming_symbols.constants.required_suffix = 
+dotnet_naming_symbols.constants.required_capitalization = all_upper
+
+dotnet_style_require_accessibility_modifiers = always:suggestion
+dotnet_style_readonly_field = true:suggestion
+dotnet_style_qualify_field_access = false
+dotnet_style_qualify_property_access = false
+dotnet_style_qualify_method_access = false
+dotnet_style_qualify_event_access = false
+dotnet_style_prefer_auto_properties = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
+
+csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
+
+csharp_style_namespace_declarations = file_scoped
+
+dotnet_naming_rule.pascal_case_for_classes.style = pascal_case
+dotnet_naming_rule.pascal_case_for_interfaces.style = pascal_case
+dotnet_naming_rule.pascal_case_for_structs.style = pascal_case
+dotnet_naming_rule.pascal_case_for_methods.style = pascal_case
+dotnet_naming_rule.camel_case_for_variables.style = camel_case
+dotnet_naming_rule.camel_case_for_parameters.style = camel_case
+dotnet_naming_rule.pascal_case_for_properties.style = pascal_case
+dotnet_naming_rule.upper_case_for_constants.style = all_upper
+
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+dotnet_naming_style.camel_case.capitalization = camel_case
+dotnet_naming_style.all_upper.capitalization = all_upper
