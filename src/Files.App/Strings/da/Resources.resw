@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Kopiér sti med anførselstegn</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Gennemse</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>Indsæt</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Paste shortcut</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Ny</value>
   </data>
@@ -292,7 +298,7 @@
     <value>Angiv et enmenavn</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>Opret ny {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Lyst</value>
@@ -1083,7 +1089,7 @@
     <value>Slå infovinduet til/fra for at se detalje-/forhåndsvisningsruderne</value>
   </data>
   <data name="ToggleToolbar" xml:space="preserve">
-    <value>Toggle the Toolbar</value>
+    <value>Slå Værktøjslinje Til/Fra</value>
   </data>
   <data name="DetailsPanePreviewNotAvaliableText" xml:space="preserve">
     <value>Ingen forhåndsvisning tilgængelig</value>
@@ -1266,10 +1272,10 @@
     <value>{0, plural, one {Der er ét filnavn i konflikt} other {Der er # filnavne i konflikt}}</value>
   </data>
   <data name="ConflictingItemsDialogSubtitleConflictsNonConflicts" xml:space="preserve">
-    <value>{0, plural, one {There is one conflicting file name} other {There are # conflicting file names}}, and {1, plural, one {one outgoing item} other {# outgoing items}}</value>
+    <value>{0, plural, one {Der er ét filnavn i konflikt} other {Der er # filnavne i konflikt}}, og {1, plural, one {ét udgående element} other {# udgående elementer}}</value>
   </data>
   <data name="ConflictingItemsDialogTitle" xml:space="preserve">
-    <value>Conflicting {0, plural, one {file name} other {file names}}</value>
+    <value>{0, plural, one {Filnavn} other {Filnavne}} i konflikt</value>
   </data>
   <data name="CopyItemsDialogSubtitle" xml:space="preserve">
     <value>{0, plural, one {Ét element kopieres} other {# elementer kopieres}}</value>
@@ -1587,7 +1593,7 @@
     <value>Erstat alle underordnede tilladelsesposter med nedarvelige tilladelsesposter fra dette objekt</value>
   </data>
   <data name="CloseActivePane" xml:space="preserve">
-    <value>Close active pane</value>
+    <value>Luk aktiv rude</value>
   </data>
   <data name="EnterCompactOverlay" xml:space="preserve">
     <value>Vis kompakt overlejring</value>
@@ -1934,6 +1940,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Luk andre faner</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Close all tabs</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>Musik</value>
   </data>
@@ -2031,7 +2040,7 @@
     <value>Komprimering</value>
   </data>
   <data name="FlattenFolderDescription" xml:space="preserve">
-    <value>Move all contents from subfolders into the selected location</value>
+    <value>Flyt alt indhold fra undermapper til den valgte placering</value>
   </data>
   <data name="FlattenFolder" xml:space="preserve">
     <value>Flatten folder</value>
@@ -2376,7 +2385,7 @@
     <value>Slå visning af skjulte emner til/fra</value>
   </data>
   <data name="ToggleDotFilesSettingDescription" xml:space="preserve">
-    <value>Toggle whether to show dot files</value>
+    <value>Slå visning af dot-filer til/fra</value>
   </data>
   <data name="ToggleShowFileExtensionsDescription" xml:space="preserve">
     <value>Slå visning af filtyper til/fra</value>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Kopiér stien til markerede emner til udklipsholderen</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Kopiér stien til markerede emner med anførselstegn til udklipsholderen</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Indsæt emne(r) fra udklipsholder i den aktuelle mappe</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Indsæt emne(r) fra udklipsholder i den valgte mappe</value>
@@ -2681,6 +2699,9 @@
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Luk faner undtagen valgte fane</value>
   </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Close all tabs including the current tab</value>
+  </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Gendan senest lukkede fane</value>
   </data>
@@ -2694,7 +2715,7 @@
     <value>Luk aktuel fane</value>
   </data>
   <data name="CloseActivePaneDescription" xml:space="preserve">
-    <value>Close active pane</value>
+    <value>Luk aktiv rude</value>
   </data>
   <data name="FocusOtherPane" xml:space="preserve">
     <value>Focus other pane</value>
@@ -3152,7 +3173,7 @@
     <value>Glimmer alternativ</value>
   </data>
   <data name="BackdropMaterial" xml:space="preserve">
-    <value>Backdrop</value>
+    <value>Baggrund</value>
   </data>
   <data name="Solid" xml:space="preserve">
     <value>Solid</value>
@@ -3875,13 +3896,13 @@
     <value>Rediger den valgte fil i Notesblok</value>
   </data>
   <data name="PropertyDimensionsColon" xml:space="preserve">
-    <value>Dimensions:</value>
+    <value>Dimensioner:</value>
   </data>
   <data name="StatusWithColon" xml:space="preserve">
     <value>Status:</value>
   </data>
   <data name="ShowToolbar" xml:space="preserve">
-    <value>Show toolbar</value>
+    <value>Vis værktøjslinje</value>
     <comment>Setting that controls if the toolbar is shown in the main view</comment>
   </data>
   <data name="TabActions" xml:space="preserve">
@@ -3900,13 +3921,13 @@
     <value>Add a horizontal pane</value>
   </data>
   <data name="ArrangePanesVertically" xml:space="preserve">
-    <value>Arrange vertically</value>
+    <value>Arranger lodret</value>
   </data>
   <data name="ArrangePanesVerticallyDescription" xml:space="preserve">
     <value>Arrange panes vertically</value>
   </data>
   <data name="ArrangePanesHorizontally" xml:space="preserve">
-    <value>Arrange horizontally</value>
+    <value>Arranger vandret</value>
   </data>
   <data name="ArrangePanesHorizontallyDescription" xml:space="preserve">
     <value>Arrange panes horizontally</value>
@@ -3915,7 +3936,7 @@
     <value>Add pane</value>
   </data>
   <data name="ShowTabActions" xml:space="preserve">
-    <value>Show tab actions button in the title bar</value>
+    <value>Vis knap for fanehandlinger i titellinjen</value>
   </data>
   <data name="ArrangePanes" xml:space="preserve">
     <value>Arrange panes</value>
@@ -3924,30 +3945,30 @@
     <value>Default pane arrangement</value>
   </data>
   <data name="Horizontal" xml:space="preserve">
-    <value>Horizontal</value>
+    <value>Vandret</value>
   </data>
   <data name="Vertical" xml:space="preserve">
-    <value>Vertical</value>
+    <value>Lodret</value>
   </data>
   <data name="ShowSystemTrayIcon" xml:space="preserve">
     <value>Show Files icon in the System Tray</value>
   </data>
   <data name="CPUThreads" xml:space="preserve">
-    <value>CPU threads</value>
+    <value>CPU-tråde</value>
   </data>
   <data name="NavigateHomeDescription" xml:space="preserve">
-    <value>Navigate to the home page</value>
+    <value>Gå til startsiden</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Show Home in address bar</value>
+    <value>Vis Hjem i adresselinje</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
-    <value>Toolbars</value>
+    <value>Værktøjslinjer</value>
   </data>
   <data name="UserID" xml:space="preserve">
-    <value>User ID</value>
+    <value>Bruger-ID</value>
   </data>
   <data name="BulkRename" xml:space="preserve">
-    <value>Bulk rename</value>
+    <value>Masseomdøb</value>
   </data>
 </root>

@@ -45,17 +45,18 @@ namespace Files.App.ViewModels.Dialogs
 			if (context.ShellPage is null)
 				return;
 
-			await Task.WhenAll(context.SelectedItems.Select(item =>
+			foreach (ListedItem item in context.SelectedItems)
 			{
 				var itemType = item.PrimaryItemAttribute == StorageItemTypes.Folder ? FilesystemItemType.Directory : FilesystemItemType.File;
-				return context.ShellPage.FilesystemHelpers.RenameAsync(
+				await context.ShellPage.FilesystemHelpers.RenameAsync(
 					StorageHelpers.FromPathAndType(item.ItemPath, itemType),
 					FileName + item.FileExtension,
 					NameCollisionOption.GenerateUniqueName,
 					true,
 					false
 				);
-			}));
+			};
 		}
+
 	}
 }

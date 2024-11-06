@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Kopírovat cestu s uvozovkami</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Procházet</value>
   </data>
@@ -248,6 +251,9 @@
   </data>
   <data name="Paste" xml:space="preserve">
     <value>Vložit</value>
+  </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Paste shortcut</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Nový</value>
@@ -1934,6 +1940,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Zavřít ostatní karty</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Close all tabs</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>Hudba</value>
   </data>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Kopírovat cestu vybraných položek do schránky</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Kopírovat cestu vybraných položek do schránky včetně uvozovek</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Vložte položku(y) že schránky do aktuální složky</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Vložte položku(y) ze schránky do vybrané složky</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Zavřít všechny ostatní karty</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Close all tabs including the current tab</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Vrátit naposledy uzavřenou kartu</value>

@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>نسخ المسار مع الاقتباس</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>تصفح</value>
   </data>
@@ -248,6 +251,9 @@
   </data>
   <data name="Paste" xml:space="preserve">
     <value>لصق</value>
+  </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Paste shortcut</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>جديدة</value>
@@ -1935,6 +1941,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>إغلاق علامات التبويب الأخرى</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Close all tabs</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>موسيقى</value>
   </data>
@@ -2394,6 +2403,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>نسخ مسار العناصر المحددة إلى الحافظة</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>نسخ مسار العناصر المحددة مع الاقتباسات إلى الحافظة</value>
   </data>
@@ -2402,6 +2417,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>لصق العناصر من الحافظة إلى المجلد الحالي</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>لصق العناصر من الحافظة إلى المجلد المحدد</value>
@@ -2681,6 +2699,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>إغلاق علامات التبويب غير علامة التبويب المحددة</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Close all tabs including the current tab</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>إعادة فتح آخر علامة تبويب مغلقة</value>

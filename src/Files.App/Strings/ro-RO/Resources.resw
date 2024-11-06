@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Copiază calea cu ghilimele</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copiază calea elementului selectat cu ghilimele</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Răsfoiește</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>Lipește</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Lipire comandă rapidă</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Nou</value>
   </data>
@@ -292,7 +298,7 @@
     <value>Introdu un nume de element</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>Creare {0} nou</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Luminoasă</value>
@@ -1866,7 +1872,7 @@
     <value>Calculează mărimea folderelor</value>
   </data>
   <data name="RecentFiles" xml:space="preserve">
-    <value>Fişiere recente</value>
+    <value>Fișiere recente</value>
   </data>
   <data name="SettingsOpenInLogin" xml:space="preserve">
     <value>Deschideți Files la pornirea Windows</value>
@@ -1933,6 +1939,9 @@
   </data>
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Închideți celelalte file</value>
+  </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Închide toate filele</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>Muzică</value>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Copiați calea elementelor selectate în clipboard</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copiază calea elementelor selectate în clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copiați calea elementelor selectate cu ghilimele în clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Copiați calea elementelor selectate cu ghilimele în clipboard</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Lipiți element(ele) din clipboard în folderul curent</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Lipiți element(ele) din clipboard în folderul curent ca comenzi rapide</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Lipiți element(ele) din clipboard în folderul selectat</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Închideți alte file decât fila selectată</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Închide toate filele inclusiv fila curentă</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Redeschideți ultima filă închisă</value>
@@ -3845,7 +3866,7 @@
     <comment>This is the friendly name for DLL files.</comment>
   </data>
   <data name="IcoFileCapitalized" xml:space="preserve">
-    <value>Fişier ICO</value>
+    <value>Fișier ICO</value>
     <comment>This is the friendly name for ICO files.</comment>
   </data>
   <data name="ZipFileCapitalized" xml:space="preserve">
@@ -3860,10 +3881,10 @@
     <value>Num</value>
   </data>
   <data name="NetworkLocations" xml:space="preserve">
-    <value>Locațiile rețelei</value>
+    <value>Locații în rețea</value>
   </data>
   <data name="NoNetworkLocationsInfo" xml:space="preserve">
-    <value>Nu există locații de rețea. Dacă nu utilizați locații de rețea, puteți dezactiva widgetul.</value>
+    <value>Nu există locații în rețea. Dacă nu utilizați locații în rețea, puteți dezactiva widget-ul.</value>
   </data>
   <data name="Disable" xml:space="preserve">
     <value>Dezactivează</value>
@@ -3948,6 +3969,6 @@
     <value>ID utilizator</value>
   </data>
   <data name="BulkRename" xml:space="preserve">
-    <value>Bulk rename</value>
+    <value>Redenumire în masă</value>
   </data>
 </root>

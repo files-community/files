@@ -126,8 +126,11 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Αντιγραφή διαδρομής με εισαγωγικά</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
-    <value>Περιηγηθείτε στο</value>
+    <value>Περιήγηση</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Μέγεθος</value>
@@ -166,7 +169,7 @@
     <value>Αναστροφή επιλογής</value>
   </data>
   <data name="ClearSelection" xml:space="preserve">
-    <value>Εκκαθάριση Επιλογής</value>
+    <value>Εκκαθάριση επιλογής</value>
   </data>
   <data name="PropertiesModified.Text" xml:space="preserve">
     <value>Τροποποιήθηκε:</value>
@@ -211,7 +214,7 @@
     <value>Εμφάνιση κρυφών αρχείων και φακέλων</value>
   </data>
   <data name="ShowDotFiles" xml:space="preserve">
-    <value>Εμφάνιση dot files</value>
+    <value>Εμφάνιση αρχείων που αρχίζουν με τελεία</value>
   </data>
   <data name="Appearance" xml:space="preserve">
     <value>Εμφάνιση</value>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>Επικόλληση</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Paste shortcut</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Δημιουργία</value>
   </data>
@@ -274,7 +280,7 @@
     <value>Διαγραφή</value>
   </data>
   <data name="PinFolderToSidebar" xml:space="preserve">
-    <value>Καρφίτσωμα στην πλαϊνή μπάρα</value>
+    <value>Καρφίτσωμα στην Πλαϊνή μπάρα</value>
   </data>
   <data name="WelcomeDialog.Title" xml:space="preserve">
     <value>Καλώς ήρθατε στο Files!</value>
@@ -292,7 +298,7 @@
     <value>Εισάγετε ένα όνομα στοιχείου</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>Δημιουργία νέου {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Ανοιχτόχρωμο</value>
@@ -385,40 +391,40 @@
     <value>Μόνο για ανάγνωση</value>
   </data>
   <data name="DaysAgo" xml:space="preserve">
-    <value>{0, plural, one {# day ago} other {# days ago}}</value>
+    <value>{0, plural, one {# ημέρα πριν} other {# ημέρες πριν}}</value>
   </data>
   <data name="DaysAgo_Singular" xml:space="preserve">
-    <value>1 day ago</value>
+    <value>1 ημέρα πριν</value>
   </data>
   <data name="DaysAgo_Plural" xml:space="preserve">
-    <value>{0} days ago</value>
+    <value>{0} ημέρες πριν</value>
   </data>
   <data name="HoursAgo" xml:space="preserve">
-    <value>{0, plural, one {# hour ago} other {# hours ago}}</value>
+    <value>{0, plural, one {# ώρα πριν} other {# ώρες πριν}}</value>
   </data>
   <data name="HoursAgo_Singular" xml:space="preserve">
-    <value>1 hour ago</value>
+    <value>1 ώρα πριν</value>
   </data>
   <data name="HoursAgo_Plural" xml:space="preserve">
-    <value>{0} hours ago</value>
+    <value>{0} ώρες πριν</value>
   </data>
   <data name="MinutesAgo" xml:space="preserve">
-    <value>{0, plural, one {# minute ago} other {# minutes ago}}</value>
+    <value>{0, plural, one {# λεπτό πριν} other {# λεπτά πριν}}</value>
   </data>
   <data name="MinutesAgo_Singular" xml:space="preserve">
-    <value>1 minute ago</value>
+    <value>1 λεπτό πριν</value>
   </data>
   <data name="MinutesAgo_Plural" xml:space="preserve">
-    <value>{0} minutes ago</value>
+    <value>{0} λεπτά πριν</value>
   </data>
   <data name="SecondsAgo" xml:space="preserve">
-    <value>{0, plural, one {# second ago} other {# seconds ago}}</value>
+    <value>{0, plural, one {# δευτερόλεπτο πριν} other {# δευτερόλεπτα πριν}}</value>
   </data>
   <data name="SecondsAgo_Singular" xml:space="preserve">
-    <value>1 second ago</value>
+    <value>1 δευτερόλεπτο πριν</value>
   </data>
   <data name="SecondsAgo_Plural" xml:space="preserve">
-    <value>{0} seconds ago</value>
+    <value>{0} δευτερόλεπτα πριν</value>
   </data>
   <data name="Now" xml:space="preserve">
     <value>Τώρα</value>
@@ -477,10 +483,10 @@
     <value>B</value>
   </data>
   <data name="PropertiesFilesAndFoldersCountString" xml:space="preserve">
-    <value>{0, number} {0, plural, one {file} other {files}}, {1, number} {1, plural, one {folder} other {folders}}</value>
+    <value>{0, number} {0, plural, one {αρχείο} other {αρχεία}}, {1, number} {1, plural, one {φάκελος} other {φάκελοι}}</value>
   </data>
   <data name="PropertiesFilesAndFoldersAndLocationsCount" xml:space="preserve">
-    <value>{0, number} {0, plural, one {file} other {files}}, {1, number} {1, plural, one {folder} other {folders}} from {2, number} {2, plural, one {location} other {locations}}</value>
+    <value>{0, number} {0, plural, one {αρχείο} other {αρχεία}}, {1, number} {1, plural, one {φάκελος} other {φάκελοι}} από {2, number} {2, plural, one {τοποθεσία} other {τοποθεσίες}}</value>
   </data>
   <data name="BaseLayoutContextFlyoutRunAsAnotherUser.Text" xml:space="preserve">
     <value>Εκτέλεση ως άλλος χρήστης</value>
@@ -513,7 +519,7 @@
     <value>Μετακίνηση καρτέλας εδώ</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status</value>
+    <value>Κατάσταση</value>
   </data>
   <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
     <value>Προεπιλογή των Windows</value>
@@ -549,7 +555,7 @@
     <value>Διαδικτυακός σύνδεσμος</value>
   </data>
   <data name="General" xml:space="preserve">
-    <value>Γενικό</value>
+    <value>Γενικά</value>
   </data>
   <data name="Shortcut" xml:space="preserve">
     <value>Συντόμευση</value>
@@ -1083,7 +1089,7 @@
     <value>Εναλλαγή του πλαισίου πληροφοριών για προβολή των παραθύρων λεπτομερειών/προεπισκόπησης</value>
   </data>
   <data name="ToggleToolbar" xml:space="preserve">
-    <value>Toggle the Toolbar</value>
+    <value>Εναλλαγή Γραμμής εργαλείων</value>
   </data>
   <data name="DetailsPanePreviewNotAvaliableText" xml:space="preserve">
     <value>Δεν υπάρχει διαθέσιμη προεπισκόπηση</value>
@@ -1242,28 +1248,28 @@
     <value>Αντιγραφή</value>
   </data>
   <data name="CopyItemsDialogTitle" xml:space="preserve">
-    <value>Copy {0, plural, one {item} other {items}}</value>
+    <value>Αντιγραφή {0, plural, one {στοιχείου} other {στοιχείων}}</value>
   </data>
   <data name="DeleteItemsDialogTitle" xml:space="preserve">
-    <value>Delete {0, plural, one {item} other {items}}</value>
+    <value>Διαγραφή {0, plural, one {στοιχείου} other {στοιχείων}}</value>
   </data>
   <data name="MoveItemsDialogPrimaryButtonText" xml:space="preserve">
     <value>Μετακίνηση</value>
   </data>
   <data name="MoveItemsDialogSubtitle" xml:space="preserve">
-    <value>{0, plural, one {One item will be moved} other {# items will be moved}}</value>
+    <value>{0, plural, one {Ένα αντικείμενο θα μετακινηθεί} other {# αντικείμενα θα μετακινηθούν}}</value>
   </data>
   <data name="MoveItemsDialogTitle" xml:space="preserve">
-    <value>Move {0, plural, one {item} other {items}}</value>
+    <value>Μετακίνηση {0, plural, one {αντικειμένου} other {αντικειμένων}}</value>
   </data>
   <data name="DeleteItemsDialogSubtitle" xml:space="preserve">
-    <value>{0, plural, one {One item will be deleted} other {# items will be deleted}}</value>
+    <value>{0, plural, one {Ένα αντικείμενο θα διαγραφεί} other {# τα αντικείμενα θα διαγραφούν}}</value>
   </data>
   <data name="ConflictingItemsDialogPrimaryButtonText" xml:space="preserve">
     <value>Συνέχεια</value>
   </data>
   <data name="ConflictingItemsDialogSubtitleConflicts" xml:space="preserve">
-    <value>{0, plural, one {There is one conflicting file name} other {There are # conflicting file names}}</value>
+    <value>{0, plural, one {Υπάρχει ένα αντικρουόμενο όνομα αρχείου} other {Υπάρχουν # αντικρουόμενα ονόματα αρχείων}}</value>
   </data>
   <data name="ConflictingItemsDialogSubtitleConflictsNonConflicts" xml:space="preserve">
     <value>{0, plural, one {There is one conflicting file name} other {There are # conflicting file names}}, and {1, plural, one {one outgoing item} other {# outgoing items}}</value>
@@ -1671,7 +1677,7 @@
     <value>Άγνωστο</value>
   </data>
   <data name="EditTags" xml:space="preserve">
-    <value>Επεξεργασία ετικετών αρχείων</value>
+    <value>Επεξεργασία ετικετών</value>
   </data>
   <data name="PropertyPartOfSet" xml:space="preserve">
     <value>Μέρος του σετ</value>
@@ -1933,6 +1939,9 @@
   </data>
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Κλείσιμο των άλλων καρτέλων</value>
+  </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Close all tabs</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>Μουσική</value>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Αντιγραφή διαδρομής των επιλεγμένων αντικειμένων στο πρόχειρο</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Αντιγραφή διαδρομής των επιλεγμένων αντικειμένων με εισαγωγικά στο πρόχειρο</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Επικόλληση στοιχείου(ων) από το πρόχειρο στον τρέχοντα φάκελο</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Επικόλληση στοιχείου(ων) από το πρόχειρο στον επιλεγμένο φάκελο</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Κλείσιμο καρτελών εκτός της επιλεγμένης καρτέλας</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Close all tabs including the current tab</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Άνοιγμα της τελευταίας κλειστής καρτέλας</value>

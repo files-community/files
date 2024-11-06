@@ -4,6 +4,13 @@ type: 'Bug'
 title: 'Bug: '
 body:
 
+  # Tip to warn of checking for existing issues
+  - type: markdown
+    attributes:
+      value: |
+        > [!TIP]
+        > Have you checked for similar issues? There's a possibility the bug you are experiencing has already been reported. Please do a thorough search before creating a new issue.
+
   # Description
   - type: textarea
     attributes:
@@ -21,16 +28,6 @@ body:
         1.
         2.
         3.
-    validations:
-      required: true
-
-  # Requirements
-  - type: textarea
-    attributes:
-      label: Requirements
-      description: describe the expected behavior (eg. Fix crash that occurs when...). If left blank, the issue will likely be closed without discussion.
-      value: |
-        - e.g. Fix crash that occurs when...
     validations:
       required: true
 
@@ -54,7 +51,7 @@ body:
     validations:
       required: true
 
-    # User ID
+  # User ID
   - type: input
     id: user_id
     attributes:
@@ -63,6 +60,15 @@ body:
       placeholder: "74750836-5885-4eeb-964f-8177cb4babf6"
     validations:
       required: false
+
+  # Note that the user should always upload the report rather than pasting it.
+  - type: markdown
+    attributes:
+      value: |
+        > [!IMPORTANT]
+        > Please **upload** the log file rather than pasting it here.
+        >
+        > Feel free to remove sensitive information such as your usernames or drive names.
 
   # Log File
   - type: textarea

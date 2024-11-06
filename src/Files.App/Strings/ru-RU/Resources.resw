@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Копировать путь с кавычками</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Копировать путь выделенного элемента с кавычками</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Обзор</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>Вставить</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Вставить ярлык</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Создать</value>
   </data>
@@ -292,7 +298,7 @@
     <value>Введите название элемента</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>Создать новый {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Светлая</value>
@@ -1029,7 +1035,7 @@
     <value>Открывать вкладки в двухпанельном режиме</value>
   </data>
   <data name="ShowOpenInNewPane" xml:space="preserve">
-    <value>Показывать опцию открытия папок в новой панели</value>
+    <value>Показать опцию открытия папок в новой панели</value>
   </data>
   <data name="ShowCopyPath" xml:space="preserve">
     <value>Показать опцию копирования пути</value>
@@ -1934,6 +1940,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Закрыть другие вкладки</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Закрыть все вкладки</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>Музыка</value>
   </data>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Копировать путь выбранных элементов в буфер обмена</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Копировать путь выбранных элементов в буфер обмена</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Копировать путь выбранных элементов с кавычками в буфер обмена</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Копировать путь выбранных элементов с кавычками в буфер обмена</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Вставить элемент(ы) из буфера в текущую папку</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Вставить элемент(ы) из буфера обмена в текущую папку как ярлыки</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Вставить элемент(ы) из буфера обмена в выбранную папку</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Закрыть все вкладки кроме выбранной</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Закрыть все вкладки включая текущую вкладку</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Восстановить последнюю закрытую вкладку</value>
@@ -3945,9 +3966,9 @@
     <value>Панели инструментов</value>
   </data>
   <data name="UserID" xml:space="preserve">
-    <value>User ID</value>
+    <value>ID пользователя</value>
   </data>
   <data name="BulkRename" xml:space="preserve">
-    <value>Bulk rename</value>
+    <value>Массовое переименование</value>
   </data>
 </root>

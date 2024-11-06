@@ -3,18 +3,31 @@ description: Create a code quality issue to help Files keep a clean codebase
 type: 'Code quality'
 title: 'Code Quality: '
 body:
+
+  # Tip to warn of checking for existing issues
+  - type: markdown
+    attributes:
+      value: |
+        > [!TIP]
+        > Have you checked for similar code quality issues? There's a possibility your suggestion is already being tracked. Please do a thorough search before creating a new issue.
+
+  # Issue body
   - type: textarea
     attributes:
       label: Description
       description: A clear and concise description of what the code quality issue is.
     validations:
       required: true
+
+  # Related code
   - type: textarea
     attributes:
       label: Concerned code
       description: A list of the different files and/or areas of the code concerned by the issue.
     validations:
       required: true
+
+  # Gains
   - type: textarea
     attributes:
       label: Gains
@@ -25,6 +38,8 @@ body:
         - eg. Clarifying the responsibility of class C.
     validations:
       required: true
+
+  # Requirements
   - type: textarea
     attributes:
       label: Requirements
@@ -33,6 +48,8 @@ body:
         - eg. Using a specific design pattern.
         - eg. Separating Interface I into three new interfaces I1, I2 and I3.
         - eg. Regrouping the duplicated process into a new helper.
+
+  # Remarks
   - type: textarea
     attributes:
       label: Comments

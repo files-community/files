@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Pfad mit Anführungszeichen kopieren</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Ausgewählten Elementpfad mit Anführungszeichen kopieren</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Durchsuchen</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>Einfügen</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Verknüpfung einfügen</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Neu</value>
   </data>
@@ -292,7 +298,7 @@
     <value>Elementname eingeben</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>{0} erstellen</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Hell</value>
@@ -1934,6 +1940,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Andere Tabs schließen</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Alle Tabs schließen</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>Musik</value>
   </data>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Pfad der ausgewählten Elemente in die Zwischenablage kopieren</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Pfad der ausgewählten Elemente in die Zwischenablage kopieren</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Pfad der ausgewählten Elemente mit Anführungszeichen in die Zwischenablage kopieren</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Pfad der ausgewählten Elemente mit Anführungszeichen in die Zwischenablage kopieren</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Element(e) aus der Zwischenablage in aktuellen Ordner einfügen</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Element(e) aus der Zwischenablage als Verknüpfung(en) in den aktuellen Ordner einfügen</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Element(e) aus der Zwischenablage in ausgewählten Ordner einfügen</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Alle Tabs außer ausgewähltem Tab schließen</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Alle Tabs inklusive des aktuellen Tabs schließen</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Zuletzt geschlossenen Tab erneut öffnen</value>
@@ -3143,7 +3164,7 @@
     <value>Git</value>
   </data>
   <data name="Acrylic" xml:space="preserve">
-    <value>Acrylic</value>
+    <value>Acryl</value>
   </data>
   <data name="Mica" xml:space="preserve">
     <value>Mica</value>
@@ -3152,7 +3173,7 @@
     <value>Mica Alt</value>
   </data>
   <data name="BackdropMaterial" xml:space="preserve">
-    <value>Hintergrund Überzug</value>
+    <value>Hintergrundmaterial</value>
   </data>
   <data name="Solid" xml:space="preserve">
     <value>Solide</value>
@@ -3823,7 +3844,7 @@
     <value>Vertikale Ausrichtung</value>
   </data>
   <data name="ThinAcrylic" xml:space="preserve">
-    <value>Dünn Acrylisch</value>
+    <value>Dünnes Acryl</value>
     <comment>This is a type of backdrop for the application background</comment>
   </data>
   <data name="AllLocations" xml:space="preserve">

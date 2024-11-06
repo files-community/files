@@ -16,7 +16,7 @@ namespace Windows.Win32
 		private T* _ptr;
 
 		public bool IsNull
-			=> _ptr == default;
+			=> _ptr == null;
 
 		public ComHeapPtr(T* ptr)
 		{

@@ -16,7 +16,7 @@ namespace Windows.Win32
 		private T* _ptr;
 
 		public bool IsNull
-			=> _ptr == default;
+			=> _ptr == null;
 
 		public ComPtr(T* ptr)
 		{
@@ -36,6 +36,14 @@ namespace Windows.Win32
 		public readonly T** GetAddressOf()
 		{
 			return (T**)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public readonly ComPtr<U> As<U>(Guid riid) where U : unmanaged
+		{
+			ComPtr<U> pNewPtr = default;
+			((IUnknown*)_ptr)->QueryInterface(&riid, (void**)pNewPtr.GetAddressOf());
+			return pNewPtr;
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]

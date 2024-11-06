@@ -124,7 +124,10 @@
     <value>העתק נתיב</value>
   </data>
   <data name="CopyPathWithQuotes" xml:space="preserve">
-    <value>Copy path with quotes</value>
+    <value>העתק נתיב עם גרשיים</value>
+  </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>צפייה</value>
@@ -223,7 +226,7 @@
     <value>הגדרות מתקדמות</value>
   </data>
   <data name="SettingsOnStartupContinueWhereYouLeftOff.Content" xml:space="preserve">
-    <value>המשך מאיפה שעצרת</value>
+    <value>המשך מהמקום בו עצרת</value>
   </data>
   <data name="SettingsOnStartupOpenANewTab.Content" xml:space="preserve">
     <value>פתח כרטיסיה חדשה</value>
@@ -249,8 +252,11 @@
   <data name="Paste" xml:space="preserve">
     <value>הדבק</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Paste shortcut</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
-    <value>חדשות</value>
+    <value>חדש</value>
   </data>
   <data name="Properties" xml:space="preserve">
     <value>מאפיינים</value>
@@ -292,7 +298,7 @@
     <value>הזן שם פריט</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>צור חדש {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>בהיר</value>
@@ -355,7 +361,7 @@
     <value>הקובץ אליו אתה מנסה לגשת עשוי להיות מוזז או מחוק</value>
   </data>
   <data name="CannotAccessPropertiesTitle" xml:space="preserve">
-    <value>Cannot open properties for this file</value>
+    <value>לא ניתן לפתוח את המאפיינים של קובץ זה</value>
   </data>
   <data name="CannotAccessPropertiesContent" xml:space="preserve">
     <value>הקובץ אליו אתה מנסה לגשת עשוי להיות מוזז או מחוק</value>
@@ -388,7 +394,7 @@
     <value>{0, plural, one {# day ago} other {# days ago}}</value>
   </data>
   <data name="DaysAgo_Singular" xml:space="preserve">
-    <value>1 day ago</value>
+    <value>לפני יום</value>
   </data>
   <data name="DaysAgo_Plural" xml:space="preserve">
     <value>{0} days ago</value>
@@ -397,28 +403,28 @@
     <value>{0, plural, one {# hour ago} other {# hours ago}}</value>
   </data>
   <data name="HoursAgo_Singular" xml:space="preserve">
-    <value>1 hour ago</value>
+    <value>לפני שעה</value>
   </data>
   <data name="HoursAgo_Plural" xml:space="preserve">
-    <value>{0} hours ago</value>
+    <value>לפני {0} שעות</value>
   </data>
   <data name="MinutesAgo" xml:space="preserve">
     <value>{0, plural, one {# minute ago} other {# minutes ago}}</value>
   </data>
   <data name="MinutesAgo_Singular" xml:space="preserve">
-    <value>1 minute ago</value>
+    <value>לפני דקה</value>
   </data>
   <data name="MinutesAgo_Plural" xml:space="preserve">
-    <value>{0} minutes ago</value>
+    <value>לפני {0} דקות</value>
   </data>
   <data name="SecondsAgo" xml:space="preserve">
     <value>{0, plural, one {# second ago} other {# seconds ago}}</value>
   </data>
   <data name="SecondsAgo_Singular" xml:space="preserve">
-    <value>1 second ago</value>
+    <value>לפני שנייה</value>
   </data>
   <data name="SecondsAgo_Plural" xml:space="preserve">
-    <value>{0} seconds ago</value>
+    <value>לפני {0} שניות</value>
   </data>
   <data name="Now" xml:space="preserve">
     <value>עכשיו</value>
@@ -513,7 +519,7 @@
     <value>הזז כרטיסיה לכאן</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status</value>
+    <value>מצב</value>
   </data>
   <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
     <value>ברירת מחדל של Windows</value>
@@ -657,7 +663,7 @@
     <value>שפה</value>
   </data>
   <data name="SettingsContextMenuOverflow" xml:space="preserve">
-    <value>Move shell extensions into a sub menu</value>
+    <value>העבר הרחבות מעטפת לתפריט משנה</value>
   </data>
   <data name="ShowConfirmationWhenDeletingItems" xml:space="preserve">
     <value>הצג חלון אישור בעת מחיקת עצמים</value>
@@ -1047,7 +1053,7 @@
     <value>פתחו בחלון חדש</value>
   </data>
   <data name="FilesAndFolders" xml:space="preserve">
-    <value>Files &amp; folders</value>
+    <value>קבצים ותיקיות</value>
   </data>
   <data name="NavToolbarDetails.ToolTipService.ToolTip" xml:space="preserve">
     <value>תצוגת פרטים</value>
@@ -1371,7 +1377,7 @@
     <value>שנה שעברה</value>
   </data>
   <data name="YearN" xml:space="preserve">
-    <value>Year {0}</value>
+    <value>שנה {0}</value>
   </data>
   <data name="GroupItemsCount_Singular" xml:space="preserve">
     <value>פריט {0}</value>
@@ -1383,16 +1389,16 @@
     <value>פתח מחדש כרטיסיה שנסגרה</value>
   </data>
   <data name="Rename" xml:space="preserve">
-    <value>Rename</value>
+    <value>שנה שם</value>
   </data>
   <data name="Privacy" xml:space="preserve">
-    <value>Privacy</value>
+    <value>פרטיות</value>
   </data>
   <data name="TheRecycleBin" xml:space="preserve">
     <value>פח האשפה</value>
   </data>
   <data name="Canceling" xml:space="preserve">
-    <value>Canceling</value>
+    <value>מבטל</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>נקה</value>
@@ -1413,7 +1419,7 @@
     <value>אפשר</value>
   </data>
   <data name="Deny" xml:space="preserve">
-    <value>Deny</value>
+    <value>דחה</value>
   </data>
   <data name="SecurityFullControlLabel.Text" xml:space="preserve">
     <value>שליטה מלאה</value>
@@ -1452,10 +1458,10 @@
     <value>בעלים לא ידוע</value>
   </data>
   <data name="ExtractArchive" xml:space="preserve">
-    <value>Extract archive</value>
+    <value>חלץ ארכיון</value>
   </data>
   <data name="DecompressArchiveDialogOpenDestinationWhenComplete.Content" xml:space="preserve">
-    <value>Open destination folder when complete</value>
+    <value>בסיום, פתח את תיקיית היעד</value>
   </data>
   <data name="BaseLayoutItemContextFlyoutExtractToChildFolder" xml:space="preserve">
     <value>חלץ אל {0}/</value>
@@ -1668,7 +1674,7 @@
     <value>פתח תיקיית אם</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Unknown</value>
+    <value>לא ידוע</value>
   </data>
   <data name="EditTags" xml:space="preserve">
     <value>ערוך תגיות</value>
@@ -1686,7 +1692,7 @@
     <value>‏‏הכנס דיסק</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>OK</value>
+    <value>אישור</value>
   </data>
   <data name="AskCredentialDialog.Title" xml:space="preserve">
     <value>Credential required</value>
@@ -1716,7 +1722,7 @@
     <value>אריחים</value>
   </data>
   <data name="OpenFoldersInNewTab" xml:space="preserve">
-    <value>Open folders in new tab</value>
+    <value>פתח תיקיות בכרטיסיה חדשה</value>
   </data>
   <data name="StatusCenter" xml:space="preserve">
     <value>Status center</value>
@@ -1749,16 +1755,16 @@
     <value>תגית</value>
   </data>
   <data name="SettingsOpenItemsWithOneClick" xml:space="preserve">
-    <value>Open items with a single click</value>
+    <value>פתח פריטים בלחיצה אחת</value>
   </data>
   <data name="FolderPath" xml:space="preserve">
-    <value>Folder path</value>
+    <value>נתיב התיקיה</value>
   </data>
   <data name="ExportSettings" xml:space="preserve">
-    <value>Export settings</value>
+    <value>ייצא הגדרות</value>
   </data>
   <data name="ImportSettings" xml:space="preserve">
-    <value>Import settings</value>
+    <value>ייבא הגדרות</value>
   </data>
   <data name="SettingsImportErrorDescription" xml:space="preserve">
     <value>Couldn't import settings. The settings file is corrupted.</value>
@@ -1785,7 +1791,7 @@
     <value>Open tab in existing instance when opening Files from another app</value>
   </data>
   <data name="StartupSettings" xml:space="preserve">
-    <value>Startup settings</value>
+    <value>הגדרות הפעלה באתחול</value>
   </data>
   <data name="Compatibility" xml:space="preserve">
     <value>תאימות</value>
@@ -1866,7 +1872,7 @@
     <value>Calculate folder sizes</value>
   </data>
   <data name="RecentFiles" xml:space="preserve">
-    <value>Recent files</value>
+    <value>קבצים אחרונים</value>
   </data>
   <data name="SettingsOpenInLogin" xml:space="preserve">
     <value>Open Files on Windows startup</value>
@@ -1934,6 +1940,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>סגור כרטיסיות אחרות</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Close all tabs</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>מוסיקה</value>
   </data>
@@ -1962,10 +1971,10 @@
     <value>Move operation is not supported in this context. Do you want to copy the items instead?</value>
   </data>
   <data name="HiddenItems" xml:space="preserve">
-    <value>Hidden items</value>
+    <value>פריטים מוסתרים</value>
   </data>
   <data name="Custom" xml:space="preserve">
-    <value>Custom</value>
+    <value>מותאם אישית</value>
   </data>
   <data name="SetAsSlideshow" xml:space="preserve">
     <value>Set as desktop slideshow</value>
@@ -2079,22 +2088,22 @@
     <value>Archive password</value>
   </data>
   <data name="ExtractToPath" xml:space="preserve">
-    <value>Path</value>
+    <value>נתיב</value>
   </data>
   <data name="SortingAndGrouping" xml:space="preserve">
-    <value>Sorting and grouping</value>
+    <value>מיין וקבץ</value>
   </data>
   <data name="CreateArchive" xml:space="preserve">
-    <value>Create archive</value>
+    <value>צור ארכיון</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>‏‏צור</value>
   </data>
   <data name="CreateNamedArchive" xml:space="preserve">
-    <value>Create {0}</value>
+    <value>צור {0}</value>
   </data>
   <data name="EnterName" xml:space="preserve">
-    <value>Enter a name</value>
+    <value>הזן שם</value>
   </data>
   <data name="CompressionLevel" xml:space="preserve">
     <value>Compression level</value>
@@ -2136,7 +2145,7 @@
     <value>Blu-ray</value>
   </data>
   <data name="Encryption" xml:space="preserve">
-    <value>Encryption</value>
+    <value>הצפנה</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>סיסמה</value>
@@ -2148,7 +2157,7 @@
     <value>Sync status column</value>
   </data>
   <data name="GroupBy" xml:space="preserve">
-    <value>Group by</value>
+    <value>קבץ לפי</value>
   </data>
   <data name="SortBy" xml:space="preserve">
     <value>מיין לפי</value>
@@ -2214,7 +2223,7 @@
     <value>Show option to open folders in a new window</value>
   </data>
   <data name="QuickAccess" xml:space="preserve">
-    <value>Quick access</value>
+    <value>גישה נוחה</value>
   </data>
   <data name="NetworkAuthenticationDialogMessage" xml:space="preserve">
     <value>Enter your credentials to connect to: {0}</value>
@@ -2256,13 +2265,13 @@
     <value>Loading...</value>
   </data>
   <data name="ContextMenuOptions" xml:space="preserve">
-    <value>Context menu options</value>
+    <value>אפשרויות תפריט הקשר</value>
   </data>
   <data name="ShowFileExtensions" xml:space="preserve">
-    <value>Show file extensions</value>
+    <value>הצג סיומות קבצים</value>
   </data>
   <data name="ShowHiddenItems" xml:space="preserve">
-    <value>Show hidden items</value>
+    <value>הצג פריטים מוסתרים</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
     <value>Format...</value>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Copy path of selected items to the clipboard</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Copy path of selected items with quotes to the clipboard</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Paste item(s) from clipboard to current folder</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Paste item(s) from clipboard to selected folder</value>
@@ -2553,10 +2571,10 @@
     <value>Switch to list view</value>
   </data>
   <data name="List" xml:space="preserve">
-    <value>List</value>
+    <value>רשימה</value>
   </data>
   <data name="Grid" xml:space="preserve">
-    <value>Grid</value>
+    <value>רשת</value>
   </data>
   <data name="LayoutGridDescription" xml:space="preserve">
     <value>Switch to grid view</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Close tabs other than selected tab</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Close all tabs including the current tab</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Reopen last closed tab</value>
@@ -3112,13 +3133,13 @@
     <value>Run git pull</value>
   </data>
   <data name="Preview" xml:space="preserve">
-    <value>Preview</value>
+    <value>תצוגה מקדימה</value>
   </data>
   <data name="GitStatus" xml:space="preserve">
-    <value>Git status</value>
+    <value>מצב Git</value>
   </data>
   <data name="GitError" xml:space="preserve">
-    <value>Git error</value>
+    <value>שגיאת Git</value>
   </data>
   <data name="PullTimeoutError" xml:space="preserve">
     <value>git pull failed due to a timeout error</value>
@@ -3128,7 +3149,7 @@
     <comment>Text indicating that multiple selected files have different metadata values.</comment>
   </data>
   <data name="Author" xml:space="preserve">
-    <value>Author</value>
+    <value>מחבר</value>
   </data>
   <data name="DateCommitted" xml:space="preserve">
     <value>Date committed</value>
@@ -3167,7 +3188,7 @@
     <value>Run git push</value>
   </data>
   <data name="GitSync" xml:space="preserve">
-    <value>Sync</value>
+    <value>סנכרון</value>
   </data>
   <data name="GitSyncDescription" xml:space="preserve">
     <value>Run git pull and then git push</value>
@@ -3200,13 +3221,13 @@
     <value>Copy code</value>
   </data>
   <data name="Added" xml:space="preserve">
-    <value>Added</value>
+    <value>נוסף</value>
   </data>
   <data name="Deleted" xml:space="preserve">
-    <value>Deleted</value>
+    <value>נמחק</value>
   </data>
   <data name="Modified" xml:space="preserve">
-    <value>Modified</value>
+    <value>נערך</value>
   </data>
   <data name="Untracked" xml:space="preserve">
     <value>Untracked</value>
@@ -3245,7 +3266,7 @@
     <value>Open directory in new window</value>
   </data>
   <data name="OpenAllTaggedItems" xml:space="preserve">
-    <value>Open all</value>
+    <value>פתח הכל</value>
   </data>
   <data name="OpenAllTaggedItemsDescription" xml:space="preserve">
     <value>Open all tagged items</value>
@@ -3320,19 +3341,19 @@
     <comment>One of the custom color themes</comment>
   </data>
   <data name="Gray" xml:space="preserve">
-    <value>Gray</value>
+    <value>אפור</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="GrayDark" xml:space="preserve">
-    <value>Gray Dark</value>
+    <value>אפור כהה</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="Green" xml:space="preserve">
-    <value>Green</value>
+    <value>ירוק</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="IrisPastel" xml:space="preserve">
-    <value>Iris Pastel</value>
+    <value>איריס פסטל</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="MintLight" xml:space="preserve">
@@ -3344,19 +3365,19 @@
     <comment>One of the custom color themes</comment>
   </data>
   <data name="OrangeBright" xml:space="preserve">
-    <value>Orange Bright</value>
+    <value>כתום בהיר</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="Overcast" xml:space="preserve">
-    <value>Overcast</value>
+    <value>מעונן</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="Red" xml:space="preserve">
-    <value>Red</value>
+    <value>אדום</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="RoseBright" xml:space="preserve">
-    <value>Rose Bright</value>
+    <value>ורד בהיר</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="Seafoam" xml:space="preserve">
@@ -3372,7 +3393,7 @@
     <comment>One of the custom color themes</comment>
   </data>
   <data name="YellowGold" xml:space="preserve">
-    <value>Yellow Gold</value>
+    <value>צהוב זהב</value>
     <comment>One of the custom color themes</comment>
   </data>
   <data name="ClearCompleted" xml:space="preserve">
@@ -3625,10 +3646,10 @@
     <value>Extract here (Smart)</value>
   </data>
   <data name="SortFilesAndFoldersTogether" xml:space="preserve">
-    <value>Sort files and folders together</value>
+    <value>מיין קבצים ותיקיות יחד</value>
   </data>
   <data name="SortFilesAndFoldersTogetherDescription" xml:space="preserve">
-    <value>Sort files and folders together</value>
+    <value>מיין קבצים ותיקיות יחד</value>
   </data>
   <data name="SortFilesFirst" xml:space="preserve">
     <value>Sort files first</value>
@@ -3637,13 +3658,13 @@
     <value>Sort files first then folders</value>
   </data>
   <data name="SortFoldersFirst" xml:space="preserve">
-    <value>Sort folders first</value>
+    <value>מיין תיקיות תחילה</value>
   </data>
   <data name="SortFoldersFirstDescription" xml:space="preserve">
     <value>Sort folders first then files</value>
   </data>
   <data name="SortPriority" xml:space="preserve">
-    <value>Sort priority</value>
+    <value>העדפות מיון</value>
   </data>
   <data name="FailedToRotateImage" xml:space="preserve">
     <value>Failed to rotate the image</value>
@@ -3685,7 +3706,7 @@
     <value>Questions &amp; discussions</value>
   </data>
   <data name="TilesViewSizeInfo" xml:space="preserve">
-    <value>Additional sizes are not yet available for the Tiles View.</value>
+    <value>גדלים נוספים עוד לא זמינים עבור תצוגת האריחים.</value>
   </data>
   <data name="Compact" xml:space="preserve">
     <value>Compact</value>
@@ -3700,11 +3721,11 @@
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Medium+" xml:space="preserve">
-    <value>Medium +</value>
+    <value>בינוני +</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Medium++" xml:space="preserve">
-    <value>Medium ++</value>
+    <value>בינוני ++</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Medium+++" xml:space="preserve">
@@ -3712,11 +3733,11 @@
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Medium++++" xml:space="preserve">
-    <value>Medium ++++</value>
+    <value>בינוני ++++</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Medium+++++" xml:space="preserve">
-    <value>Medium +++++</value>
+    <value>בינוני +++++</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Large" xml:space="preserve">
@@ -3724,29 +3745,29 @@
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Large+" xml:space="preserve">
-    <value>Large +</value>
+    <value>גדול +</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Large++" xml:space="preserve">
-    <value>Large ++</value>
+    <value>גדול ++</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Large+++" xml:space="preserve">
-    <value>Large +++</value>
+    <value>גדול +++</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="ExtraLarge" xml:space="preserve">
-    <value>Extra large</value>
+    <value>גדול מאוד</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="DetailsView" xml:space="preserve">
-    <value>Details view</value>
+    <value>תצוגת פרטים</value>
   </data>
   <data name="LayoutType" xml:space="preserve">
-    <value>Layout type</value>
+    <value>סוג פריסה</value>
   </data>
   <data name="Actions" xml:space="preserve">
-    <value>Actions</value>
+    <value>פעולות</value>
   </data>
   <data name="Commands" xml:space="preserve">
     <value>Commands</value>

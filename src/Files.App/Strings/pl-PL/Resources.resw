@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Kopiuj ścieżkę w cudzysłowie</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Przeglądaj</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>Wklej</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Paste shortcut</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Nowy</value>
   </data>
@@ -292,7 +298,7 @@
     <value>Wprowadź nazwę elementu</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>Utwórz nowy {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Jasny</value>
@@ -1626,7 +1632,7 @@
     <value>WSL</value>
   </data>
   <data name="SideBarHideSectionFromSideBar.Text" xml:space="preserve">
-    <value>Ukryj {0} sekcję</value>
+    <value>Ukryj sekcję {0}</value>
   </data>
   <data name="AddFile" xml:space="preserve">
     <value>Dodaj plik</value>
@@ -1933,6 +1939,9 @@
   </data>
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Zamknij inne karty</value>
+  </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Close all tabs</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>Muzyka</value>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Skopiuj ścieżkę wybranych elementów do schowka</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Skopiuj ścieżkę wybranych elementów do schowka z cudzysłowami</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Wklej element(y) ze schowka do bieżącego folderu</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Wklej element(y) ze schowka do wybranego folderu</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Zamknij wszystkie karty oprócz zaznaczonej</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Close all tabs including the current tab</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Przywróć ostatnio zamkniętą kartę</value>
@@ -3945,9 +3966,9 @@
     <value>Paski narzędzi</value>
   </data>
   <data name="UserID" xml:space="preserve">
-    <value>User ID</value>
+    <value>ID użytkownika</value>
   </data>
   <data name="BulkRename" xml:space="preserve">
-    <value>Bulk rename</value>
+    <value>Masowa zmiana nazw</value>
   </data>
 </root>

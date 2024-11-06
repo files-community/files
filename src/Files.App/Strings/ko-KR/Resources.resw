@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>홑 따옴표를 포함하여 경로 복사</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>찾아보기</value>
   </data>
@@ -196,7 +199,7 @@
     <value>정보</value>
   </data>
   <data name="OpenSource" xml:space="preserve">
-    <value>오픈소스</value>
+    <value>오픈 소스</value>
   </data>
   <data name="DateFormat" xml:space="preserve">
     <value>날짜 형식</value>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>붙여넣기</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Paste shortcut</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>새로 만들기</value>
   </data>
@@ -292,7 +298,7 @@
     <value>항목 이름을 입력하세요</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>새로운 {0} 만들기</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>밝게</value>
@@ -1934,6 +1940,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>다른 탭 닫기</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Close all tabs</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>음악</value>
   </data>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>선택된 요소들의 경로를 클립보드에 복사하기</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>선택된 요소들의 경로를 홑따옴표를 포함하여 클립보드에 복사하기</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>클립보드에서 현재 폴더에 붙여넣기</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>클립보드에서 선택된 폴더에 붙여넣기</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>선택한 탭을 제외한 모든 탭 닫기</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Close all tabs including the current tab</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>마지막으로 닫은 탭 다시 열기</value>
@@ -3152,7 +3173,7 @@
     <value>Mica Alt</value>
   </data>
   <data name="BackdropMaterial" xml:space="preserve">
-    <value>Backdrop</value>
+    <value>배경</value>
   </data>
   <data name="Solid" xml:space="preserve">
     <value>Solid</value>
@@ -3881,7 +3902,7 @@
     <value>상태:</value>
   </data>
   <data name="ShowToolbar" xml:space="preserve">
-    <value>Show toolbar</value>
+    <value>도구 모음 표시</value>
     <comment>Setting that controls if the toolbar is shown in the main view</comment>
   </data>
   <data name="TabActions" xml:space="preserve">
@@ -3939,15 +3960,15 @@
     <value>홈 페이지로 이동</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Show Home in address bar</value>
+    <value>주소 표시줄에 홈 버튼 표시</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
-    <value>Toolbars</value>
+    <value>도구 모음</value>
   </data>
   <data name="UserID" xml:space="preserve">
-    <value>User ID</value>
+    <value>사용자 ID</value>
   </data>
   <data name="BulkRename" xml:space="preserve">
-    <value>Bulk rename</value>
+    <value>이름 일괄 바꾸기</value>
   </data>
 </root>

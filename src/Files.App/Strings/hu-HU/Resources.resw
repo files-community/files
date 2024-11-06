@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Útvonal másolása idézőjelekkel</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Tallózás</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>Beillesztés</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Paste shortcut</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Új</value>
   </data>
@@ -292,7 +298,7 @@
     <value>Adja meg az elem nevét</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>Új {0} létrehozása</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Világos</value>
@@ -1934,6 +1940,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Többi lap bezárása</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Close all tabs</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>Zene</value>
   </data>
@@ -2393,6 +2402,12 @@
   <data name="CopyPathDescription" xml:space="preserve">
     <value>A kiválasztott elemek elérési útjának másolása a vágólapra</value>
   </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
+  </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>A kiválasztott elemek elérési útjának másolása a vágólapra idézőjelekkel</value>
   </data>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Elem(ek) beillesztése a vágólapról az aktuális mappába</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Elem(ek) beillesztése a vágólapról a kiválasztott mappába</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>A kiválasztotton kívüli lapok bezárása</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Close all tabs including the current tab</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Utolsó bezárt lap újranyitása</value>
@@ -3152,7 +3173,7 @@
     <value>Mica Alt</value>
   </data>
   <data name="BackdropMaterial" xml:space="preserve">
-    <value>Backdrop</value>
+    <value>Háttér</value>
   </data>
   <data name="Solid" xml:space="preserve">
     <value>Szolid</value>
@@ -3881,7 +3902,7 @@
     <value>Állapot:</value>
   </data>
   <data name="ShowToolbar" xml:space="preserve">
-    <value>Show toolbar</value>
+    <value>Eszköztár megjelenítése</value>
     <comment>Setting that controls if the toolbar is shown in the main view</comment>
   </data>
   <data name="TabActions" xml:space="preserve">
@@ -3936,18 +3957,18 @@
     <value>CPU szálak</value>
   </data>
   <data name="NavigateHomeDescription" xml:space="preserve">
-    <value>Navigate to the home page</value>
+    <value>Navigálás a kezdőlapra</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Show Home in address bar</value>
+    <value>Kezdőlap megjelenítése a címsorban</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
-    <value>Toolbars</value>
+    <value>Eszköztárak</value>
   </data>
   <data name="UserID" xml:space="preserve">
-    <value>User ID</value>
+    <value>Felhasználói azonosító</value>
   </data>
   <data name="BulkRename" xml:space="preserve">
-    <value>Bulk rename</value>
+    <value>Csoportos átnevezés</value>
   </data>
 </root>

@@ -4,6 +4,13 @@ type: 'Feature request'
 title: 'Feature: '
 body:
 
+  # Tip to warn of checking for existing issues
+  - type: markdown
+    attributes:
+      value: |
+        > [!TIP]
+        >Have you checked for similar feature requests? There's a possibility your suggestion is already being tracked. Please do a thorough search before creating a new issue.
+
   # Description
   - type: textarea
     attributes:

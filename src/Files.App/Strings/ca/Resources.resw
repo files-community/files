@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>Copia la ruta amb cometes</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copia el camí de l'element seleccionat amb cometes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>Navega</value>
   </data>
@@ -249,6 +252,9 @@
   <data name="Paste" xml:space="preserve">
     <value>Enganxa</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>Enganxa drecera</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Nou</value>
   </data>
@@ -292,7 +298,7 @@
     <value>Escriu el nom d'un element</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>Crea un {0} nou</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Clar</value>
@@ -1934,6 +1940,9 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Tanca les altres pestanyes</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>Tanca totes les pestanyes</value>
+  </data>
   <data name="Music" xml:space="preserve">
     <value>Música</value>
   </data>
@@ -2391,16 +2400,25 @@
     <value>Copia els elements al porta-retalls</value>
   </data>
   <data name="CopyPathDescription" xml:space="preserve">
-    <value>Copia la ruta dels elements seleccionats al porta-retalls</value>
+    <value>Copia el camí del directori actual al porta-retalls</value>
+  </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copia el camí dels elements seleccionats al porta-retalls</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copia el camí dels elements seleccionats amb cometes al porta-retalls</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
-    <value>Copia la ruta dels elements seleccionats amb cometes al porta-retalls</value>
+    <value>Copia el camí del directori actual amb cometes al porta-retalls</value>
   </data>
   <data name="CutItemDescription" xml:space="preserve">
     <value>Retalla els elements al porta-retalls</value>
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Enganxa els elements del porta-retalls a la carpeta actual</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Enganxa els elements del porta-retalls a la carpeta seleccionada</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Tanca les pestanyes que no siguin la pestanya seleccionada</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>Tanca totes les pestanyes, inclosa l'actual</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Torna a obrir l'última pestanya tancada</value>

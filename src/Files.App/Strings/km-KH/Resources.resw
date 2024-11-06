@@ -126,6 +126,9 @@
   <data name="CopyPathWithQuotes" xml:space="preserve">
     <value>ចម្លងផ្លូវទីតាំង</value>
   </data>
+  <data name="CopyItemPathWithQuotes" xml:space="preserve">
+    <value>Copy selected item path with quotes</value>
+  </data>
   <data name="Browse" xml:space="preserve">
     <value>រកមើល</value>
   </data>
@@ -154,7 +157,7 @@
     <value>គោលដៅថតឯកសារ</value>
   </data>
   <data name="ErrorDialogIsASubfolder" xml:space="preserve">
-    <value>is a subfolder of the source folder</value>
+    <value>គឺជាថតរងនៃថតប្រភព</value>
   </data>
   <data name="Skip" xml:space="preserve">
     <value>រំលង</value>
@@ -184,13 +187,13 @@
     <value>ស្វែងរក</value>
   </data>
   <data name="RecentItemDescription.Text" xml:space="preserve">
-    <value>Files you've previously accessed will show up here</value>
+    <value>ឯកសារដែលអ្នកបានអាក់សេសពីមុននឹងបង្ហាញនៅទីនេះ</value>
   </data>
   <data name="RecentItemRemove.Text" xml:space="preserve">
     <value>លុបធាតុមួយនេះ</value>
   </data>
   <data name="OpenGitHubRepo" xml:space="preserve">
-    <value>GitHub repository</value>
+    <value>រីប៉ូហ្គីតហាប់</value>
   </data>
   <data name="About" xml:space="preserve">
     <value>អំពី</value>
@@ -205,10 +208,10 @@
     <value>ស្បែក</value>
   </data>
   <data name="SettingsFilesAndFoldersShowFileExtensions" xml:space="preserve">
-    <value>Show extensions for known file types</value>
+    <value>បង្ហាញប្រភេទឯកសារដែលគេស្គាល់</value>
   </data>
   <data name="SettingsFilesAndFoldersShowHiddenItems" xml:space="preserve">
-    <value>Show hidden files and folders</value>
+    <value>បង្ហាញឯកសារ និងថតដែលលាក់</value>
   </data>
   <data name="ShowDotFiles" xml:space="preserve">
     <value>Show dot files</value>
@@ -217,7 +220,7 @@
     <value>រូបរាង</value>
   </data>
   <data name="BackgroundColor" xml:space="preserve">
-    <value>Background color</value>
+    <value>ពណ៌ផ្ទៃខាងក្រោយ</value>
   </data>
   <data name="Advanced" xml:space="preserve">
     <value>កម្រិតខ្ពស់</value>
@@ -232,7 +235,7 @@
     <value>បើកទំហំជាក់លាក់</value>
   </data>
   <data name="Desktop" xml:space="preserve">
-    <value>Desktop</value>
+    <value>ដេសថប</value>
   </data>
   <data name="Documents" xml:space="preserve">
     <value>ឯកសារ</value>
@@ -249,11 +252,14 @@
   <data name="Paste" xml:space="preserve">
     <value>បិទភ្ជាប់</value>
   </data>
+  <data name="PasteShortcut" xml:space="preserve">
+    <value>បិទភ្ជាប់ផ្លូវកាត់</value>
+  </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>ថ្មី</value>
   </data>
   <data name="Properties" xml:space="preserve">
-    <value>Properties</value>
+    <value>លក្ខណៈសម្បត្តិ</value>
   </data>
   <data name="Open" xml:space="preserve">
     <value>បើក</value>
@@ -262,7 +268,7 @@
     <value>បើកទំព័រថេបថ្មី</value>
   </data>
   <data name="OpenInNewWindow" xml:space="preserve">
-    <value>Open in new window</value>
+    <value>បើកផ្ទាំងថ្មី</value>
   </data>
   <data name="Share" xml:space="preserve">
     <value>ចែក​រំលែក​</value>
@@ -274,7 +280,7 @@
     <value>លុប</value>
   </data>
   <data name="PinFolderToSidebar" xml:space="preserve">
-    <value>Pin to Sidebar</value>
+    <value>ខ្ទាស់ទៅរបារចំហៀង</value>
   </data>
   <data name="WelcomeDialog.Title" xml:space="preserve">
     <value>សូមស្វាគមន៏មកកាន់កម្មវីធីឯកសារ</value>
@@ -283,7 +289,7 @@
     <value>ផ្តល់ការអនុញ្ញាតិ</value>
   </data>
   <data name="WelcomeDialogTextBlock.Text" xml:space="preserve">
-    <value>To get started, you'll need to grant us permission to display your files. This will open a Settings page where you can grant us this permission. You'll need to reopen the app once you've completed this step. </value>
+    <value>ដើម្បីចាប់ផ្តើម អ្នកនឹងត្រូវផ្តល់ការអនុញ្ញាតឱ្យយើងបង្ហាញឯកសាររបស់អ្នក នឹងបើកទំព័រការកំណត់ដែលអ្នកអាចផ្តល់ការអនុញ្ញាតនេះដល់ពួកយើង អ្នកនឹងត្រូវបើកកម្មវិធីឡើងវិញនៅពេលដែលអ្នកបានបញ្ចប់ជំហាននេះ។</value>
   </data>
   <data name="Display" xml:space="preserve">
     <value>បង្ហាញ</value>
@@ -292,7 +298,7 @@
     <value>បញ្ចូលឈ្មោះ</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>បង្កើតថ្មី {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>ភ្លឺ</value>
@@ -313,7 +319,7 @@
     <value>ឯកសារ​ថ្មី​</value>
   </data>
   <data name="EmptyFolder.Text" xml:space="preserve">
-    <value>This folder is empty.</value>
+    <value>ថតទទេរ</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>ត្រលប់</value>
@@ -322,58 +328,58 @@
     <value>បញ្ចូនបន្ត</value>
   </data>
   <data name="Up" xml:space="preserve">
-    <value>Up</value>
+    <value>លើ</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>ធ្វើឱ្យស្អាត</value>
   </data>
   <data name="ItemAlreadyExistsDialogContent" xml:space="preserve">
-    <value>An item with this name already exists in this directory.</value>
+    <value>ធាតុដែលមានឈ្មោះនេះមានរួចហើយនៅក្នុងថតនេះ</value>
   </data>
   <data name="ItemAlreadyExistsDialogSecondaryButtonText" xml:space="preserve">
-    <value>Replace existing item</value>
+    <value>ជំនួសធាតុដែលមានស្រាប់</value>
   </data>
   <data name="ItemAlreadyExistsDialogTitle" xml:space="preserve">
-    <value>Item already exists</value>
+    <value>ធាតុមានរួចហើយ</value>
   </data>
   <data name="SetAsLockscreen" xml:space="preserve">
-    <value>Set as lockscreen background</value>
+    <value>កំណត់ផ្ទៃខាងក្រោយផ្ទាំងចាក់សោរ</value>
   </data>
   <data name="SetAsAppBackground" xml:space="preserve">
-    <value>Set as app background</value>
+    <value>កំណត់ជាផ្ទៃខាងក្រោយកម្មវិធី</value>
   </data>
   <data name="AccessDeniedDeleteDialog.Text" xml:space="preserve">
-    <value>We weren't able to delete this item</value>
+    <value>យើងមិនអាចលុបធាតុនេះបានទេ</value>
   </data>
   <data name="DriveUnpluggedDialog.Text" xml:space="preserve">
-    <value>Please insert the necessary drive to access this item.</value>
+    <value>សូមបញ្ចូលដ្រាយចាំបាច់ដើម្បីអាក់សេសធាតុនេះ</value>
   </data>
   <data name="DriveUnpluggedDialog.Title" xml:space="preserve">
-    <value>Drive unplugged</value>
+    <value>ដ្រាយមិនបានភ្ជាប់</value>
   </data>
   <data name="FileNotFoundDialog.Text" xml:space="preserve">
-    <value>The file you are attempting to access may have been moved or deleted.</value>
+    <value>ឯកសារដែលអ្នកកំពុងព្យាយាមចូលប្រើអាចត្រូវបានផ្លាស់ទី ឬលុប</value>
   </data>
   <data name="CannotAccessPropertiesTitle" xml:space="preserve">
-    <value>Cannot open properties for this file</value>
+    <value>មិនអាចបើកលក្ខណសម្បត្តិសម្រាប់ឯកសារនេះបានទេ</value>
   </data>
   <data name="CannotAccessPropertiesContent" xml:space="preserve">
-    <value>The file you are attempting to access may have been moved or deleted.</value>
+    <value>ឯកសារដែលអ្នកកំពុងព្យាយាមចូលប្រើអាចត្រូវបានផ្លាស់ទី ឬលុប</value>
   </data>
   <data name="FileNotFoundDialog.Title" xml:space="preserve">
     <value>រក​មិន​ឃើញ​ឯកសារទេ</value>
   </data>
   <data name="FolderNotFoundDialog.Text" xml:space="preserve">
-    <value>The folder you are attempting to access may have been moved or deleted.</value>
+    <value>ថតឯកសារដែលអ្នកកំពុងព្យាយាមចូលប្រើអាចត្រូវបានផ្លាស់ទី ឬលុប</value>
   </data>
   <data name="FolderNotFoundDialog.Title" xml:space="preserve">
-    <value>Did you delete this folder?</value>
+    <value>តើអ្នកបានលុបថតឯកសារនេះទេ?</value>
   </data>
   <data name="FileInUseByDialog.Text" xml:space="preserve">
-    <value>The file you are attempting to access is currently being used by {0}</value>
+    <value>ឯកសារដែលអ្នកកំពុងព្យាយាមចូលប្រើបច្ចុប្បន្នកំពុងត្រូវបានប្រើប្រាស់ដោយ {0}</value>
   </data>
   <data name="FileInUseDialog.Text" xml:space="preserve">
-    <value>The file you are attempting to access is currently being used by another application</value>
+    <value>ឯកសារដែលអ្នកកំពុងព្យាយាមចូលប្រើបច្ចុប្បន្នកំពុងត្រូវបានប្រើប្រាស់ដោយកម្មវិធីផ្សេងទៀត</value>
   </data>
   <data name="FileInUseDialog.Title" xml:space="preserve">
     <value>ឯកសារកំពុងប្រើប្រាស់</value>
@@ -382,34 +388,34 @@
     <value>ប្លង់</value>
   </data>
   <data name="PropertiesDialogReadOnly.Text" xml:space="preserve">
-    <value>Read-only</value>
+    <value>ត្រឹមតែអាន</value>
   </data>
   <data name="DaysAgo" xml:space="preserve">
     <value>{0, plural, one {# day ago} other {# days ago}}</value>
   </data>
   <data name="DaysAgo_Singular" xml:space="preserve">
-    <value>1 day ago</value>
+    <value>១ ថ្ងៃមុន</value>
   </data>
   <data name="DaysAgo_Plural" xml:space="preserve">
-    <value>{0} days ago</value>
+    <value>{0} ថ្ងៃមុន</value>
   </data>
   <data name="HoursAgo" xml:space="preserve">
     <value>{0, plural, one {# hour ago} other {# hours ago}}</value>
   </data>
   <data name="HoursAgo_Singular" xml:space="preserve">
-    <value>1 hour ago</value>
+    <value>១ ម៉ោងមុន</value>
   </data>
   <data name="HoursAgo_Plural" xml:space="preserve">
-    <value>{0} hours ago</value>
+    <value>{0} ម៉ោងមុន</value>
   </data>
   <data name="MinutesAgo" xml:space="preserve">
     <value>{0, plural, one {# minute ago} other {# minutes ago}}</value>
   </data>
   <data name="MinutesAgo_Singular" xml:space="preserve">
-    <value>1 minute ago</value>
+    <value>១ នាទីមុន</value>
   </data>
   <data name="MinutesAgo_Plural" xml:space="preserve">
-    <value>{0} minutes ago</value>
+    <value>{0} នាទីមុន</value>
   </data>
   <data name="SecondsAgo" xml:space="preserve">
     <value>{0, plural, one {# second ago} other {# seconds ago}}</value>
@@ -427,7 +433,7 @@
     <value>ប្រតិបត្តិការស្នើសុំត្រូវបានបដិសេដ</value>
   </data>
   <data name="DriveFreeSpaceAndCapacity" xml:space="preserve">
-    <value>{0} free of {1}</value>
+    <value>{0} នៅទំនេរនៃ {1}</value>
   </data>
   <data name="SendTo" xml:space="preserve">
     <value>ផ្ញើ​ទៅ៖</value>
@@ -450,10 +456,10 @@
     <value>បាទ/ចាស</value>
   </data>
   <data name="ConfirmEmptyBinDialogContent" xml:space="preserve">
-    <value>Are you sure you want to permanently delete all these items?</value>
+    <value>តើអ្នកប្រាកដថាចង់លុបធាតុទាំងអស់នេះជាអចិន្ត្រៃយ៍ទេ?</value>
   </data>
   <data name="ConfirmEmptyBinDialogTitle" xml:space="preserve">
-    <value>Empty recycle bin</value>
+    <value>ទទេរធុងសំរាម</value>
   </data>
   <data name="ItemSizeBytes" xml:space="preserve">
     <value>បៃ</value>
@@ -474,7 +480,7 @@
     <value>ប៉េរ៉ាបៃ</value>
   </data>
   <data name="ByteSymbol" xml:space="preserve">
-    <value>B</value>
+    <value>បៃ</value>
   </data>
   <data name="PropertiesFilesAndFoldersCountString" xml:space="preserve">
     <value>{0, number} {0, plural, one {file} other {files}}, {1, number} {1, plural, one {folder} other {folders}}</value>
@@ -483,16 +489,16 @@
     <value>{0, number} {0, plural, one {file} other {files}}, {1, number} {1, plural, one {folder} other {folders}} from {2, number} {2, plural, one {location} other {locations}}</value>
   </data>
   <data name="BaseLayoutContextFlyoutRunAsAnotherUser.Text" xml:space="preserve">
-    <value>Run as another user</value>
+    <value>ដំណើរការជាអ្នកប្រើប្រាស់ផ្សេង</value>
   </data>
   <data name="PropertiesDriveItemTypesEquals" xml:space="preserve">
-    <value>All type of {0}</value>
+    <value>គ្រប់ប្រភេទនៃ {0}</value>
   </data>
   <data name="PropertiesDriveItemTypeDifferent" xml:space="preserve">
-    <value>Different types</value>
+    <value>ប្រភេទផ្សេងគ្នា</value>
   </data>
   <data name="PropertiesCombinedItemLocation" xml:space="preserve">
-    <value>All in {0}</value>
+    <value>ទាំងអស់ក្នុង {0}</value>
   </data>
   <data name="PropertiesDriveUsedSpace.Text" xml:space="preserve">
     <value>ទំហំ​ប្រើប្រាស់៖</value>
@@ -516,13 +522,13 @@
     <value>ស្ថានភាព</value>
   </data>
   <data name="SettingsPreferencesSystemDefaultLanguageOption" xml:space="preserve">
-    <value>Windows default</value>
+    <value>បុរជម្រើសវីនដូ</value>
   </data>
   <data name="NavigationToolbarVisiblePathNoResults" xml:space="preserve">
     <value>គ្មានលទ្ធផល</value>
   </data>
   <data name="SubDirectoryAccessDenied" xml:space="preserve">
-    <value>Can't access any items to display</value>
+    <value>មិនអាចចូលប្រើធាតុណាមួយដើម្បីបង្ហាញបានទេ</value>
   </data>
   <data name="MoveToFolderCaptionText" xml:space="preserve">
     <value>ប្តូរទៅ​ {0}</value>
@@ -540,118 +546,118 @@
     <value>Arguments:</value>
   </data>
   <data name="PropertiesShortcutItemPath.Text" xml:space="preserve">
-    <value>Destination:</value>
+    <value>ទិសដៅ</value>
   </data>
   <data name="PropertiesShortcutItemType.Text" xml:space="preserve">
-    <value>Shortcut type:</value>
+    <value>ប្រភេទផ្លូវកាត់៖</value>
   </data>
   <data name="PropertiesShortcutTypeLink" xml:space="preserve">
-    <value>Web link</value>
+    <value>បញ្ជាប់វេប</value>
   </data>
   <data name="General" xml:space="preserve">
     <value>ទូទៅ</value>
   </data>
   <data name="Shortcut" xml:space="preserve">
-    <value>Shortcut</value>
+    <value>ផ្លូវកាត់</value>
   </data>
   <data name="ShortcutWebLinkFileType" xml:space="preserve">
-    <value>Internet shortcut</value>
+    <value>ផ្លូវកាត់អុីនធើណែត</value>
   </data>
   <data name="ShortcutCreateNewSuffix" xml:space="preserve">
-    <value>{0} - shortcut</value>
+    <value>{0} ផ្លូវកាត់</value>
   </data>
   <data name="ExceptionNotificationBody" xml:space="preserve">
-    <value>Files ran into a problem that the developers didn't prepare for yet.</value>
+    <value>ឯកសារមានកំហុសដែលអ្នកអភិវឌ្ឍន៍មិនទាន់រៀបចំនៅឡើយ</value>
   </data>
   <data name="ExceptionNotificationHeader" xml:space="preserve">
-    <value>Something went wrong!</value>
+    <value>មានកំហុសកើតឡើង!</value>
   </data>
   <data name="ExceptionNotificationReportButton" xml:space="preserve">
-    <value>Report this issue</value>
+    <value>រាយការណ៍ពីបញ្ហានេះ</value>
   </data>
   <data name="InvalidItemDialogContent" xml:space="preserve">
-    <value>The item referenced is either invalid or inaccessible.{0}Error message:{0}{1}</value>
+    <value>ធាតុដែលបានយោងគឺមិនត្រឹមត្រូវ ឬមិនអាចចូលដំណើរការបាន។{0}សារកំហុស៖{0}{1}</value>
   </data>
   <data name="InvalidItemDialogTitle" xml:space="preserve">
-    <value>Invalid item</value>
+    <value>ធាតុមិនត្រឹមត្រូវ</value>
   </data>
   <data name="SettingsAboutVersionTitle" xml:space="preserve">
     <value>ជំនាន់:</value>
   </data>
   <data name="ShareDialogFailMessage" xml:space="preserve">
-    <value>There's nothing to share right now...</value>
+    <value>មិនមានអ្វីត្រូវចែករំលែកពេលនេះ ...</value>
   </data>
   <data name="ShareDialogMultipleItemsDescription" xml:space="preserve">
-    <value>The items you've selected will be shared</value>
+    <value>ធាតុដែលអ្នកបានជ្រើសរើសនឹងត្រូវបានចែករំលែក</value>
   </data>
   <data name="ShareDialogSingleItemDescription" xml:space="preserve">
-    <value>The selected item will be shared</value>
+    <value>ធាតុដែលបានជ្រើសរើសនឹងត្រូវបានចែករំលែក</value>
   </data>
   <data name="ShareDialogTitle" xml:space="preserve">
-    <value>Sharing {0}</value>
+    <value>កំពុងចែករំលែក {0}</value>
   </data>
   <data name="ShareDialogTitleMultipleItems" xml:space="preserve">
-    <value>Sharing {0} {1}</value>
+    <value>កំពុងចែករំលែក {0} {1}</value>
   </data>
   <data name="RenameError.ItemDeleted.Text" xml:space="preserve">
-    <value>The item you're attempting to rename no longer exists. Please verify the correct location of the item you need to rename.</value>
+    <value>ធាតុដែលអ្នកកំពុងព្យាយាមប្តូរឈ្មោះលែងមានទៀតហើយ សូមផ្ទៀងផ្ទាត់ទីតាំងត្រឹមត្រូវនៃធាតុដែលអ្នកត្រូវប្តូរឈ្មោះ</value>
   </data>
   <data name="RenameError.ItemDeleted.Title" xml:space="preserve">
-    <value>Item no longer exists</value>
+    <value>ធាតុលែងមានទៀតហើយ</value>
   </data>
   <data name="RenameError.NameInvalid.Text" xml:space="preserve">
-    <value>The name specified was invalid. Please check the desired item name and try again.</value>
+    <value>ឈ្មោះដែលបានបញ្ជាក់គឺមិនត្រឹមត្រូវទេ សូមពិនិត្យមើលឈ្មោះធាតុដែលចង់បាន ហើយព្យាយាមម្តងទៀត</value>
   </data>
   <data name="RenameError.NameInvalid.Title" xml:space="preserve">
-    <value>Invalid item name</value>
+    <value>ឈ្មោះធាតុមិនត្រឹមត្រូវ</value>
   </data>
   <data name="RenameError.TooLong.Text" xml:space="preserve">
-    <value>The length of the item name specified exceeds the maximum limit. Please check the desired name and try again.</value>
+    <value>ប្រវែងនៃឈ្មោះធាតុដែលបានបញ្ជាក់លើសពីកំណត់អតិបរមា សូមពិនិត្យមើលឈ្មោះដែលចង់បាន ហើយព្យាយាមម្តងទៀត</value>
   </data>
   <data name="RenameError.TooLong.Title" xml:space="preserve">
-    <value>Item name was too long</value>
+    <value>ឈ្មោះធាតុគឺវែងពេក</value>
   </data>
   <data name="ShowMoreOptions" xml:space="preserve">
-    <value>Show more options</value>
+    <value>បង្ហាញជម្រើសច្រើនទៀត</value>
   </data>
   <data name="RestartNotificationText.Text" xml:space="preserve">
-    <value>The application needs to be restarted in order to apply these settings, would you like to restart the app?</value>
+    <value>កម្មវិធីត្រូវចាប់ផ្តើមឡើងវិញ ដើម្បីអនុវត្តការកំណត់ទាំងនេះ តើអ្នកចង់ចាប់ផ្តើមកម្មវិធីឡើងវិញទេ?</value>
   </data>
   <data name="SponsorUsOnGitHub" xml:space="preserve">
     <value>ឧត្ថម្ភយើងតាមរយៈហ្គិតហាប់</value>
   </data>
   <data name="AccessDeniedCreateDialog.Text" xml:space="preserve">
-    <value>We weren't able to create this item</value>
+    <value>យើង​មិន​អាច​បង្កើត​ធាតុ​នេះ​បាន​ទេ</value>
   </data>
   <data name="AccessDenied" xml:space="preserve">
-    <value>Access Denied</value>
+    <value>អាក់សេសបដិសេធ</value>
   </data>
   <data name="BaseLayoutItemContextFlyoutSetAs.Text" xml:space="preserve">
-    <value>Set as</value>
+    <value>កំណត់ជា</value>
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>បោះបង់</value>
   </data>
   <data name="AddDialog.Title" xml:space="preserve">
-    <value>Create a new item</value>
+    <value>បង្កើតធាតុថ្មី</value>
   </data>
   <data name="AddDialogDescription.Text" xml:space="preserve">
-    <value>Choose a type for this new item below</value>
+    <value>ជ្រើសរើសប្រភេទសម្រាប់ធាតុថ្មីនេះខាងក្រោម</value>
   </data>
   <data name="File" xml:space="preserve">
-    <value>File</value>
+    <value>ឯកសារ</value>
   </data>
   <data name="AddDialogListFileSubHeader" xml:space="preserve">
-    <value>Creates an empty file</value>
+    <value>បង្កើតឯកសារទទេ</value>
   </data>
   <data name="Folder" xml:space="preserve">
-    <value>ថត</value>
+    <value>ថតឯកសារ</value>
   </data>
   <data name="AddDialogListFolderSubHeader" xml:space="preserve">
     <value>បង្កើតថតទំនេរ</value>
   </data>
   <data name="NavResfreshButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Refresh the directory</value>
+    <value>ផ្ទុកឡើងវិញថត</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>ភាសា</value>
@@ -660,28 +666,28 @@
     <value>Move shell extensions into a sub menu</value>
   </data>
   <data name="ShowConfirmationWhenDeletingItems" xml:space="preserve">
-    <value>Show confirmation dialog when deleting items</value>
+    <value>បង្ហាញប្រអប់បញ្ជាក់នៅពេលលុបធាតុ</value>
   </data>
   <data name="PropertySaveErrorMessage.Text" xml:space="preserve">
-    <value>There was an issue saving some properties.</value>
+    <value>មានបញ្ហាក្នុងការរក្សាទុកលក្ខណៈសម្បត្តិមួយចំនួន</value>
   </data>
   <data name="PropertySaveErrorDialog.Title" xml:space="preserve">
-    <value>Error</value>
+    <value>កំហុស</value>
   </data>
   <data name="PropertySaveErrorDialog.SecondaryButtonText" xml:space="preserve">
-    <value>Close anyway</value>
+    <value>បិទយ៉ាងណាក៏ដោយ</value>
   </data>
   <data name="PropertyRatingText" xml:space="preserve">
-    <value>Rating</value>
+    <value>ការវាយតម្លៃ</value>
   </data>
   <data name="PropertyParsingPath" xml:space="preserve">
-    <value>Item Path</value>
+    <value>ផ្លូវធាតុ</value>
   </data>
   <data name="PropertyItemTypeText" xml:space="preserve">
-    <value>Item Type</value>
+    <value>ប្រភេទធាតុ</value>
   </data>
   <data name="PropertyTitle" xml:space="preserve">
-    <value>Title</value>
+    <value>ចំណងជើង</value>
   </data>
   <data name="PropertySubject" xml:space="preserve">
     <value>ប្រធាន​បទ</value>
@@ -699,7 +705,7 @@
     <value>ជម្រៅ​ប៊ីត ៖</value>
   </data>
   <data name="PropertyDimensions" xml:space="preserve">
-    <value>Dimensions</value>
+    <value>វិមាត្រ</value>
   </data>
   <data name="PropertyHorizontalSize" xml:space="preserve">
     <value>Horizontal Size</value>
@@ -723,100 +729,100 @@
     <value>មិនបានបញ្ជាក់</value>
   </data>
   <data name="PropertyLongitudeDecimal" xml:space="preserve">
-    <value>Longitude Decimal</value>
+    <value>រយៈទទឹងទសភាគ</value>
   </data>
   <data name="PropertyLatitudeDecimal" xml:space="preserve">
-    <value>Latitude Decimal</value>
+    <value>រយៈបណ្តោយទសភាគ</value>
   </data>
   <data name="PropertyAltitude" xml:space="preserve">
-    <value>Altitude</value>
+    <value>រយៈកម្ពស់</value>
   </data>
   <data name="PropertyDateTaken" xml:space="preserve">
-    <value>Date Taken</value>
+    <value>កាលបរិច្ឆេទ​ថត</value>
   </data>
   <data name="PropertyCameraManufacturer" xml:space="preserve">
-    <value>Camera Manufacturer</value>
+    <value>ក្រុមហ៊ុនផលិតកាមេរ៉ា</value>
   </data>
   <data name="PropertyCameraModel" xml:space="preserve">
-    <value>Camera Model</value>
+    <value>ម៉ូដែលកាមេរ៉ា</value>
   </data>
   <data name="PropertyExposureTime" xml:space="preserve">
-    <value>Exposure Time</value>
+    <value>ពេលវេលាបញ្ចេញពន្លឺ</value>
   </data>
   <data name="PropertyFocalLength" xml:space="preserve">
     <value>Focal Length</value>
   </data>
   <data name="PropertyAperture" xml:space="preserve">
-    <value>Aperture</value>
+    <value>ជម្រៅ​រូបភាព</value>
   </data>
   <data name="PropertyPeopleNames" xml:space="preserve">
-    <value>People Names</value>
+    <value>ឈ្មោះមនុស្ស</value>
   </data>
   <data name="PropertyChannelCount" xml:space="preserve">
-    <value>Channel Count</value>
+    <value>ចំនួនកាណាល់</value>
   </data>
   <data name="PropertyFormat" xml:space="preserve">
-    <value>Format</value>
+    <value>ទ្រង់ទ្រាយ</value>
   </data>
   <data name="PropertySampleRate" xml:space="preserve">
     <value>Sample Rate</value>
   </data>
   <data name="PropertyAlbumArtist" xml:space="preserve">
-    <value>Album Artist</value>
+    <value>អាល់ប៊ុមសិល្បករ</value>
   </data>
   <data name="PropertyAlbumTitle" xml:space="preserve">
-    <value>Album Title</value>
+    <value>ចំណង​ជើង​អាល់ប៊ុម</value>
   </data>
   <data name="Artist" xml:space="preserve">
-    <value>Artist</value>
+    <value>សិល្បករ</value>
   </data>
   <data name="PropertyBeatsPerMinute" xml:space="preserve">
-    <value>Beats Per Minute</value>
+    <value>ចង្វាក់ក្នុងមួយនាទី</value>
   </data>
   <data name="PropertyComposer" xml:space="preserve">
-    <value>Composer</value>
+    <value>អ្នក​និពន្ធ</value>
   </data>
   <data name="Conductor" xml:space="preserve">
     <value>Conductor</value>
   </data>
   <data name="PropertyDiscNumber" xml:space="preserve">
-    <value>Disc Number</value>
+    <value>លេខឌីស</value>
   </data>
   <data name="PropertyGenre" xml:space="preserve">
-    <value>Genre</value>
+    <value>ប្រភេទ</value>
   </data>
   <data name="PropertyTrackNumber" xml:space="preserve">
-    <value>Track Number</value>
+    <value>លេខ​បទ</value>
   </data>
   <data name="PropertyDuration" xml:space="preserve">
-    <value>Duration</value>
+    <value>រយៈពេល</value>
   </data>
   <data name="PropertyFrameCount" xml:space="preserve">
-    <value>Frame Count</value>
+    <value>ចំនួនស៊ុម</value>
   </data>
   <data name="PropertyProtectionType" xml:space="preserve">
     <value>Protection Type</value>
   </data>
   <data name="PropertyAuthorUrl" xml:space="preserve">
-    <value>Author Url</value>
+    <value>អ្នកនិពន្ធ Url</value>
   </data>
   <data name="PropertyContentDistributor" xml:space="preserve">
-    <value>Content Distributor</value>
+    <value>អ្នកចែកចាយមាតិកា</value>
   </data>
   <data name="PropertyDateReleased" xml:space="preserve">
-    <value>Date Released</value>
+    <value>កាលបរិច្ឆេទចេញផ្សាយ</value>
   </data>
   <data name="PropertySeriesName" xml:space="preserve">
-    <value>Series Name</value>
+    <value>ឈ្មោះស៊េរី</value>
   </data>
   <data name="PropertySeasonNumber" xml:space="preserve">
-    <value>Season Number</value>
+    <value>លេខរដូវកាល</value>
   </data>
   <data name="PropertyEpisodeNumber" xml:space="preserve">
-    <value>Episode Number</value>
+    <value>លេខភាគ</value>
   </data>
   <data name="PropertyProducer" xml:space="preserve">
-    <value>Producer</value>
+    <value>ផលិតករ</value>
   </data>
   <data name="PropertyPromotionUrl" xml:space="preserve">
     <value>Promotion Url</value>
@@ -840,67 +846,67 @@
     <value>Thumbnail Small Uri</value>
   </data>
   <data name="PropertyUserWebUrl" xml:space="preserve">
-    <value>User Web Url</value>
+    <value>វេបយូអអិលអ្នកប្រើប្រាស់</value>
   </data>
   <data name="PropertyWriter" xml:space="preserve">
-    <value>Writer</value>
+    <value>អ្នកនិពន្ធ</value>
   </data>
   <data name="PropertyYear" xml:space="preserve">
-    <value>Year</value>
+    <value>ឆ្នាំ</value>
   </data>
   <data name="PropertyContributor" xml:space="preserve">
-    <value>Contributor</value>
+    <value>អ្នក​ចូលរួម</value>
   </data>
   <data name="PropertyLastAuthor" xml:space="preserve">
-    <value>Last Author</value>
+    <value>អ្នកនិពន្ធចុងក្រោយ</value>
   </data>
   <data name="PropertyRevisionNumber" xml:space="preserve">
-    <value>Revision Number</value>
+    <value>ចំនួន​ពិនិត្យ​ឡើង​វិញ</value>
   </data>
   <data name="PropertyVersion" xml:space="preserve">
     <value>ជំនាន់:</value>
   </data>
   <data name="PropertyDateCreated" xml:space="preserve">
-    <value>Date Created</value>
+    <value>កាលបរិច្ឆេទបង្កើត</value>
   </data>
   <data name="PropertyTotalEditingTime" xml:space="preserve">
-    <value>Total Editing Time</value>
+    <value>ពេលវេលាកែសម្រួលសរុប</value>
   </data>
   <data name="PropertyTemplate" xml:space="preserve">
-    <value>Template</value>
+    <value>ពុម្ព</value>
   </data>
   <data name="PropertyWordCount" xml:space="preserve">
-    <value>Word Count</value>
+    <value>ចំនួនពាក្យ</value>
   </data>
   <data name="PropertyCharacterCount" xml:space="preserve">
-    <value>Character Count</value>
+    <value>ចំនួនតួអក្សរ</value>
   </data>
   <data name="PropertyLineCount" xml:space="preserve">
-    <value>Line Count</value>
+    <value>ចំនួន​​​បន្ទាត់​</value>
   </data>
   <data name="PropertyParagraphCount" xml:space="preserve">
-    <value>Paragraph Count</value>
+    <value>ចំនួនកថាខណ្ឌ</value>
   </data>
   <data name="PropertyPageCount" xml:space="preserve">
-    <value>Page Count</value>
+    <value>ចំនួន​ទំព័រ</value>
   </data>
   <data name="PropertySlideCount" xml:space="preserve">
-    <value>Slide Count</value>
+    <value>ចំនួនស្លាយ</value>
   </data>
   <data name="PropertyFrameRate" xml:space="preserve">
     <value>Frame Rate</value>
   </data>
   <data name="PropertyEncodingBitrate" xml:space="preserve">
-    <value>Encoding Bitrate</value>
+    <value>អត្រាប៊ីតការអ៊ិនកូដ</value>
   </data>
   <data name="PropertyPreviewAudioEncodingBitrate" xml:space="preserve">
-    <value>Audio Encoding Bitrate</value>
+    <value>អត្រាប៊ីតអ៊ិនកូដអូឌីយ៉ូ</value>
   </data>
   <data name="PropertyPreviewVideoEncodingBitrate" xml:space="preserve">
-    <value>Video Encoding Bitrate</value>
+    <value>អត្រាប៊ីតអ៊ិនកូដវីដេអូ</value>
   </data>
   <data name="Compression" xml:space="preserve">
-    <value>Compression</value>
+    <value>ការបង្ហាប់</value>
   </data>
   <data name="PropertyFrameWidth" xml:space="preserve">
     <value>Frame Width</value>
@@ -909,100 +915,100 @@
     <value>Frame Height</value>
   </data>
   <data name="PropertyOrientation" xml:space="preserve">
-    <value>Orientation</value>
+    <value>ទិស</value>
   </data>
   <data name="PropertySectionCore" xml:space="preserve">
-    <value>Core</value>
+    <value>ស្នូល</value>
   </data>
   <data name="PropertySectionImage" xml:space="preserve">
-    <value>Image</value>
+    <value>រូបភាព</value>
   </data>
   <data name="PropertySectionPhoto" xml:space="preserve">
-    <value>Photo</value>
+    <value>រូបថត</value>
   </data>
   <data name="PropertySectionGPS" xml:space="preserve">
-    <value>GPS</value>
+    <value>ជីភីអេស</value>
   </data>
   <data name="PropertySectionMedia" xml:space="preserve">
-    <value>Media</value>
+    <value>មេឌៀ</value>
   </data>
   <data name="PropertySectionAudio" xml:space="preserve">
-    <value>Audio</value>
+    <value>អូឌីយ៉ូ</value>
   </data>
   <data name="PropertySectionMusic" xml:space="preserve">
-    <value>Music</value>
+    <value>តន្ត្រី</value>
   </data>
   <data name="PropertySectionVideo" xml:space="preserve">
-    <value>Video</value>
+    <value>វីដេអូ​</value>
   </data>
   <data name="Document" xml:space="preserve">
-    <value>Document</value>
+    <value>ឯកសារ</value>
   </data>
   <data name="Address" xml:space="preserve">
-    <value>Address</value>
+    <value>អាសយដ្ឋាន</value>
   </data>
   <data name="SelectionOptions" xml:space="preserve">
-    <value>Selection options</value>
+    <value>ជម្រើសជ្រើសរើស</value>
   </data>
   <data name="NavToolbarSelectionOptions.Label" xml:space="preserve">
-    <value>Select</value>
+    <value>ជ្រើសរើស</value>
   </data>
   <data name="RecycleBinItemAutomation" xml:space="preserve">
-    <value>Recycle bin item</value>
+    <value>ធាតុក្នុងធុងសំរាម</value>
   </data>
   <data name="ShortcutItemAutomation" xml:space="preserve">
-    <value>Shortcut item</value>
+    <value>ប្រភេទផ្លូវកាត់៖</value>
   </data>
   <data name="Drives" xml:space="preserve">
-    <value>Drives</value>
+    <value>ដ្រាយ</value>
   </data>
   <data name="PinToSidebarByDraggingCaptionText" xml:space="preserve">
-    <value>Move here</value>
+    <value>ផ្លាស់ទីនៅទីនេះ</value>
   </data>
   <data name="EjectNotificationHeader" xml:space="preserve">
-    <value>Safe to remove hardware</value>
+    <value>មានសុវត្ថិភាពក្នុងការដកហាតវែរចេញ</value>
   </data>
   <data name="EjectNotificationBody" xml:space="preserve">
-    <value>The device can now be safely removed from the computer.</value>
+    <value>ឧបករណ៍នេះអាចត្រូវបានយកចេញដោយសុវត្ថិភាពពីកុំព្យូទ័រពេលនេះ</value>
   </data>
   <data name="EjectNotificationErrorDialogHeader" xml:space="preserve">
-    <value>Problem Ejecting Device</value>
+    <value>មានបញ្ហាក្នុងច្រានឧបករណ៍ចេញ</value>
   </data>
   <data name="EjectNotificationErrorDialogBody" xml:space="preserve">
-    <value>This device is currently in use. Close any programs, windows or tabs that might be using the device, and then try again.</value>
+    <value>ឧបករណ៍នេះកំពុងប្រើប្រាស់ បិទកម្មវិធី វិនដូ ឬផ្ទាំងណាមួយដែលអាចនឹងកំពុងប្រើឧបករណ៍ ហើយបន្ទាប់មកព្យាយាមម្តងទៀត</value>
   </data>
   <data name="Eject" xml:space="preserve">
-    <value>Eject</value>
+    <value>ច្រានចេញ</value>
   </data>
   <data name="DuplicateTab" xml:space="preserve">
-    <value>Duplicate tab</value>
+    <value>បើកផ្ទាំងស្ទួន</value>
   </data>
   <data name="HorizontalMultitaskingControlMoveTabToNewWindow.Text" xml:space="preserve">
-    <value>Move tab to new window</value>
+    <value>ផ្លាស់ទីថេបទៅផ្ទាំងថ្មី</value>
   </data>
   <data name="NewTab" xml:space="preserve">
     <value>ថេបថ្មី</value>
   </data>
   <data name="ClearPropertiesFlyoutText.Text" xml:space="preserve">
-    <value>Some properties may contain personal information.</value>
+    <value>លក្ខណៈសម្បត្តិមួយចំនួនអាចផ្ទុកព័ត៌មានផ្ទាល់ខ្លួន</value>
   </data>
   <data name="ClearPropertiesButton.Content" xml:space="preserve">
-    <value>Clear All Properties</value>
+    <value>លុបលក្ខណៈសម្បត្តិទាំងអស់</value>
   </data>
   <data name="OngoingTasksTeachingTip.Subtitle" xml:space="preserve">
-    <value>Check the status of file operations here</value>
+    <value>ពិនិត្យស្ថានភាពប្រតិបត្តិការឯកសារនៅទីនេះ</value>
   </data>
   <data name="OngoingTasksTeachingTip.Title" xml:space="preserve">
-    <value>Status center</value>
+    <value>មណ្ឌលស្ថានភាព</value>
   </data>
   <data name="SearchPagePathBoxOverrideText" xml:space="preserve">
-    <value>Search results in {1} for {0}</value>
+    <value>លទ្ធផលស្វែងរកក្នុង {1} សម្រាប់ {0}</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Details</value>
+    <value>លម្អិត</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>ទេ</value>
   </data>
   <data name="ShowProtectedSystemFiles" xml:space="preserve">
     <value>Show protected system files</value>
@@ -1011,166 +1017,166 @@
     <value>Sync layout and sorting preferences across directories</value>
   </data>
   <data name="SettingsContextMenu.Text" xml:space="preserve">
-    <value>Customize the right click context menu</value>
+    <value>ប្តូរម៉ឺនុយបរិបទចុចខាងស្តាំ</value>
   </data>
   <data name="OriginalPath" xml:space="preserve">
-    <value>Original path</value>
+    <value>ផ្លូវដើម</value>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>បន្ថែម</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>កែសម្រួល</value>
   </data>
   <data name="Remove" xml:space="preserve">
-    <value>Remove</value>
+    <value>ដកចេញ</value>
   </data>
   <data name="SettingsMultitaskingAlwaysOpenDualPane" xml:space="preserve">
-    <value>Open tabs in dual pane mode</value>
+    <value>បើកផ្ទាំងផែនបែបផ្ទួន</value>
   </data>
   <data name="ShowOpenInNewPane" xml:space="preserve">
-    <value>Show option to open folders in a new pane</value>
+    <value>បង្ហាញជម្រើសដើម្បីបើកថតនៅក្នុងផ្ទាំងផែនថ្មី</value>
   </data>
   <data name="ShowCopyPath" xml:space="preserve">
-    <value>Show option to copy path</value>
+    <value>បង្ហាញជម្រើសដើម្បីចម្លងផ្លូវ</value>
   </data>
   <data name="ShowCreateFolderWithSelection" xml:space="preserve">
-    <value>Show option to create folder with selection</value>
+    <value>បង្ហាញជម្រើសដើម្បីបង្កើតថតជាមួយជម្រើស</value>
   </data>
   <data name="ShowCreateShortcut" xml:space="preserve">
-    <value>Show option to create shortcut</value>
+    <value>បង្ហាញជម្រើសដើម្បីបង្កើតផ្លូវកាត់</value>
   </data>
   <data name="NavigationToolbarNewPane.Label" xml:space="preserve">
-    <value>New pane</value>
+    <value>ផេនថ្មី</value>
   </data>
   <data name="OpenInNewPane" xml:space="preserve">
-    <value>Open in new pane</value>
+    <value>បើកក្នុងផែនថ្មី</value>
   </data>
   <data name="FilesAndFolders" xml:space="preserve">
     <value>ឯកសារ និងថត</value>
   </data>
   <data name="NavToolbarDetails.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Details (Ctrl+Shift+1)</value>
+    <value>លម្អិត (Ctrl+Shift+1)</value>
   </data>
   <data name="NavToolbarTiles.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Tiles (Ctrl+Shift+2)</value>
+    <value>ក្រឡា (Ctrl+Shift+2)</value>
   </data>
   <data name="DateDeleted" xml:space="preserve">
-    <value>Date deleted</value>
+    <value>កាលបរិច្ឆេទត្រូវបានលុប</value>
   </data>
   <data name="SidebarCloudDrives" xml:space="preserve">
-    <value>Cloud Drives</value>
+    <value>ថាសពពក</value>
   </data>
   <data name="Confirm" xml:space="preserve">
-    <value>Confirm</value>
+    <value>បញ្ជាក់</value>
   </data>
   <data name="DesiredName" xml:space="preserve">
-    <value>Desired name</value>
+    <value>ឈ្មោះដែលចង់បាន</value>
   </data>
   <data name="TogglePreviewPane" xml:space="preserve">
-    <value>Toggle the preview pane</value>
+    <value>បិទបើកផ្ទាំងមើលជាមុន</value>
   </data>
   <data name="ToggleDetailsPane" xml:space="preserve">
-    <value>Toggle the details pane</value>
+    <value>បិទបើកផ្ទាំងលម្អិត</value>
   </data>
   <data name="ToggleDetailsPaneDescription" xml:space="preserve">
-    <value>Toggle the details pane to view basic file properties</value>
+    <value>បិទបើកផ្ទាំងលម្អិត ដើម្បីមើលមូលដ្ឋានព័ត៌មានឯកសារ</value>
   </data>
   <data name="ToggleInfoPane" xml:space="preserve">
-    <value>Toggle the info pane</value>
+    <value>បិទបើកផ្ទាំងព័ត៌មាន</value>
   </data>
   <data name="ToggleInfoPaneDescription" xml:space="preserve">
-    <value>Toggle the info pane to view the detail/preview panes</value>
+    <value>បិទបើកផ្ទាំងព័ត៌មាន ដើម្បីមើលផ្ទាំងលម្អិត/មើលជាមុន</value>
   </data>
   <data name="ToggleToolbar" xml:space="preserve">
-    <value>Toggle the Toolbar</value>
+    <value>បិទបើករបារឧបករណ៍</value>
   </data>
   <data name="DetailsPanePreviewNotAvaliableText" xml:space="preserve">
-    <value>No preview available</value>
+    <value>មិនមានការមើលជាមុនទេ</value>
   </data>
   <data name="PropertyItemName" xml:space="preserve">
-    <value>Item Name</value>
+    <value>ឈ្មោះធាតុ</value>
   </data>
   <data name="UnpinFolderFromSidebar" xml:space="preserve">
-    <value>Unpin from Sidebar</value>
+    <value>ដកខ្ទាស់ពីរបារចំហៀង</value>
   </data>
   <data name="Network" xml:space="preserve">
-    <value>Network</value>
+    <value>បណ្តាញ</value>
   </data>
   <data name="PreviewPaneFileDetails.AutomationProperties.Name" xml:space="preserve">
-    <value>File details</value>
+    <value>ព័ត៌មានលម្អិតអំពីឯកសារ</value>
   </data>
   <data name="PreviewPaneFilePreview.AutomationProperties.Name" xml:space="preserve">
-    <value>File preview</value>
+    <value>មើល​ឯកសារ​ជា​មុន</value>
   </data>
   <data name="SelectedFilePreviewPane.AutomationProperties.Name" xml:space="preserve">
-    <value>Selected file preview pane</value>
+    <value>ផែនជ្រើសរើសឯកសារមើលមុន</value>
   </data>
   <data name="Feedback" xml:space="preserve">
     <value>ផ្តល់យោបល់</value>
   </data>
   <data name="CloudDriveSyncStatus_Online" xml:space="preserve">
-    <value>Available when online</value>
+    <value>អាចប្រើបានអហ្វឡាញ</value>
   </data>
   <data name="Documentation" xml:space="preserve">
     <value>ឯកសារ</value>
   </data>
   <data name="CloudDriveSyncStatus_Offline" xml:space="preserve">
-    <value>Available offline</value>
+    <value>លទ្ធភាពអហ្វឡាញ</value>
   </data>
   <data name="CloudDriveSyncStatus_PartialOffline" xml:space="preserve">
-    <value>Partially available offline</value>
+    <value>លទ្ធភាពអហ្វឡាញដោយផ្នែក</value>
   </data>
   <data name="CloudDriveSyncStatus_Sync" xml:space="preserve">
-    <value>Syncing</value>
+    <value>កំពុងធ្វើសមកាលកម្ម</value>
   </data>
   <data name="CloudDriveSyncStatus_Excluded" xml:space="preserve">
-    <value>Excluded from sync</value>
+    <value>ដកចេញពីការធ្វើសមកាលកម្ម</value>
   </data>
   <data name="ItemSizeNotCalculated" xml:space="preserve">
-    <value>Not calculated</value>
+    <value>មិនបានគណនា</value>
   </data>
   <data name="CloudDriveSyncStatus_Unknown" xml:space="preserve">
-    <value>Unknown</value>
+    <value>មិនស្គាល់</value>
   </data>
   <data name="RenameFileDialog.Text" xml:space="preserve">
-    <value>If you change a file extension, the file might become unusable. Are you sure you want to change it?</value>
+    <value>ប្រសិនបើអ្នកផ្លាស់ប្តូរផ្នែកបន្ថែមឯកសារ ឯកសារអាចនឹងមិនអាចប្រើបាន តើអ្នកប្រាកដថាចង់ផ្លាស់ប្តូរវាទេ?</value>
   </data>
   <data name="DriveTypeCDRom" xml:space="preserve">
-    <value>CD ROM Drive</value>
+    <value>ដ្រាយស៊ីឌីរ៉ូម</value>
   </data>
   <data name="DriveTypeCloudDrive" xml:space="preserve">
-    <value>Cloud Drive</value>
+    <value>ដ្រាយពពក</value>
   </data>
   <data name="DriveTypeFixed" xml:space="preserve">
     <value>Fixed Disk Drive</value>
   </data>
   <data name="DriveTypeFloppyDisk" xml:space="preserve">
-    <value>Floppy Disk Drive</value>
+    <value>ថាសទន់</value>
   </data>
   <data name="DriveTypeNetwork" xml:space="preserve">
-    <value>Network Drive</value>
+    <value>ថាសបណ្តាញ</value>
   </data>
   <data name="DriveTypeNoRootDirectory" xml:space="preserve">
-    <value>Unmounted Drive</value>
+    <value>ថាស​ដែល​មិន​បាន​ភ្ជាប់</value>
   </data>
   <data name="DriveTypeRam" xml:space="preserve">
-    <value>RAM Disk Drive</value>
+    <value>ដ្រាយថាសរ៉េម</value>
   </data>
   <data name="DriveTypeRemovable" xml:space="preserve">
-    <value>Removable Storage Device</value>
+    <value>ឧបករណ៍ផ្ទុកដែលអាចដកចេញបាន</value>
   </data>
   <data name="DriveTypeUnknown" xml:space="preserve">
-    <value>Unknown</value>
+    <value>មិនស្គាល់</value>
   </data>
   <data name="DriveTypeVirtualDrive" xml:space="preserve">
-    <value>Virtual Drive</value>
+    <value>ថាសនិម្មិត</value>
   </data>
   <data name="DateCreated" xml:space="preserve">
-    <value>Date created</value>
+    <value>កាលបរិច្ឆេទបង្កើត</value>
   </data>
   <data name="MoreOptions" xml:space="preserve">
-    <value>More options...</value>
+    <value>បង្ហាញជម្រើសច្រើនទៀត...</value>
   </data>
   <data name="DrivesWidgetOptionsFlyoutMapNetDriveMenuItem.Text" xml:space="preserve">
     <value>Map network drive</value>
@@ -1179,10 +1185,10 @@
     <value>Pinned</value>
   </data>
   <data name="SidebarLibraries" xml:space="preserve">
-    <value>Libraries</value>
+    <value>បណ្ណាល័យ</value>
   </data>
   <data name="NoItemSelected" xml:space="preserve">
-    <value>No item selected</value>
+    <value>មិនមានធាតុដែលត្រូវបានជ្រើសរើស</value>
   </data>
   <data name="PropertyItemTarget" xml:space="preserve">
     <value>Target</value>
@@ -1191,10 +1197,10 @@
     <value>Arguments</value>
   </data>
   <data name="Default" xml:space="preserve">
-    <value>Default</value>
+    <value>បុរេជម្រើស</value>
   </data>
   <data name="PropertyItemCount" xml:space="preserve">
-    <value>Item count</value>
+    <value>ចំនួនធាតុ</value>
   </data>
   <data name="ElevateConfirmDialog.Title" xml:space="preserve">
     <value>This action requires administrator rights</value>
@@ -1293,85 +1299,85 @@
     <value>Type:</value>
   </data>
   <data name="ToolTipDescriptionDate" xml:space="preserve">
-    <value>Date modified:</value>
+    <value>កាលបរិច្ឆេទកែប្រែ</value>
   </data>
   <data name="OpenWith" xml:space="preserve">
-    <value>Open with</value>
+    <value>បើកជាមួយ</value>
   </data>
   <data name="FileBrowserThumbnailIconColumnGrid.AutomationProperties.Name" xml:space="preserve">
-    <value>File icon</value>
+    <value>អាយខនឯកសារ</value>
   </data>
   <data name="DetailsViewHeaderFlyout_ShowOriginalPath.Text" xml:space="preserve">
     <value>Original path column</value>
   </data>
   <data name="DetailsViewHeaderFlyout_ShowItemType.Text" xml:space="preserve">
-    <value>Item type column</value>
+    <value>ជួរឈរប្រភេទធាតុ</value>
   </data>
   <data name="DetailsViewHeaderFlyout_ShowDateModified.Text" xml:space="preserve">
-    <value>Date modified column</value>
+    <value>ជួរឈរកាលបរិច្ឆេទកែប្រែ</value>
   </data>
   <data name="DetailsViewHeaderFlyout_ShowDateDeleted.Text" xml:space="preserve">
-    <value>Date deleted column</value>
+    <value>ជួរឈរកាលបរិច្ឆេទលុប</value>
   </data>
   <data name="Sort" xml:space="preserve">
-    <value>Sort</value>
+    <value>តម្រៀប​</value>
   </data>
   <data name="DateModifiedLowerCase" xml:space="preserve">
-    <value>Date modified</value>
+    <value>កាលបរិច្ឆេទកែប្រែ</value>
   </data>
   <data name="OriginalFolder" xml:space="preserve">
     <value>Original folder</value>
   </data>
   <data name="Descending" xml:space="preserve">
-    <value>Descending</value>
+    <value>ចុះ</value>
   </data>
   <data name="ItemSizeText_Huge" xml:space="preserve">
-    <value>Huge</value>
+    <value>ធំសម្បើម</value>
   </data>
   <data name="ItemSizeText_VeryLarge" xml:space="preserve">
-    <value>Very large</value>
+    <value>ធំខ្លាំង</value>
   </data>
   <data name="ItemSizeText_Large" xml:space="preserve">
-    <value>Large</value>
+    <value>ធំ</value>
   </data>
   <data name="ItemSizeText_Medium" xml:space="preserve">
-    <value>Medium</value>
+    <value>មធ្យម</value>
   </data>
   <data name="ItemSizeText_Small" xml:space="preserve">
-    <value>Small</value>
+    <value>តូច</value>
   </data>
   <data name="ItemSizeText_Tiny" xml:space="preserve">
-    <value>Tiny</value>
+    <value>តូច​ល្អិត</value>
   </data>
   <data name="Future" xml:space="preserve">
-    <value>Future</value>
+    <value>អនាគត</value>
   </data>
   <data name="Today" xml:space="preserve">
-    <value>Today</value>
+    <value>ថ្ងៃនេះ</value>
   </data>
   <data name="Yesterday" xml:space="preserve">
-    <value>Yesterday</value>
+    <value>ម្សិលមិញ</value>
   </data>
   <data name="EarlierThisWeek" xml:space="preserve">
-    <value>Earlier this week</value>
+    <value>កាលពីដើមសប្តាហ៍នេះ</value>
   </data>
   <data name="LastWeek" xml:space="preserve">
-    <value>Last week</value>
+    <value>សប្តាហ៍មុន</value>
   </data>
   <data name="EarlierThisMonth" xml:space="preserve">
-    <value>Earlier this month</value>
+    <value>កាលពីដើមខែនេះ</value>
   </data>
   <data name="LastMonth" xml:space="preserve">
-    <value>Last month</value>
+    <value>ខែ​មុន</value>
   </data>
   <data name="EarlierThisYear" xml:space="preserve">
-    <value>Earlier this year</value>
+    <value>កាលពីដើមឆ្នាំនេះ</value>
   </data>
   <data name="LastYear" xml:space="preserve">
-    <value>Last year</value>
+    <value>ឆ្នាំមុន</value>
   </data>
   <data name="YearN" xml:space="preserve">
-    <value>Year {0}</value>
+    <value>ឆ្នាំ {0}</value>
   </data>
   <data name="GroupItemsCount_Singular" xml:space="preserve">
     <value>{0} item</value>
@@ -1380,52 +1386,52 @@
     <value>{0} items</value>
   </data>
   <data name="ReopenClosedTab" xml:space="preserve">
-    <value>Reopen closed tab</value>
+    <value>បើកផ្ទាំងបានបិទឡើងវិញ</value>
   </data>
   <data name="Rename" xml:space="preserve">
-    <value>Rename</value>
+    <value>ប្តូរឈ្មោះ</value>
   </data>
   <data name="Privacy" xml:space="preserve">
-    <value>Privacy</value>
+    <value>ឯកជនភាព</value>
   </data>
   <data name="TheRecycleBin" xml:space="preserve">
-    <value>the Recycle Bin</value>
+    <value>ធុងសម្រាម</value>
   </data>
   <data name="Canceling" xml:space="preserve">
-    <value>Canceling</value>
+    <value>កំពុងបោះបង់</value>
   </data>
   <data name="Clear" xml:space="preserve">
-    <value>Clear</value>
+    <value>សម្អាត</value>
   </data>
   <data name="Widgets" xml:space="preserve">
-    <value>Widgets</value>
+    <value>ធាតុក្រាហ្វិក</value>
   </data>
   <data name="SyncStatus" xml:space="preserve">
-    <value>Sync status</value>
+    <value>ស្ថានភាពសមកាល</value>
   </data>
   <data name="Security" xml:space="preserve">
-    <value>Security</value>
+    <value>សុវត្ថិភាព</value>
   </data>
   <data name="AdvancedPermissions" xml:space="preserve">
-    <value>Advanced permissions</value>
+    <value>ការអនុញ្ញាតកម្រិតខ្ពស់</value>
   </data>
   <data name="Allow" xml:space="preserve">
-    <value>Allow</value>
+    <value>អនុញ្ញាត</value>
   </data>
   <data name="Deny" xml:space="preserve">
-    <value>Deny</value>
+    <value>បដិសេធ</value>
   </data>
   <data name="SecurityFullControlLabel.Text" xml:space="preserve">
-    <value>Full control</value>
+    <value>សិទ្ធិពេញលេញ</value>
   </data>
   <data name="SecurityListDirectoryLabel.Text" xml:space="preserve">
     <value>List directory contents</value>
   </data>
   <data name="Modify" xml:space="preserve">
-    <value>Modify</value>
+    <value>កែសម្រួល</value>
   </data>
   <data name="SecurityPermissionsHeaderText" xml:space="preserve">
-    <value>Permissions for {0}</value>
+    <value>សិទ្ធិសម្រាប់ {0}</value>
   </data>
   <data name="SecurityReadAndExecuteLabel.Text" xml:space="preserve">
     <value>Read and execute</value>
@@ -1434,82 +1440,82 @@
     <value>Read</value>
   </data>
   <data name="SecurityUsersGroupLabel.Text" xml:space="preserve">
-    <value>Group or user names</value>
+    <value>ឈ្មោះក្រុម ឬអ្នកប្រើប្រាស់</value>
   </data>
   <data name="Write" xml:space="preserve">
     <value>Write</value>
   </data>
   <data name="SecurityUnknownAccount" xml:space="preserve">
-    <value>Unknown account</value>
+    <value>គណនីមិនស្គាល់</value>
   </data>
   <data name="SecurityCannotReadProperties.Text" xml:space="preserve">
-    <value>You do not have permissions to view the security properties of this object. Click "Advanced permissions" to proceed.</value>
+    <value>អ្នកមិនមានសិទ្ធិមើលលក្ខណៈសម្បត្តិសុវត្ថិភាពរបស់វត្ថុនេះទេ។ ចុច "ការអនុញ្ញាតកម្រិតខ្ពស់" ដើម្បីបន្ត</value>
   </data>
   <data name="SecurityOwnerLabel.Text" xml:space="preserve">
-    <value>Owner:</value>
+    <value>ម្ចាស់៖</value>
   </data>
   <data name="SecurityUnknownOwnerText.Text" xml:space="preserve">
-    <value>Unknown owner</value>
+    <value>មិនស្គាល់ម្ចាស់</value>
   </data>
   <data name="ExtractArchive" xml:space="preserve">
     <value>Extract archive</value>
   </data>
   <data name="DecompressArchiveDialogOpenDestinationWhenComplete.Content" xml:space="preserve">
-    <value>Open destination folder when complete</value>
+    <value>បើកថតទិសដៅនៅពេលបញ្ចប់</value>
   </data>
   <data name="BaseLayoutItemContextFlyoutExtractToChildFolder" xml:space="preserve">
     <value>Extract to {0}\</value>
   </data>
   <data name="SideBarCreateNewLibrary.Text" xml:space="preserve">
-    <value>Create new library</value>
+    <value>បង្កើតបណ្ណាល័យថ្មី</value>
   </data>
   <data name="SideBarRestoreLibraries.Text" xml:space="preserve">
-    <value>Restore default libraries</value>
+    <value>ស្តារបណ្ណាល័យលំនាំដើម</value>
   </data>
   <data name="DialogRestoreLibrariesSubtitleText" xml:space="preserve">
-    <value>Are you sure you want to restore the default libraries? All your files will remain on your storage.</value>
+    <value>តើអ្នកប្រាកដថាចង់ស្ដារបណ្ណាល័យលំនាំដើមទេ? ឯកសារទាំងអស់របស់អ្នកនឹងនៅតែមាននៅលើទំហំផ្ទុករបស់អ្នក</value>
   </data>
   <data name="DialogRestoreLibrariesTitleText" xml:space="preserve">
-    <value>Restore Libraries</value>
+    <value>ស្តារបណ្ណាល័យ</value>
   </data>
   <data name="PropertyFileOwner" xml:space="preserve">
-    <value>Owner</value>
+    <value>ម្ចាស់</value>
   </data>
   <data name="SecuritySpecialLabel.Text" xml:space="preserve">
-    <value>Special</value>
+    <value>ពិសេស</value>
   </data>
   <data name="Access" xml:space="preserve">
-    <value>Access</value>
+    <value>អាក់សេស</value>
   </data>
   <data name="SecurityAdvancedAppliesTo" xml:space="preserve">
-    <value>Applies to</value>
+    <value>អនុវត្តចំពោះ</value>
   </data>
   <data name="Principal" xml:space="preserve">
     <value>Principal</value>
   </data>
   <data name="SecurityAdvancedFlagsFilesLabel" xml:space="preserve">
-    <value>files</value>
+    <value>ឯកសារ</value>
   </data>
   <data name="SecurityAdvancedFlagsFolderLabel" xml:space="preserve">
-    <value>this folder</value>
+    <value>ថតនេះ</value>
   </data>
   <data name="SecurityAdvancedFlagsSubfoldersLabel" xml:space="preserve">
-    <value>subfolders</value>
+    <value>ថតរង</value>
   </data>
   <data name="Inherited" xml:space="preserve">
     <value>Inherited</value>
   </data>
   <data name="Permissions" xml:space="preserve">
-    <value>Permissions</value>
+    <value>សិទ្ធិ</value>
   </data>
   <data name="SecurityAdvancedCannotReadProperties.Text" xml:space="preserve">
     <value>You do not have permissions to view the security properties of this object. You can try to take ownership of this object.</value>
   </data>
   <data name="SecurityAdvancedFolderFiles.Text" xml:space="preserve">
-    <value>This folder and files</value>
+    <value>ថត និងឯកសារនេះ</value>
   </data>
   <data name="SecurityAdvancedFolderSubfoldersFiles.Text" xml:space="preserve">
-    <value>This folder, subfolders and files</value>
+    <value>ថត ថតរង និងឯកសារនេះ</value>
   </data>
   <data name="SecurityAdvancedOnlyFiles.Text" xml:space="preserve">
     <value>Only files</value>
@@ -1590,16 +1596,16 @@
     <value>បិទផ្ទាំងសកម្ម</value>
   </data>
   <data name="EnterCompactOverlay" xml:space="preserve">
-    <value>Enter compact overlay</value>
+    <value>ចូលត្រួលើគ្នាដែល</value>
   </data>
   <data name="ExitCompactOverlay" xml:space="preserve">
     <value>Exit compact overlay</value>
   </data>
   <data name="PropertyFileDescription" xml:space="preserve">
-    <value>File description</value>
+    <value>ពិពណ៌នាឯកសារ</value>
   </data>
   <data name="PropertyCompany" xml:space="preserve">
-    <value>Company</value>
+    <value>ឈ្មោះក្រុមហ៊ុន</value>
   </data>
   <data name="PropertyLanguage" xml:space="preserve">
     <value>ភាសា</value>
@@ -1608,7 +1614,7 @@
     <value>Trademarks</value>
   </data>
   <data name="PropertyFileVersion" xml:space="preserve">
-    <value>File version</value>
+    <value>ជំនាន់ឯកសារ</value>
   </data>
   <data name="PreviewPaneLoadCloudItemButton.Text" xml:space="preserve">
     <value>Load full preview</value>
@@ -1620,31 +1626,31 @@
     <value>{0, plural, one {# item} other {# items}} ({1, plural, one {# file} other {# files}}, {2, plural, one {# folder} other {# folders}})</value>
   </data>
   <data name="PropertyUncompressedSize" xml:space="preserve">
-    <value>Uncompressed size</value>
+    <value>ទំហំមិនទាន់បង្ហាប់</value>
   </data>
   <data name="WSL" xml:space="preserve">
     <value>WSL</value>
   </data>
   <data name="SideBarHideSectionFromSideBar.Text" xml:space="preserve">
-    <value>Hide {0} section</value>
+    <value>លាក់ផ្នែក {0}</value>
   </data>
   <data name="AddFile" xml:space="preserve">
-    <value>Add file</value>
+    <value>បន្ថែមឯកសារ</value>
   </data>
   <data name="ConsentDialogTitle" xml:space="preserve">
-    <value>Updates available</value>
+    <value>មានលទ្ធភាពអាប់ដេត</value>
   </data>
   <data name="ConsentDialogContent" xml:space="preserve">
-    <value>Updates are ready to install</value>
+    <value>ការអាប់ដេតរួចរាល់ក្នុងការដំឡើង</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>Close</value>
+    <value>បិទ</value>
   </data>
   <data name="ConsentDialogPrimaryButtonText" xml:space="preserve">
-    <value>Update</value>
+    <value>អាប់ដេត</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Home</value>
+    <value>ទំព័រដើម</value>
   </data>
   <data name="BaseLayoutContextFlyoutDetails.KeyboardAcceleratorTextOverride" xml:space="preserve">
     <value>Ctrl+Shift+1</value>
@@ -1668,40 +1674,40 @@
     <value>Open parent folder</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>Unknown</value>
+    <value>មិនស្គាល់</value>
   </data>
   <data name="EditTags" xml:space="preserve">
-    <value>Edit tags</value>
+    <value>កែប្រែថេគ</value>
   </data>
   <data name="PropertyPartOfSet" xml:space="preserve">
     <value>Part of set</value>
   </data>
   <data name="InsertDiscDialog.OpenDriveButton" xml:space="preserve">
-    <value>Open drive</value>
+    <value>បើកដ្រាយ</value>
   </data>
   <data name="InsertDiscDialog.Text" xml:space="preserve">
-    <value>Please insert a disc into drive {0}</value>
+    <value>សូមបញ្ចូលឌីសទៅក្នុងដ្រាយ {0}</value>
   </data>
   <data name="InsertDiscDialog.Title" xml:space="preserve">
-    <value>Insert a disc</value>
+    <value>បញ្ចូលឌីស</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>OK</value>
+    <value>អូខេ</value>
   </data>
   <data name="AskCredentialDialog.Title" xml:space="preserve">
     <value>Credential required</value>
   </data>
   <data name="CredentialDialogAnonymous.Content" xml:space="preserve">
-    <value>Anonymous</value>
+    <value>អនាមិក</value>
   </data>
   <data name="CredentialDialogDescription.Text" xml:space="preserve">
     <value>Provide your credential:</value>
   </data>
   <data name="CredentialDialogUserName.PlaceholderText" xml:space="preserve">
-    <value>UserName</value>
+    <value>អត្ថនាម</value>
   </data>
   <data name="NoSearchResultsFound" xml:space="preserve">
-    <value>No items found</value>
+    <value>រកមិនឃើញធាតុទេ</value>
   </data>
   <data name="OpenLogLocation" xml:space="preserve">
     <value>បើកទៅកាន់ទីតាំងឯកសារ</value>
@@ -1713,25 +1719,25 @@
     <value>ជួរឈរ</value>
   </data>
   <data name="Tiles" xml:space="preserve">
-    <value>Tiles</value>
+    <value>ក្បឿង</value>
   </data>
   <data name="OpenFoldersInNewTab" xml:space="preserve">
-    <value>Open folders in new tab</value>
+    <value>បើកថតក្នុងថែបថ្មី</value>
   </data>
   <data name="StatusCenter" xml:space="preserve">
-    <value>Status center</value>
+    <value>មណ្ឌលស្ថានភាព</value>
   </data>
   <data name="DetailsViewHeaderFlyout_ShowDateCreated.Text" xml:space="preserve">
     <value>Date created column</value>
   </data>
   <data name="DetailsViewHeaderFlyout_ShowItemSize.Text" xml:space="preserve">
-    <value>Item size column</value>
+    <value>ជួរឈរទំហំធាតុ</value>
   </data>
   <data name="ExperimentalFeatureFlags" xml:space="preserve">
-    <value>Experimental feature flags</value>
+    <value>ទង់មុខងារពិសោធន៍</value>
   </data>
   <data name="HelpAndSupport" xml:space="preserve">
-    <value>ជំនួយ</value>
+    <value>ជំនួយ និងគាំទ្រ</value>
   </data>
   <data name="SubmitFeatureRequest" xml:space="preserve">
     <value>ដាក់ស្នើសុំមុខងារ</value>
@@ -1746,31 +1752,31 @@
     <value>Use Files as Open File Dialog</value>
   </data>
   <data name="Tag" xml:space="preserve">
-    <value>Tag</value>
+    <value>ស្លាក</value>
   </data>
   <data name="SettingsOpenItemsWithOneClick" xml:space="preserve">
     <value>Open items with a single click</value>
   </data>
   <data name="FolderPath" xml:space="preserve">
-    <value>Folder path</value>
+    <value>ទីតាំង​ថត</value>
   </data>
   <data name="ExportSettings" xml:space="preserve">
-    <value>Export settings</value>
+    <value>ការកំណត់នាំចេញ</value>
   </data>
   <data name="ImportSettings" xml:space="preserve">
-    <value>Import settings</value>
+    <value>ការកំណត់នាំចូល</value>
   </data>
   <data name="SettingsImportErrorDescription" xml:space="preserve">
-    <value>Couldn't import settings. The settings file is corrupted.</value>
+    <value>មិនអាចនាំចូលការកំណត់បានទេ ឯកសារការកំណត់ត្រូវបានខូច</value>
   </data>
   <data name="SettingsImportErrorTitle" xml:space="preserve">
-    <value>Error importing settings</value>
+    <value>កំហុសនាំចូលការកំណត់</value>
   </data>
   <data name="EmptyRecycleBin" xml:space="preserve">
-    <value>Empty Recycle Bin</value>
+    <value>ទទេរធុងសំរាម</value>
   </data>
   <data name="Sidebar" xml:space="preserve">
-    <value>Sidebar</value>
+    <value>បារចំហៀង</value>
   </data>
   <data name="ChooseCustomIcon" xml:space="preserve">
     <value>Choose a custom folder icon</value>
@@ -1785,7 +1791,7 @@
     <value>Open tab in existing instance when opening Files from another app</value>
   </data>
   <data name="StartupSettings" xml:space="preserve">
-    <value>Startup settings</value>
+    <value>កំណត់ពេលចាប់ផ្តើម</value>
   </data>
   <data name="Compatibility" xml:space="preserve">
     <value>Compatibility</value>
@@ -1866,7 +1872,7 @@
     <value>Calculate folder sizes</value>
   </data>
   <data name="RecentFiles" xml:space="preserve">
-    <value>Recent files</value>
+    <value>ឯកសារថ្មី</value>
   </data>
   <data name="SettingsOpenInLogin" xml:space="preserve">
     <value>Open Files on Windows startup</value>
@@ -1875,10 +1881,10 @@
     <value>Attributes</value>
   </data>
   <data name="Hidden" xml:space="preserve">
-    <value>Hidden</value>
+    <value>លាក់</value>
   </data>
   <data name="MoreDetails" xml:space="preserve">
-    <value>More details</value>
+    <value>លម្អិតបន្ថែមពីឯកសារ</value>
   </data>
   <data name="ReadOnly" xml:space="preserve">
     <value>Read only</value>
@@ -1887,10 +1893,10 @@
     <value>Cleanup your drive contents</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Type</value>
+    <value>ប្រភេទ</value>
   </data>
   <data name="Bytes" xml:space="preserve">
-    <value>Bytes</value>
+    <value>បៃ</value>
   </data>
   <data name="Extract" xml:space="preserve">
     <value>Extract</value>
@@ -1923,7 +1929,7 @@
     <value>Rotate right</value>
   </data>
   <data name="Install" xml:space="preserve">
-    <value>Install</value>
+    <value>តម្លើង</value>
   </data>
   <data name="CloseTabsToTheLeft" xml:space="preserve">
     <value>Close tabs to the left</value>
@@ -1934,8 +1940,11 @@
   <data name="CloseOtherTabs" xml:space="preserve">
     <value>Close other tabs</value>
   </data>
+  <data name="CloseAllTabs" xml:space="preserve">
+    <value>បិទផ្ទាំងទាំងអស់</value>
+  </data>
   <data name="Music" xml:space="preserve">
-    <value>Music</value>
+    <value>តន្ត្រី</value>
   </data>
   <data name="Pictures" xml:space="preserve">
     <value>Pictures</value>
@@ -1974,7 +1983,7 @@
     <value>Size all columns to fit</value>
   </data>
   <data name="Adaptive" xml:space="preserve">
-    <value>Adaptive layout</value>
+    <value>ប្លង់​បត់បែន</value>
   </data>
   <data name="AdaptiveShortcutTooltip" xml:space="preserve">
     <value>Adaptive layout (Ctrl+Shift+7)</value>
@@ -2001,7 +2010,7 @@
     <value>Set as desktop background</value>
   </data>
   <data name="SetAsDefault" xml:space="preserve">
-    <value>Set as default</value>
+    <value>កំណត់ជាបុរេជម្រើស</value>
   </data>
   <data name="DateColumn" xml:space="preserve">
     <value>Date column</value>
@@ -2142,7 +2151,7 @@
     <value>Password</value>
   </data>
   <data name="Format" xml:space="preserve">
-    <value>Format</value>
+    <value>ទ្រង់ទ្រាយ</value>
   </data>
   <data name="DetailsViewHeaderFlyout_ShowSyncStatus.Text" xml:space="preserve">
     <value>Sync status column</value>
@@ -2214,7 +2223,7 @@
     <value>Show option to open folders in a new window</value>
   </data>
   <data name="QuickAccess" xml:space="preserve">
-    <value>Quick access</value>
+    <value>ចូលប្រើរហ័ស</value>
   </data>
   <data name="NetworkAuthenticationDialogMessage" xml:space="preserve">
     <value>Enter your credentials to connect to: {0}</value>
@@ -2256,19 +2265,19 @@
     <value>Loading...</value>
   </data>
   <data name="ContextMenuOptions" xml:space="preserve">
-    <value>Context menu options</value>
+    <value>ធាតុក្រាហ្វិក</value>
   </data>
   <data name="ShowFileExtensions" xml:space="preserve">
     <value>Show file extensions</value>
   </data>
   <data name="ShowHiddenItems" xml:space="preserve">
-    <value>Show hidden items</value>
+    <value>បង្ហាញធាតុដែលលាក់</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
     <value>Format...</value>
   </data>
   <data name="Help" xml:space="preserve">
-    <value>Help</value>
+    <value>ជំនួយ</value>
   </data>
   <data name="FullScreen" xml:space="preserve">
     <value>Toggle full screen</value>
@@ -2334,7 +2343,7 @@
     <value>Decrease size</value>
   </data>
   <data name="IncreaseSize" xml:space="preserve">
-    <value>Increase size</value>
+    <value>បង្កើនទំហំ</value>
   </data>
   <data name="ToggleSortDirection" xml:space="preserve">
     <value>Toggle sort direction</value>
@@ -2361,7 +2370,7 @@
     <value>Toggle full screen</value>
   </data>
   <data name="EnterCompactOverlayDescription" xml:space="preserve">
-    <value>Enter compact overlay</value>
+    <value>ចូលត្រួលើគ្នាដែល</value>
   </data>
   <data name="ExitCompactOverlayDescription" xml:space="preserve">
     <value>Exit compact overlay</value>
@@ -2370,10 +2379,10 @@
     <value>Toggle compact overlay</value>
   </data>
   <data name="SearchDescription" xml:space="preserve">
-    <value>Go to search box</value>
+    <value>ទៅកាន់ប្រអប់ស្វែងរក</value>
   </data>
   <data name="ToggleShowHiddenItemsDescription" xml:space="preserve">
-    <value>Toggle whether to show hidden items</value>
+    <value>បិទបើកថាតើត្រូវបង្ហាញធាតុដែលលាក់ឬអត់</value>
   </data>
   <data name="ToggleDotFilesSettingDescription" xml:space="preserve">
     <value>Toggle whether to show dot files</value>
@@ -2382,16 +2391,22 @@
     <value>Toggle whether to show file extensions</value>
   </data>
   <data name="TogglePreviewPaneDescription" xml:space="preserve">
-    <value>Toggle the preview pane to view file previews</value>
+    <value>បិទបើកផ្ទាំងមើលជាមុន ដើម្បីមើលការមើលឯកសារជាមុន</value>
   </data>
   <data name="ToggleSidebarDescription" xml:space="preserve">
     <value>Toggle whether to show sidebar</value>
   </data>
   <data name="CopyItemDescription" xml:space="preserve">
-    <value>Copy item(s) to clipboard</value>
+    <value>ចម្លងធាតុក្នុងឃ្លីបបត</value>
   </data>
   <data name="CopyPathDescription" xml:space="preserve">
     <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathDescription" xml:space="preserve">
+    <value>Copy path of selected items to the clipboard</value>
+  </data>
+  <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
+    <value>Copy path of selected items with quotes to the clipboard</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Copy path of selected items with quotes to the clipboard</value>
@@ -2401,6 +2416,9 @@
   </data>
   <data name="PasteItemDescription" xml:space="preserve">
     <value>Paste item(s) from clipboard to current folder</value>
+  </data>
+  <data name="PasteShortcutDescription" xml:space="preserve">
+    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Paste item(s) from clipboard to selected folder</value>
@@ -2418,7 +2436,7 @@
     <value>Create new shortcut to any item</value>
   </data>
   <data name="EmptyRecycleBinDescription" xml:space="preserve">
-    <value>Empty recycle bin</value>
+    <value>ទទេរធុងសំរាម</value>
   </data>
   <data name="FormatDriveDescription" xml:space="preserve">
     <value>Open "Format Drive" menu for selected item</value>
@@ -2541,22 +2559,22 @@
     <value>Decrease item size in the current view</value>
   </data>
   <data name="LayoutIncreaseSizeDescription" xml:space="preserve">
-    <value>Increase item size in the current view</value>
+    <value>បង្កើនទំហំធាតុក្នុងទម្រង់បច្ចុប្បន្ន</value>
   </data>
   <data name="LayoutDetailsDescription" xml:space="preserve">
-    <value>Switch to details view</value>
+    <value>ប្តូរទៅពត៌មាន​លម្អិត</value>
   </data>
   <data name="LayoutTilesDescription" xml:space="preserve">
     <value>Switch to tiles view</value>
   </data>
   <data name="LayoutListDescription" xml:space="preserve">
-    <value>Switch to list view</value>
+    <value>ប្តូរទៅទម្រង់បញ្ជី</value>
   </data>
   <data name="List" xml:space="preserve">
-    <value>List</value>
+    <value>បញ្ជី</value>
   </data>
   <data name="Grid" xml:space="preserve">
-    <value>ក្រឡាចត្រង្គ</value>
+    <value>ចត្រង្គ</value>
   </data>
   <data name="LayoutGridDescription" xml:space="preserve">
     <value>ប្តូរទៅក្រឡាចត្រង្គ</value>
@@ -2565,7 +2583,7 @@
     <value>ប្តូរទៅទម្រង់ជួរឈរ</value>
   </data>
   <data name="LayoutAdaptiveDescription" xml:space="preserve">
-    <value>Switch views adaptively</value>
+    <value>ប្តូរទៅប្លង់​បត់បែន</value>
   </data>
   <data name="SortByNameDescription" xml:space="preserve">
     <value>Sort items by name</value>
@@ -2649,13 +2667,13 @@
     <value>បើកទំព័រថេបថ្មី</value>
   </data>
   <data name="NavigateBackDescription" xml:space="preserve">
-    <value>Navigate backward in navigation history</value>
+    <value>ត្រលប់ក្រោយតាមប្រវត្តិ</value>
   </data>
   <data name="NavigateForwardDescription" xml:space="preserve">
-    <value>Navigate forward in navigation history</value>
+    <value>រុករកថយក្រោយក្នុងប្រវត្តិរុករក</value>
   </data>
   <data name="NavigateUpDescription" xml:space="preserve">
-    <value>Navigate up one directory</value>
+    <value>ត្រលប់ទៅមួយថតខាងលើ</value>
   </data>
   <data name="DuplicateCurrentTabDescription" xml:space="preserve">
     <value>Duplicate current tab</value>
@@ -2680,6 +2698,9 @@
   </data>
   <data name="CloseOtherTabsSelectedDescription" xml:space="preserve">
     <value>Close tabs other than selected tab</value>
+  </data>
+  <data name="CloseAllTabsDescription" xml:space="preserve">
+    <value>បិទផ្ទាំងទាំងអស់រួមទាំងផ្ទាំងបច្ចុប្បន្ន</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Reopen last closed tab</value>
@@ -2762,11 +2783,11 @@
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.Up" xml:space="preserve">
-    <value>Up</value>
+    <value>លើ</value>
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.Home" xml:space="preserve">
-    <value>Home</value>
+    <value>ទំព័រដើម</value>
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.End" xml:space="preserve">
@@ -2794,7 +2815,7 @@
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.Clear" xml:space="preserve">
-    <value>Clear</value>
+    <value>សម្អាត</value>
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.Print" xml:space="preserve">
@@ -2802,7 +2823,7 @@
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.Help" xml:space="preserve">
-    <value>Help</value>
+    <value>ជំនួយ</value>
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.Mouse4" xml:space="preserve">
@@ -2917,13 +2938,13 @@
     <value>Closes current tab</value>
   </data>
   <data name="EditPath" xml:space="preserve">
-    <value>Edit path</value>
+    <value>កែប្រែផ្លូវ</value>
   </data>
   <data name="Redo" xml:space="preserve">
-    <value>Redo</value>
+    <value>ធ្វើទៀត</value>
   </data>
   <data name="Undo" xml:space="preserve">
-    <value>Undo</value>
+    <value>មិនធ្វើវិញ</value>
   </data>
   <data name="InvalidLocation" xml:space="preserve">
     <value>Invalid location</value>
@@ -2965,10 +2986,10 @@
     <value>Play the selected media files</value>
   </data>
   <data name="UndoDescription" xml:space="preserve">
-    <value>Undo the last file operation</value>
+    <value>មិនធ្វើប្រតិបត្តិការឯកសារចុងក្រោយ</value>
   </data>
   <data name="RedoDescription" xml:space="preserve">
-    <value>Redo the last file operation</value>
+    <value>ធ្វើប្រតិបត្តិការឯកសារចុងក្រោយឡើងវិញ</value>
   </data>
   <data name="Location" xml:space="preserve">
     <value>Location:</value>
@@ -2992,7 +3013,7 @@
     <value>Toggle grouping unit</value>
   </data>
   <data name="Year" xml:space="preserve">
-    <value>Year</value>
+    <value>ឆ្នាំ</value>
   </data>
   <data name="GroupByDateUnit" xml:space="preserve">
     <value>Group by date unit</value>
@@ -3376,7 +3397,7 @@
     <comment>One of the custom color themes</comment>
   </data>
   <data name="ClearCompleted" xml:space="preserve">
-    <value>Clear completed</value>
+    <value>សម្អាតបានបញ្ចប់</value>
   </data>
   <data name="NameWithColon" xml:space="preserve">
     <value>Name:</value>
@@ -3386,7 +3407,7 @@
     <comment>Shown in a StatusCenter card. Used as "64 MB of 1 GB processed"</comment>
   </data>
   <data name="ItemsLower" xml:space="preserve">
-    <value>items</value>
+    <value>ធាតុ</value>
   </data>
   <data name="CannotInitializeGitRepo" xml:space="preserve">
     <value>Files can't initialize this directory as a Git repository.</value>
@@ -3583,7 +3604,7 @@
     <value>Unblock downloaded file</value>
   </data>
   <data name="NoFileOperations" xml:space="preserve">
-    <value>No ongoing file operations</value>
+    <value>មិនមានប្រតិបត្តិការឯកសារដែលកំពុងដំណើរការទេ</value>
   </data>
   <data name="OpenOnStartupDisabled" xml:space="preserve">
     <value>The option to open Files on Windows Startup is not available due to your system settings or group policy. To re-enable, open the startup page in Task Manager.</value>
@@ -3664,7 +3685,7 @@
     <value>បើកផ្ទាំងថ្មី</value>
   </data>
   <data name="ChangeAlbumCover" xml:space="preserve">
-    <value>Change album cover</value>
+    <value>ប្តូរគម្របអាល់ប៊ុម</value>
   </data>
   <data name="ItemRenameFailed" xml:space="preserve">
     <value>Failed to rename item</value>
@@ -3685,18 +3706,18 @@
     <value>សំណួរ​និងពិភាក្សា</value>
   </data>
   <data name="TilesViewSizeInfo" xml:space="preserve">
-    <value>Additional sizes are not yet available for the Tiles View.</value>
+    <value>ទំហំបន្ថែមមិនទាន់មានសម្រាប់បង្ហាញក្បឿង</value>
   </data>
   <data name="Compact" xml:space="preserve">
     <value>Compact</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Small" xml:space="preserve">
-    <value>Small</value>
+    <value>តូច</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Medium" xml:space="preserve">
-    <value>Medium</value>
+    <value>មធ្យម</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Medium+" xml:space="preserve">
@@ -3720,7 +3741,7 @@
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Large" xml:space="preserve">
-    <value>Large</value>
+    <value>ធំ</value>
     <comment>Used to describe layout sizes</comment>
   </data>
   <data name="Large+" xml:space="preserve">
@@ -3758,7 +3779,7 @@
     <value>Restore defaults</value>
   </data>
   <data name="ChooseAnAction" xml:space="preserve">
-    <value>Choose an action</value>
+    <value>ជ្រើសរើសសកម្មភាព</value>
   </data>
   <data name="RestoreDefaultKeybindingsConfirmation" xml:space="preserve">
     <value>Are you sure you want to restore the default key bindings? This action cannot be undone.</value>
