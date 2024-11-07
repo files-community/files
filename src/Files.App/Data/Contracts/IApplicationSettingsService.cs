@@ -15,5 +15,10 @@ namespace Files.App.Data.Contracts
 		/// </summary>
 		bool ShowRunningAsAdminPrompt { get; set; }
 
+		/// <summary>
+		/// Gets or sets a value indicating whether or not to display a prompt when creating an alternate data stream.
+		/// </summary>
+		bool ShowDataStreamsAreHiddenPrompt { get; set; }
+
 	}
 }

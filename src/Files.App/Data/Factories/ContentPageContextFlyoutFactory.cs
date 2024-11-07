@@ -477,6 +477,11 @@ namespace Files.App.Data.Factories
 						&& (!selectedItems.FirstOrDefault()?.IsShortcut ?? false)
 						&& !currentInstanceViewModel.IsPageTypeRecycleBin,
 				}.Build(),
+				new ContextMenuFlyoutItemViewModelBuilder(Commands.CreateAlternateDataStream)
+				{
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowCreateAlternateDataStream &&
+						Commands.CreateAlternateDataStream.IsExecutable,
+				}.Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(Commands.Rename)
 				{
 					IsPrimary = true,

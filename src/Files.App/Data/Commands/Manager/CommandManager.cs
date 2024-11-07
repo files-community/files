@@ -67,6 +67,7 @@ namespace Files.App.Data.Commands
 		public IRichCommand RestoreAllRecycleBin => commands[CommandCodes.RestoreAllRecycleBin];
 		public IRichCommand RefreshItems => commands[CommandCodes.RefreshItems];
 		public IRichCommand Rename => commands[CommandCodes.Rename];
+		public IRichCommand CreateAlternateDataStream => commands[CommandCodes.CreateAlternateDataStream];
 		public IRichCommand CreateShortcut => commands[CommandCodes.CreateShortcut];
 		public IRichCommand CreateShortcutFromDialog => commands[CommandCodes.CreateShortcutFromDialog];
 		public IRichCommand CreateFolder => commands[CommandCodes.CreateFolder];
@@ -263,6 +264,7 @@ namespace Files.App.Data.Commands
 			[CommandCodes.RestoreAllRecycleBin] = new RestoreAllRecycleBinAction(),
 			[CommandCodes.RefreshItems] = new RefreshItemsAction(),
 			[CommandCodes.Rename] = new RenameAction(),
+			[CommandCodes.CreateAlternateDataStream] = new CreateAlternateDataStreamAction(),
 			[CommandCodes.CreateShortcut] = new CreateShortcutAction(),
 			[CommandCodes.CreateShortcutFromDialog] = new CreateShortcutFromDialogAction(),
 			[CommandCodes.CreateFolder] = new CreateFolderAction(),

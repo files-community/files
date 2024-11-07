@@ -211,6 +211,11 @@ namespace Files.App.Data.Contracts
 		bool ShowCopyPath { get; set; }
 
 		/// <summary>
+		/// Gets or sets a value indicating whether or not to show the option to create alternate data stream.
+		/// </summary>
+		bool ShowCreateAlternateDataStream { get; set; }
+
+		/// <summary>
 		/// Gets or sets a value indicating whether or not to show the option to create a shortcut.
 		/// </summary>
 		bool ShowCreateShortcut { get; set; }

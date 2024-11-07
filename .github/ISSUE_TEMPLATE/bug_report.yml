@@ -66,7 +66,7 @@ body:
     attributes:
       value: |
         > [!IMPORTANT]
-        > Please **upload** the log file rather than pasting it here.
+        > Please **upload** the log file by clicking "Attach files".
         >
         > Feel free to remove sensitive information such as your usernames or drive names.
 

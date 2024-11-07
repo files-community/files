@@ -19,6 +19,12 @@ namespace Files.App.Services.Settings
 			get => Get(true);
 			set => Set(value);
 		}
+		
+		public bool ShowDataStreamsAreHiddenPrompt
+		{
+			get => Get(true);
+			set => Set(value);
+		}
 
 		public ApplicationSettingsService(ISettingsSharingContext settingsSharingContext)
 		{

@@ -51,6 +51,7 @@ namespace Files.App.Data.Commands
 		IRichCommand CreateFolder { get; }
 		IRichCommand CreateFolderWithSelection { get; }
 		IRichCommand AddItem { get; }
+		IRichCommand CreateAlternateDataStream { get; }
 		IRichCommand CreateShortcut { get; }
 		IRichCommand CreateShortcutFromDialog { get; }
 		IRichCommand EmptyRecycleBin { get; }

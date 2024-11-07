@@ -279,6 +279,20 @@ namespace Files.App.ViewModels.Settings
 			}
 		}
 
+		public bool ShowCreateAlternateDataStream
+		{
+			get => UserSettingsService.GeneralSettingsService.ShowCreateAlternateDataStream;
+			set
+			{
+				if (value != UserSettingsService.GeneralSettingsService.ShowCreateAlternateDataStream)
+				{
+					UserSettingsService.GeneralSettingsService.ShowCreateAlternateDataStream = value;
+
+					OnPropertyChanged();
+				}
+			}
+		}
+
 		public bool ShowCreateShortcut
 		{
 			get => UserSettingsService.GeneralSettingsService.ShowCreateShortcut;

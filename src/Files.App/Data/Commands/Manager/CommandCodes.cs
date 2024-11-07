@@ -42,6 +42,7 @@ namespace Files.App.Data.Commands
 		CreateFolder,
 		CreateFolderWithSelection,
 		AddItem,
+		CreateAlternateDataStream,
 		CreateShortcut,
 		CreateShortcutFromDialog,
 		EmptyRecycleBin,

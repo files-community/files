@@ -304,6 +304,14 @@
 								Style="{StaticResource RightAlignedToggleSwitchStyle}" />
 						</local:SettingsBlockControl>
 
+						<!--  Create alternate data stream  -->
+						<local:SettingsBlockControl Title="{helpers:ResourceString Name=ShowCreateAlternateDataStream}" HorizontalAlignment="Stretch">
+							<ToggleSwitch
+								AutomationProperties.Name="{helpers:ResourceString Name=ShowCreateAlternateDataStream}"
+								IsOn="{x:Bind ViewModel.ShowCreateAlternateDataStream, Mode=TwoWay}"
+								Style="{StaticResource RightAlignedToggleSwitchStyle}" />
+						</local:SettingsBlockControl>
+
 						<!--  Create shortcut  -->
 						<local:SettingsBlockControl Title="{helpers:ResourceString Name=ShowCreateShortcut}" HorizontalAlignment="Stretch">
 							<ToggleSwitch

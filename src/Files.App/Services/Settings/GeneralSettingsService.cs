@@ -281,6 +281,12 @@ namespace Files.App.Services.Settings
 			set => Set(value);
 		}
 
+		public bool ShowCreateAlternateDataStream
+		{
+			get => Get(false);
+			set => Set(value);
+		}
+
 		public bool ShowCreateShortcut
 		{
 			get => Get(true);
