@@ -1,0 +1,28 @@
+﻿<UserControl
+	x:Class="Files.App.UserControls.Symbols.ArrowGlyph"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:Files.App.UserControls.Symbols"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	x:Name="Root"
+	mc:Ignorable="d">
+
+	<Grid x:Name="SymbolGrid" Loaded="SymbolGrid_Loaded">
+		<FontIcon
+			x:Name="SymbolIcon"
+			FontSize="{Binding FontSize, ElementName=Root}"
+			Glyph="{x:Bind Glyph, Mode=OneWay}"
+			Visibility="{x:Bind IsStaticIconVisible, Mode=OneWay}" />
+
+		<AnimatedIcon x:Name="DynamicAnimatedIcon" Visibility="{x:Bind IsAnimatedIconVisible, Mode=OneWay}">
+			<AnimatedIcon.Source>
+				<animatedvisuals:AnimatedBackVisualSource />
+			</AnimatedIcon.Source>
+			<AnimatedIcon.FallbackIconSource>
+				<SymbolIconSource Symbol="Back" />
+			</AnimatedIcon.FallbackIconSource>
+		</AnimatedIcon>
+	</Grid>
+</UserControl>

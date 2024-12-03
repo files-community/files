@@ -11,6 +11,7 @@
 	xmlns:helpers="using:Files.App.Helpers"
 	xmlns:local="using:Files.App.Views.Layouts"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:s="using:Files.App.UserControls.Symbols"
 	xmlns:storage="using:Files.App.Utils.Storage"
 	xmlns:uc="using:Files.App.UserControls"
 	xmlns:wct="using:CommunityToolkit.WinUI.UI"
@@ -338,14 +339,14 @@
 											Visibility="{x:Bind FileTagsUI, Converter={StaticResource EmptyObjectToObjectConverter}, Mode=OneWay}" />
 
 										<!--  Open Folder Chevron  -->
-										<FontIcon
+										<s:ArrowGlyph
 											x:Name="OpenFolderChevron"
 											HorizontalAlignment="Right"
 											VerticalAlignment="Center"
 											x:Load="{x:Bind IsFolder}"
+											Arrow="ChevronRight"
 											FontSize="12"
-											Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-											Glyph="&#xE76C;" />
+											Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
 
 									</StackPanel>
 								</Grid>

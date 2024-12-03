@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class CredentialDialog : ContentDialog, IDialog<CredentialDialogViewModel>
+	public sealed partial class CredentialDialog : ContentDialog, IDialog<CredentialDialogViewModel>, IRealTimeControl
 	{
 		private FrameworkElement RootAppElement
 			=> (FrameworkElement)MainWindow.Instance.Content;
@@ -21,6 +21,7 @@ namespace Files.App.Dialogs
 		public CredentialDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 		}
 
 		public new async Task<DialogResult> ShowAsync()

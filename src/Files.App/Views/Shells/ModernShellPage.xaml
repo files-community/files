@@ -6,6 +6,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:local="using:Files.App.Views.Shells"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:s="using:Files.App.UserControls.Symbols"
 	xmlns:wct="using:CommunityToolkit.WinUI.UI"
 	xmlns:wctconverters="using:CommunityToolkit.WinUI.UI.Converters"
 	x:Name="RootPage"
@@ -71,11 +72,12 @@
 			BorderThickness="1"
 			Canvas.ZIndex="64"
 			CornerRadius="24">
-			<FontIcon
+			<s:ArrowGlyph
 				HorizontalAlignment="Center"
 				VerticalAlignment="Center"
-				Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
-				Glyph="&#xE72B;" />
+				Arrow="Back"
+				FontSize="14"
+				Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}" />
 		</Border>
 
 		<!--  Swipe Forward Icon  -->
@@ -92,11 +94,12 @@
 			BorderThickness="1"
 			Canvas.ZIndex="64"
 			CornerRadius="24">
-			<SymbolIcon
+			<s:ArrowGlyph
 				HorizontalAlignment="Center"
 				VerticalAlignment="Center"
-				Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
-				Symbol="Forward" />
+				Arrow="Forward"
+				FontSize="14"
+				Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}" />
 		</Border>
 
 		<!--  Shell Frame  -->

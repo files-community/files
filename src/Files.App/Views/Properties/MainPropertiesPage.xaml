@@ -9,6 +9,7 @@
 	xmlns:dataitems="using:Files.App.Data.Items"
 	xmlns:helpers="using:Files.App.Helpers"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:s="using:Files.App.UserControls.Symbols"
 	xmlns:uc="using:Files.App.UserControls"
 	xmlns:vm="using:Files.App.ViewModels.Properties"
 	xmlns:wctconverters="using:CommunityToolkit.WinUI.UI.Converters"
@@ -69,14 +70,7 @@
 						<StaticResource x:Key="ButtonBorderBrushDisabled" ResourceKey="SystemControlTransparentBrush" />
 					</ResourceDictionary>
 				</Button.Resources>
-				<AnimatedIcon x:Name="BackAnimatedIcon">
-					<AnimatedIcon.Source>
-						<animatedvisuals:AnimatedBackVisualSource />
-					</AnimatedIcon.Source>
-					<AnimatedIcon.FallbackIconSource>
-						<SymbolIconSource Symbol="Back" />
-					</AnimatedIcon.FallbackIconSource>
-				</AnimatedIcon>
+				<s:ArrowGlyph Arrow="Back" UseAnimatedIcon="True" />
 			</Button>
 
 			<!--  Title Text Area  -->

@@ -8,7 +8,7 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class AddItemDialog : ContentDialog, IDialog<AddItemDialogViewModel>
+	public sealed partial class AddItemDialog : ContentDialog, IDialog<AddItemDialogViewModel>, IRealTimeControl
 	{
 		private readonly IAddItemService addItemService = Ioc.Default.GetRequiredService<IAddItemService>();
 
@@ -24,6 +24,7 @@ namespace Files.App.Dialogs
 		public AddItemDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 		}
 
 		public new async Task<DialogResult> ShowAsync()

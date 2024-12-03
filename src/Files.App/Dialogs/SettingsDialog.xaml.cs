@@ -8,7 +8,7 @@ using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class SettingsDialog : ContentDialog, IDialog<SettingsDialogViewModel>
+	public sealed partial class SettingsDialog : ContentDialog, IDialog<SettingsDialogViewModel>, IRealTimeControl
 	{
 		public SettingsDialogViewModel ViewModel { get; set; }
 
@@ -18,6 +18,7 @@ namespace Files.App.Dialogs
 		public SettingsDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 
 			MainWindow.Instance.SizeChanged += Current_SizeChanged;
 			UpdateDialogLayout();

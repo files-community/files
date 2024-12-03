@@ -7,6 +7,7 @@
 	xmlns:dataitems="using:Files.App.Data.Items"
 	xmlns:helpers="using:Files.App.Helpers"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:s="using:Files.App.UserControls.Symbols"
 	xmlns:vm="using:Files.App.ViewModels.Properties"
 	xmlns:wctconverters="using:CommunityToolkit.WinUI.UI.Converters"
 	DataContext="{x:Bind SecurityViewModel, Mode=OneWay}"
@@ -219,7 +220,7 @@
 						ToolTipService.ToolTip="{helpers:ResourceString Name=AdvancedPermissions}">
 						<StackPanel Orientation="Horizontal" Spacing="4">
 							<TextBlock Text="{helpers:ResourceString Name=AdvancedPermissions}" />
-							<FontIcon FontSize="14" Glyph="&#xE76C;" />
+							<s:ArrowGlyph Arrow="ChevronRight" FontSize="14" />
 						</StackPanel>
 					</Button>
 

@@ -425,6 +425,7 @@
 					HorizontalAlignment="Left"
 					x:Load="{x:Bind ViewModel.DriveCapacityVisibility, Mode=OneWay}"
 					Background="{ThemeResource ProgressRingBackgroundThemeBrush}"
+					FlowDirection="LeftToRight"
 					IsIndeterminate="False"
 					Value="{x:Bind ViewModel.DrivePercentageValue, Mode=OneWay}">
 

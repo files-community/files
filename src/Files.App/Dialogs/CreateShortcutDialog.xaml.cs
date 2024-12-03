@@ -9,7 +9,7 @@ using Microsoft.UI.Xaml.Data;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class CreateShortcutDialog : ContentDialog, IDialog<CreateShortcutDialogViewModel>
+	public sealed partial class CreateShortcutDialog : ContentDialog, IDialog<CreateShortcutDialogViewModel>, IRealTimeControl
 	{
 		private FrameworkElement RootAppElement
 			=> (FrameworkElement)MainWindow.Instance.Content;
@@ -23,6 +23,7 @@ namespace Files.App.Dialogs
 		public CreateShortcutDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 			this.Closing += CreateShortcutDialog_Closing;
 
 			InvalidPathWarning.SetBinding(TeachingTip.TargetProperty, new Binding()

@@ -31,7 +31,10 @@
 				VerticalAlignment="Center"
 				x:Load="{x:Bind ViewModel.IsPropertiesLoaded, Converter={StaticResource BoolNegationConverter}, Mode=OneWay}"
 				Spacing="8">
-				<ProgressRing HorizontalAlignment="Center" IsIndeterminate="True" />
+				<ProgressRing
+					HorizontalAlignment="Center"
+					FlowDirection="LeftToRight"
+					IsIndeterminate="True" />
 				<TextBlock
 					x:Name="LoadingTextBlock"
 					HorizontalAlignment="Center"

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class DecompressArchiveDialog : ContentDialog
+	public sealed partial class DecompressArchiveDialog : ContentDialog, IRealTimeControl
 	{
 		private FrameworkElement RootAppElement
 			=> (FrameworkElement)MainWindow.Instance.Content;
@@ -22,6 +22,7 @@ namespace Files.App.Dialogs
 		public DecompressArchiveDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 		}
 
 		private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

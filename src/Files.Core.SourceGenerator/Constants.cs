@@ -98,5 +98,52 @@ namespace Files.Core.SourceGenerator
 			/// </summary>
 			internal const char ConstantSeparator = '/';
 		}
+
+		/// <summary>
+		/// Provides functionality for generating real-time layout specifications.
+		/// </summary>
+		internal class RealTimeLayoutGenerator
+		{
+			/// <summary>
+			/// The name of the real-time service interface.
+			/// </summary>
+			internal const string ServiceInterfaceName = "IRealTimeLayoutService";
+
+			/// <summary>
+			/// The name of the real-time service generated variable.
+			/// </summary>
+			internal const string ServiceVariableName = "RealTimeLayoutService";
+
+			/// <summary>
+			/// The name of the real-time specification window.
+			/// </summary>
+			internal const string SpecificationWindowName = "IRealTimeWindow";
+
+			/// <summary>
+			/// The name of the real-time specification control.
+			/// </summary>
+			internal const string SpecificationControlName = "IRealTimeControl";
+
+			/// <summary>
+			/// Specifies the types of real-time layout specifications.
+			/// </summary>
+			internal enum SpecificationType
+			{
+				/// <summary>
+				/// No specification type.
+				/// </summary>
+				None = 0,
+
+				/// <summary>
+				/// Specifies a window layout.
+				/// </summary>
+				Window,
+
+				/// <summary>
+				/// Specifies a control layout.
+				/// </summary>
+				Control
+			}
+		}
 	}
 }

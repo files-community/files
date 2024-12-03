@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class ElevateConfirmDialog : ContentDialog, IDialog<ElevateConfirmDialogViewModel>
+	public sealed partial class ElevateConfirmDialog : ContentDialog, IDialog<ElevateConfirmDialogViewModel>, IRealTimeControl
 	{
 		private FrameworkElement RootAppElement
 			=> (FrameworkElement)MainWindow.Instance.Content;
@@ -23,6 +23,7 @@ namespace Files.App.Dialogs
 		public ElevateConfirmDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 		}
 
 		public new async Task<DialogResult> ShowAsync()

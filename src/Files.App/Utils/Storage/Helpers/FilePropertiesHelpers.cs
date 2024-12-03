@@ -21,11 +21,9 @@ namespace Files.App.Utils.Storage
 	{
 		private static IAppThemeModeService AppThemeModeService { get; } = Ioc.Default.GetRequiredService<IAppThemeModeService>();
 
-		/// <summary>
-		/// Whether LayoutDirection (FlowDirection) is set to right-to-left (RTL)
-		/// </summary>
-		public static readonly bool FlowDirectionSettingIsRightToLeft =
-			new ResourceManager().CreateResourceContext().QualifierValues["LayoutDirection"] == "RTL";
+		private static readonly IRealTimeLayoutService RealTimeLayoutService = Ioc.Default.GetRequiredService<IRealTimeLayoutService>();
+
+		private static readonly int RePos = RealTimeLayoutService.FlowDirection == FlowDirection.LeftToRight ? 1 : -1;
 
 		/// <summary>
 		/// Get window handle (hWnd) of the given properties window instance
@@ -121,6 +119,7 @@ namespace Files.App.Utils.Storage
 			appWindow.TitleBar.ExtendsContentIntoTitleBar = true;
 			appWindow.TitleBar.ButtonBackgroundColor = Colors.Transparent;
 			appWindow.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+			RealTimeLayoutService.UpdateTitleBar(propertiesWindow);
 
 			appWindow.SetIcon(AppLifecycleHelper.AppIconPath);
 
@@ -140,7 +139,7 @@ namespace Files.App.Utils.Storage
 			var appWindowPos = new PointInt32
 			{
 				X = displayArea.WorkArea.X
-					+ Math.Max(0, Math.Min(displayArea.WorkArea.Width - appWindow.Size.Width, pointerPosition.X - displayArea.WorkArea.X)),
+					+ Math.Max(0, Math.Min(displayArea.WorkArea.Width - appWindow.Size.Width,( pointerPosition.X * RePos) - displayArea.WorkArea.X)),
 				Y = displayArea.WorkArea.Y
 					+ Math.Max(0, Math.Min(displayArea.WorkArea.Height - appWindow.Size.Height, pointerPosition.Y - displayArea.WorkArea.Y)),
 			};

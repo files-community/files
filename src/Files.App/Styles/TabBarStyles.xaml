@@ -168,6 +168,7 @@
 								MaxWidth="{ThemeResource TabViewItemHeaderIconSize}"
 								MaxHeight="{ThemeResource TabViewItemHeaderIconSize}"
 								Margin="{ThemeResource TabViewItemHeaderIconMargin}"
+								FlowDirection="LeftToRight"
 								Visibility="Collapsed" />
 
 							<!--

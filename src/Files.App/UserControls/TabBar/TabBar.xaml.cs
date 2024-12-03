@@ -19,6 +19,7 @@ namespace Files.App.UserControls.TabBar
 		private readonly ICommandManager Commands = Ioc.Default.GetRequiredService<ICommandManager>();
 		private readonly IAppearanceSettingsService AppearanceSettingsService = Ioc.Default.GetRequiredService<IAppearanceSettingsService>();
 		private readonly IWindowContext WindowContext = Ioc.Default.GetRequiredService<IWindowContext>();
+		private readonly IRealTimeLayoutService RealTimeLayoutService = Ioc.Default.GetRequiredService<IRealTimeLayoutService>();
 
 		// Fields
 
@@ -67,7 +68,7 @@ namespace Files.App.UserControls.TabBar
 			var appWindow = MainWindow.Instance.AppWindow;
 
 			double rightPaddingColumnWidth =
-				FilePropertiesHelpers.FlowDirectionSettingIsRightToLeft
+				RealTimeLayoutService.FlowDirection is FlowDirection.RightToLeft
 					? appWindow.TitleBar.LeftInset
 					: appWindow.TitleBar.RightInset;
 

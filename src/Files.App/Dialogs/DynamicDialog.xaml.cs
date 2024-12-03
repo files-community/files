@@ -7,7 +7,7 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class DynamicDialog : ContentDialog, IDisposable
+	public sealed partial class DynamicDialog : ContentDialog, IDisposable, IRealTimeControl
 	{
 		private FrameworkElement RootAppElement
 			=> (FrameworkElement)MainWindow.Instance.Content;
@@ -31,6 +31,7 @@ namespace Files.App.Dialogs
 		public DynamicDialog(DynamicDialogViewModel dynamicDialogViewModel)
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 
 			dynamicDialogViewModel.HideDialog = Hide;
 			ViewModel = dynamicDialogViewModel;

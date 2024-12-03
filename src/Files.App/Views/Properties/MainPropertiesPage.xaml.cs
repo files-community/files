@@ -15,7 +15,7 @@ using Microsoft.UI.Input;
 
 namespace Files.App.Views.Properties
 {
-	public sealed partial class MainPropertiesPage : BasePropertiesPage
+	public sealed partial class MainPropertiesPage : BasePropertiesPage, IRealTimeControl
 	{
 		private IAppThemeModeService AppThemeModeService { get; } = Ioc.Default.GetRequiredService<IAppThemeModeService>();
 
@@ -28,9 +28,7 @@ namespace Files.App.Views.Properties
 		public MainPropertiesPage()
 		{
 			InitializeComponent();
-
-			if (FilePropertiesHelpers.FlowDirectionSettingIsRightToLeft)
-				FlowDirection = FlowDirection.RightToLeft;
+			InitializeContentLayout();
 		}
 
 		
@@ -69,8 +67,12 @@ namespace Files.App.Views.Properties
 
 		private int SetTitleBarDragRegion(InputNonClientPointerSource source, SizeInt32 size, double scaleFactor, Func<UIElement, RectInt32?, RectInt32> getScaledRect)
 		{
-			source.SetRegionRects(NonClientRegionKind.Passthrough, [getScaledRect(BackwardNavigationButton, null)]);
-			return (int)TitlebarArea.ActualHeight;
+			var height = (int)TitlebarArea.ActualHeight;
+			var x = RealTimeLayoutService.FlowDirection == FlowDirection.LeftToRight ? 0 : (int)((TitleDragArea.ActualWidth + 50) * scaleFactor);
+			var width = (int)((BackwardNavigationButton.ActualWidth + 2) * scaleFactor);
+
+			source.SetRegionRects(NonClientRegionKind.Passthrough, [getScaledRect(BackwardNavigationButton, new RectInt32(x, 0, width, height))]);
+			return height;
 		}
 
 		private void Page_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -215,6 +215,7 @@
 				Visibility="Collapsed" />
 			<ProgressRing
 				x:Name="PreviewLoadingIndicator"
+				FlowDirection="LeftToRight"
 				IsIndeterminate="True"
 				Visibility="Collapsed" />
 		</Grid>

@@ -8,6 +8,7 @@
 	xmlns:dataitem="using:Files.App.Data.Items"
 	xmlns:i="using:Microsoft.Xaml.Interactivity"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:s="using:Files.App.UserControls.Symbols"
 	xmlns:templateselectors="using:Files.App.Data.TemplateSelectors"
 	mc:Ignorable="d">
 
@@ -110,11 +111,11 @@
 						</Button.Flyout>
 
 						<!--  Chevron  -->
-						<FontIcon
+						<s:ArrowGlyph
 							x:Name="ExpandMenuFontIcon"
+							Arrow="ChevronRight"
 							AutomationProperties.AccessibilityView="Raw"
-							FontSize="12"
-							Glyph="&#xE76C;" />
+							FontSize="12" />
 					</Button>
 
 				</StackPanel>

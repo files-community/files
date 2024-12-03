@@ -15,7 +15,7 @@ using Windows.ApplicationModel.DataTransfer;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class ReorderSidebarItemsDialog : ContentDialog, IDialog<ReorderSidebarItemsDialogViewModel>
+	public sealed partial class ReorderSidebarItemsDialog : ContentDialog, IDialog<ReorderSidebarItemsDialogViewModel>, IRealTimeControl
 	{
 		private FrameworkElement RootAppElement
 			=> (FrameworkElement)MainWindow.Instance.Content;
@@ -29,6 +29,7 @@ namespace Files.App.Dialogs
 		public ReorderSidebarItemsDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 		}
 
 		private async void MoveItemAsync(object sender, PointerRoutedEventArgs e)

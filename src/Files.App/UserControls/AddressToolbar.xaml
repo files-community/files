@@ -14,6 +14,7 @@
 	xmlns:keyboard="using:Files.App.UserControls.KeyboardShortcut"
 	xmlns:local="using:Files.App.UserControls"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:s="using:Files.App.UserControls.Symbols"
 	xmlns:triggers="using:CommunityToolkit.WinUI.UI.Triggers"
 	xmlns:uc="using:Files.App.UserControls"
 	xmlns:ucs="using:Files.App.UserControls.StatusCenter"
@@ -273,7 +274,7 @@
 					IsEnabled="{x:Bind ViewModel.Commands.NavigateBack.IsExecutable, Mode=OneWay}"
 					Style="{StaticResource AddressToolbarButtonStyle}"
 					ToolTipService.ToolTip="{x:Bind ViewModel.Commands.NavigateBack.LabelWithHotKey, Mode=OneWay}">
-					<FontIcon FontSize="14" Glyph="{x:Bind ViewModel.Commands.NavigateBack.Glyph.BaseGlyph, Mode=OneWay}" />
+					<s:ArrowGlyph Arrow="Back" FontSize="14" />
 					<Button.ContextFlyout>
 						<MenuFlyout
 							x:Name="BackHistoryFlyout"
@@ -291,25 +292,25 @@
 						</MenuFlyout>
 					</Button.ContextFlyout>
 				</Button>
-
+				
 				<Button
-					x:Name="Forward"
-					AccessKey="F"
-					AccessKeyInvoked="Button_AccessKeyInvoked"
-					AutomationProperties.FullDescription="{x:Bind ViewModel.Commands.NavigateForward.Description, Mode=OneWay}"
-					AutomationProperties.Name="{x:Bind ViewModel.Commands.NavigateForward.Label, Mode=OneWay}"
-					Command="{x:Bind ViewModel.Commands.NavigateForward, Mode=OneWay}"
-					IsEnabled="{x:Bind ViewModel.Commands.NavigateForward.IsExecutable, Mode=OneWay}"
-					Style="{StaticResource AddressToolbarButtonStyle}"
-					ToolTipService.ToolTip="{x:Bind ViewModel.Commands.NavigateForward.LabelWithHotKey, Mode=OneWay}">
-					<FontIcon FontSize="14" Glyph="{x:Bind ViewModel.Commands.NavigateForward.Glyph.BaseGlyph, Mode=OneWay}" />
+						x:Name="Forward"
+						AccessKey="F"
+						AccessKeyInvoked="Button_AccessKeyInvoked"
+						AutomationProperties.FullDescription="{x:Bind ViewModel.Commands.NavigateForward.Description, Mode=OneWay}"
+						AutomationProperties.Name="{x:Bind ViewModel.Commands.NavigateForward.Label, Mode=OneWay}"
+						Command="{x:Bind ViewModel.Commands.NavigateForward, Mode=OneWay}"
+						IsEnabled="{x:Bind ViewModel.Commands.NavigateForward.IsExecutable, Mode=OneWay}"
+						Style="{StaticResource AddressToolbarButtonStyle}"
+						ToolTipService.ToolTip="{x:Bind ViewModel.Commands.NavigateForward.LabelWithHotKey, Mode=OneWay}">
+					<s:ArrowGlyph Arrow="Forward" FontSize="14" />
 					<Button.ContextFlyout>
 						<MenuFlyout
-							x:Name="ForwardHistoryFlyout"
-							Opening="ForwardHistoryFlyout_Opening"
-							Placement="BottomEdgeAlignedLeft"
-							ScrollViewer.VerticalScrollBarVisibility="Auto"
-							ScrollViewer.VerticalScrollMode="Auto">
+								x:Name="ForwardHistoryFlyout"
+								Opening="ForwardHistoryFlyout_Opening"
+								Placement="BottomEdgeAlignedLeft"
+								ScrollViewer.VerticalScrollBarVisibility="Auto"
+								ScrollViewer.VerticalScrollMode="Auto">
 							<MenuFlyout.MenuFlyoutPresenterStyle>
 								<Style TargetType="MenuFlyoutPresenter">
 									<Setter Property="MaxHeight" Value="400" />
@@ -509,6 +510,7 @@
 							VerticalAlignment="Center"
 							x:Load="{x:Bind OngoingTasksViewModel.HasAnyItemInProgress, Mode=OneWay}"
 							Background="{ThemeResource SubtleFillColorSecondaryBrush}"
+							FlowDirection="LeftToRight"
 							IsIndeterminate="False"
 							Value="{x:Bind OngoingTasksViewModel.AverageOperationProgressValue, Mode=OneWay}" />
 
@@ -572,6 +574,7 @@
 							Width="20"
 							Height="20"
 							x:Load="{x:Bind ViewModel.IsUpdating, Mode=OneWay}"
+							FlowDirection="LeftToRight"
 							IsIndeterminate="True" />
 					</Grid>
 				</Button>

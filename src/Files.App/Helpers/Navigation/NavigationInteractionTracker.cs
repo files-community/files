@@ -14,6 +14,12 @@ namespace Files.App.Helpers
 {
 	internal sealed class NavigationInteractionTracker : IDisposable
 	{
+		private static IRealTimeLayoutService RealTimeLayoutService => Ioc.Default.GetRequiredService<IRealTimeLayoutService>();
+
+		private static int RePos => RealTimeLayoutService.FlowDirection is FlowDirection.LeftToRight ? 1 : -1;
+		private static (float Min, float Max) RePosB => RealTimeLayoutService.FlowDirection is FlowDirection.LeftToRight ? (-96f, 0f) : (0f, 96f);
+		private static (float Min, float Max) RePosF => RealTimeLayoutService.FlowDirection is FlowDirection.LeftToRight ? (0f, 96f) : (-96f, 0f);
+
 		public bool CanNavigateForward
 		{
 			get
@@ -26,7 +32,11 @@ namespace Files.App.Helpers
 				if (!_disposed)
 				{
 					_props.InsertBoolean(nameof(CanNavigateForward), value);
-					_tracker.MaxPosition = new(value ? 96f : 0f);
+					if (RePos == 1)
+						_tracker.MaxPosition = new(value ? 96 : 0);
+					else
+						_tracker.MinPosition = new(value ? -96 : 0);
+
 				}
 			}
 		}
@@ -43,7 +53,10 @@ namespace Files.App.Helpers
 				if (!_disposed)
 				{
 					_props.InsertBoolean(nameof(CanNavigateBackward), value);
-					_tracker.MinPosition = new(value ? -96f : 0f);
+					if (RePos == 1)
+						_tracker.MinPosition = new(value ? -96 : 0);
+					else
+						_tracker.MaxPosition = new(value ? 96 : 0);
 				}
 			}
 		}
@@ -89,6 +102,19 @@ namespace Files.App.Helpers
 
 			_pointerPressedHandler = new(PointerPressed);
 			_rootElement.AddHandler(UIElement.PointerPressedEvent, _pointerPressedHandler, true);
+
+			RealTimeLayoutService.FlowDirectionChanged += RealTimeLayoutService_FlowDirectionChanged;
+		}
+
+		private void RealTimeLayoutService_FlowDirectionChanged(object? sender, FlowDirection e)
+		{
+			var canBack = CanNavigateBackward;
+			var canForward = CanNavigateForward;
+
+			CanNavigateBackward = canBack;
+			CanNavigateForward = canForward;
+
+			SetupAnimations();
 		}
 
 		[MemberNotNull(nameof(_tracker), nameof(_source), nameof(_trackerOwner))]
@@ -113,17 +139,17 @@ namespace Files.App.Helpers
 		{
 			var compositor = _rootVisual.Compositor;
 
-			var backResistance = CreateResistanceCondition(-96f, 0f);
-			var forwardResistance = CreateResistanceCondition(0f, 96f);
+			var backResistance = CreateResistanceCondition(RePosB.Min, RePosB.Max);
+			var forwardResistance = CreateResistanceCondition(RePosF.Min, RePosF.Max);
 			List<CompositionConditionalValue> conditionalValues = [backResistance, forwardResistance];
 			_source.ConfigureDeltaPositionXModifiers(conditionalValues);
 
-			var backAnim = compositor.CreateExpressionAnimation("(-clamp(tracker.Position.X, -96, 0) * 2) - 48");
+			var backAnim = compositor.CreateExpressionAnimation($"(clamp(tracker.Position.X, {RePosB.Min}, {RePosB.Max}) * 2 * ({-RePos})) - 48");
 			backAnim.SetReferenceParameter("tracker", _tracker);
 			backAnim.SetReferenceParameter("props", _props);
 			_backVisual.StartAnimation("Translation.X", backAnim);
 
-			var forwardAnim = compositor.CreateExpressionAnimation("(-clamp(tracker.Position.X, 0, 96) * 2) + 48");
+			var forwardAnim = compositor.CreateExpressionAnimation($"(clamp(tracker.Position.X, {RePosF.Min}, {RePosF.Max}) * 2 * ({-RePos})) + 48");
 			forwardAnim.SetReferenceParameter("tracker", _tracker);
 			forwardAnim.SetReferenceParameter("props", _props);
 			_forwardVisual.StartAnimation("Translation.X", forwardAnim);
@@ -171,6 +197,7 @@ namespace Files.App.Helpers
 			_tracker.Dispose();
 			_source.Dispose();
 			_props.Dispose();
+			RealTimeLayoutService.FlowDirectionChanged -= RealTimeLayoutService_FlowDirectionChanged;
 
 			GC.SuppressFinalize(this);
 		}
@@ -210,11 +237,11 @@ namespace Files.App.Helpers
 					EventHandler<OverscrollNavigationEventArgs>? navEvent = _parent.NavigationRequested;
 					if (navEvent is not null)
 					{
-						if (sender.Position.X > 0 && _parent.CanNavigateForward)
+						if (sender.Position.X * RePos > 0 && _parent.CanNavigateForward)
 						{
 							navEvent(_parent, OverscrollNavigationEventArgs.Forward);
 						}
-						else if (sender.Position.X < 0 && _parent.CanNavigateBackward)
+						else if (sender.Position.X * RePos < 0 && _parent.CanNavigateBackward)
 						{
 							navEvent(_parent, OverscrollNavigationEventArgs.Back);
 						}
@@ -238,12 +265,12 @@ namespace Files.App.Helpers
 				if (!_shouldAnimate)
 					return;
 
-				if (args.Position.X <= -64)
+				if (args.Position.X * RePos <= -64)
 				{
 					_parent._backVisual.StartAnimation("Scale", _scaleAnimation);
 					_shouldAnimate = false;
 				}
-				else if (args.Position.X >= 64)
+				else if (args.Position.X * RePos >= 64)
 				{
 					_parent._forwardVisual.StartAnimation("Scale", _scaleAnimation);
 					_shouldAnimate = false;

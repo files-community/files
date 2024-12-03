@@ -377,5 +377,17 @@ namespace Files.Core.SourceGenerator.Utilities
 				_ = stringBuilder.AppendLine($"using {s};");
 			return stringBuilder;
 		}
+
+		/// <summary>
+		/// Generates a license header comment for the code.
+		/// </summary>
+		/// <returns>A <see cref="SyntaxTriviaList"/> containing the license header comment and a line break.</returns>
+		internal static SyntaxTriviaList GetLicenceHeader()
+		{
+			return SyntaxFactory.TriviaList(
+				SyntaxFactory.Comment(
+					new StringBuilder().AppendLicenceHeader().ToString()),
+				SyntaxFactory.CarriageReturnLineFeed);
+		}
 	}
 }

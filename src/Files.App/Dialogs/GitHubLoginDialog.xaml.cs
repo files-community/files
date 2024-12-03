@@ -7,7 +7,7 @@ using Windows.ApplicationModel.DataTransfer;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class GitHubLoginDialog : ContentDialog, IDialog<GitHubLoginDialogViewModel>
+	public sealed partial class GitHubLoginDialog : ContentDialog, IDialog<GitHubLoginDialogViewModel>, IRealTimeControl
 	{
 		private FrameworkElement RootAppElement
 			=> (FrameworkElement)MainWindow.Instance.Content;
@@ -29,6 +29,7 @@ namespace Files.App.Dialogs
 		public GitHubLoginDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 		}
 
 		public new async Task<DialogResult> ShowAsync()

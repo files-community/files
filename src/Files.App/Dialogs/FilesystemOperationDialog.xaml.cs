@@ -8,7 +8,7 @@ using Microsoft.UI.Xaml.Controls;
 
 namespace Files.App.Dialogs
 {
-	public sealed partial class FilesystemOperationDialog : ContentDialog, IDialog<FileSystemDialogViewModel>
+	public sealed partial class FilesystemOperationDialog : ContentDialog, IDialog<FileSystemDialogViewModel>, IRealTimeControl
 	{
 		private FrameworkElement RootAppElement
 			=> (FrameworkElement)MainWindow.Instance.Content;
@@ -30,6 +30,7 @@ namespace Files.App.Dialogs
 		public FilesystemOperationDialog()
 		{
 			InitializeComponent();
+			InitializeContentLayout();
 
 			MainWindow.Instance.SizeChanged += Current_SizeChanged;
 		}
