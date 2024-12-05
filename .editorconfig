@@ -34,7 +34,6 @@ dotnet_naming_rule.pascal_case_for_methods.symbols = methods
 dotnet_naming_symbols.methods.applicable_kinds = method
 dotnet_naming_symbols.methods.applicable_accessibilities = *
 dotnet_naming_symbols.methods.required_prefix = 
-dotnet_naming_symbols.methods.required_suffix = Async
 
 dotnet_naming_rule.camel_case_for_variables.symbols = variables
 dotnet_naming_symbols.variables.applicable_kinds = field
@@ -96,3 +95,14 @@ dotnet_naming_rule.upper_case_for_constants.style = all_upper
 dotnet_naming_style.pascal_case.capitalization = pascal_case
 dotnet_naming_style.camel_case.capitalization = camel_case
 dotnet_naming_style.all_upper.capitalization = all_upper
+
+dotnet_naming_rule.suffix_async_should_be_asyncsuffix.severity = error
+dotnet_naming_rule.suffix_async_should_be_asyncsuffix.symbols = suffix_async
+dotnet_naming_rule.suffix_async_should_be_asyncsuffix.style = asyncsuffix
+dotnet_naming_symbols.suffix_async.applicable_kinds = method
+dotnet_naming_symbols.suffix_async.applicable_accessibilities = *
+dotnet_naming_symbols.suffix_async.required_modifiers = async
+dotnet_naming_style.asyncsuffix.required_prefix = 
+dotnet_naming_style.asyncsuffix.required_suffix = Async
+dotnet_naming_style.asyncsuffix.word_separator = 
+dotnet_naming_style.asyncsuffix.capitalization = pascal_case
