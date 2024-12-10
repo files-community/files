@@ -1,0 +1,107 @@
+# Copyright (c) 2024 Files Community
+# Licensed under the MIT License. See the LICENSE.
+
+# Abstract:
+#  Deploys Files Preview (Store).
+#
+# Workflow:
+#  1. Configure manifest, logo and secrets
+#  2. Restore, build and package Files
+#  3. Generate a msixupload file
+#  4. Publish the msixupload to GitHub Actions
+
+name: Files CD (Store Preview)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    environment: Deployments
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [Release]
+        platform: [x64]
+    env:
+      SOLUTION_NAME:              'Files.sln'
+      CONFIGURATION:              '${{ matrix.configuration }}'
+      PLATFORM:                   '${{ matrix.platform }}'
+      APPX_BUNDLE_PLATFORMS:      'x64|arm64'
+      WORKING_DIR:                '${{ github.workspace }}' # D:\a\Files\Files\
+      ARTIFACTS_STAGING_DIR:      '${{ github.workspace }}\artifacts'
+      APPX_PACKAGE_DIR:           '${{ github.workspace }}\artifacts\AppxPackages'
+      PACKAGE_PROJECT_DIR:        '${{ github.workspace }}\src\Files.App (Package)'
+      PACKAGE_PROJECT_PATH:       '${{ github.workspace }}\src\Files.App (Package)\Files.Package.wapproj'
+      PACKAGE_MANIFEST_PATH:      '${{ github.workspace }}\src\Files.App (Package)\Package.appxmanifest'
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v4
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        global-json-file: global.json
+
+    - name: Configure the package manifest, logo, and secrets
+      shell: pwsh
+      run: |
+        . './.github/scripts/Configure-AppxManifest.ps1' `
+          -Branch "StorePreview" `
+          -PackageManifestPath "$env:PACKAGE_MANIFEST_PATH" `
+          -Publisher "$env:STORE_PUBLISHER_SECRET" `
+          -WorkingDir "$env:WORKING_DIR" `
+          -SecretBingMapsKey "$env:SECRET_BINGMAPS_KEY" `
+          -SecretSentry "$env:SECRET_SENTRY" `
+          -SecretGitHubOAuthClientId "$env:SECRET_GITHUB_OAUTH_CLIENT_ID"
+      env:
+        STORE_PUBLISHER_SECRET: ${{ secrets.STORE_PUBLISHER_SECRET }}
+        SECRET_BINGMAPS_KEY: ${{ secrets.BING_MAPS_SECRET }}
+        SECRET_SENTRY: ${{ secrets.SENTRY_SECRET }}
+        SECRET_GITHUB_OAUTH_CLIENT_ID: ${{ secrets.GH_OAUTH_CLIENT_ID }}
+  
+    - name: Use Windows SDK Preview
+      shell: cmd
+      run: |
+        for /f %%a in ('dir /b /a:d %localappdata%\Microsoft\VisualStudio\17*') do echo UsePreviews=True>%localappdata%\Microsoft\VisualStudio\%%a\sdk.txt
+
+    - name: Restore NuGet
+      shell: pwsh
+      run: 'nuget restore $env:SOLUTION_NAME'
+
+    - name: Restore Files
+      shell: pwsh
+      run: |
+        msbuild $env:SOLUTION_NAME `
+        -t:Restore `
+        -p:Platform=$env:PLATFORM `
+        -p:Configuration=$env:CONFIGURATION `
+        -p:PublishReadyToRun=true
+
+    - name: Build & package Files
+      shell: pwsh
+      run: |
+        msbuild "$env:PACKAGE_PROJECT_PATH" `
+        -t:Build `
+        -t:_GenerateAppxPackage `
+        -p:Platform=$env:PLATFORM `
+        -p:Configuration=$env:CONFIGURATION `
+        -p:AppxBundlePlatforms=$env:APPX_BUNDLE_PLATFORMS `
+        -p:AppxPackageDir="$env:APPX_PACKAGE_DIR" `
+        -p:AppxBundle=Always `
+        -p:UapAppxPackageBuildMode=StoreUpload
+
+    - name: Remove empty files from the packages
+      shell: bash
+      run: find $ARTIFACTS_STAGING_DIR -empty -delete
+
+    - name: Upload the packages to GitHub Actions
+      uses: actions/upload-artifact@v4
+      with:
+        name: 'Appx Packages (${{ env.CONFIGURATION }}, ${{ env.PLATFORM }})'
+        path: ${{ env.ARTIFACTS_STAGING_DIR }}

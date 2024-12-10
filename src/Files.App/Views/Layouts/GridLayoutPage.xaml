@@ -787,6 +787,7 @@
 					ContainerContentChanging="FileList_ContainerContentChanging"
 					DoubleTapped="FileList_DoubleTapped"
 					DragEnter="ItemsLayout_DragEnter"
+					DragItemsCompleted="FileList_DragItemsCompleted"
 					DragItemsStarting="FileList_DragItemsStarting"
 					DragLeave="ItemsLayout_DragLeave"
 					DragOver="ItemsLayout_DragOver"

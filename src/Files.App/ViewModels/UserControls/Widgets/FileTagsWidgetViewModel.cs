@@ -3,7 +3,6 @@
 
 using Microsoft.UI.Xaml.Controls;
 using System.IO;
-using System.Windows.Input;
 using Windows.Storage;
 
 namespace Files.App.ViewModels.UserControls.Widgets
@@ -28,9 +27,6 @@ namespace Files.App.ViewModels.UserControls.Widgets
 
 		public static event EventHandler<IEnumerable<WidgetFileTagCardItem>>? SelectedTaggedItemsChanged;
 
-		// Commands
-
-		private ICommand OpenInNewPaneCommand { get; set; } = null!;
 
 		// Constructor
 
@@ -38,12 +34,9 @@ namespace Files.App.ViewModels.UserControls.Widgets
 		{
 			_ = InitializeWidget();
 
-			OpenInNewTabCommand = new AsyncRelayCommand<WidgetCardItem>(ExecuteOpenInNewTabCommand);
-			OpenInNewWindowCommand = new AsyncRelayCommand<WidgetCardItem>(ExecuteOpenInNewWindowCommand);
 			PinToSidebarCommand = new AsyncRelayCommand<WidgetCardItem>(ExecutePinToSidebarCommand);
 			UnpinFromSidebarCommand = new AsyncRelayCommand<WidgetCardItem>(ExecuteUnpinFromSidebarCommand);
 			OpenFileLocationCommand = new RelayCommand<WidgetCardItem>(ExecuteOpenFileLocationCommand);
-			OpenInNewPaneCommand = new RelayCommand<WidgetCardItem>(ExecuteOpenInNewPaneCommand);
 			OpenPropertiesCommand = new RelayCommand<WidgetCardItem>(ExecuteOpenPropertiesCommand);
 		}
 
@@ -73,9 +66,18 @@ namespace Files.App.ViewModels.UserControls.Widgets
 		{
 			return new List<ContextMenuFlyoutItemViewModel>()
 			{
-				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewTabFromHomeAction).Build(),
-				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewWindowFromHomeAction).Build(),
-				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewPaneFromHomeAction).Build(),
+				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewTabFromHomeAction)
+				{
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab
+				}.Build(),
+				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewWindowFromHomeAction)
+				{
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow
+				}.Build(),
+				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewPaneFromHomeAction)
+				{
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane
+				}.Build(),
 				new()
 				{
 					Text = "OpenWith".GetLocalizedResource(),
@@ -170,11 +172,6 @@ namespace Files.App.ViewModels.UserControls.Widgets
 			};
 
 			flyout!.Closed += flyoutClosed;
-		}
-
-		private void ExecuteOpenInNewPaneCommand(WidgetCardItem? item)
-		{
-			ContentPageContext.ShellPage!.PaneHolder?.OpenSecondaryPane(item?.Path ?? string.Empty);
 		}
 
 		private void ExecuteOpenFileLocationCommand(WidgetCardItem? item)

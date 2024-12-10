@@ -29,16 +29,11 @@ namespace Files.App.Helpers
 		/// <summary>
 		/// Gets the value that provides application environment or branch name.
 		/// </summary>
-		public static AppEnvironment AppEnvironment { get; } =
-#if STORE
-			AppEnvironment.Store;
-#elif PREVIEW
-			AppEnvironment.Preview;
-#elif STABLE
-			AppEnvironment.Stable;
-#else
-			AppEnvironment.Dev;
-#endif
+		public static AppEnvironment AppEnvironment =>
+			Enum.TryParse("cd_app_env_placeholder", true, out AppEnvironment appEnvironment)
+				? appEnvironment
+				: AppEnvironment.Dev;
+
 
 		/// <summary>
 		/// Gets application package version.
@@ -53,7 +48,7 @@ namespace Files.App.Helpers
 			SystemIO.Path.Combine(Package.Current.InstalledLocation.Path, AppEnvironment switch
 			{
 				AppEnvironment.Dev => Constants.AssetPaths.DevLogo,
-				AppEnvironment.Preview => Constants.AssetPaths.PreviewLogo,
+				AppEnvironment.SideloadPreview or AppEnvironment.StorePreview => Constants.AssetPaths.PreviewLogo,
 				_ => Constants.AssetPaths.StableLogo
 			});
 
@@ -107,7 +102,7 @@ namespace Files.App.Helpers
 			await updateService.CheckForUpdatesAsync();
 			await updateService.DownloadMandatoryUpdatesAsync();
 			await updateService.CheckAndUpdateFilesLauncherAsync();
-			await updateService.CheckLatestReleaseNotesAsync();
+			await updateService.CheckForReleaseNotesAsync();
 		}
 
 		/// <summary>
@@ -122,7 +117,7 @@ namespace Files.App.Helpers
 				options.Release = $"{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}.{SystemInformation.Instance.ApplicationVersion.Build}";
 				options.TracesSampleRate = 0.80;
 				options.ProfilesSampleRate = 0.40;
-				options.Environment = AppEnvironment == AppEnvironment.Preview ? "preview" : "production";
+				options.Environment = AppEnvironment == AppEnvironment.StorePreview || AppEnvironment == AppEnvironment.SideloadPreview ? "preview" : "production";
 				options.ExperimentalMetrics = new ExperimentalMetricsOptions
 				{
 					EnableCodeLocations = true
@@ -137,7 +132,7 @@ namespace Files.App.Helpers
 		/// </summary>
 		public static IHost ConfigureHost()
 		{
-			return Host.CreateDefaultBuilder()
+			var builder = Host.CreateDefaultBuilder()
 				.UseEnvironment(AppLifecycleHelper.AppEnvironment.ToString())
 				.ConfigureLogging(builder => builder
 					.ClearProviders()
@@ -169,6 +164,7 @@ namespace Files.App.Helpers
 					.AddSingleton<ITagsContext, TagsContext>()
 					.AddSingleton<ISidebarContext, SidebarContext>()
 					// Services
+					.AddSingleton<IWindowsRecentItemsService, WindowsRecentItemsService>()
 					.AddSingleton<IWindowsIniService, WindowsIniService>()
 					.AddSingleton<IWindowsWallpaperService, WindowsWallpaperService>()
 					.AddSingleton<IWindowsSecurityService, WindowsSecurityService>()
@@ -182,16 +178,9 @@ namespace Files.App.Helpers
 					.AddSingleton<IFileTagsService, FileTagsService>()
 					.AddSingleton<ICommandManager, CommandManager>()
 					.AddSingleton<IModifiableCommandManager, ModifiableCommandManager>()
-					.AddSingleton<IStorageService, NativeStorageService>()
+					.AddSingleton<IStorageService, NativeStorageLegacyService>()
 					.AddSingleton<IFtpStorageService, FtpStorageService>()
 					.AddSingleton<IAddItemService, AddItemService>()
-#if STABLE || PREVIEW
-					.AddSingleton<IUpdateService, SideloadUpdateService>()
-#elif STORE
-					.AddSingleton<IUpdateService, StoreUpdateService>()
-#else
-					.AddSingleton<IUpdateService, DummyUpdateService>()
-#endif
 					.AddSingleton<IPreviewPopupService, PreviewPopupService>()
 					.AddSingleton<IDateTimeFormatterFactory, DateTimeFormatterFactory>()
 					.AddSingleton<IDateTimeFormatter, UserDateTimeFormatter>()
@@ -224,10 +213,19 @@ namespace Files.App.Helpers
 					.AddSingleton<QuickAccessManager>()
 					.AddSingleton<StorageHistoryWrapper>()
 					.AddSingleton<FileTagsManager>()
-					.AddSingleton<RecentItems>()
 					.AddSingleton<LibraryManager>()
 					.AddSingleton<AppModel>()
-				).Build();
+				);
+
+			// Conditional DI
+			if (AppEnvironment is AppEnvironment.SideloadPreview or AppEnvironment.SideloadStable)
+				builder.ConfigureServices(s => s.AddSingleton<IUpdateService, SideloadUpdateService>());
+			else if (AppEnvironment is AppEnvironment.StorePreview or AppEnvironment.StoreStable)
+				builder.ConfigureServices(s => s.AddSingleton<IUpdateService, StoreUpdateService>());
+			else
+				builder.ConfigureServices(s => s.AddSingleton<IUpdateService, DummyUpdateService>());
+
+			return builder.Build();
 		}
 
 		/// <summary>
@@ -340,7 +338,7 @@ namespace Files.App.Helpers
 				// Try to re-launch and start over
 				MainWindow.Instance.DispatcherQueue.EnqueueOrInvokeAsync(async () =>
 				{
-					await Launcher.LaunchUriAsync(new Uri("files-uwp:"));
+					await Launcher.LaunchUriAsync(new Uri("files-dev:"));
 				})
 				.Wait(100);
 			}

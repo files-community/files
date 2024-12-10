@@ -1,7 +1,6 @@
 using Files.App.ViewModels.Previews;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Vanara.PInvoke;
 using Windows.Foundation;
 
 namespace Files.App.UserControls.FilePreviews
@@ -32,17 +31,17 @@ namespace Files.App.UserControls.FilePreviews
 			ViewModel.SizeChanged(GetPreviewSize());
 		}
 
-		private RECT GetPreviewSize()
+		private Rect GetPreviewSize()
 		{
 			var source = contentPresenter.TransformToVisual(XamlRoot.Content);
 			var physicalSize = contentPresenter.RenderSize;
 			var physicalPos = source.TransformPoint(new Point(0, 0));
 			var scale = XamlRoot.RasterizationScale;
-			var result = new RECT();
-			result.Left = (int)(physicalPos.X * scale + 0.5);
-			result.Top = (int)(physicalPos.Y * scale + 0.5);
-			result.Width = (int)(physicalSize.Width * scale + 0.5);
-			result.Height = (int)(physicalSize.Height * scale + 0.5);
+			var result = new Rect();
+			result.X = physicalPos.X * scale + 0.5;
+			result.Y = physicalPos.Y * scale + 0.5;
+			result.Width = physicalSize.Width * scale + 0.5;
+			result.Height = physicalSize.Height * scale + 0.5;
 			return result;
 		}
 

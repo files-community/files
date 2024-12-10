@@ -298,7 +298,7 @@
     <value>Введите название элемента</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Создать новый {0}</value>
+    <value>Создать: {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Светлая</value>
@@ -1242,7 +1242,13 @@
     <value>Библиотека с таким названием уже существует!</value>
   </data>
   <data name="OpenStorageSense" xml:space="preserve">
-    <value>Открыть менеджер памяти</value>
+    <value>Открыть Контроль памяти</value>
+  </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Открыть страницу Контроля памяти в настройках Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Очистка</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Копировать</value>
@@ -2274,7 +2280,7 @@
     <value>Показывать скрытые элементы</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Форматировать...</value>
+    <value>Форматировать</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Помощь</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Массовое переименование</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Показать опцию создания альтернативного потока данных</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Создать альтернативный поток данных</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Создать альтернативный поток данных для выбранного элемента(ов)</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Введите название потока данных</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>Произошла ошибка при создании альтернативного потока данных</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Обратите внимание, что альтернативные потоки данных работают только на дисках, отформатированных под NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Альтернативные потоки данных в данный момент скрыты</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Вы хотите отобразить альтернативные потоки данных? Вы можете изменить этот параметр в любое время из настроек файлов и папок.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Управление метками</value>
   </data>
 </root>

@@ -576,25 +576,26 @@
 					</Grid>
 				</Button>
 
-				<!--  Show The Latest Version Release Note  -->
+				<!--  Open the Release Notes dialog  -->
 				<Button
-					x:Name="ShowReleaseNotesButton"
+					x:Name="OpenReleaseNotesButton"
 					HorizontalContentAlignment="Stretch"
 					VerticalContentAlignment="Stretch"
-					x:Load="{x:Bind ViewModel.IsReleaseNotesVisible, Mode=OneWay}"
+					x:Load="{x:Bind ViewModel.IsAppUpdated, Mode=OneWay}"
 					AccessKey="2"
 					AccessKeyInvoked="Button_AccessKeyInvoked"
-					AutomationProperties.Name="{helpers:ResourceString Name=WhatsNew}"
-					Command="{x:Bind ViewModel.ViewReleaseNotesAsyncCommand, Mode=OneWay}"
+					AutomationProperties.Name="{x:Bind ViewModel.Commands.OpenReleaseNotes.Label}"
+					Command="{x:Bind ViewModel.Commands.OpenReleaseNotes, Mode=OneWay}"
 					Style="{StaticResource AddressToolbarButtonStyle}"
-					ToolTipService.ToolTip="{helpers:ResourceString Name=WhatsNew}">
+					ToolTipService.ToolTip="{x:Bind ViewModel.Commands.OpenReleaseNotes.LabelWithHotKey}"
+					Visibility="{x:Bind ViewModel.Commands.OpenReleaseNotes.IsExecutable, Mode=OneWay}">
 					<FontIcon
 						FontSize="14"
 						Foreground="{ThemeResource SystemAccentColor}"
 						Glyph="&#xF133;" />
 				</Button>
 
-				<!--  Show The Files App Settings Dialog  -->
+				<!--  Open the Settings dialog  -->
 				<Button
 					x:Name="SettingsButton"
 					AccessKey="I"

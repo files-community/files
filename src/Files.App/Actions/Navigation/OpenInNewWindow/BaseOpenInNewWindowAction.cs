@@ -32,8 +32,7 @@ namespace Files.App.Actions
 			ContentPageContext.ShellPage.SlimContentPage is not null &&
 			ContentPageContext.SelectedItems.Count is not 0 &&
 			ContentPageContext.SelectedItems.Count <= 5 &&
-			ContentPageContext.SelectedItems.Count(x => x.IsFolder) == ContentPageContext.SelectedItems.Count &&
-			UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow;
+			ContentPageContext.SelectedItems.Count(x => x.IsFolder) == ContentPageContext.SelectedItems.Count;
 
 		public BaseOpenInNewWindowAction()
 		{
@@ -50,7 +49,7 @@ namespace Files.App.Actions
 			foreach (ListedItem listedItem in items)
 			{
 				var selectedItemPath = (listedItem as ShortcutItem)?.TargetPath ?? listedItem.ItemPath;
-				var folderUri = new Uri($"files-uwp:?folder={@selectedItemPath}");
+				var folderUri = new Uri($"files-dev:?folder={@selectedItemPath}");
 
 				await Launcher.LaunchUriAsync(folderUri);
 			}

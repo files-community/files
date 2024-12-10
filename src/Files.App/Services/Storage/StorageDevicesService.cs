@@ -61,7 +61,7 @@ namespace Files.App.Services
 		public async Task<ILocatableFolder> GetPrimaryDriveAsync()
 		{
 			string cDrivePath = $@"{Constants.UserEnvironmentPaths.SystemDrivePath}\";
-			return new WindowsStorageFolder(await StorageFolder.GetFolderFromPathAsync(cDrivePath));
+			return new WindowsStorageFolderLegacy(await StorageFolder.GetFolderFromPathAsync(cDrivePath));
 		}
 
 		public async Task UpdateDrivePropertiesAsync(ILocatableFolder drive)

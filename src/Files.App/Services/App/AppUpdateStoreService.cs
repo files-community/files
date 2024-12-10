@@ -34,16 +34,16 @@ namespace Files.App.Services
 			private set => SetProperty(ref _isUpdating, value);
 		}
 
-		private bool _isReleaseNotesAvailable;
-		public bool IsReleaseNotesAvailable
-		{
-			get => _isReleaseNotesAvailable;
-			private set => SetProperty(ref _isReleaseNotesAvailable, value);
-		}
-
 		public bool IsAppUpdated
 		{
 			get => SystemInformation.Instance.IsAppUpdated;
+		}
+
+		private bool _areReleaseNotesAvailable = false;
+		public bool AreReleaseNotesAvailable
+		{
+			get => _areReleaseNotesAvailable;
+			private set => SetProperty(ref _areReleaseNotesAvailable, value);
 		}
 
 		public StoreUpdateService()
@@ -107,6 +107,21 @@ namespace Files.App.Services
 			}
 		}
 
+		public async Task CheckForReleaseNotesAsync()
+		{
+			using var client = new HttpClient();
+
+			try
+			{
+				var response = await client.GetAsync(Constants.ExternalUrl.ReleaseNotesUrl);
+				AreReleaseNotesAvailable = response.IsSuccessStatusCode;
+			}
+			catch
+			{
+				AreReleaseNotesAvailable = false;
+			}
+		}
+
 		private async Task DownloadAndInstallAsync()
 		{
 			// Save the updated tab list before installing the update
@@ -156,35 +171,6 @@ namespace Files.App.Services
 			ContentDialogResult result = await dialog.TryShowAsync();
 
 			return result == ContentDialogResult.Primary;
-		}
-
-		public async Task CheckLatestReleaseNotesAsync(CancellationToken cancellationToken = default)
-		{
-			if (!IsAppUpdated)
-				return;
-
-			var result = await GetLatestReleaseNotesAsync();
-
-			if (result is not null)
-				IsReleaseNotesAvailable = true;
-		}
-
-		public async Task<string?> GetLatestReleaseNotesAsync(CancellationToken cancellationToken = default)
-		{
-			var applicationVersion = $"{SystemInformation.Instance.ApplicationVersion.Major}.{SystemInformation.Instance.ApplicationVersion.Minor}.{SystemInformation.Instance.ApplicationVersion.Build}";
-			var releaseNotesLocation = string.Concat("https://raw.githubusercontent.com/files-community/Release-Notes/main/", applicationVersion, ".md");
-
-			using var client = new HttpClient();
-
-			try
-			{
-				var result = await client.GetStringAsync(releaseNotesLocation, cancellationToken);
-				return result == string.Empty ? null : result;
-			}
-			catch
-			{
-				return null;
-			}
 		}
 
 		public async Task CheckAndUpdateFilesLauncherAsync()

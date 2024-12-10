@@ -718,6 +718,40 @@ namespace Files.App.Data.Models
 			set => SetProperty(ref isHiddenEditedValue, value);
 		}
 
+		private bool? isContentCompressed;
+		/// <remarks>
+		/// Applies to NTFS item compression.
+		/// </remarks>
+		public bool? IsContentCompressed
+		{
+			get => isContentCompressed;
+			set
+			{
+				SetProperty(ref isContentCompressed, value);
+				IsContentCompressedEditedValue = value;
+			}
+		}
+
+		private bool? isContentCompressedEditedValue;
+		/// <remarks>
+		/// Applies to NTFS item compression.
+		/// </remarks>
+		public bool? IsContentCompressedEditedValue
+		{
+			get => isContentCompressedEditedValue;
+			set => SetProperty(ref isContentCompressedEditedValue, value);
+		}
+
+		private bool canCompressContent;
+		/// <remarks>
+		/// Applies to NTFS item compression.
+		/// </remarks>
+		public bool CanCompressContent
+		{
+			get => canCompressContent;
+			set => SetProperty(ref canCompressContent, value);
+		}
+
 		private bool runAsAdmin;
 		public bool RunAsAdmin
 		{

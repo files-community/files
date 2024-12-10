@@ -10,7 +10,7 @@
 #  3. Generate a msixupload file
 #  4. Publish the msixupload to GitHub Actions
 
-name: Files CD (Store)
+name: Files CD (Store Stable)
 
 on:
   workflow_dispatch:
@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        configuration: [Store]
+        configuration: [Release]
         platform: [x64]
     env:
       SOLUTION_NAME:              'Files.sln'
@@ -52,7 +52,7 @@ jobs:
       shell: pwsh
       run: |
         . './.github/scripts/Configure-AppxManifest.ps1' `
-          -Branch "$env:CONFIGURATION" `
+          -Branch "StoreStable" `
           -PackageManifestPath "$env:PACKAGE_MANIFEST_PATH" `
           -Publisher "$env:STORE_PUBLISHER_SECRET" `
           -WorkingDir "$env:WORKING_DIR" `

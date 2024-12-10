@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Deschideți Stocare inteligentă</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Deschideți pagina Stocare Inteligentă în Setările Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Curățare</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>Copiere</value>
   </data>
@@ -2274,7 +2280,7 @@
     <value>Afișați elementele ascunse</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formatare...</value>
+    <value>Format</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Ajutor</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Redenumire în masă</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Afișați opțiunea pentru a crea un flux alternativ de date</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Creare flux alternativ de date</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Creare flux alternativ de date pentru element(ele) selectat(e)</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Introduceți numele fluxului de date</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>A apărut o eroare la crearea fluxului alternativ de date</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Vă rugăm să rețineți că fluxurile alternative de date funcționează doar pe unitățile formatate ca NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Fluxurile alternative de date sunt în prezent ascunse</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Doriți să afișați fluxuri alternative de date? Puteți modifica această setare oricând din pagina de setări a fișierelor și folderelor.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Gestionare etichete</value>
   </data>
 </root>

@@ -13,7 +13,7 @@
 		<ResourceDictionary>
 			<Style
 				x:Key="IconTest"
-				BasedOn="{StaticResource App.ThemedIcons.PanelRightClose}"
+				BasedOn="{StaticResource App.ThemedIcons.AltDataStream}"
 				TargetType="controls:ThemedIcon">
 				<Setter Property="IconSize" Value="16" />
 				<Setter Property="Width" Value="16" />

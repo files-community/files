@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 using Vanara.InteropServices;
 using Vanara.PInvoke;
 using Vanara.Windows.Shell;
+using Windows.Win32;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace Files.App.Utils.Shell
 {
@@ -43,7 +45,7 @@ namespace Files.App.Utils.Shell
 
 		public async static Task<bool> InvokeVerb(string verb, params string[] filePaths)
 		{
-			using var cMenu = await GetContextMenuForFiles(filePaths, Shell32.CMF.CMF_DEFAULTONLY);
+			using var cMenu = await GetContextMenuForFiles(filePaths, PInvoke.CMF_DEFAULTONLY);
 
 			return cMenu is not null && await cMenu.InvokeVerb(verb);
 		}
@@ -112,7 +114,7 @@ namespace Files.App.Utils.Shell
 			return false;
 		}
 
-		public async static Task<ContextMenu?> GetContextMenuForFiles(string[] filePathList, Shell32.CMF flags, Func<string, bool>? itemFilter = null)
+		public async static Task<ContextMenu?> GetContextMenuForFiles(string[] filePathList, uint flags, Func<string, bool>? itemFilter = null)
 		{
 			var owningThread = new ThreadWithMessageQueue();
 
@@ -140,14 +142,14 @@ namespace Files.App.Utils.Shell
 			});
 		}
 
-		public async static Task<ContextMenu?> GetContextMenuForFiles(ShellItem[] shellItems, Shell32.CMF flags, Func<string, bool>? itemFilter = null)
+		public async static Task<ContextMenu?> GetContextMenuForFiles(ShellItem[] shellItems, uint flags, Func<string, bool>? itemFilter = null)
 		{
 			var owningThread = new ThreadWithMessageQueue();
 
 			return await owningThread.PostMethod<ContextMenu>(() => GetContextMenuForFiles(shellItems, flags, owningThread, itemFilter));
 		}
 
-		private static ContextMenu? GetContextMenuForFiles(ShellItem[] shellItems, Shell32.CMF flags, ThreadWithMessageQueue owningThread, Func<string, bool>? itemFilter = null)
+		private static ContextMenu? GetContextMenuForFiles(ShellItem[] shellItems, uint flags, ThreadWithMessageQueue owningThread, Func<string, bool>? itemFilter = null)
 		{
 			if (!shellItems.Any())
 				return null;
@@ -159,7 +161,7 @@ namespace Files.App.Utils.Shell
 
 				Shell32.IContextMenu menu = sf.GetChildrenUIObjects<Shell32.IContextMenu>(default, shellItems);
 				var hMenu = User32.CreatePopupMenu();
-				menu.QueryContextMenu(hMenu, 0, 1, 0x7FFF, flags);
+				menu.QueryContextMenu(hMenu, 0, 1, 0x7FFF, (Shell32.CMF)flags);
 				var contextMenu = new ContextMenu(menu, hMenu, shellItems.Select(x => x.ParsingName), owningThread, itemFilter);
 				contextMenu.EnumMenuItems(hMenu, contextMenu.Items);
 
@@ -174,10 +176,10 @@ namespace Files.App.Utils.Shell
 
 		public static async Task WarmUpQueryContextMenuAsync()
 		{
-			using var cMenu = await GetContextMenuForFiles(new string[] { $@"{Constants.UserEnvironmentPaths.SystemDrivePath}\" }, Shell32.CMF.CMF_NORMAL);
+			using var cMenu = await GetContextMenuForFiles(new string[] { $@"{Constants.UserEnvironmentPaths.SystemDrivePath}\" }, PInvoke.CMF_NORMAL);
 		}
 
-		private void EnumMenuItems(HMENU hMenu, List<Win32ContextMenuItem> menuItemsResult, bool loadSubenus = false)
+		private void EnumMenuItems(Vanara.PInvoke.HMENU hMenu, List<Win32ContextMenuItem> menuItemsResult, bool loadSubenus = false)
 		{
 			var itemCount = User32.GetMenuItemCount(hMenu);
 
@@ -211,12 +213,12 @@ namespace Files.App.Utils.Shell
 					continue;
 				}
 
-				menuItem.Type = (MenuItemType)menuItemInfo.fType;
+				menuItem.Type = (MENU_ITEM_TYPE)menuItemInfo.fType;
 
 				// wID - idCmdFirst
 				menuItem.ID = (int)(menuItemInfo.wID - 1);
 
-				if (menuItem.Type == MenuItemType.MFT_STRING)
+				if (menuItem.Type == MENU_ITEM_TYPE.MFT_STRING)
 				{
 					Debug.WriteLine("Item {0} ({1}): {2}", index, menuItemInfo.wID, menuItemInfo.dwTypeData);
 
@@ -244,7 +246,7 @@ namespace Files.App.Utils.Shell
 						}
 					}
 
-					if (menuItemInfo.hSubMenu != HMENU.NULL)
+					if (menuItemInfo.hSubMenu != Vanara.PInvoke.HMENU.NULL)
 					{
 						Debug.WriteLine("Item {0}: has submenu", index);
 						var subItems = new List<Win32ContextMenuItem>();

@@ -8,7 +8,8 @@ namespace Files.App.Actions
 {
 	internal abstract class BaseSetAsAction : ObservableObject, IAction
 	{
-		protected readonly IContentPageContext context;
+		protected readonly IContentPageContext ContentPageContext = Ioc.Default.GetRequiredService<IContentPageContext>();
+		protected readonly IWindowsWallpaperService WindowsWallpaperService = Ioc.Default.GetRequiredService<IWindowsWallpaperService>();
 
 		public abstract string Label { get; }
 
@@ -17,16 +18,14 @@ namespace Files.App.Actions
 		public abstract RichGlyph Glyph { get; }
 
 		public virtual bool IsExecutable =>
-			context.ShellPage is not null &&
-			context.PageType != ContentPageTypes.RecycleBin &&
-			context.PageType != ContentPageTypes.ZipFolder &&
-			(context.ShellPage?.SlimContentPage?.SelectedItemsPropertiesViewModel?.IsCompatibleToSetAsWindowsWallpaper ?? false);
+			ContentPageContext.ShellPage is not null &&
+			ContentPageContext.PageType != ContentPageTypes.RecycleBin &&
+			ContentPageContext.PageType != ContentPageTypes.ZipFolder &&
+			(ContentPageContext.ShellPage?.SlimContentPage?.SelectedItemsPropertiesViewModel?.IsCompatibleToSetAsWindowsWallpaper ?? false);
 
 		public BaseSetAsAction()
 		{
-			context = Ioc.Default.GetRequiredService<IContentPageContext>();
-
-			context.PropertyChanged += Context_PropertyChanged;
+			ContentPageContext.PropertyChanged += ContentPageContext_PropertyChanged;
 		}
 
 		public abstract Task ExecuteAsync(object? parameter = null);
@@ -46,7 +45,7 @@ namespace Files.App.Actions
 			await errorDialog.TryShowAsync();
 		}
 
-		private void Context_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+		private void ContentPageContext_PropertyChanged(object? sender, PropertyChangedEventArgs e)
 		{
 			switch (e.PropertyName)
 			{
@@ -56,10 +55,10 @@ namespace Files.App.Actions
 				case nameof(IContentPageContext.SelectedItem):
 				case nameof(IContentPageContext.SelectedItems):
 					{
-						if (context.ShellPage is not null && context.ShellPage.SlimContentPage is not null)
+						if (ContentPageContext.ShellPage is not null && ContentPageContext.ShellPage.SlimContentPage is not null)
 						{
-							var viewModel = context.ShellPage.SlimContentPage.SelectedItemsPropertiesViewModel;
-							var extensions = context.SelectedItems.Select(selectedItem => selectedItem.FileExtension).Distinct().ToList();
+							var viewModel = ContentPageContext.ShellPage.SlimContentPage.SelectedItemsPropertiesViewModel;
+							var extensions = ContentPageContext.SelectedItems.Select(selectedItem => selectedItem.FileExtension).Distinct().ToList();
 
 							viewModel.CheckAllFileExtensions(extensions);
 						}

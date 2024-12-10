@@ -127,7 +127,7 @@
     <value>Kopírovat cestu s uvozovkami</value>
   </data>
   <data name="CopyItemPathWithQuotes" xml:space="preserve">
-    <value>Copy selected item path with quotes</value>
+    <value>Kopírovat vybranou cestu k položce včetně uvozovek</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>Procházet</value>
@@ -253,7 +253,7 @@
     <value>Vložit</value>
   </data>
   <data name="PasteShortcut" xml:space="preserve">
-    <value>Paste shortcut</value>
+    <value>Vložit zástupce</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Nový</value>
@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Otevřít úložiště</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Otevřít stránku Inteligentního uložiště v nastavení Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Vyčistit</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>Kopírovat</value>
   </data>
@@ -1941,7 +1947,7 @@
     <value>Zavřít ostatní karty</value>
   </data>
   <data name="CloseAllTabs" xml:space="preserve">
-    <value>Close all tabs</value>
+    <value>Zavřít všechny karty</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>Hudba</value>
@@ -2274,7 +2280,7 @@
     <value>Zobrazit skryté položky</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formátování...</value>
+    <value>Formát</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Nápověda</value>
@@ -2400,16 +2406,16 @@
     <value>Kopírovat do schránky</value>
   </data>
   <data name="CopyPathDescription" xml:space="preserve">
-    <value>Kopírovat cestu vybraných položek do schránky</value>
+    <value>Kopírovat cestu aktuální složky do schránky</value>
   </data>
   <data name="CopyItemPathDescription" xml:space="preserve">
-    <value>Copy path of selected items to the clipboard</value>
+    <value>Kopírovat cestu vybraných položek do schránky</value>
   </data>
   <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
-    <value>Copy path of selected items with quotes to the clipboard</value>
+    <value>Kopírovat cestu vybraných položek do schránky včetně uvozovek</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
-    <value>Kopírovat cestu vybraných položek do schránky včetně uvozovek</value>
+    <value>Kopírovat cestu aktuální složky do schránky včetně uvozovek</value>
   </data>
   <data name="CutItemDescription" xml:space="preserve">
     <value>Vyjmout do schránky</value>
@@ -2418,7 +2424,7 @@
     <value>Vložte položku(y) že schránky do aktuální složky</value>
   </data>
   <data name="PasteShortcutDescription" xml:space="preserve">
-    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
+    <value>Vložit položku(y) ze schránky do aktuální složky jako zástupce</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Vložte položku(y) ze schránky do vybrané složky</value>
@@ -2700,7 +2706,7 @@
     <value>Zavřít všechny ostatní karty</value>
   </data>
   <data name="CloseAllTabsDescription" xml:space="preserve">
-    <value>Close all tabs including the current tab</value>
+    <value>Zavřít všechny karty včetně aktuální</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Vrátit naposledy uzavřenou kartu</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Hromadně přejmenovat</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Zobrazit možnost vytvoření alternativního datového toku</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Vytvořit alternativní datový tok</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Vytvořit alternativní datový tok pro vybranou položku(y)</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Zadejte název datového streamu</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>Při vytváření alternativního datového toku, došlo k chybě</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Vezměte prosím na vědomí, že alternativní datové toky fungují pouze na discích formátovaných jako NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Alternativní datové toky jsou nyní skryty</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Chcete zobrazit alternativní datové přenosy? Toto nastavení můžete kdykoliv změnit na stránce nastavení souborů a složek.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Správa štítků</value>
   </data>
 </root>

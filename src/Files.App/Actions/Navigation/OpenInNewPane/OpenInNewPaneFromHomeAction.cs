@@ -6,7 +6,6 @@ namespace Files.App.Actions
 	internal sealed class OpenInNewPaneFromHomeAction : BaseOpenInNewPaneAction
 	{
 		public override bool IsExecutable =>
-			UserSettingsService.GeneralSettingsService.ShowOpenInNewPane &&
 			HomePageContext.IsAnyItemRightClicked &&
 			HomePageContext.RightClickedItem is not null &&
 			(HomePageContext.RightClickedItem is WidgetFileTagCardItem fileTagItem

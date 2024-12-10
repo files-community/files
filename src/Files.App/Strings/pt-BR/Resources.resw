@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Abrir Sensor de armazenamento</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Abrir página do Sensor de Armazenamento nas Configurações do Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Limpeza</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>Copiar</value>
   </data>
@@ -2274,7 +2280,7 @@
     <value>Mostrar itens ocultos</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formatar...</value>
+    <value>Formato</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Ajuda</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Renomear em massa</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Mostrar opção para criar fluxo de dados alternativo</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Criar fluxo de dados alternativo</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Criar fluxo de dados alternativo para o(s) item(ns) selecionado(s)</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Digite o nome do fluxo de dados</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>Ocorreu um erro ao criar o fluxo de dados alternativo</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Observe que fluxos de dados alternativos só funcionam em unidades formatadas como NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Fluxos de dados alternativos estão ocultos no momento</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Você gostaria de exibir fluxos de dados alternativos? Você pode modificar essa configuração a qualquer momento a partir das configurações de pastas e arquivos.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Gerenciar tags</value>
   </data>
 </root>

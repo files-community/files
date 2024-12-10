@@ -11,7 +11,7 @@
 #  4. Sign the package
 #  5. Publish the package to Azure
 
-name: Files CD (Preview)
+name: Files CD (Sideload Preview)
 
 on:
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        configuration: [Preview]
+        configuration: [Release]
         platform: [x64]
     env:
       SOLUTION_NAME:              'Files.sln'
@@ -55,7 +55,7 @@ jobs:
       shell: pwsh
       run: |
         . './.github/scripts/Configure-AppxManifest.ps1' `
-          -Branch "$env:CONFIGURATION" `
+          -Branch "SideloadPreview" `
           -PackageManifestPath "$env:PACKAGE_MANIFEST_PATH" `
           -Publisher "$env:SIDELOAD_PUBLISHER_SECRET" `
           -WorkingDir "$env:WORKING_DIR" `

@@ -9,7 +9,7 @@
 	Title="{helpers:ResourceString Name=NewShortcutDialogTitle}"
 	DefaultButton="Primary"
 	HighContrastAdjustment="None"
-	IsPrimaryButtonEnabled="{x:Bind ViewModel.IsLocationValid, Mode=OneWay}"
+	IsPrimaryButtonEnabled="{x:Bind ViewModel.IsShortcutValid, Mode=OneWay}"
 	PrimaryButtonCommand="{x:Bind ViewModel.PrimaryButtonCommand}"
 	PrimaryButtonText="{helpers:ResourceString Name=Create}"
 	RequestedTheme="{x:Bind RootAppElement.RequestedTheme, Mode=OneWay}"
@@ -27,6 +27,8 @@
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="Auto" />
@@ -68,6 +70,28 @@
 				Command="{x:Bind ViewModel.SelectDestinationCommand}"
 				Content="{helpers:ResourceString Name=Browse}" />
 
+			<TextBlock
+				Grid.Row="3"
+				Grid.ColumnSpan="2"
+				Margin="0,12,0,0"
+				Text="{helpers:ResourceString Name=EnterAnItemName}" />
+
+			<!--  Name Box  -->
+			<TextBox
+				x:Name="ShortcutNameTextBox"
+				Grid.Row="4"
+				Grid.ColumnSpan="2"
+				HorizontalAlignment="Stretch"
+				Text="{x:Bind ViewModel.ShortcutName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+				<TextBox.Resources>
+					<TeachingTip
+						x:Name="InvalidNameTeachingTip"
+						Title="{helpers:ResourceString Name=InvalidFilename/Text}"
+						IsOpen="{x:Bind ViewModel.ShowNameWarningTip, Mode=OneWay}"
+						PreferredPlacement="Bottom"
+						Target="{x:Bind ShortcutNameTextBox}" />
+				</TextBox.Resources>
+			</TextBox>
 		</Grid>
 	</Border>
 </ContentDialog>

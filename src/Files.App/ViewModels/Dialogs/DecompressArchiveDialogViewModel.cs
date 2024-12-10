@@ -3,7 +3,6 @@
 
 using System.IO;
 using System.Windows.Input;
-using Vanara.PInvoke;
 using Windows.Storage;
 
 namespace Files.App.ViewModels.Dialogs

@@ -4,6 +4,7 @@
 using System;
 using System.Runtime.CompilerServices;
 using Windows.Win32;
+using Windows.Win32.Foundation;
 using Windows.Win32.System.Com;
 
 namespace Windows.Win32
@@ -39,11 +40,19 @@ namespace Windows.Win32
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public readonly ComPtr<U> As<U>(Guid riid) where U : unmanaged
+		public readonly ComPtr<U> As<U>() where U : unmanaged
 		{
-			ComPtr<U> pNewPtr = default;
-			((IUnknown*)_ptr)->QueryInterface(&riid, (void**)pNewPtr.GetAddressOf());
-			return pNewPtr;
+			ComPtr<U> ptr = default;
+			Guid iid = typeof(U).GUID;
+			((IUnknown*)_ptr)->QueryInterface(&iid, (void**)ptr.GetAddressOf());
+			return ptr;
+		}
+
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public readonly HRESULT CoCreateInstance<U>(CLSCTX dwClsContext = CLSCTX.CLSCTX_LOCAL_SERVER)
+		{
+			Guid iid = typeof(T).GUID, clsid = typeof(U).GUID;
+			return PInvoke.CoCreateInstance(&clsid, null, dwClsContext, &iid, (void**)this.GetAddressOf());
 		}
 
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]

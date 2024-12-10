@@ -14,8 +14,8 @@ namespace Files.App.ViewModels.UserControls
 	public sealed class InfoPaneViewModel : ObservableObject, IDisposable
 	{
 		private IInfoPaneSettingsService infoPaneSettingsService { get; } = Ioc.Default.GetRequiredService<IInfoPaneSettingsService>();
-		private IGeneralSettingsService generalSettingsService { get; } = Ioc.Default.GetRequiredService<IGeneralSettingsService>();
 		private IContentPageContext contentPageContext { get; } = Ioc.Default.GetRequiredService<IContentPageContext>();
+		private DrivesViewModel drivesViewModel { get; } = Ioc.Default.GetRequiredService<DrivesViewModel>();
 
 		private CancellationTokenSource loadCancellationTokenSource;
 
@@ -50,11 +50,25 @@ namespace Files.App.ViewModels.UserControls
 				if (SetProperty(ref selectedItem, value))
 				{
 					UpdateTagsItems();
+					SetDriveItem();
 					OnPropertyChanged(nameof(LoadTagsList));
 
 					if (value is not null)
 						value.PropertyChanged += SelectedItem_PropertyChanged;
 				}
+			}
+		}
+
+		/// <summary>
+		/// Current selected drive if any.
+		/// </summary>
+		private DriveItem? selectedDriveItem;
+		public DriveItem? SelectedDriveItem
+		{
+			get => selectedDriveItem;
+			set
+			{
+				SetProperty(ref selectedDriveItem, value);
 			}
 		}
 
@@ -177,7 +191,7 @@ namespace Files.App.ViewModels.UserControls
 			if (control is not null)
 			{
 				PreviewPaneContent = control;
-				PreviewPaneState = PreviewPaneStates.PreviewAndDetailsAvailable;
+				PreviewPaneState = SelectedItem.IsDriveRoot ? PreviewPaneStates.DriveStorageDetailsAvailable : PreviewPaneStates.PreviewAndDetailsAvailable;
 				return;
 			}
 
@@ -190,7 +204,7 @@ namespace Files.App.ViewModels.UserControls
 				return;
 
 			PreviewPaneContent = control;
-			PreviewPaneState = PreviewPaneStates.PreviewAndDetailsAvailable;
+			PreviewPaneState = SelectedItem.IsDriveRoot ? PreviewPaneStates.DriveStorageDetailsAvailable : PreviewPaneStates.PreviewAndDetailsAvailable;
 		}
 
 		private async Task<UserControl> GetBuiltInPreviewControlAsync(ListedItem item, bool downloadItem)
@@ -449,7 +463,7 @@ namespace Files.App.ViewModels.UserControls
 				await basicModel.LoadAsync();
 
 				PreviewPaneContent = new BasicPreview(basicModel);
-				PreviewPaneState = PreviewPaneStates.PreviewAndDetailsAvailable;
+				PreviewPaneState = SelectedItem.IsDriveRoot ? PreviewPaneStates.DriveStorageDetailsAvailable : PreviewPaneStates.PreviewAndDetailsAvailable;
 			}
 			catch (Exception ex)
 			{
@@ -472,6 +486,17 @@ namespace Files.App.ViewModels.UserControls
 			SelectedItem?.FileTagsUI?.ForEach(tag => Items.Add(new TagItem(tag)));
 
 			Items.Add(new FlyoutItem(new Files.App.UserControls.Menus.FileTagsContextMenu(new List<ListedItem>() { SelectedItem })));
+		}
+
+		private void SetDriveItem()
+		{
+			if (!(selectedItem?.IsDriveRoot ?? false))
+			{
+				selectedDriveItem = null;
+				return;
+			}
+
+			SelectedDriveItem = drivesViewModel.Drives.FirstOrDefault(drive => drive.Path == selectedItem.ItemPath) as DriveItem;
 		}
 
 		public void Dispose()

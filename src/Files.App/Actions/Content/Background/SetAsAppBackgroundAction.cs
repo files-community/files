@@ -5,7 +5,7 @@ namespace Files.App.Actions
 {
 	internal sealed class SetAsAppBackgroundAction : BaseSetAsAction
 	{
-		private IAppearanceSettingsService AppearanceSettingsService { get; } = Ioc.Default.GetRequiredService<IAppearanceSettingsService>();
+		private readonly IAppearanceSettingsService AppearanceSettingsService = Ioc.Default.GetRequiredService<IAppearanceSettingsService>();
 
 		public override string Label
 			=> "SetAsAppBackground".GetLocalizedResource();
@@ -18,12 +18,12 @@ namespace Files.App.Actions
 
 		public override bool IsExecutable =>
 			base.IsExecutable &&
-			context.SelectedItem is not null;
+			ContentPageContext.SelectedItem is not null;
 
 		public override Task ExecuteAsync(object? parameter = null)
 		{
-			if (context.SelectedItem is not null)
-				AppearanceSettingsService.AppThemeBackgroundImageSource = context.SelectedItem.ItemPath;
+			if (IsExecutable && ContentPageContext.SelectedItem is ListedItem selectedItem)
+				AppearanceSettingsService.AppThemeBackgroundImageSource = selectedItem.ItemPath;
 
 			return Task.CompletedTask;
 		}

@@ -3,7 +3,6 @@
 
 using System.Collections.Specialized;
 using System.Globalization;
-using Vanara.PInvoke;
 using Windows.Globalization;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -127,7 +126,7 @@ namespace Files.App.ViewModels.Settings
 			AppLifecycleHelper.SaveSessionTabs();
 
 			// Launches a new instance of Files
-			await Launcher.LaunchUriAsync(new Uri("files-uwp:"));
+			await Launcher.LaunchUriAsync(new Uri("files-dev:"));
 
 			// Closes the current instance
 			Process.GetCurrentProcess().Kill();

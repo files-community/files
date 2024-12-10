@@ -160,7 +160,8 @@ namespace Files.App.Utils.Shell
 			// If we use Activator.CreateInstance(Type.GetTypeFromCLSID(...)),
 			// CLR will allow in-process server, which defeats isolation and
 			// creates strange bugs.
-			HRESULT hr = Win32PInvoke.CoCreateInstance(ref clsid, IntPtr.Zero, Win32PInvoke.ClassContext.LocalServer, ref iid, out pph);
+			Windows.Win32.Foundation.HRESULT hr2 = Win32PInvoke.CoCreateInstance(ref clsid, IntPtr.Zero, Win32PInvoke.ClassContext.LocalServer, ref iid, out pph);
+			HRESULT hr = new(hr2.Value);
 			// See https://blogs.msdn.microsoft.com/adioltean/2005/06/24/when-cocreateinstance-returns-0x80080005-co_e_server_exec_failure/
 			// CO_E_SERVER_EXEC_FAILURE also tends to happen when debugging in Visual Studio.
 			// Moreover, to create the instance in a server at low integrity level, we need

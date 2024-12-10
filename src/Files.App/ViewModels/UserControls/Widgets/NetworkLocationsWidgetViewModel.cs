@@ -40,9 +40,7 @@ namespace Files.App.ViewModels.UserControls.Widgets
 
 		// Commands
 
-		private ICommand FormatDriveCommand { get; } = null!;
 		private ICommand EjectDeviceCommand { get; } = null!;
-		private ICommand OpenInNewPaneCommand { get; } = null!;
 		private ICommand MapNetworkDriveCommand { get; } = null!;
 		private ICommand DisconnectNetworkDriveCommand { get; } = null!;
 
@@ -56,13 +54,9 @@ namespace Files.App.ViewModels.UserControls.Widgets
 			DrivesViewModel.Drives.CollectionChanged += Drives_CollectionChanged;
 			NetworkService.Shortcuts.CollectionChanged += Shortcuts_CollectionChanged;
 
-			OpenInNewTabCommand = new AsyncRelayCommand<WidgetCardItem>(ExecuteOpenInNewTabCommand);
-			OpenInNewWindowCommand = new AsyncRelayCommand<WidgetCardItem>(ExecuteOpenInNewWindowCommand);
 			PinToSidebarCommand = new AsyncRelayCommand<WidgetCardItem>(ExecutePinToSidebarCommand);
 			UnpinFromSidebarCommand = new AsyncRelayCommand<WidgetCardItem>(ExecuteUnpinFromSidebarCommand);
-			FormatDriveCommand = new RelayCommand<WidgetDriveCardItem>(ExecuteFormatDriveCommand);
 			EjectDeviceCommand = new RelayCommand<WidgetDriveCardItem>(ExecuteEjectDeviceCommand);
-			OpenInNewPaneCommand = new AsyncRelayCommand<WidgetDriveCardItem>(ExecuteOpenInNewPaneCommand);
 			OpenPropertiesCommand = new RelayCommand<WidgetDriveCardItem>(ExecuteOpenPropertiesCommand);
 			DisconnectNetworkDriveCommand = new RelayCommand<WidgetDriveCardItem>(ExecuteDisconnectNetworkDriveCommand);
 			MapNetworkDriveCommand = new AsyncRelayCommand(ExecuteMapNetworkDriveCommand);
@@ -107,32 +101,21 @@ namespace Files.App.ViewModels.UserControls.Widgets
 
 			return new List<ContextMenuFlyoutItemViewModel>()
 			{
+				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewTabFromHomeAction)
+				{
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab
+				}.Build(),
+				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewWindowFromHomeAction)
+				{
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow
+				}.Build(),
+				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewPaneFromHomeAction)
+				{
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane
+				}.Build(),
 				new()
 				{
-					Text = "OpenInNewTab".GetLocalizedResource(),
-					ThemedIconModel = new ThemedIconModel() { ThemedIconStyle = "App.ThemedIcons.OpenInTab" },
-					Command = OpenInNewTabCommand,
-					CommandParameter = item,
-					ShowItem = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab
-				},
-				new()
-				{
-					Text = "OpenInNewWindow".GetLocalizedResource(),
-					ThemedIconModel = new ThemedIconModel() { ThemedIconStyle = "App.ThemedIcons.OpenInWindow" },
-					Command = OpenInNewWindowCommand,
-					CommandParameter = item,
-					ShowItem = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow
-				},
-				new()
-				{
-					Text = "OpenInNewPane".GetLocalizedResource(),
-					Command = OpenInNewPaneCommand,
-					CommandParameter = item,
-					ShowItem = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane
-				},
-				new()
-				{
-					Text = "PinFolderToSidebar".GetLocalizedResource(),
+					Text = Strings.PinFolderToSidebar.GetLocalizedResource(),
 					ThemedIconModel = new ThemedIconModel() { ThemedIconStyle = "App.ThemedIcons.FavoritePin" },
 					Command = PinToSidebarCommand,
 					CommandParameter = item,
@@ -140,7 +123,7 @@ namespace Files.App.ViewModels.UserControls.Widgets
 				},
 				new()
 				{
-					Text = "UnpinFolderFromSidebar".GetLocalizedResource(),
+					Text = Strings.UnpinFolderFromSidebar.GetLocalizedResource(),
 					ThemedIconModel = new ThemedIconModel() { ThemedIconStyle = "App.ThemedIcons.FavoritePinRemove" },
 					Command = UnpinFromSidebarCommand,
 					CommandParameter = item,
@@ -148,34 +131,28 @@ namespace Files.App.ViewModels.UserControls.Widgets
 				},
 				new()
 				{
-					Text = "Eject".GetLocalizedResource(),
+					Text = Strings.Eject.GetLocalizedResource(),
 					Command = EjectDeviceCommand,
 					CommandParameter = item,
 					ShowItem = options?.ShowEjectDevice ?? false
 				},
+				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.FormatDriveFromHome).Build(),
 				new()
 				{
-					Text = "FormatDriveText".GetLocalizedResource(),
-					Command = FormatDriveCommand,
-					CommandParameter = item,
-					ShowItem = options?.ShowFormatDrive ?? false
-				},
-				new()
-				{
-					Text = "Properties".GetLocalizedResource(),
+					Text = Strings.Properties.GetLocalizedResource(),
 					ThemedIconModel = new ThemedIconModel() { ThemedIconStyle = "App.ThemedIcons.Properties" },
 					Command = OpenPropertiesCommand,
 					CommandParameter = item
 				},
 				new()
 				{
-					Text = "TurnOnBitLocker".GetLocalizedResource(),
+					Text = Strings.TurnOnBitLocker.GetLocalizedResource(),
 					Tag = "TurnOnBitLockerPlaceholder",
 					IsEnabled = false
 				},
 				new()
 				{
-					Text = "ManageBitLocker".GetLocalizedResource(),
+					Text = Strings.ManageBitLocker.GetLocalizedResource(),
 					Tag = "ManageBitLockerPlaceholder",
 					IsEnabled = false
 				},
@@ -186,7 +163,7 @@ namespace Files.App.ViewModels.UserControls.Widgets
 				},
 				new()
 				{
-					Text = "Loading".GetLocalizedResource(),
+					Text = Strings.Loading.GetLocalizedResource(),
 					Glyph = "\xE712",
 					Items = [],
 					ID = "ItemOverflow",
@@ -209,14 +186,6 @@ namespace Files.App.ViewModels.UserControls.Widgets
 				return;
 
 			DriveHelpers.EjectDeviceAsync(item.Item.Path);
-		}
-
-		private async Task ExecuteOpenInNewPaneCommand(WidgetDriveCardItem? item)
-		{
-			if (item is null || await DriveHelpers.CheckEmptyDrive(item.Item.Path))
-				return;
-
-			ContentPageContext.ShellPage!.PaneHolder?.OpenSecondaryPane(item.Item.Path);
 		}
 
 		private Task ExecuteMapNetworkDriveCommand()

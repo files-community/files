@@ -295,7 +295,7 @@ namespace Files.App.Services.Settings
 
 		public bool LeaveAppRunning
 		{
-#if STORE || STABLE || PREVIEW
+#if RELEASE
 			get => Get(true);
 #else
 			get => Get(false);

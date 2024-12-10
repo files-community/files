@@ -23,7 +23,7 @@ namespace Files.App.UserControls.Widgets
 			if (e.ClickedItem is not RecentItem item)
 				return;
 
-			ViewModel.NavigateToPath(item.RecentPath);
+			ViewModel.NavigateToPath(item.Path);
 		}
 
 		private void RecentFilesListView_RightTapped(object sender, RightTappedRoutedEventArgs e)

@@ -238,6 +238,92 @@
 					TextAlignment="Center"
 					TextWrapping="Wrap"
 					Visibility="Collapsed" />
+
+				<!--  Drive Details  -->
+				<TextBlock
+					x:Name="DriveFormatAndTypeTextBlock"
+					Margin="12,12,12,24"
+					HorizontalAlignment="Center"
+					IsTextSelectionEnabled="True"
+					Style="{ThemeResource BodyTextBlockStyle}"
+					TextAlignment="Center"
+					TextWrapping="Wrap"
+					Visibility="Collapsed">
+					<Run Text="{x:Bind ViewModel.SelectedDriveItem.Filesystem, Mode=OneWay}" />
+					<Run Foreground="{ThemeResource TextFillColorTertiaryBrush}" Text="{x:Bind ViewModel.SelectedDriveItem.TypeText, Mode=OneWay}" />
+				</TextBlock>
+
+				<TextBlock
+					x:Name="UsedSpaceTextBlock"
+					HorizontalAlignment="Center"
+					Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"
+					IsTextSelectionEnabled="True"
+					Style="{ThemeResource SubtitleTextBlockStyle}"
+					Text="{x:Bind ViewModel.SelectedDriveItem.UsedSpaceText, Mode=OneWay}"
+					TextAlignment="Center"
+					TextWrapping="Wrap"
+					Visibility="Collapsed" />
+				<controls:StorageBar
+					x:Name="DriveSpaceProgressBar"
+					Margin="8,8,8,8"
+					HorizontalAlignment="Stretch"
+					TrackBarHeight="4"
+					ValueBarHeight="8"
+					Visibility="Collapsed"
+					Value="{x:Bind ViewModel.SelectedDriveItem.PercentageUsed, Mode=OneWay}" />
+				<Grid
+					x:Name="DriveSpaceGrid"
+					Margin="12,0,12,24"
+					Visibility="Collapsed">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+
+					<TextBlock
+						x:Name="AvailableSpaceTextBlock"
+						FontFamily="{ThemeResource ContentControlThemeFontFamily}"
+						FontSize="14"
+						IsTextSelectionEnabled="True"
+						Style="{ThemeResource BodyStrongTextBlockStyle}"
+						Text="{x:Bind ViewModel.SelectedDriveItem.FreeSpaceText, Mode=OneWay}"
+						TextAlignment="Left"
+						TextWrapping="Wrap" />
+					<TextBlock
+						x:Name="TotalDriveSpaceTextBlock"
+						Grid.Column="2"
+						Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+						IsTextSelectionEnabled="True"
+						Style="{ThemeResource BodyStrongTextBlockStyle}"
+						Text="{x:Bind ViewModel.SelectedDriveItem.MaxSpaceText, Mode=OneWay}"
+						TextAlignment="Right"
+						TextWrapping="Wrap" />
+					<TextBlock
+						x:Name="AvailableSpaceLabel"
+						Grid.Row="1"
+						HorizontalAlignment="Left"
+						Style="{ThemeResource BodyTextBlockStyle}"
+						Text="{helpers:ResourceString Name=Available}"
+						TextAlignment="Left"
+						TextWrapping="Wrap" />
+					<TextBlock
+						x:Name="TotalDriveSpaceLabel"
+						Grid.Row="1"
+						Grid.Column="2"
+						HorizontalAlignment="Right"
+						Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+						Style="{ThemeResource BodyTextBlockStyle}"
+						Text="{helpers:ResourceString Name=Total}"
+						TextAlignment="Right"
+						TextWrapping="Wrap" />
+				</Grid>
+
 				<ItemsControl
 					x:Name="FileDetailsRepeater"
 					Margin="12,12,12,0"
@@ -465,6 +551,23 @@
 						<Setter Target="DetailsListHeader.Visibility" Value="Visible" />
 						<Setter Target="PreviewControlPresenter.Visibility" Value="Collapsed" />
 						<Setter Target="PreviewLoadingIndicator.Visibility" Value="Visible" />
+					</VisualState.Setters>
+				</VisualState>
+				<VisualState x:Name="DriveStorageDetailsAvailable">
+					<VisualState.StateTriggers>
+						<triggers:IsEqualStateTrigger Value="{x:Bind ViewModel.PreviewPaneState, Mode=OneWay}" To="5" />
+					</VisualState.StateTriggers>
+					<VisualState.Setters>
+						<Setter Target="PreviewErrorText.Visibility" Value="Collapsed" />
+						<Setter Target="FileDetailsRepeater.Visibility" Value="Collapsed" />
+						<Setter Target="DetailsTagsList.Visibility" Value="Collapsed" />
+						<Setter Target="DetailsOpenProperties.Visibility" Value="Visible" />
+						<Setter Target="PreviewControlPresenter.Visibility" Value="Visible" />
+						<Setter Target="DetailsListHeader.Visibility" Value="Visible" />
+						<Setter Target="DriveFormatAndTypeTextBlock.Visibility" Value="Visible" />
+						<Setter Target="UsedSpaceTextBlock.Visibility" Value="Visible" />
+						<Setter Target="DriveSpaceProgressBar.Visibility" Value="Visible" />
+						<Setter Target="DriveSpaceGrid.Visibility" Value="Visible" />
 					</VisualState.Setters>
 				</VisualState>
 			</VisualStateGroup>

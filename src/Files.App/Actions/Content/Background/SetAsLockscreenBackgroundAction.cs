@@ -1,6 +1,8 @@
 ﻿// Copyright (c) 2024 Files Community
 // Licensed under the MIT License. See the LICENSE.
 
+using Microsoft.Extensions.Logging;
+
 namespace Files.App.Actions
 {
 	internal sealed class SetAsLockscreenBackgroundAction : BaseSetAsAction
@@ -18,16 +20,16 @@ namespace Files.App.Actions
 
 		public override bool IsExecutable =>
 			base.IsExecutable &&
-			context.SelectedItem is not null;
+			ContentPageContext.SelectedItem is not null;
 
 		public override Task ExecuteAsync(object? parameter = null)
 		{
-			if (context.SelectedItem is null)
+			if (!IsExecutable || ContentPageContext.SelectedItem is not ListedItem selectedItem)
 				return Task.CompletedTask;
 
 			try
 			{
-				return WindowsWallpaperService.SetLockScreenWallpaper(context.SelectedItem.ItemPath);
+				return WindowsWallpaperService.SetLockScreenWallpaper(selectedItem.ItemPath);
 			}
 			catch (Exception ex)
 			{

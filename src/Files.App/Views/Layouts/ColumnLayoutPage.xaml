@@ -183,6 +183,7 @@
 					CanDragItems="{x:Bind AllowItemDrag, Mode=OneWay}"
 					ContainerContentChanging="FileList_ContainerContentChanging"
 					DoubleTapped="FileList_DoubleTapped"
+					DragItemsCompleted="FileList_DragItemsCompleted"
 					DragItemsStarting="FileList_DragItemsStarting"
 					DragOver="ItemsLayout_DragOver"
 					Drop="ItemsLayout_Drop"

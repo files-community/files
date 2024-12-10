@@ -3,6 +3,7 @@
 
 using System.IO;
 using Windows.Win32;
+using Windows.Win32.Storage.FileSystem;
 using static Files.App.Helpers.Win32Helper;
 using static Files.App.Helpers.Win32PInvoke;
 
@@ -16,7 +17,7 @@ namespace Files.App.Utils.Serialization.Implementation
 		{
 			PInvoke.CreateDirectoryFromApp(Path.GetDirectoryName(path), null);
 
-			var hFile = CreateFileFromApp(path, GENERIC_READ, FILE_SHARE_READ, IntPtr.Zero, OPEN_ALWAYS, (uint)File_Attributes.BackupSemantics, IntPtr.Zero);
+			var hFile = CreateFileFromApp(path, (uint)FILE_ACCESS_RIGHTS.FILE_GENERIC_READ, FILE_SHARE_READ, IntPtr.Zero, OPEN_ALWAYS, (uint)File_Attributes.BackupSemantics, IntPtr.Zero);
 			if (hFile.IsHandleInvalid())
 			{
 				return false;

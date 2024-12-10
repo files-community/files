@@ -5,7 +5,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Input;
-using Windows.Storage.Pickers;
 using Files.Shared.Helpers;
 
 namespace Files.App.ViewModels.Dialogs
@@ -35,6 +34,20 @@ namespace Files.App.ViewModels.Dialogs
 
 		// Previous path of the destination item
 		private string _previousShortcutTargetPath;
+
+		private string _shortcutName;
+		public string ShortcutName
+		{
+			get => _shortcutName; 
+			set
+			{
+				if (SetProperty(ref _shortcutName, value))
+				{
+					OnPropertyChanged(nameof(ShowNameWarningTip));
+					OnPropertyChanged(nameof(IsShortcutValid));
+				}
+			}
+		}
 
 		// Destination of the shortcut chosen by the user (can be a path, a command or a URL)
 		private string _shortcutTarget;
@@ -167,6 +180,10 @@ namespace Files.App.ViewModels.Dialogs
 					Arguments = string.Empty;
 					_previousShortcutTargetPath = string.Empty;
 				}
+				finally
+				{
+					AutoFillName();
+				}
 			}
 		}
 
@@ -178,11 +195,18 @@ namespace Files.App.ViewModels.Dialogs
 			set
 			{
 				if (SetProperty(ref _isLocationValid, value))
+				{ 
 					OnPropertyChanged(nameof(ShowWarningTip));
+					OnPropertyChanged(nameof(IsShortcutValid));
+				}
 			}
 		}
 
 		public bool ShowWarningTip => !string.IsNullOrEmpty(ShortcutTarget) && !_isLocationValid;
+
+		public bool ShowNameWarningTip => !string.IsNullOrEmpty(_shortcutTarget) && !FilesystemHelpers.IsValidForFilename(_shortcutName);
+
+		public bool IsShortcutValid => _isLocationValid && !ShowNameWarningTip && !string.IsNullOrEmpty(_shortcutTarget);
 
 		// Command invoked when the user clicks the 'Browse' button
 		public ICommand SelectDestinationCommand { get; private set; }
@@ -225,31 +249,9 @@ namespace Files.App.ViewModels.Dialogs
 
 		private async Task CreateShortcutAsync()
 		{
-			string? destinationName;
 			var extension = DestinationPathExists ? ".lnk" : ".url";
 
-			if (DestinationPathExists)
-			{
-				destinationName = Path.GetFileName(FullPath);
-
-				if(string.IsNullOrEmpty(FullPath))
-				{
-					
-					var destinationPath = FullPath.Replace('/', '\\');
-
-					if (destinationPath.EndsWith('\\'))
-						destinationPath = destinationPath.Substring(0, destinationPath.Length - 1);
-
-					destinationName = destinationPath.Substring(destinationPath.LastIndexOf('\\') + 1);
-				}
-			}
-			else
-			{
-				var uri = new Uri(FullPath);
-				destinationName = uri.Host;
-			}
-
-			var shortcutName = FilesystemHelpers.GetShortcutNamingPreference(destinationName);
+			var shortcutName = FilesystemHelpers.GetShortcutNamingPreference(_shortcutName);
 			ShortcutCompleteName = shortcutName + extension;
 			var filePath = Path.Combine(WorkingDirectory, ShortcutCompleteName);
 
@@ -261,6 +263,35 @@ namespace Files.App.ViewModels.Dialogs
 			}
 
 			ShortcutCreatedSuccessfully = await FileOperationsHelpers.CreateOrUpdateLinkAsync(filePath, FullPath, Arguments);
+		}
+
+		private void AutoFillName()
+		{
+			if (DestinationPathExists)
+			{
+				var destinationName = Path.GetFileName(FullPath);
+				if (DestinationPathExists)
+				{
+					destinationName = Path.GetFileName(FullPath);
+
+					if (string.IsNullOrEmpty(FullPath))
+					{
+
+						var destinationPath = FullPath.Replace('/', '\\');
+
+						if (destinationPath.EndsWith('\\'))
+							destinationPath = destinationPath.Substring(0, destinationPath.Length - 1);
+
+						destinationName = destinationPath.Substring(destinationPath.LastIndexOf('\\') + 1);
+					}
+				}
+				ShortcutName = destinationName;
+			}
+			else if (!string.IsNullOrEmpty(FullPath))
+			{
+				var uri = new Uri(FullPath);
+				ShortcutName = uri.Host;
+			}
 		}
 	}
 }

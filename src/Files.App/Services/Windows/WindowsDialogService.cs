@@ -178,57 +178,43 @@ namespace Files.App.Services
 		}
 
 		/// <inheritdoc/>
-		public unsafe bool Open_NetworkConnectionDialog(nint hWind, bool hideRestoreConnectionCheckBox = false, bool persistConnectionAtLogon = false, bool readOnlyPath = false, string? remoteNetworkName = null, bool useMostRecentPath = false)
+		public unsafe bool Open_NetworkConnectionDialog(nint hWnd, bool hideRestoreConnectionCheckBox = false, bool persistConnectionAtLogon = false, bool readOnlyPath = false, string? remoteNetworkName = null, bool useMostRecentPath = false)
 		{
-			NETRESOURCEW netRes = default;
-			CONNECTDLGSTRUCTW dialogOptions = default;
+			if (useMostRecentPath && !string.IsNullOrEmpty(remoteNetworkName))
+				throw new ArgumentException($"{nameof(useMostRecentPath)} cannot be set to true if {nameof(remoteNetworkName)} has a value.");
 
-			dialogOptions.cbStructure = (uint)Marshal.SizeOf(typeof(CONNECTDLGSTRUCTW));
-			netRes.dwType = NET_RESOURCE_TYPE.RESOURCETYPE_DISK;
+			NETRESOURCEW netResource = default;
+			CONNECTDLGSTRUCTW connectDlgOptions = default;
+			WIN32_ERROR res = default;
 
 			if (hideRestoreConnectionCheckBox)
-				dialogOptions.dwFlags |= CONNECTDLGSTRUCT_FLAGS.CONNDLG_HIDE_BOX;
-			else
-				dialogOptions.dwFlags &= ~CONNECTDLGSTRUCT_FLAGS.CONNDLG_HIDE_BOX;
-
+				connectDlgOptions.dwFlags |= CONNECTDLGSTRUCT_FLAGS.CONNDLG_HIDE_BOX;
 			if (persistConnectionAtLogon)
-			{
-				dialogOptions.dwFlags |= CONNECTDLGSTRUCT_FLAGS.CONNDLG_PERSIST;
-				dialogOptions.dwFlags |= CONNECTDLGSTRUCT_FLAGS.CONNDLG_NOT_PERSIST;
-			}
-			else
-			{
-				dialogOptions.dwFlags &= ~CONNECTDLGSTRUCT_FLAGS.CONNDLG_PERSIST;
-				dialogOptions.dwFlags &= ~CONNECTDLGSTRUCT_FLAGS.CONNDLG_NOT_PERSIST;
-			}
-
-			fixed (char* lpcRemoteName = remoteNetworkName)
-				netRes.lpRemoteName = lpcRemoteName;
-
-			if (useMostRecentPath && !string.IsNullOrEmpty(remoteNetworkName))
-				throw new InvalidOperationException($"{nameof(useMostRecentPath)} cannot be set to true if {nameof(remoteNetworkName)} has a value.");
-
+				connectDlgOptions.dwFlags |= (CONNECTDLGSTRUCT_FLAGS.CONNDLG_PERSIST & CONNECTDLGSTRUCT_FLAGS.CONNDLG_NOT_PERSIST);
 			if (useMostRecentPath)
-				dialogOptions.dwFlags |= CONNECTDLGSTRUCT_FLAGS.CONNDLG_USE_MRU;
-			else
-				dialogOptions.dwFlags &= ~CONNECTDLGSTRUCT_FLAGS.CONNDLG_USE_MRU;
+				connectDlgOptions.dwFlags |= CONNECTDLGSTRUCT_FLAGS.CONNDLG_USE_MRU;
+			if (readOnlyPath && !string.IsNullOrEmpty(remoteNetworkName))
+				connectDlgOptions.dwFlags |= CONNECTDLGSTRUCT_FLAGS.CONNDLG_RO_PATH;
 
-			dialogOptions.hwndOwner = new(hWind);
+			fixed (char* pszRemoteName = remoteNetworkName)
+			{
+				netResource.dwType = NET_RESOURCE_TYPE.RESOURCETYPE_DISK;
+				netResource.lpRemoteName = pszRemoteName;
 
-			dialogOptions.lpConnRes = &netRes;
+				connectDlgOptions.cbStructure = (uint)sizeof(CONNECTDLGSTRUCTW);
+				connectDlgOptions.hwndOwner = new(hWnd);
+				connectDlgOptions.lpConnRes = &netResource;
 
-			if (readOnlyPath && !string.IsNullOrEmpty(netRes.lpRemoteName.ToString()))
-				dialogOptions.dwFlags |= CONNECTDLGSTRUCT_FLAGS.CONNDLG_RO_PATH;
+				res = PInvoke.WNetConnectionDialog1W(ref connectDlgOptions);
+			}
 
-			var result = PInvoke.WNetConnectionDialog1W(ref dialogOptions);
-
-			dialogOptions.lpConnRes = null;
-
-			if ((uint)result == unchecked((uint)-1))
+			// User canceled
+			if ((uint)res == unchecked((uint)-1))
 				return false;
 
-			if (result == 0)
-				throw new Win32Exception("Cannot display dialog");
+			// Unexpected error happened
+			if (res is not WIN32_ERROR.NO_ERROR)
+				throw new Win32Exception("Failed to process the network connection dialog successfully.");
 
 			return true;
 		}

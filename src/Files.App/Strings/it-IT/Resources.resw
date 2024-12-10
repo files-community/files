@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Apri Sensore Memoria</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Aprire la pagina Sensore di memoria nelle impostazioni di Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Pulizia</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>Copia</value>
   </data>
@@ -2274,7 +2280,7 @@
     <value>Mostra elementi nascosti</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formatta...</value>
+    <value>Formato</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Aiuto</value>
@@ -2400,7 +2406,7 @@
     <value>Copia gli elementi negli appunti</value>
   </data>
   <data name="CopyPathDescription" xml:space="preserve">
-    <value>Copia il percorso degli elementi selezionati negli appunti</value>
+    <value>Copia il percorso della cartella corrente negli appunti</value>
   </data>
   <data name="CopyItemPathDescription" xml:space="preserve">
     <value>Copia il percorso degli elementi selezionati negli appunti</value>
@@ -2409,7 +2415,7 @@
     <value>Copia il percorso degli elementi selezionati con virgolette negli appunti</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
-    <value>Copia il percorso degli elementi selezionati con virgolette negli appunti</value>
+    <value>Copia il percorso della directory corrente con virgolette negli appunti</value>
   </data>
   <data name="CutItemDescription" xml:space="preserve">
     <value>Taglia gli elementi negli appunti</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Rinomina in blocco</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Mostra l'opzione per creare un flusso dati alternativo</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Crea flusso dati alternativo</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Crea un flusso di dati alternativo per gli elementi selezionati</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Inserisci il nome del flusso dati</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>Si è verificato un errore durante la creazione del flusso di dati alternativo</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Si prega di notare che i flussi di dati alternativi funzionano solo su unità formattate come NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>I flussi di dati alternativi sono attualmente nascosti</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Vuoi visualizzare flussi di dati alternativi? Puoi modificare questa impostazione in qualsiasi momento dalla pagina delle impostazioni dei file e delle cartelle.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Gestisci etichette</value>
   </data>
 </root>

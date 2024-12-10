@@ -15,6 +15,7 @@ using Windows.Win32.Graphics.Direct3D11;
 using Windows.Win32.Graphics.DirectComposition;
 using Windows.Win32.Graphics.Dwm;
 using Windows.Win32.Graphics.Dxgi;
+using Windows.Win32.UI.WindowsAndMessaging;
 using WinRT;
 using static Vanara.PInvoke.ShlwApi;
 using static Vanara.PInvoke.User32;
@@ -76,15 +77,18 @@ namespace Files.App.ViewModels.Previews
 			}
 		}
 
-		public void SizeChanged(RECT size)
+		public void SizeChanged(Windows.Foundation.Rect size)
 		{
-			if (hwnd != HWND.NULL)
-				SetWindowPos(hwnd, HWND.HWND_TOP, size.Left, size.Top, size.Width, size.Height, SetWindowPosFlags.SWP_NOACTIVATE);
+			var width = (int)size.Width;
+			var height = (int)size.Height;
 
-			currentHandler?.ResetBounds(new(0, 0, size.Width, size.Height));
+			if (hwnd != HWND.NULL)
+				SetWindowPos(hwnd, HWND.HWND_TOP, (int)size.Left, (int)size.Top, width, height, SetWindowPosFlags.SWP_NOACTIVATE);
+
+			currentHandler?.ResetBounds(new(0, 0, width, height));
 
 			if (outputLink is not null)
-				outputLink.PlacementVisual.Size = new(size.Width, size.Height);
+				outputLink.PlacementVisual.Size = new(width, height);
 		}
 
 		private nint WndProc(HWND hwnd, uint msg, nint wParam, nint lParam)
@@ -245,14 +249,11 @@ namespace Files.App.ViewModels.Previews
 					(uint)Marshal.SizeOf(dwAttrib));
 
 				if (isOfficePreview)
-					Win32Helper.SetWindowLong(hwnd, WindowLongFlags.GWL_EXSTYLE, 0);
+					PInvoke.SetWindowLongPtr(new((nint)hwnd), WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, 0);
 			}
 			else
 			{
-				Win32Helper.SetWindowLong(
-					hwnd,
-					WindowLongFlags.GWL_EXSTYLE,
-					(nint)(WindowStylesEx.WS_EX_LAYERED | WindowStylesEx.WS_EX_COMPOSITED));
+				PInvoke.SetWindowLongPtr(new((nint)hwnd), WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, (nint)(WINDOW_EX_STYLE.WS_EX_LAYERED | WINDOW_EX_STYLE.WS_EX_COMPOSITED));
 
 				var dwAttrib = Convert.ToUInt32(true);
 

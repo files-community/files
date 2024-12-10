@@ -58,6 +58,8 @@ namespace Files.App.Data.Commands
 		IRichCommand RestoreRecycleBin { get; }
 		IRichCommand RestoreAllRecycleBin { get; }
 		IRichCommand FormatDrive { get; }
+		IRichCommand FormatDriveFromHome { get; }
+		IRichCommand FormatDriveFromSidebar { get; }
 		IRichCommand OpenItem { get; }
 		IRichCommand OpenItemWithApplicationPicker { get; }
 		IRichCommand OpenParentFolder { get; }
@@ -101,7 +103,11 @@ namespace Files.App.Data.Commands
 		IRichCommand OpenInVSCode { get; }
 		IRichCommand OpenRepoInVSCode { get; }
 		IRichCommand OpenProperties { get; }
+		IRichCommand OpenReleaseNotes { get; }
 		IRichCommand OpenClassicProperties { get; }
+		IRichCommand OpenStorageSense { get; }
+		IRichCommand OpenStorageSenseFromHome { get; }
+		IRichCommand OpenStorageSenseFromSidebar { get; }
 		IRichCommand OpenSettings { get; }
 		IRichCommand OpenTerminal { get; }
 		IRichCommand OpenTerminalAsAdmin { get; }

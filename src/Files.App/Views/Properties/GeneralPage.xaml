@@ -687,6 +687,8 @@
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
 							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="Auto" />
 						</Grid.RowDefinitions>
 
 						<!--  Read Only  -->
@@ -732,6 +734,33 @@
 							VerticalAlignment="Center"
 							AutomationProperties.Name="{helpers:ResourceString Name=Hidden}"
 							IsChecked="{x:Bind ViewModel.IsHiddenEditedValue, Mode=TwoWay}" />
+
+						<!--  (Divider)  -->
+						<Border
+							Grid.Row="3"
+							Grid.Column="0"
+							Grid.ColumnSpan="3"
+							Height="1"
+							Margin="-16,0"
+							Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+
+						<!--  Compress Contents  -->
+						<TextBlock
+							Grid.Row="4"
+							Grid.Column="0"
+							VerticalAlignment="Center"
+							Text="{helpers:ResourceString Name=CompressContents}"
+							TextWrapping="WrapWholeWords" />
+
+						<CheckBox
+							Grid.Row="4"
+							Grid.Column="2"
+							MinWidth="0"
+							HorizontalAlignment="Right"
+							VerticalAlignment="Center"
+							AutomationProperties.Name="{helpers:ResourceString Name=CompressContents}"
+							IsChecked="{x:Bind ViewModel.IsContentCompressedEditedValue, Mode=TwoWay}"
+							IsEnabled="{x:Bind ViewModel.CanCompressContent, Mode=OneWay}" />
 
 					</Grid>
 				</Expander.Content>

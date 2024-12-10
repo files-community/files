@@ -4,14 +4,11 @@
 using Files.App.ViewModels.Properties;
 using Microsoft.UI.Xaml.Media.Imaging;
 using System.IO;
-using Windows.Storage.FileProperties;
 
 namespace Files.App.ViewModels.Previews
 {
 	public sealed class FolderPreviewViewModel
 	{
-		private static readonly IDateTimeFormatter dateTimeFormatter = Ioc.Default.GetRequiredService<IDateTimeFormatter>();
-
 		public ListedItem Item { get; }
 
 		public BitmapImage Thumbnail { get; set; } = new();
@@ -38,6 +35,12 @@ namespace Files.App.ViewModels.Previews
 			
 			if (result is not null)
 				Thumbnail = await result.ToBitmapAsync();
+
+			// If the selected item is the root of a drive (e.g. "C:\")
+			// we do not need to load the properties below, since they will not be shown.
+			// Drive properties will be obtained through the DrivesViewModel service.
+			if (Item.IsDriveRoot)
+				return;
 
 			var info = await Folder.GetBasicPropertiesAsync();
 

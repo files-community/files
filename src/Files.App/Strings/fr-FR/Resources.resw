@@ -352,10 +352,10 @@
     <value>Impossible de supprimer cet élément</value>
   </data>
   <data name="DriveUnpluggedDialog.Text" xml:space="preserve">
-    <value>Veuillez insérer le disque nécessaire pour accéder à cet élément.</value>
+    <value>Veuillez insérer le lecteur nécessaire pour accéder à cet élément.</value>
   </data>
   <data name="DriveUnpluggedDialog.Title" xml:space="preserve">
-    <value>Disque déconnecté</value>
+    <value>Lecteur débranché</value>
   </data>
   <data name="FileNotFoundDialog.Text" xml:space="preserve">
     <value>Le fichier auquel vous tentez d'accéder a peut-être été déplacé ou supprimé.</value>
@@ -960,7 +960,7 @@
     <value>Raccourci</value>
   </data>
   <data name="Drives" xml:space="preserve">
-    <value>Disques</value>
+    <value>Lecteurs</value>
   </data>
   <data name="PinToSidebarByDraggingCaptionText" xml:space="preserve">
     <value>Déplacer ici</value>
@@ -1065,7 +1065,7 @@
     <value>Date de suppression</value>
   </data>
   <data name="SidebarCloudDrives" xml:space="preserve">
-    <value>Disques Cloud</value>
+    <value>Lecteurs cloud</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirmer</value>
@@ -1143,22 +1143,22 @@
     <value>Si vous changez l'extension du fichier, celui-ci peut devenir inutilisable. Êtes-vous sûr de vouloir la changer ?</value>
   </data>
   <data name="DriveTypeCDRom" xml:space="preserve">
-    <value>Lecteur CD</value>
+    <value>Lecteur CD-ROM</value>
   </data>
   <data name="DriveTypeCloudDrive" xml:space="preserve">
-    <value>Disque Cloud</value>
+    <value>Lecteur cloud</value>
   </data>
   <data name="DriveTypeFixed" xml:space="preserve">
     <value>Disque local</value>
   </data>
   <data name="DriveTypeFloppyDisk" xml:space="preserve">
-    <value>Lecteur de disquette</value>
+    <value>Lecteur de disquettes</value>
   </data>
   <data name="DriveTypeNetwork" xml:space="preserve">
-    <value>Disque réseau</value>
+    <value>Lecteur réseau</value>
   </data>
   <data name="DriveTypeNoRootDirectory" xml:space="preserve">
-    <value>Disque démonté</value>
+    <value>Lecteur non monté</value>
   </data>
   <data name="DriveTypeRam" xml:space="preserve">
     <value>Lecteur de disque RAM</value>
@@ -1170,7 +1170,7 @@
     <value>Inconnu</value>
   </data>
   <data name="DriveTypeVirtualDrive" xml:space="preserve">
-    <value>Disque virtuel</value>
+    <value>Lecteur virtuel</value>
   </data>
   <data name="DateCreated" xml:space="preserve">
     <value>Date de création</value>
@@ -1243,6 +1243,12 @@
   </data>
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Ouvrir l'Assistant Stockage</value>
+  </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Ouvrez la page Assistant Stockage dans les paramètres Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Nettoyer</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Copier</value>
@@ -1683,7 +1689,7 @@
     <value>Partie de l'ensemble</value>
   </data>
   <data name="InsertDiscDialog.OpenDriveButton" xml:space="preserve">
-    <value>Ouvrir le disque</value>
+    <value>Ouvrir le lecteur</value>
   </data>
   <data name="InsertDiscDialog.Text" xml:space="preserve">
     <value>Veuillez insérer un disque dans le lecteur {0}</value>
@@ -1890,7 +1896,7 @@
     <value>Lecture seule</value>
   </data>
   <data name="CleanupDrive" xml:space="preserve">
-    <value>Nettoyer le contenu du disque</value>
+    <value>Nettoyer le contenu de votre lecteur</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Type</value>
@@ -2274,7 +2280,7 @@
     <value>Afficher les éléments masqués</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formater...</value>
+    <value>Formater</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Aide</value>
@@ -3303,7 +3309,7 @@
     <value>Gérer BitLocker</value>
   </data>
   <data name="CopyFailureFileToLarge" xml:space="preserve">
-    <value>Les éléments suivants sont trop volumineux pour être copiés sur ce disque dur</value>
+    <value>Les éléments suivants sont trop volumineux pour être copiés dans ce lecteur</value>
   </data>
   <data name="FormatDrive" xml:space="preserve">
     <value>Formater le lecteur</value>
@@ -3634,7 +3640,7 @@
     <value>Connexion</value>
   </data>
   <data name="ErrorApplyingTagContent" xml:space="preserve">
-    <value>Les étiquettes sont actuellement uniquement compatibles sur les lecteurs formatés en NTFS.</value>
+    <value>Les étiquettes sont actuellement compatibles uniquement avec les lecteurs formatés en NTFS.</value>
   </data>
   <data name="ErrorApplyingTagTitle" xml:space="preserve">
     <value>Une erreur s'est produite lors de l'application de cette étiquette</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Renommer en masse</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Afficher l'option pour créer un flux de données alternatif</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Créer un flux de données alternatif</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Créer un flux de données alternatif pour le(s) élément(s) sélectionné(s)</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Entrez le nom du flux de données</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>Une erreur s’est produite lors de la création du flux de données alternatif</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Veuillez noter que les flux de données alternatifs ne fonctionnent que sur les lecteurs formatés en NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Les flux de données alternatifs sont actuellement masqués</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Souhaitez-vous afficher les flux de données alternatifs ? Vous pouvez modifier ce paramètre à tout moment depuis la page des paramètres de fichiers et dossiers.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Manage tags</value>
   </data>
 </root>

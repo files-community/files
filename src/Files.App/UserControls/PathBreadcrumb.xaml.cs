@@ -25,6 +25,11 @@ namespace Files.App.UserControls
 			ViewModel.PathboxItemFlyout_Opened(sender, e);
 		}
 
+		private void PathBoxItemFlyout_Closed(object sender, object e)
+		{
+			ViewModel.PathBoxItemFlyout_Closed(sender, e) ;
+		}
+
 		private void PathBoxItem_DragLeave(object sender, DragEventArgs e)
 		{
 			ViewModel.PathBoxItem_DragLeave(sender, e);

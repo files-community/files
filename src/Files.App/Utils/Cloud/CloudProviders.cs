@@ -19,8 +19,6 @@ namespace Files.App.Utils.Cloud
 
 		AppleCloudPhotos,
 
-		AmazonDrive,
-
 		Nextcloud,
 
 		Yandex,

@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.WinUI.Helpers;
+using System.Net.Http;
 
 namespace Files.App.Services
 {
-	internal sealed class DummyUpdateService : IUpdateService
+	internal sealed class DummyUpdateService : ObservableObject, IUpdateService
 	{
 		public bool IsUpdateAvailable => false;
 
 		public bool IsUpdating => false;
 
-		public bool IsAppUpdated => true;
+		public bool IsAppUpdated
+		{
+			get => SystemInformation.Instance.IsAppUpdated;
+		}
 
-		public bool IsReleaseNotesAvailable => true;
+		private bool _areReleaseNotesAvailable = false;
+		public bool AreReleaseNotesAvailable
+		{
+			get => _areReleaseNotesAvailable;
+			private set => SetProperty(ref _areReleaseNotesAvailable, value);
+		}
 
 		public event PropertyChangedEventHandler? PropertyChanged { add { } remove { } }
 
@@ -28,9 +33,19 @@ namespace Files.App.Services
 			return Task.CompletedTask;
 		}
 
-		public Task CheckLatestReleaseNotesAsync(CancellationToken cancellationToken = default)
+		public async Task CheckForReleaseNotesAsync()
 		{
-			return Task.CompletedTask;
+			using var client = new HttpClient();
+
+			try
+			{
+				var response = await client.GetAsync(Constants.ExternalUrl.ReleaseNotesUrl);
+				AreReleaseNotesAvailable = response.IsSuccessStatusCode;
+			}
+			catch
+			{
+				AreReleaseNotesAvailable = false;
+			}
 		}
 
 		public Task DownloadMandatoryUpdatesAsync()
@@ -41,12 +56,6 @@ namespace Files.App.Services
 		public Task DownloadUpdatesAsync()
 		{
 			return Task.CompletedTask;
-		}
-
-		public Task<string?> GetLatestReleaseNotesAsync(CancellationToken cancellationToken = default)
-		{
-			// No localization for dev-only string
-			return Task.FromResult((string?)"No release notes available for Dev build.");
 		}
 	}
 }

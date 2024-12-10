@@ -2,7 +2,6 @@
 // Licensed under the MIT License. See the LICENSE.
 
 using Files.App.Controls;
-using Files.App.Storage.Storables;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
@@ -116,13 +115,25 @@ namespace Files.App.Data.Items
 		private DriveType type;
 		public DriveType Type
 		{
-			get => type; set
+			get => type;
+			set
 			{
 				type = value;
 
 				if (value is DriveType.Network or DriveType.CloudDrive)
 					ToolTip = Text;
+
+				OnPropertyChanged(nameof(TypeText));
 			}
+		}
+
+		public string TypeText => string.Format("DriveType{0}", Type).GetLocalizedResource();
+
+		private string filesystem = string.Empty;
+		public string Filesystem
+		{
+			get => filesystem;
+			set => SetProperty(ref filesystem, value);
 		}
 
 		private string text;
@@ -239,7 +250,6 @@ namespace Files.App.Data.Items
 				IsLocationItem = true,
 				ShowEjectDevice = item.IsRemovable,
 				ShowShellItems = true,
-				ShowFormatDrive = !(item.Type == DriveType.Network || string.Equals(root.Path, $@"{Constants.UserEnvironmentPaths.SystemDrivePath}\", StringComparison.OrdinalIgnoreCase)),
 				ShowProperties = true
 			};
 			item.Path = string.IsNullOrEmpty(root.Path) ? $"\\\\?\\{root.Name}\\" : root.Path;
@@ -268,7 +278,7 @@ namespace Files.App.Data.Items
 		{
 			try
 			{
-				var properties = await Root.Properties.RetrievePropertiesAsync(["System.FreeSpace", "System.Capacity"])
+				var properties = await Root.Properties.RetrievePropertiesAsync(["System.FreeSpace", "System.Capacity", "System.Volume.FileSystem"])
 					.AsTask().WithTimeoutAsync(TimeSpan.FromSeconds(5));
 
 				if (properties is not null && properties["System.Capacity"] is not null && properties["System.FreeSpace"] is not null)
@@ -288,12 +298,18 @@ namespace Files.App.Data.Items
 					MaxSpace = SpaceUsed = FreeSpace = ByteSize.FromBytes(0);
 				}
 
+				if (properties is not null && properties["System.Volume.FileSystem"] is not null)
+					Filesystem = (string)properties["System.Volume.FileSystem"];
+				else
+					Filesystem = string.Empty;
+
 				OnPropertyChanged(nameof(ShowDriveDetails));
 			}
 			catch (Exception)
 			{
 				SpaceText = "Unknown".GetLocalizedResource();
 				MaxSpace = SpaceUsed = FreeSpace = ByteSize.FromBytes(0);
+				Filesystem = string.Empty;
 
 				OnPropertyChanged(nameof(ShowDriveDetails));
 			}
@@ -342,25 +358,25 @@ namespace Files.App.Data.Items
 
 		public Task<INestedFile> GetFileAsync(string fileName, CancellationToken cancellationToken = default)
 		{
-			var folder = new WindowsStorageFolder(Root);
+			var folder = new WindowsStorageFolderLegacy(Root);
 			return folder.GetFileAsync(fileName, cancellationToken);
 		}
 
 		public Task<INestedFolder> GetFolderAsync(string folderName, CancellationToken cancellationToken = default)
 		{
-			var folder = new WindowsStorageFolder(Root);
+			var folder = new WindowsStorageFolderLegacy(Root);
 			return folder.GetFolderAsync(folderName, cancellationToken);
 		}
 
 		public IAsyncEnumerable<INestedStorable> GetItemsAsync(StorableKind kind = StorableKind.All, CancellationToken cancellationToken = default)
 		{
-			var folder = new WindowsStorageFolder(Root);
+			var folder = new WindowsStorageFolderLegacy(Root);
 			return folder.GetItemsAsync(kind, cancellationToken);
 		}
 
 		public Task<IFolder?> GetParentAsync(CancellationToken cancellationToken = default)
 		{
-			var folder = new WindowsStorageFolder(Root);
+			var folder = new WindowsStorageFolderLegacy(Root);
 			return folder.GetParentAsync(cancellationToken);
 		}
 	}

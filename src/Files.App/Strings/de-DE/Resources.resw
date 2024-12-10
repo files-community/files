@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Speicheroptimierung öffnen</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Öffnet die Seite Speicheroptimierung in den Windows-Einstellungen</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Bereinigung</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>Kopieren</value>
   </data>
@@ -2274,7 +2280,7 @@
     <value>Versteckte Elemente anzeigen</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formatieren...</value>
+    <value>Formattieren</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Hilfe</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Massenhafte Umbenennung</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Option zum Erstellen alternativer Datenströme anzeigen</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Alternativen Datenstrom erstellen</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Alternativen Datenstrom für das/die ausgewählte(n) Element(e) erstellen</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Datenstromnamen eingeben</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>Fehler beim Erstellen des alternativen Datenstroms</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Bitte beachte, dass alternative Datenströme nur auf Laufwerken funktionieren, die als NTFS formatiert sind.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Alternative Datenströme sind derzeit versteckt</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Möchtest Du alternative Datenströme anzeigen? Du kannst diese Einstellung jederzeit in den Dateien- und Ordner-Einstellungen ändern.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Tags verwalten</value>
   </data>
 </root>

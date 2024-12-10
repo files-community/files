@@ -84,20 +84,6 @@ namespace Files.App.ViewModels.UserControls
 			set => SetProperty(ref isUpdateAvailable, value);
 		}
 
-		private string? releaseNotes;
-		public string? ReleaseNotes
-		{
-			get => releaseNotes;
-			set => SetProperty(ref releaseNotes, value);
-		}
-
-		private bool isReleaseNotesVisible;
-		public bool IsReleaseNotesVisible
-		{
-			get => isReleaseNotesVisible;
-			set => SetProperty(ref isReleaseNotesVisible, value);
-		}
-
 		private bool canCopyPathInPage;
 		public bool CanCopyPathInPage
 		{
@@ -170,6 +156,9 @@ namespace Files.App.ViewModels.UserControls
 			}
 		}
 
+		public bool IsAppUpdated =>
+			UpdateService.IsAppUpdated;
+
 		public bool ShowHomeButton
 			=> AppearanceSettingsService.ShowHomeButton;
 
@@ -209,7 +198,6 @@ namespace Files.App.ViewModels.UserControls
 		public AddressToolbarViewModel()
 		{
 			RefreshClickCommand = new RelayCommand<RoutedEventArgs>(e => RefreshRequested?.Invoke(this, EventArgs.Empty));
-			ViewReleaseNotesAsyncCommand = new AsyncRelayCommand(ViewReleaseNotesAsync);
 
 			dispatcherQueue = DispatcherQueue.GetForCurrentThread();
 			dragOverTimer = dispatcherQueue.CreateTimer();
@@ -233,31 +221,6 @@ namespace Files.App.ViewModels.UserControls
 		{
 			IsUpdateAvailable = UpdateService.IsUpdateAvailable;
 			IsUpdating = UpdateService.IsUpdating;
-
-			// TODO: Bad code, result is called twice when checking for release notes
-			if (UpdateService.IsReleaseNotesAvailable)
-				await CheckForReleaseNotesAsync();
-		}
-
-		private async Task ViewReleaseNotesAsync()
-		{
-			if (ReleaseNotes is null)
-				return;
-
-			var viewModel = new ReleaseNotesDialogViewModel(ReleaseNotes);
-			var dialog = _dialogService.GetDialog(viewModel);
-
-			await dialog.TryShowAsync();
-		}
-
-		public async Task CheckForReleaseNotesAsync()
-		{
-			var result = await UpdateService.GetLatestReleaseNotesAsync();
-			if (result is null)
-				return;
-
-			ReleaseNotes = result;
-			IsReleaseNotesVisible = true;
 		}
 
 		public void RefreshWidgets()
@@ -479,7 +442,6 @@ namespace Files.App.ViewModels.UserControls
 		}
 
 		public ICommand RefreshClickCommand { get; }
-		public ICommand ViewReleaseNotesAsyncCommand { get; }
 
 		public void PathItemSeparator_DataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
 		{
@@ -497,6 +459,11 @@ namespace Files.App.ViewModels.UserControls
 		public void PathboxItemFlyout_Opened(object sender, object e)
 		{
 			ToolbarFlyoutOpened?.Invoke(this, new ToolbarFlyoutOpenedEventArgs() { OpenedFlyout = (MenuFlyout)sender });
+		}
+
+		public void PathBoxItemFlyout_Closed(object sender, object e)
+		{
+			((MenuFlyout)sender).Items.Clear();
 		}
 
 		public void CurrentPathSetTextBox_TextChanged(object sender, TextChangedEventArgs args)

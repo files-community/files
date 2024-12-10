@@ -127,7 +127,7 @@
     <value>複製帶引號的路徑</value>
   </data>
   <data name="CopyItemPathWithQuotes" xml:space="preserve">
-    <value>Copy selected item path with quotes</value>
+    <value>複製選取項目的帶引號路徑</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>瀏覽</value>
@@ -253,7 +253,7 @@
     <value>貼上</value>
   </data>
   <data name="PasteShortcut" xml:space="preserve">
-    <value>Paste shortcut</value>
+    <value>貼上捷徑</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>新增</value>
@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>開啟儲存空間感知器</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Open the Storage Sense page in Windows Settings</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Cleanup</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>複製</value>
   </data>
@@ -1941,7 +1947,7 @@
     <value>關閉其他索引標籤</value>
   </data>
   <data name="CloseAllTabs" xml:space="preserve">
-    <value>Close all tabs</value>
+    <value>關閉所有分頁</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>音樂</value>
@@ -2049,7 +2055,7 @@
     <value>展平</value>
   </data>
   <data name="FlattenFolderDialogContent" xml:space="preserve">
-    <value>展平資料夾將會把其子資料夾中的所有內容移動到選定的位置。此操作是永久性的，無法復原。使用此實驗性功能即表示您承擔風險並同意不對 Files 團隊因任何資料遺失負責。</value>
+    <value>展平資料夾將會把其子資料夾中的所有內容移動到選定的位置。此操作是永久性的，無法復原。使用此實驗性功能即表示您承擔風險並同意不對 Files 團隊因任何資料遺失究責。</value>
   </data>
   <data name="ShowFlattenOptions" xml:space="preserve">
     <value>顯示展平選項</value>
@@ -2274,7 +2280,7 @@
     <value>顯示隱藏項目</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>格式化...</value>
+    <value>格式</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>幫助</value>
@@ -2400,16 +2406,16 @@
     <value>將項目複製到剪貼簿</value>
   </data>
   <data name="CopyPathDescription" xml:space="preserve">
-    <value>將選取的項目路徑複製到剪貼簿</value>
+    <value>將目前目錄的路徑複製到剪貼簿</value>
   </data>
   <data name="CopyItemPathDescription" xml:space="preserve">
-    <value>Copy path of selected items to the clipboard</value>
+    <value>將選取項目的路徑複製到剪貼簿</value>
   </data>
   <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
-    <value>Copy path of selected items with quotes to the clipboard</value>
+    <value>將選取項目的帶引號路徑複製到剪貼簿</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
-    <value>將選取的引號項目路徑複製到剪貼簿</value>
+    <value>將目前目錄的帶引號路徑複製到剪貼簿</value>
   </data>
   <data name="CutItemDescription" xml:space="preserve">
     <value>剪下項目到剪貼簿</value>
@@ -2418,7 +2424,7 @@
     <value>從剪貼簿貼上項目到所在資料夾</value>
   </data>
   <data name="PasteShortcutDescription" xml:space="preserve">
-    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
+    <value>以捷徑的形式，貼上剪貼簿中的檔案和資料夾到目前的資料夾</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>從剪貼簿貼上項目到所選資料夾</value>
@@ -2700,7 +2706,7 @@
     <value>除了所選分頁，關閉所有分頁</value>
   </data>
   <data name="CloseAllTabsDescription" xml:space="preserve">
-    <value>Close all tabs including the current tab</value>
+    <value>關閉所有分頁，也包含目前的分頁</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>恢復先前關閉的分頁</value>
@@ -3197,13 +3203,13 @@
     <value>{0} 個已發送的 commit / {1} 個已接收的 commit</value>
   </data>
   <data name="ConnectGitHub" xml:space="preserve">
-    <value>連線至 Github</value>
+    <value>登入 GitHub</value>
   </data>
   <data name="ConnectGitHubDescription" xml:space="preserve">
-    <value>在下面的網址欄輸入輸入以下驗證碼，即可開始使用 Github 儲存庫。</value>
+    <value>在下面的網址欄輸入輸入以下驗證碼，即可開始使用 GitHub 儲存庫。</value>
   </data>
   <data name="CannotReachGitHubError" xml:space="preserve">
-    <value>Files 目前無法連線至 Github。</value>
+    <value>Files 目前無法連線至 GitHub。</value>
   </data>
   <data name="OpenInVSCode" xml:space="preserve">
     <value>在 VS Code 中開啟檔案</value>
@@ -3628,7 +3634,7 @@
     <value>登出</value>
   </data>
   <data name="ConnectToGitHub" xml:space="preserve">
-    <value>登入 Github</value>
+    <value>登入 GitHub</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>登入</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>批次重新命名</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>顯示「建立 Alternate Data Stream」的選項</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>建立 Alternate Data Stream</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>為選取的項目建立 Alternate Data Stream</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>輸入 Data Stream 名稱</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>建立 Alternate Data Stream 時發生錯誤</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>請注意，Alternate Data Stream只適用於NTFS系統</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>目前 Alternate Data Stream 為隱藏狀態</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>是否要顯示 Alternate Data Stream? 您隨時可以在「設定 &gt; 檔案與資料夾」中更改設定</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Manage tags</value>
   </data>
 </root>

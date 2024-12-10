@@ -136,7 +136,10 @@ namespace Files.App.Helpers
 
 			// Add newly created item to recent files list
 			if (created.Status == ReturnResult.Success && created.Item?.Path is not null)
-				App.RecentItemsManager.AddToRecentItems(created.Item.Path);
+			{
+				IWindowsRecentItemsService windowsRecentItemsService = Ioc.Default.GetRequiredService<IWindowsRecentItemsService>();
+				windowsRecentItemsService.Add(created.Item.Path);
+			}
 			else if (created.Status == ReturnResult.AccessUnauthorized)
 			{
 				await DialogDisplayHelper.ShowDialogAsync

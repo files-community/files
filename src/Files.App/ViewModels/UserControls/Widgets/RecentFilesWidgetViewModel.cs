@@ -3,6 +3,7 @@
 
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.Win32;
 using System.Collections.Specialized;
 using System.IO;
 using Windows.Foundation.Metadata;
@@ -54,7 +55,7 @@ namespace Files.App.ViewModels.UserControls.Widgets
 			// recent files could have changed while widget wasn't loaded
 			_ = RefreshWidgetAsync();
 
-			App.RecentItemsManager.RecentFilesChanged += Manager_RecentFilesChanged;
+			WindowsRecentItemsService.RecentFilesChanged += Manager_RecentFilesChanged;
 
 			RemoveRecentItemCommand = new AsyncRelayCommand<RecentItem>(ExecuteRemoveRecentItemCommand);
 			ClearAllItemsCommand = new AsyncRelayCommand(ExecuteClearRecentItemsCommand);
@@ -66,9 +67,10 @@ namespace Files.App.ViewModels.UserControls.Widgets
 
 		public async Task RefreshWidgetAsync()
 		{
-			IsRecentFilesDisabledInWindows = App.RecentItemsManager.CheckIsRecentFilesEnabled() is false;
-			await App.RecentItemsManager.UpdateRecentFilesAsync();
+			IsRecentFilesDisabledInWindows = !CheckIsRecentItemsEnabled();
+			await WindowsRecentItemsService.UpdateRecentFilesAsync();
 		}
+
 
 		public override List<ContextMenuFlyoutItemViewModel> GetItemMenuItems(WidgetCardItem item, bool isPinned, bool isFolder = false)
 		{
@@ -178,7 +180,7 @@ namespace Files.App.ViewModels.UserControls.Widgets
 
 					// case NotifyCollectionChangedAction.Reset:
 					default:
-						var recentFiles = App.RecentItemsManager.RecentFiles; // already sorted, add all in order
+						var recentFiles = WindowsRecentItemsService.RecentFiles; // already sorted, add all in order
 						if (!recentFiles.SequenceEqual(Items))
 						{
 							Items.Clear();
@@ -232,6 +234,22 @@ namespace Files.App.ViewModels.UserControls.Widgets
 			catch (Exception) { }
 		}
 
+		public bool CheckIsRecentItemsEnabled()
+		{
+			using var explorerSubKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer");
+			using var advSubkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+			using var userPolicySubkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer");
+			using var sysPolicySubkey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer");
+			var policySubkey = userPolicySubkey ?? sysPolicySubkey;
+
+			if (Convert.ToBoolean(explorerSubKey?.GetValue("ShowRecent", true)) &&
+				Convert.ToBoolean(advSubkey?.GetValue("Start_TrackDocs", true)) &&
+				!Convert.ToBoolean(policySubkey?.GetValue("NoRecentDocsHistory", false)))
+				return true;
+
+			return false;
+		}
+
 		// Event methods
 
 		private async void Manager_RecentFilesChanged(object? sender, NotifyCollectionChangedEventArgs e)
@@ -254,7 +272,10 @@ namespace Files.App.ViewModels.UserControls.Widgets
 
 			try
 			{
-				await App.RecentItemsManager.UnpinFromRecentFiles(item);
+				await Task.Run(() =>
+				{
+					return WindowsRecentItemsService.Remove(item);
+				});
 			}
 			finally
 			{
@@ -265,13 +286,10 @@ namespace Files.App.ViewModels.UserControls.Widgets
 		private async Task ExecuteClearRecentItemsCommand()
 		{
 			await _refreshRecentFilesSemaphore.WaitAsync();
+
 			try
 			{
-				Items.Clear();
-				bool success = App.RecentItemsManager.ClearRecentItems();
-
-				if (success)
-					IsEmptyRecentFilesTextVisible = true;
+				WindowsRecentItemsService.Clear();
 			}
 			finally
 			{
@@ -284,8 +302,8 @@ namespace Files.App.ViewModels.UserControls.Widgets
 			if (item is null)
 				return;
 
-			var itemPath = Directory.GetParent(item.RecentPath)?.FullName ?? string.Empty;
-			var itemName = Path.GetFileName(item.RecentPath);
+			var itemPath = Directory.GetParent(item.Path)?.FullName ?? string.Empty;
+			var itemName = Path.GetFileName(item.Path);
 
 			ContentPageContext.ShellPage!.NavigateWithArguments(
 				ContentPageContext.ShellPage!.InstanceViewModel.FolderSettings.GetLayoutType(itemPath),
@@ -338,7 +356,10 @@ namespace Files.App.ViewModels.UserControls.Widgets
 
 		public void Dispose()
 		{
-			App.RecentItemsManager.RecentFilesChanged -= Manager_RecentFilesChanged;
+			WindowsRecentItemsService.RecentFilesChanged -= Manager_RecentFilesChanged;
+
+			foreach (var item in Items)
+				item.Dispose();
 		}
 	}
 }

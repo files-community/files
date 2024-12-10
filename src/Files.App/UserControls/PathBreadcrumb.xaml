@@ -94,6 +94,7 @@
 						<Button.Flyout>
 							<MenuFlyout
 								x:Name="ExpandMenuFlyout"
+								Closed="PathBoxItemFlyout_Closed"
 								Opened="PathBoxItemFlyout_Opened"
 								Placement="BottomEdgeAlignedLeft"
 								ScrollViewer.VerticalScrollBarVisibility="Auto"

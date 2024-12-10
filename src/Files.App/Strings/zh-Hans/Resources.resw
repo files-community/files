@@ -127,7 +127,7 @@
     <value>复制路径（带引号）</value>
   </data>
   <data name="CopyItemPathWithQuotes" xml:space="preserve">
-    <value>Copy selected item path with quotes</value>
+    <value>复制选中项的路径（带引号）</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>浏览</value>
@@ -253,7 +253,7 @@
     <value>粘贴</value>
   </data>
   <data name="PasteShortcut" xml:space="preserve">
-    <value>Paste shortcut</value>
+    <value>粘贴为快捷方式</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>新建</value>
@@ -298,7 +298,7 @@
     <value>输入项目名称</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>创建新{0}</value>
+    <value>创建新 {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>浅色</value>
@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>打开存储感知</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>打开 Windows 设置中的“存储感知”页面</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>清理</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>复制</value>
   </data>
@@ -1941,7 +1947,7 @@
     <value>关闭其他选项卡</value>
   </data>
   <data name="CloseAllTabs" xml:space="preserve">
-    <value>Close all tabs</value>
+    <value>关闭所有标签页</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>音乐</value>
@@ -2274,7 +2280,7 @@
     <value>显示隐藏的项目</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>格式化...</value>
+    <value>格式化</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>帮助</value>
@@ -2400,16 +2406,16 @@
     <value>复制项目到剪贴板</value>
   </data>
   <data name="CopyPathDescription" xml:space="preserve">
-    <value>复制选中项的路径到剪贴板</value>
+    <value>复制当前目录的路径到剪贴板</value>
   </data>
   <data name="CopyItemPathDescription" xml:space="preserve">
-    <value>Copy path of selected items to the clipboard</value>
+    <value>复制选中项的路径到剪贴板</value>
   </data>
   <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
-    <value>Copy path of selected items with quotes to the clipboard</value>
+    <value>复制选中项的路径（带引号）到剪贴板</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
-    <value>复制选中项的路径（带引号）到剪贴板</value>
+    <value>复制当前目录的路径（带引号）到剪贴板</value>
   </data>
   <data name="CutItemDescription" xml:space="preserve">
     <value>剪切项目到剪贴板</value>
@@ -2418,7 +2424,7 @@
     <value>将剪贴板中的项目粘贴到当前文件夹</value>
   </data>
   <data name="PasteShortcutDescription" xml:space="preserve">
-    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
+    <value>将剪贴板中的项目以快捷方式的形式粘贴到当前文件夹</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>将剪贴板中的项目粘贴到所选文件夹</value>
@@ -2700,7 +2706,7 @@
     <value>关闭除所选标签页以外的标签页</value>
   </data>
   <data name="CloseAllTabsDescription" xml:space="preserve">
-    <value>Close all tabs including the current tab</value>
+    <value>关闭所有标签页（包括当前标签页）</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>打开上一个关闭的标签页</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>批量重命名</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>显示创建备用数据流 (Alternate Data Stream) 的选项</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>创建备用数据流</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>为选中项创建备用数据流 (Alternate Data Stream)</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>输入数据流名称</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>创建备用数据流时出错</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>请注意：备用数据流 (Alternate Data Streams) 只适用于 NTFS 格式的驱动器。</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>已隐藏备用数据流</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>是否显示备用数据流 (Alternate Data Stream)？可随时从文件和文件夹设置页面修改此设置。</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>管理标签</value>
   </data>
 </root>

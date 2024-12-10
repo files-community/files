@@ -140,6 +140,7 @@ namespace Files.App.Views.Properties
 						}
 
 						ViewModel.IsReadOnly = ViewModel.IsReadOnlyEditedValue;
+						ViewModel.IsContentCompressed = ViewModel.IsContentCompressedEditedValue;
 
 						if (ViewModel.IsAblumCoverModified)
 						{
@@ -181,6 +182,7 @@ namespace Files.App.Views.Properties
 
 				ViewModel.IsReadOnly = ViewModel.IsReadOnlyEditedValue;
 				ViewModel.IsHidden = ViewModel.IsHiddenEditedValue;
+				ViewModel.IsContentCompressed = ViewModel.IsContentCompressedEditedValue;
 
 				if (!GetNewName(out var newName))
 					return true;

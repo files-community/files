@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Abrir sensor de armanezamento</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Abrir Sensor de armazenamento nas definições Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Limpeza</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>Copiar</value>
   </data>
@@ -1941,7 +1947,7 @@
     <value>Fechar outros separadores</value>
   </data>
   <data name="CloseAllTabs" xml:space="preserve">
-    <value>Close all tabs</value>
+    <value>Fechar todos os separadores</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>Música</value>
@@ -2043,16 +2049,16 @@
     <value>Mover todo o conteúdo das sub-pastas para a localização especificada</value>
   </data>
   <data name="FlattenFolder" xml:space="preserve">
-    <value>Flatten folder</value>
+    <value>Nivelar pasta</value>
   </data>
   <data name="Flatten" xml:space="preserve">
-    <value>Flatten</value>
+    <value>Nivelar</value>
   </data>
   <data name="FlattenFolderDialogContent" xml:space="preserve">
-    <value>Flattening a folder will move all contents from its subfolders to the selected location. This operation is permanent and cannot be undone. By using this experimental feature, you acknowledge the risk and agree not to hold the Files team responsible for any data loss.</value>
+    <value>Nivelar uma pasta moverá todo o conteúdo das subpastas para o local selecionado. Esta operação é permanente e não pode ser revertida. Ao utilizar esta funcionalidade, reconhece o risco e concorda em não responsabilizar a equipa de Files por qualquer perda de dados.</value>
   </data>
   <data name="ShowFlattenOptions" xml:space="preserve">
-    <value>Show flatten options</value>
+    <value>Mostrar opções de nivelamento</value>
   </data>
   <data name="SelectFilesAndFoldersOnHover" xml:space="preserve">
     <value>Selecionar ficheiros e pastas ao passar com o rato por cima</value>
@@ -2274,7 +2280,7 @@
     <value>Mostrar itens ocultos</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formatar...</value>
+    <value>Formatar</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Ajuda</value>
@@ -2700,7 +2706,7 @@
     <value>Fechar todos os separadores à exceção do selecionado</value>
   </data>
   <data name="CloseAllTabsDescription" xml:space="preserve">
-    <value>Close all tabs including the current tab</value>
+    <value>Fechar todos os separadores, incluindo o atual</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Reabrir último separador fechado</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Mudar nome em lote</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Mostrar opção para criar fluxo de dados alternativo</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Criar fluxo de dados alternativo</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Criar fluxo de dados alternativo para os itens selecionado(s)</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Introduza o nome do fluxo</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>Ocorreu um erro ao criar o fluxo de dados alternativo</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Tenha em atenção de que os fluxos de dados alternativos apenas funcionam em unidades NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Atualmente, os fluxos de dados alternativos estão ocultos</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Gostaria de mostrar os fluxos de dados alternativos? Pode alterar esta opção nas definições de ficheiros e pastas.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Gerir etiquetas</value>
   </data>
 </root>

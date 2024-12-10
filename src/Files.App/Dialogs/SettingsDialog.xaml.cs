@@ -2,12 +2,8 @@
 // Licensed under the MIT License. See the LICENSE.
 
 using Files.App.Views.Settings;
-using Files.App.ViewModels.Dialogs;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using System;
-using System.Threading.Tasks;
-using Files.App.Data.Enums;
 using Microsoft.UI.Xaml.Media.Animation;
 
 namespace Files.App.Dialogs
@@ -30,6 +26,19 @@ namespace Files.App.Dialogs
 		public new async Task<DialogResult> ShowAsync()
 		{
 			return (DialogResult)await base.ShowAsync();
+		}
+
+		public void NavigateTo(SettingsNavigationParams navParams)
+		{
+			var defaultTag = SettingsPageKind.AppearancePage.ToString();
+			var oldSelection = MainSettingsNavigationView.MenuItems.FirstOrDefault(item => ((NavigationViewItem)item).IsSelected) as NavigationViewItem;
+			var targetSection = MainSettingsNavigationView.MenuItems.FirstOrDefault(
+				item => Enum.Parse<SettingsPageKind>(((NavigationViewItem)item).Tag.ToString() ?? defaultTag) == navParams.PageKind
+			);
+			if (oldSelection is not null)
+				oldSelection.IsSelected = false;
+			
+			MainSettingsNavigationView.SelectedItem = targetSection;
 		}
 
 		private void Current_SizeChanged(object sender, WindowSizeChangedEventArgs e)

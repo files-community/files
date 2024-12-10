@@ -305,7 +305,7 @@ namespace Files.App.Views
 				return;
 
 			var totalLaunchCount = SystemInformation.Instance.TotalLaunchCount;
-			if (totalLaunchCount is 15 or 30 or 60)
+			if (totalLaunchCount is 50 or 200)
 			{
 				// Prompt user to review app in the Store
 				DispatcherQueue.TryEnqueue(async () => await PromptForReviewAsync());

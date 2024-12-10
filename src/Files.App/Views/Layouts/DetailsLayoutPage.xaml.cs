@@ -206,6 +206,32 @@ namespace Files.App.Views.Layouts
 				// Restore correct scroll position
 				ContentScroller?.ChangeView(null, previousOffset, null);
 			}
+			else
+			{
+				var settings = sender as ILayoutSettingsService;
+				var isDefaultPath = FolderSettings?.IsPathUsingDefaultLayout(ParentShellPageInstance?.ShellViewModel.CurrentFolder?.ItemPath);
+				if (settings is not null && (isDefaultPath ?? true))
+				{
+					switch (e.PropertyName)
+					{
+						case nameof(ILayoutSettingsService.ShowFileTagColumn):
+							ColumnsViewModel.TagColumn.UserCollapsed = !settings.ShowFileTagColumn;
+							break;
+						case nameof(ILayoutSettingsService.ShowSizeColumn):
+							ColumnsViewModel.SizeColumn.UserCollapsed = !settings.ShowSizeColumn;
+							break;
+						case nameof(ILayoutSettingsService.ShowTypeColumn):
+							ColumnsViewModel.ItemTypeColumn.UserCollapsed = !settings.ShowTypeColumn;
+							break;
+						case nameof(ILayoutSettingsService.ShowDateCreatedColumn):
+							ColumnsViewModel.DateCreatedColumn.UserCollapsed = !settings.ShowDateCreatedColumn;
+							break;
+						case nameof(ILayoutSettingsService.ShowDateColumn):
+							ColumnsViewModel.DateModifiedColumn.UserCollapsed = !settings.ShowDateColumn;
+							break;
+					}
+				}
+			}
 		}
 
 		/// <summary>

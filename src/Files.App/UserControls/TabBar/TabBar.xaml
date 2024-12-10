@@ -260,7 +260,8 @@
 						Grid.ColumnSpan="2"
 						HorizontalAlignment="Stretch"
 						VerticalAlignment="Stretch"
-						Fill="Transparent" />
+						Fill="Transparent"
+						Loaded="DragAreaRectangle_Loaded" />
 
 				</Grid>
 			</TabView.TabStripFooter>

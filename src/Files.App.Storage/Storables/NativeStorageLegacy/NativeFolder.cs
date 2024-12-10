@@ -7,14 +7,15 @@ using System.Runtime.CompilerServices;
 namespace Files.App.Storage.Storables
 {
 	/// <inheritdoc cref="IFolder"/>
-	public class NativeFolder : NativeStorable<DirectoryInfo>, ILocatableFolder, IModifiableFolder, IMutableFolder, IFolderExtended, INestedFolder, IDirectCopy, IDirectMove
+	[Obsolete("Use the new WindowsStorable")]
+	public class NativeFolderLegacy : NativeStorableLegacy<DirectoryInfo>, ILocatableFolder, IModifiableFolder, IMutableFolder, IFolderExtended, INestedFolder, IDirectCopy, IDirectMove
     {
-		public NativeFolder(DirectoryInfo directoryInfo, string? name = null)
+		public NativeFolderLegacy(DirectoryInfo directoryInfo, string? name = null)
 		    : base(directoryInfo, name)
 	    {
 	    }
 
-	    public NativeFolder(string path, string? name = null)
+	    public NativeFolderLegacy(string path, string? name = null)
 		    : this(new DirectoryInfo(path), name)
 	    {
 	    }
@@ -27,7 +28,7 @@ namespace Files.App.Storage.Storables
 		    if (!File.Exists(path))
 			    throw new FileNotFoundException();
 
-		    return Task.FromResult<INestedFile>(new NativeFile(path));
+		    return Task.FromResult<INestedFile>(new NativeFileLegacy(path));
 	    }
 
 	    /// <inheritdoc/>
@@ -37,7 +38,7 @@ namespace Files.App.Storage.Storables
 		    if (!Directory.Exists(path))
 			    throw new FileNotFoundException();
 
-		    return Task.FromResult<INestedFolder>(new NativeFolder(path));
+		    return Task.FromResult<INestedFolder>(new NativeFolderLegacy(path));
 	    }
 
 	    /// <inheritdoc/>
@@ -46,21 +47,21 @@ namespace Files.App.Storage.Storables
 		    if (kind == StorableKind.Files)
 		    {
 			    foreach (var item in Directory.EnumerateFiles(Path))
-				    yield return new NativeFile(item);
+				    yield return new NativeFileLegacy(item);
 		    }
 		    else if (kind == StorableKind.Folders)
 		    {
 			    foreach (var item in Directory.EnumerateDirectories(Path))
-				    yield return new NativeFolder(item);
+				    yield return new NativeFolderLegacy(item);
 		    }
 		    else
 		    {
 			    foreach (var item in Directory.EnumerateFileSystemEntries(Path))
 			    {
 				    if (File.Exists(item))
-					    yield return new NativeFile(item);
+					    yield return new NativeFileLegacy(item);
 				    else
-					    yield return new NativeFolder(item);
+					    yield return new NativeFolderLegacy(item);
 			    }
 		    }
 
@@ -96,7 +97,7 @@ namespace Files.App.Storage.Storables
 					var newPath = System.IO.Path.Combine(Path, itemToCopy.Name);
 					File.Copy(sourceLocatableFile.Path, newPath, overwrite);
 
-					return new NativeFile(newPath);
+					return new NativeFileLegacy(newPath);
 				}
 
 				var copiedFile = await CreateFileAsync(itemToCopy.Name, overwrite, cancellationToken);
@@ -124,7 +125,7 @@ namespace Files.App.Storage.Storables
 					var newPath = System.IO.Path.Combine(Path, itemToMove.Name);
 					File.Move(sourceLocatableFile.Path, newPath, overwrite);
 
-					return new NativeFile(newPath);
+					return new NativeFileLegacy(newPath);
 				}
 				else
 				{
@@ -150,7 +151,7 @@ namespace Files.App.Storage.Storables
 			if (overwrite || !File.Exists(path))
 				await File.Create(path).DisposeAsync();
 
-			return new NativeFile(path);
+			return new NativeFileLegacy(path);
 		}
 
 		/// <inheritdoc/>
@@ -161,7 +162,7 @@ namespace Files.App.Storage.Storables
 				Directory.Delete(path, true);
 
 			_ = Directory.CreateDirectory(path);
-			return Task.FromResult<INestedFolder>(new NativeFolder(path));
+			return Task.FromResult<INestedFolder>(new NativeFolderLegacy(path));
 		}
 	}
 }

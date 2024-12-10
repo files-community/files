@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>ストレージ センサーを開く</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Windows 設定のストレージ センサー ページを開く</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>クリーンアップ</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>コピー</value>
   </data>
@@ -2274,7 +2280,7 @@
     <value>隠しファイルを表示</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>フォーマット…</value>
+    <value>フォーマット</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>ヘルプ</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>名前を一括して変更</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>[代替データ ストリームの作成] オプションを表示する</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>代替データ ストリームの作成</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>選択した項目の代替データ ストリームを作成する</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>データ ストリーム名を入力</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>代替データ ストリームの作成中にエラーが発生しました</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>代替データ ストリームはNTFSでフォーマットされたドライブでのみ動作することに注意してください。</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>代替データ ストリームは現在表示されていません</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>代替データ ストリームを表示しますか? ファイルとフォルダーの設定ページからいつでもこの設定を変更できます。</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>タグの管理</value>
   </data>
 </root>

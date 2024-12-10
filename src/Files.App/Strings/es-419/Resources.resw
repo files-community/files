@@ -1038,13 +1038,13 @@
     <value>Mostrar opción para abrir carpetas en un nuevo panel</value>
   </data>
   <data name="ShowCopyPath" xml:space="preserve">
-    <value>Mostrar opción para copiar ruta</value>
+    <value>Mostrar opción para copiar la ruta</value>
   </data>
   <data name="ShowCreateFolderWithSelection" xml:space="preserve">
     <value>Mostrar opción para crear una carpeta con la selección</value>
   </data>
   <data name="ShowCreateShortcut" xml:space="preserve">
-    <value>Mostrar opción para crear acceso directo</value>
+    <value>Mostrar opción para crear un acceso directo</value>
   </data>
   <data name="NavigationToolbarNewPane.Label" xml:space="preserve">
     <value>Nuevo panel</value>
@@ -1243,6 +1243,12 @@
   </data>
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Abrir sensor de almacenamiento</value>
+  </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Abrir la página Sensor de almacenamiento en la Configuración de Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Limpiar</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Copiar</value>
@@ -2274,7 +2280,7 @@
     <value>Mostrar elementos ocultos</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formatear...</value>
+    <value>Formato</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Ayuda</value>
@@ -3706,7 +3712,7 @@
     <value>Preguntas y discusiones</value>
   </data>
   <data name="TilesViewSizeInfo" xml:space="preserve">
-    <value>Aún no se dispone de tamaños adicionales para la vista Mosaicos.</value>
+    <value>Todavía no hay tamaños disponibles para la vista en Mosaicos.</value>
   </data>
   <data name="Compact" xml:space="preserve">
     <value>Compacto</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Renombrar en masa</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Mostrar opción para crear flujo de datos alternativos</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Crear flujo de datos alternativos</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Crear flujo de datos alternativos para elemento(s) seleccionado(s)</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Introducir nombre de flujo de datos</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>Se ha producido un error al crear el flujo de datos alternativos</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Tenga en cuenta que los flujos de datos alternativos solo funcionan en unidades formateadas como NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Los flujos de datos alternativos están actualmente ocultos</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>¿Le gustaría mostrar flujos de datos alternativos? Puede modificar esta configuración en cualquier momento desde la página de configuración de archivos y carpetas.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Manage tags</value>
   </data>
 </root>

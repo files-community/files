@@ -170,6 +170,15 @@ namespace Files.App.ViewModels.Properties
 
 					}
 					break;
+
+				case "IsContentCompressed":
+					{
+						List.ForEach(x =>
+						{
+							Win32Helper.SetCompressionAttributeIoctl(x.ItemPath, ViewModel.IsContentCompressed ?? false);
+						});
+					}
+					break;
 			}
 		}
 	}

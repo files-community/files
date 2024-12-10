@@ -8,6 +8,7 @@
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <PlatformTarget>AnyCPU</PlatformTarget>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Debug'">

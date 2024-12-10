@@ -29,7 +29,6 @@ global using global::Files.App.Utils.Cloud;
 global using global::Files.App.Utils.FileTags;
 global using global::Files.App.Utils.Git;
 global using global::Files.App.Utils.Library;
-global using global::Files.App.Utils.RecentItem;
 global using global::Files.App.Utils.Serialization;
 global using global::Files.App.Utils.Shell;
 global using global::Files.App.Utils.StatusCenter;

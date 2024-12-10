@@ -1,0 +1,530 @@
+<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<Page
+	x:Class="Files.App.UITests.Views.StorageControlsPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="using:Files.App.Controls"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:Files.App.UITests.Views"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d">
+
+	<Page.Resources>
+
+		<Style x:Key="StackPanelControlTestingStyle" TargetType="StackPanel">
+			<Setter Property="Padding" Value="16,16,16,24" />
+			<Setter Property="Background" Value="{ThemeResource LayerFillColorDefaultBrush}" />
+			<Setter Property="BorderBrush" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
+			<Setter Property="BorderThickness" Value="1,0,0,0" />
+			<Setter Property="CornerRadius" Value="0,8,8,0" />
+			<Setter Property="Spacing" Value="24" />
+		</Style>
+
+		<Style x:Key="GridExampleControlStyle" TargetType="Grid">
+			<Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
+			<Setter Property="BorderBrush" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
+			<Setter Property="BorderThickness" Value="1" />
+			<Setter Property="CornerRadius" Value="{ThemeResource OverlayCornerRadius}" />
+		</Style>
+
+		<Style
+			x:Key="TextExampleCaptionStyle"
+			BasedOn="{StaticResource CaptionTextBlockStyle}"
+			TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{ThemeResource TextFillColorSecondaryBrush}" />
+			<Setter Property="Margin" Value="24,24,24,0" />
+			<Setter Property="FontWeight" Value="Normal" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+	</Page.Resources>
+
+	<Grid Padding="36" RowSpacing="24">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<StackPanel Spacing="8">
+			<TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Storage Controls" />
+			<TextBlock
+				Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+				Style="{StaticResource CaptionTextBlockStyle}"
+				Text="Files.App.Controls" />
+		</StackPanel>
+
+		<StackPanel Grid.Row="1" Spacing="24">
+
+			<!--  Storage Ring  -->
+			<StackPanel Spacing="8">
+
+				<TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Storage Ring" />
+
+				<Grid Style="{StaticResource GridExampleControlStyle}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="320" />
+					</Grid.ColumnDefinitions>
+
+					<Grid
+						Grid.Column="0"
+						Padding="24"
+						HorizontalAlignment="Stretch">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+
+						<!--  Default Example Controls  -->
+						<Grid
+							Grid.Column="0"
+							HorizontalAlignment="Stretch"
+							ColumnSpacing="24">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+
+							<TextBlock
+								Grid.Row="0"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Text="Default" />
+
+							<StackPanel
+								Grid.Row="1"
+								Margin="0,0,24,0"
+								Orientation="Horizontal"
+								Spacing="24">
+
+								<Grid VerticalAlignment="Stretch">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="*" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+
+									<controls:StorageRing
+										Grid.Row="0"
+										FlowDirection="LeftToRight"
+										IsEnabled="{x:Bind testIsEnabled.IsOn, Mode=TwoWay}"
+										Value="{x:Bind testValue.Value, Mode=TwoWay}" />
+
+									<TextBlock
+										Grid.Row="1"
+										Grid.Column="0"
+										Style="{StaticResource TextExampleCaptionStyle}"
+										Text="LeftToRight" />
+
+								</Grid>
+
+								<Grid VerticalAlignment="Stretch">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="*" />
+										<RowDefinition Height="Auto" />
+									</Grid.RowDefinitions>
+
+									<controls:StorageRing
+										Grid.Row="0"
+										FlowDirection="RightToLeft"
+										IsEnabled="{x:Bind testIsEnabled.IsOn, Mode=TwoWay}"
+										Value="{x:Bind testValue.Value, Mode=TwoWay}" />
+
+									<TextBlock
+										Grid.Row="1"
+										Grid.Column="1"
+										Style="{StaticResource TextExampleCaptionStyle}"
+										Text="RightToLeft" />
+
+								</Grid>
+							</StackPanel>
+						</Grid>
+
+						<AppBarSeparator Grid.Column="1" />
+
+						<!--  Custom Example Controls  -->
+						<Grid Grid.Column="2" HorizontalAlignment="Stretch">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+
+							<TextBlock
+								Grid.Row="0"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Text="Customized" />
+
+							<Grid Grid.Row="1" HorizontalAlignment="Stretch">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="*" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+									<RowDefinition Height="Auto" />
+								</Grid.RowDefinitions>
+
+								<controls:StorageRing
+									x:Name="ringCustom1"
+									Grid.Row="0"
+									Grid.Column="0"
+									Width="{x:Bind testWidth.Value, Mode=TwoWay}"
+									Height="{x:Bind testHeight.Value, Mode=TwoWay}"
+									Background="#FF005500"
+									BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+									BorderThickness="1"
+									FlowDirection="LeftToRight"
+									Foreground="Cyan"
+									IsEnabled="{x:Bind testIsEnabled.IsOn, Mode=TwoWay}"
+									MaxAngle="{x:Bind testMAngle.Value, Mode=TwoWay}"
+									MinAngle="{x:Bind testSAngle.Value, Mode=TwoWay}"
+									StartAngle="{x:Bind testSAngle.Value, Mode=TwoWay}"
+									TrackRingThickness="{x:Bind testTrackThickness.Value, Mode=TwoWay}"
+									ValueRingThickness="{x:Bind testValueThickness.Value, Mode=TwoWay}"
+									Value="{x:Bind testValue.Value, Mode=TwoWay}" />
+
+								<TextBlock
+									Grid.Row="1"
+									Grid.Column="0"
+									Style="{StaticResource TextExampleCaptionStyle}"
+									Text="LeftToRight" />
+
+								<controls:StorageRing
+									x:Name="ringCustom2"
+									Grid.Row="0"
+									Grid.Column="1"
+									Width="{x:Bind testWidth.Value, Mode=TwoWay}"
+									Height="{x:Bind testHeight.Value, Mode=TwoWay}"
+									Background="#FF005500"
+									BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+									BorderThickness="1"
+									FlowDirection="RightToLeft"
+									Foreground="Cyan"
+									IsEnabled="{x:Bind testIsEnabled.IsOn, Mode=TwoWay}"
+									MaxAngle="{x:Bind testMAngle.Value, Mode=TwoWay}"
+									MinAngle="{x:Bind testSAngle.Value, Mode=TwoWay}"
+									StartAngle="{x:Bind testSAngle.Value, Mode=TwoWay}"
+									TrackRingThickness="{x:Bind testTrackThickness.Value, Mode=TwoWay}"
+									ValueRingThickness="{x:Bind testValueThickness.Value, Mode=TwoWay}"
+									Value="{x:Bind testValue.Value, Mode=TwoWay}" />
+
+								<TextBlock
+									Grid.Row="1"
+									Grid.Column="1"
+									Style="{StaticResource TextExampleCaptionStyle}"
+									Text="RightToLeft" />
+
+							</Grid>
+						</Grid>
+					</Grid>
+
+					<!--  Customisation Controls  -->
+					<StackPanel
+						Grid.Column="1"
+						Orientation="Vertical"
+						Style="{StaticResource StackPanelControlTestingStyle}">
+
+						<NumberBox
+							x:Name="testWidth"
+							Header="Width"
+							SpinButtonPlacementMode="Inline"
+							Value="100" />
+
+						<NumberBox
+							x:Name="testHeight"
+							Header="Height"
+							SpinButtonPlacementMode="Inline"
+							Value="120" />
+
+						<Slider
+							x:Name="testValue"
+							Header="Value ( -10 to 110 )"
+							Maximum="110"
+							Minimum="-10"
+							SmallChange="{x:Bind ringCustom1.SmallChange, Mode=TwoWay}"
+							Value="50" />
+
+						<TextBlock LineHeight="16">
+							<Run Text="Percent:" />
+							<LineBreak />
+							<Run FontWeight="SemiBold" Text="{x:Bind ringCustom1.Percent.ToString(), Mode=OneWay}" />
+						</TextBlock>
+
+						<ToggleSwitch
+							x:Name="testIsEnabled"
+							Header="IsEnabled"
+							IsOn="True"
+							OffContent="Disabled"
+							OnContent="Enabled" />
+
+						<Slider
+							x:Name="testSAngle"
+							Header="StartAngle ( -180 to 180 )"
+							Maximum="180"
+							Minimum="-180"
+							Value="-150" />
+
+						<Slider
+							x:Name="testMAngle"
+							Header="MaxAngle ( -180 to 540 )"
+							Maximum="540"
+							Minimum="-180"
+							Value="150" />
+
+						<Grid HorizontalAlignment="Stretch" ColumnSpacing="16">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<NumberBox
+								x:Name="testValueThickness"
+								Grid.Column="0"
+								Header="ValueRingThickness"
+								Maximum="32"
+								Minimum="2"
+								SpinButtonPlacementMode="Compact"
+								Value="12" />
+
+							<NumberBox
+								x:Name="testTrackThickness"
+								Grid.Column="1"
+								Header="TrackRingThickness"
+								Maximum="32"
+								Minimum="2"
+								SpinButtonPlacementMode="Compact"
+								Value="4" />
+						</Grid>
+					</StackPanel>
+				</Grid>
+			</StackPanel>
+
+			<!--  Storage Bar  -->
+			<StackPanel Spacing="8">
+
+				<TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Storage Bar" />
+
+				<Grid Style="{StaticResource GridExampleControlStyle}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="320" />
+					</Grid.ColumnDefinitions>
+
+					<Grid
+						Grid.Column="0"
+						Padding="24"
+						HorizontalAlignment="Stretch">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+
+						<!--  Default Example Controls  -->
+						<Grid
+							Grid.Column="0"
+							HorizontalAlignment="Stretch"
+							ColumnSpacing="24">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+
+							<TextBlock
+								Grid.Row="0"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Text="Default" />
+
+							<Grid
+								Grid.Row="1"
+								Margin="0,0,24,0"
+								VerticalAlignment="Stretch"
+								RowSpacing="24">
+
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+
+								<Grid Grid.Row="0" VerticalAlignment="Stretch">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="Auto" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock
+										Grid.Column="0"
+										Margin="24"
+										Style="{StaticResource TextExampleCaptionStyle}"
+										Text="LeftToRight" />
+
+									<controls:StorageBar
+										Grid.Column="1"
+										VerticalAlignment="Center"
+										FlowDirection="LeftToRight"
+										IsEnabled="{x:Bind barTestIsEnabled.IsOn, Mode=TwoWay}"
+										Value="{x:Bind barTestValue.Value, Mode=TwoWay}" />
+
+								</Grid>
+
+								<Grid Grid.Row="1" VerticalAlignment="Stretch">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="Auto" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock
+										Grid.Column="0"
+										Margin="24"
+										Style="{StaticResource TextExampleCaptionStyle}"
+										Text="RightToLeft" />
+
+									<controls:StorageBar
+										Grid.Column="1"
+										VerticalAlignment="Center"
+										FlowDirection="RightToLeft"
+										IsEnabled="{x:Bind barTestIsEnabled.IsOn, Mode=TwoWay}"
+										Value="{x:Bind barTestValue.Value, Mode=TwoWay}" />
+
+								</Grid>
+							</Grid>
+						</Grid>
+
+						<AppBarSeparator Grid.Column="1" />
+
+						<!--  Custom Example Controls  -->
+						<Grid Grid.Column="2" HorizontalAlignment="Stretch">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+
+							<TextBlock
+								Grid.Row="0"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Text="Customized" />
+
+							<Grid Grid.Row="1" HorizontalAlignment="Stretch">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="*" />
+								</Grid.ColumnDefinitions>
+								<Grid.RowDefinitions>
+									<RowDefinition Height="*" />
+									<RowDefinition Height="*" />
+								</Grid.RowDefinitions>
+
+								<controls:StorageBar
+									x:Name="BarCustom01"
+									Grid.Row="0"
+									Grid.Column="1"
+									Width="Auto"
+									HorizontalAlignment="Stretch"
+									Background="#FF005500"
+									BarShape="Soft"
+									BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+									BorderThickness="1"
+									FlowDirection="LeftToRight"
+									Foreground="Cyan"
+									IsEnabled="{x:Bind barTestIsEnabled.IsOn, Mode=TwoWay}"
+									TrackBarHeight="{x:Bind barTestTrackThickness.Value, Mode=TwoWay}"
+									ValueBarHeight="{x:Bind barTestValueThickness.Value, Mode=TwoWay}"
+									Value="{x:Bind barTestValue.Value, Mode=TwoWay}" />
+
+								<TextBlock
+									Grid.Row="0"
+									Grid.Column="0"
+									Margin="24"
+									Style="{StaticResource TextExampleCaptionStyle}"
+									Text="LeftToRight" />
+
+								<controls:StorageBar
+									x:Name="BarCustom02"
+									Grid.Row="1"
+									Grid.Column="1"
+									Width="Auto"
+									HorizontalAlignment="Stretch"
+									Background="#FF005500"
+									BarShape="Flat"
+									BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+									BorderThickness="1"
+									FlowDirection="RightToLeft"
+									Foreground="Cyan"
+									IsEnabled="{x:Bind barTestIsEnabled.IsOn, Mode=TwoWay}"
+									TrackBarHeight="{x:Bind barTestTrackThickness.Value, Mode=TwoWay}"
+									ValueBarHeight="{x:Bind barTestValueThickness.Value, Mode=TwoWay}"
+									Value="{x:Bind barTestValue.Value, Mode=TwoWay}" />
+
+								<TextBlock
+									Grid.Row="1"
+									Grid.Column="0"
+									Margin="24"
+									Style="{StaticResource TextExampleCaptionStyle}"
+									Text="RightToLeft" />
+
+							</Grid>
+						</Grid>
+					</Grid>
+
+					<!--  Customisation Controls  -->
+					<StackPanel
+						Grid.Column="1"
+						Orientation="Vertical"
+						Style="{StaticResource StackPanelControlTestingStyle}">
+
+						<Slider
+							x:Name="barTestValue"
+							Header="Value ( -10 to 110 )"
+							Maximum="110"
+							Minimum="-10"
+							SmallChange="{x:Bind BarCustom01.SmallChange, Mode=TwoWay}"
+							Value="50" />
+
+						<TextBlock LineHeight="16">
+							<Run Text="Percent:" />
+							<LineBreak />
+							<Run FontWeight="SemiBold" Text="{x:Bind BarCustom01.Percent.ToString(), Mode=OneWay}" />
+						</TextBlock>
+
+						<ToggleSwitch
+							x:Name="barTestIsEnabled"
+							Header="IsEnabled"
+							IsOn="True"
+							OffContent="Disabled"
+							OnContent="Enabled" />
+
+						<Grid HorizontalAlignment="Stretch" ColumnSpacing="16">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<NumberBox
+								x:Name="barTestValueThickness"
+								Grid.Column="0"
+								Header="ValueRingThickness"
+								Maximum="32"
+								Minimum="2"
+								SpinButtonPlacementMode="Compact"
+								Value="12" />
+
+							<NumberBox
+								x:Name="barTestTrackThickness"
+								Grid.Column="1"
+								Header="TrackRingThickness"
+								Maximum="32"
+								Minimum="2"
+								SpinButtonPlacementMode="Compact"
+								Value="4" />
+
+						</Grid>
+					</StackPanel>
+				</Grid>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+
+</Page>

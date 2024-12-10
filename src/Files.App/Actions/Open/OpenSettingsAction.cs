@@ -1,6 +1,8 @@
 ﻿// Copyright (c) 2024 Files Community
 // Licensed under the MIT License. See the LICENSE.
 
+using Files.App.Dialogs;
+
 namespace Files.App.Actions
 {
 	internal sealed class OpenSettingsAction : BaseUIAction, IAction
@@ -21,6 +23,9 @@ namespace Files.App.Actions
 		public Task ExecuteAsync(object? parameter = null)
 		{
 			var dialog = dialogService.GetDialog(viewModel);
+			if (parameter is not null && parameter is SettingsNavigationParams navParams)
+				((SettingsDialog)dialog).NavigateTo(navParams);
+
 			return dialog.TryShowAsync();
 		}
 	}

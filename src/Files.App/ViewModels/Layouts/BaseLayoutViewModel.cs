@@ -100,8 +100,6 @@ namespace Files.App.ViewModels.Layouts
 				return;
 			}
 
-			_itemManipulationModel.ClearSelection();
-
 			if (FilesystemHelpers.HasDraggedStorageItems(e.DataView))
 			{
 				e.Handled = true;
@@ -166,6 +164,8 @@ namespace Files.App.ViewModels.Layouts
 							e.DragUIOverride.Caption = string.Format("CopyToFolderCaptionText".GetLocalizedResource(), folderName);
 							e.AcceptedOperation = DataPackageOperation.Copy;
 						}
+
+						_itemManipulationModel.ClearSelection();
 					}
 					catch (COMException ex) when (ex.Message.Contains("RPC server is unavailable"))
 					{

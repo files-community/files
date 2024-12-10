@@ -7,11 +7,12 @@ using Windows.Storage;
 namespace Files.App.Storage.Storables
 {
 	/// <inheritdoc cref="IFolder"/>
-	public sealed class WindowsStorageFolder : WindowsStorable<StorageFolder>, ILocatableFolder, IFolderExtended, INestedFolder, IDirectCopy, IDirectMove
+	[Obsolete("Use the new WindowsStorable")]
+	public sealed class WindowsStorageFolderLegacy : WindowsStorableLegacy<StorageFolder>, ILocatableFolder, IFolderExtended, INestedFolder, IDirectCopy, IDirectMove
 	{
 		// TODO: Implement IMutableFolder
 
-		public WindowsStorageFolder(StorageFolder storage)
+		public WindowsStorageFolderLegacy(StorageFolder storage)
 			: base(storage)
 		{
 		}
@@ -20,14 +21,14 @@ namespace Files.App.Storage.Storables
 		public async Task<INestedFile> GetFileAsync(string fileName, CancellationToken cancellationToken = default)
 		{
 			var file = await storage.GetFileAsync(fileName).AsTask(cancellationToken);
-			return new WindowsStorageFile(file);
+			return new WindowsStorageFileLegacy(file);
 		}
 
 		/// <inheritdoc/>
 		public async Task<INestedFolder> GetFolderAsync(string folderName, CancellationToken cancellationToken = default)
 		{
 			var folder = await storage.GetFolderAsync(folderName).AsTask(cancellationToken);
-			return new WindowsStorageFolder(folder);
+			return new WindowsStorageFolderLegacy(folder);
 		}
 
 		/// <inheritdoc/>
@@ -40,7 +41,7 @@ namespace Files.App.Storage.Storables
 					var files = await storage.GetFilesAsync().AsTask(cancellationToken);
 					foreach (var item in files)
 					{
-						yield return new WindowsStorageFile(item);
+						yield return new WindowsStorageFileLegacy(item);
 					}
 
 					break;
@@ -51,7 +52,7 @@ namespace Files.App.Storage.Storables
 					var folders = await storage.GetFoldersAsync().AsTask(cancellationToken);
 					foreach (var item in folders)
 					{
-						yield return new WindowsStorageFolder(item);
+						yield return new WindowsStorageFolderLegacy(item);
 					}
 
 					break;
@@ -63,10 +64,10 @@ namespace Files.App.Storage.Storables
 					foreach (var item in items)
 					{
 						if (item is StorageFile storageFile)
-							yield return new WindowsStorageFile(storageFile);
+							yield return new WindowsStorageFileLegacy(storageFile);
 
 						if (item is StorageFolder storageFolder)
-							yield return new WindowsStorageFolder(storageFolder);
+							yield return new WindowsStorageFolderLegacy(storageFolder);
 					}
 
 					break;
@@ -82,11 +83,11 @@ namespace Files.App.Storage.Storables
 		{
 			return item switch
 			{
-				WindowsStorable<StorageFile> storageFile => storageFile.storage
+				WindowsStorableLegacy<StorageFile> storageFile => storageFile.storage
 					.DeleteAsync(GetWindowsStorageDeleteOption(permanently))
 					.AsTask(cancellationToken),
 
-				WindowsStorable<StorageFolder> storageFolder => storageFolder.storage
+				WindowsStorableLegacy<StorageFolder> storageFolder => storageFolder.storage
 					.DeleteAsync(GetWindowsStorageDeleteOption(permanently))
 					.AsTask(cancellationToken),
 
@@ -97,10 +98,10 @@ namespace Files.App.Storage.Storables
 		/// <inheritdoc/>
 		public async Task<INestedStorable> CreateCopyOfAsync(INestedStorable itemToCopy, bool overwrite = default, CancellationToken cancellationToken = default)
 		{
-			if (itemToCopy is WindowsStorable<StorageFile> sourceFile)
+			if (itemToCopy is WindowsStorableLegacy<StorageFile> sourceFile)
 			{
 				var copiedFile = await sourceFile.storage.CopyAsync(storage, itemToCopy.Name, GetWindowsNameCollisionOption(overwrite)).AsTask(cancellationToken);
-				return new WindowsStorageFile(copiedFile);
+				return new WindowsStorageFileLegacy(copiedFile);
 			}
 
 			throw new ArgumentException($"Could not copy type {itemToCopy.GetType()}");
@@ -109,10 +110,10 @@ namespace Files.App.Storage.Storables
 		/// <inheritdoc/>
 		public async Task<INestedStorable> MoveFromAsync(INestedStorable itemToMove, IModifiableFolder source, bool overwrite = default, CancellationToken cancellationToken = default)
 		{
-			if (itemToMove is WindowsStorable<StorageFile> sourceFile)
+			if (itemToMove is WindowsStorableLegacy<StorageFile> sourceFile)
 			{
 				await sourceFile.storage.MoveAsync(storage, itemToMove.Name, GetWindowsNameCollisionOption(overwrite)).AsTask(cancellationToken);
-				return new WindowsStorageFile(sourceFile.storage);
+				return new WindowsStorageFileLegacy(sourceFile.storage);
 			}
 
 			throw new ArgumentException($"Could not copy type {itemToMove.GetType()}");
@@ -122,21 +123,21 @@ namespace Files.App.Storage.Storables
 		public async Task<INestedFile> CreateFileAsync(string desiredName, bool overwrite = default, CancellationToken cancellationToken = default)
 		{
 			var file = await storage.CreateFileAsync(desiredName, GetWindowsCreationCollisionOption(overwrite)).AsTask(cancellationToken);
-			return new WindowsStorageFile(file);
+			return new WindowsStorageFileLegacy(file);
 		}
 
 		/// <inheritdoc/>
 		public async Task<INestedFolder> CreateFolderAsync(string desiredName, bool overwrite = default, CancellationToken cancellationToken = default)
 		{
 			var folder = await storage.CreateFolderAsync(desiredName, GetWindowsCreationCollisionOption(overwrite)).AsTask(cancellationToken);
-			return new WindowsStorageFolder(folder);
+			return new WindowsStorageFolderLegacy(folder);
 		}
 
 		/// <inheritdoc/>
 		public override async Task<IFolder?> GetParentAsync(CancellationToken cancellationToken = default)
 		{
 			var parentFolder = await storage.GetParentAsync().AsTask(cancellationToken);
-			return new WindowsStorageFolder(parentFolder);
+			return new WindowsStorageFolderLegacy(parentFolder);
 		}
 
 		private static StorageDeleteOption GetWindowsStorageDeleteOption(bool permanently)

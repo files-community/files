@@ -19,6 +19,9 @@ namespace Files.App.Actions
 		public string Description
 			=> Strings.CreateAlternateDataStreamDescription.GetLocalizedResource();
 
+		public RichGlyph Glyph
+			=> new RichGlyph(themedIconStyle: "App.ThemedIcons.AltDataStream");
+
 		public override bool IsExecutable =>
 			context.HasSelection &&
 			context.CanCreateItem &&

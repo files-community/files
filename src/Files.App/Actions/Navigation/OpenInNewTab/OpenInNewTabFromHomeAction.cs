@@ -6,7 +6,6 @@ namespace Files.App.Actions
 	internal sealed class OpenInNewTabFromHomeAction : BaseOpenInNewTabAction
 	{
 		public override bool IsExecutable =>
-			UserSettingsService.GeneralSettingsService.ShowOpenInNewTab &&
 			HomePageContext.IsAnyItemRightClicked &&
 			HomePageContext.RightClickedItem is not null &&
 			(HomePageContext.RightClickedItem is WidgetFileTagCardItem fileTagItem

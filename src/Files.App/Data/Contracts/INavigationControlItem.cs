@@ -42,6 +42,8 @@ namespace Files.App.Data.Contracts
 	{
 		public bool IsLibrariesHeader { get; set; }
 
+		public bool IsTagsHeader { get; set; }
+
 		public bool ShowHideSection { get; set; }
 
 		public bool IsLocationItem { get; set; }
@@ -53,8 +55,6 @@ namespace Files.App.Data.Contracts
 		public bool ShowEmptyRecycleBin { get; set; }
 
 		public bool ShowEjectDevice { get; set; }
-
-		public bool ShowFormatDrive { get; set; }
 
 		public bool ShowShellItems { get; set; }
 	}

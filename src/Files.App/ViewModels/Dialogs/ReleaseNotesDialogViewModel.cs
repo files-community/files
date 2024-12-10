@@ -5,16 +5,16 @@ namespace Files.App.ViewModels.Dialogs
 {
 	public sealed class ReleaseNotesDialogViewModel : ObservableObject
 	{
-		private string _ReleaseNotesMadrkdown = string.Empty;
-		public string ReleaseNotesMadrkdown
+		private string _BlogPostUrl = string.Empty;
+		public string BlogPostUrl
 		{
-			get => _ReleaseNotesMadrkdown;
-			set => SetProperty(ref _ReleaseNotesMadrkdown, value);
+			get => _BlogPostUrl;
+			set => SetProperty(ref _BlogPostUrl, value);
 		}
 
-		public ReleaseNotesDialogViewModel(string releaseNotesMadrkdown)
+		public ReleaseNotesDialogViewModel(string blogPostUrl)
 		{
-			ReleaseNotesMadrkdown = releaseNotesMadrkdown;
+			BlogPostUrl = blogPostUrl;
 		}
 	}
 }

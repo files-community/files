@@ -17,6 +17,7 @@ namespace Files.App.ViewModels.UserControls.Widgets
 	{
 		// Dependency injections
 
+		protected IWindowsRecentItemsService WindowsRecentItemsService { get; } = Ioc.Default.GetRequiredService<IWindowsRecentItemsService>();
 		protected IUserSettingsService UserSettingsService { get; } = Ioc.Default.GetRequiredService<IUserSettingsService>();
 		protected IQuickAccessService QuickAccessService { get; } = Ioc.Default.GetRequiredService<IQuickAccessService>();
 		protected IStorageService StorageService { get; } = Ioc.Default.GetRequiredService<IStorageService>();
@@ -36,8 +37,6 @@ namespace Files.App.ViewModels.UserControls.Widgets
 		protected ICommand RemoveRecentItemCommand { get; set; } = null!;
 		protected ICommand ClearAllItemsCommand { get; set; } = null!;
 		protected ICommand OpenFileLocationCommand { get; set; } = null!;
-		protected ICommand OpenInNewTabCommand { get; set; } = null!;
-		protected ICommand OpenInNewWindowCommand { get; set; } = null!;
 		protected ICommand OpenPropertiesCommand { get; set; } = null!;
 		protected ICommand PinToSidebarCommand { get; set; } = null!;
 		protected ICommand UnpinFromSidebarCommand { get; set; } = null!;
@@ -98,16 +97,6 @@ namespace Files.App.ViewModels.UserControls.Widgets
 		}
 
 		// Command methods
-
-		public async Task ExecuteOpenInNewTabCommand(WidgetCardItem? item)
-		{
-			await NavigationHelpers.OpenPathInNewTab(item?.Path ?? string.Empty, false);
-		}
-
-		public async Task ExecuteOpenInNewWindowCommand(WidgetCardItem? item)
-		{
-			await NavigationHelpers.OpenPathInNewWindowAsync(item?.Path ?? string.Empty);
-		}
 
 		public virtual async Task ExecutePinToSidebarCommand(WidgetCardItem? item)
 		{

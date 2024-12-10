@@ -7,9 +7,10 @@ using Windows.Storage;
 namespace Files.App.Storage.Storables
 {
 	/// <inheritdoc cref="IFile"/>
-	public sealed class WindowsStorageFile : WindowsStorable<StorageFile>, ILocatableFile, IModifiableFile, IFileExtended, INestedFile
+	[Obsolete("Use the new WindowsStorable")]
+	public sealed class WindowsStorageFileLegacy : WindowsStorableLegacy<StorageFile>, ILocatableFile, IModifiableFile, IFileExtended, INestedFile
 	{
-		public WindowsStorageFile(StorageFile storage)
+		public WindowsStorageFileLegacy(StorageFile storage)
 			: base(storage)
 		{
 		}
@@ -38,7 +39,7 @@ namespace Files.App.Storage.Storables
 			var parentFolderTask = storage.GetParentAsync().AsTask(cancellationToken);
 			var parentFolder = await parentFolderTask;
 
-			return new WindowsStorageFolder(parentFolder);
+			return new WindowsStorageFolderLegacy(parentFolder);
 		}
 
 		private static FileAccessMode GetFileAccessMode(FileAccess access)

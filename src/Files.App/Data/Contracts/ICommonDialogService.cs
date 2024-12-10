@@ -43,6 +43,6 @@ namespace Files.App.Data.Contracts
 		/// <param name="remoteNetworkName">The name of the remote network.</param>
 		/// <param name="useMostRecentPath">The value indicating whether to enter the most recently used paths into the combination box.</param>
 		/// <returns>True if the 'OK' button was clicked; otherwise, false.</returns>
-		bool Open_NetworkConnectionDialog(nint hWind, bool hideRestoreConnectionCheckBox = false, bool persistConnectionAtLogon = false, bool readOnlyPath = false, string? remoteNetworkName = null, bool useMostRecentPath = false);
+		bool Open_NetworkConnectionDialog(nint hWnd, bool hideRestoreConnectionCheckBox = false, bool persistConnectionAtLogon = false, bool readOnlyPath = false, string? remoteNetworkName = null, bool useMostRecentPath = false);
 	}
 }

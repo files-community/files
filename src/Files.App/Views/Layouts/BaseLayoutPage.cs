@@ -66,6 +66,7 @@ namespace Files.App.Views.Layouts
 		private CancellationTokenSource? groupingCancellationToken;
 
 		private bool shiftPressed;
+		private bool itemDragging;
 
 		private ListedItem? dragOverItem = null;
 		private ListedItem? hoveredItem = null;
@@ -1012,11 +1013,22 @@ namespace Files.App.Views.Layouts
 					var storageItemList = orderedItems.Where(x => !(x.IsHiddenItem && x.IsLinkItem && x.IsRecycleBinItem && x.IsShortcut)).Select(x => VirtualStorageItem.FromListedItem(x));
 					e.Data.SetStorageItems(storageItemList, false);
 				}
+
+				// Set can window to front (#13255)
+				MainWindow.Instance.SetCanWindowToFront(false);
+				itemDragging = true;
 			}
 			catch (Exception)
 			{
 				e.Cancel = true;
 			}
+		}
+
+		protected virtual void FileList_DragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
+		{
+			// Set can window to front (#13255)
+			itemDragging = false;
+			MainWindow.Instance.SetCanWindowToFront(true);
 		}
 
 		private void Item_DragLeave(object sender, DragEventArgs e)
@@ -1147,6 +1159,10 @@ namespace Files.App.Views.Layouts
 		{
 			RefreshContainer(args.ItemContainer, args.InRecycleQueue);
 			RefreshItem(args.ItemContainer, args.Item, args.InRecycleQueue, args);
+
+			// Set can window to front (#13255)
+			itemDragging = false;
+			MainWindow.Instance.SetCanWindowToFront(true);
 		}
 
 		private void RefreshContainer(SelectorItem container, bool inRecycleQueue)
@@ -1154,6 +1170,8 @@ namespace Files.App.Views.Layouts
 			container.PointerPressed -= FileListItem_PointerPressed;
 			container.PointerEntered -= FileListItem_PointerEntered;
 			container.PointerExited -= FileListItem_PointerExited;
+			container.Tapped -= FileListItem_Tapped;
+			container.DoubleTapped -= FileListItem_DoubleTapped;
 			container.RightTapped -= FileListItem_RightTapped;
 
 			if (inRecycleQueue)
@@ -1163,12 +1181,11 @@ namespace Files.App.Views.Layouts
 			else
 			{
 				container.PointerPressed += FileListItem_PointerPressed;
+				container.PointerEntered += FileListItem_PointerEntered;
+				container.PointerExited += FileListItem_PointerExited;
+				container.Tapped += FileListItem_Tapped;
+				container.DoubleTapped += FileListItem_DoubleTapped;
 				container.RightTapped += FileListItem_RightTapped;
-				if (UserSettingsService.FoldersSettingsService.SelectFilesOnHover)
-				{
-					container.PointerEntered += FileListItem_PointerEntered;
-					container.PointerExited += FileListItem_PointerExited;
-				}
 			}
 		}
 
@@ -1200,6 +1217,10 @@ namespace Files.App.Views.Layouts
 
 		protected internal void FileListItem_PointerPressed(object sender, PointerRoutedEventArgs e)
 		{
+			// Set can window to front and bring the window to the front if necessary (#13255)
+			if ((!itemDragging) && MainWindow.Instance.SetCanWindowToFront(true))
+				Win32Helper.BringToForegroundEx(new(MainWindow.Instance.WindowHandle));
+
 			if (sender is not SelectorItem selectorItem)
 				return;
 
@@ -1225,6 +1246,10 @@ namespace Files.App.Views.Layouts
 
 		protected internal void FileListItem_PointerEntered(object sender, PointerRoutedEventArgs e)
 		{
+			// Set can window to front (#13255)
+			if (sender is SelectorItem selectorItem && selectorItem.IsSelected)
+				MainWindow.Instance.SetCanWindowToFront(false);
+
 			if (!UserSettingsService.FoldersSettingsService.SelectFilesOnHover)
 				return;
 
@@ -1271,6 +1296,10 @@ namespace Files.App.Views.Layouts
 
 		protected internal void FileListItem_PointerExited(object sender, PointerRoutedEventArgs e)
 		{
+			// Set can window to front (#13255)
+			if (!itemDragging)
+				MainWindow.Instance.SetCanWindowToFront(true);
+
 			if (!UserSettingsService.FoldersSettingsService.SelectFilesOnHover)
 				return;
 
@@ -1278,8 +1307,26 @@ namespace Files.App.Views.Layouts
 			hoveredItem = null;
 		}
 
+		protected void FileListItem_Tapped(object sender, TappedRoutedEventArgs e)
+		{
+			// Set can window to front and bring the window to the front if necessary (#13255)
+			if ((!itemDragging) && MainWindow.Instance.SetCanWindowToFront(true))
+				Win32Helper.BringToForegroundEx(new(MainWindow.Instance.WindowHandle));
+		}
+
+		protected void FileListItem_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+		{
+			// Set can window to front and bring the window to the front if necessary (#13255)
+			if ((!itemDragging) && MainWindow.Instance.SetCanWindowToFront(true))
+				Win32Helper.BringToForegroundEx(new(MainWindow.Instance.WindowHandle));
+		}
+
 		protected void FileListItem_RightTapped(object sender, RightTappedRoutedEventArgs e)
 		{
+			// Set can window to front and bring the window to the front if necessary (#13255)
+			if ((!itemDragging) && MainWindow.Instance.SetCanWindowToFront(true))
+				Win32Helper.BringToForegroundEx(new(MainWindow.Instance.WindowHandle));
+
 			var rightClickedItem = GetItemFromElement(sender);
 
 			if (rightClickedItem is not null && !((SelectorItem)sender).IsSelected)

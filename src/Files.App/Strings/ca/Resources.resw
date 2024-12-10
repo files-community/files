@@ -1244,6 +1244,12 @@
   <data name="OpenStorageSense" xml:space="preserve">
     <value>Obre el sensor d'emmagatzematge</value>
   </data>
+  <data name="OpenStorageSenseDescription" xml:space="preserve">
+    <value>Obre la pàgina Sensor d'emmagatzematge a la configuració del Windows</value>
+  </data>
+  <data name="Cleanup" xml:space="preserve">
+    <value>Neteja</value>
+  </data>
   <data name="Copy" xml:space="preserve">
     <value>Copia</value>
   </data>
@@ -2274,7 +2280,7 @@
     <value>Mostra elements ocults</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formata...</value>
+    <value>Format</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Ajuda</value>
@@ -2418,7 +2424,7 @@
     <value>Enganxa els elements del porta-retalls a la carpeta actual</value>
   </data>
   <data name="PasteShortcutDescription" xml:space="preserve">
-    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
+    <value>Enganxa els elements del porta-retalls a la carpeta actual com a dreceres</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Enganxa els elements del porta-retalls a la carpeta seleccionada</value>
@@ -3970,5 +3976,32 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Canvi de nom en bloc</value>
+  </data>
+  <data name="ShowCreateAlternateDataStream" xml:space="preserve">
+    <value>Mostra l'opció per crear un flux de dades alternatiu</value>
+  </data>
+  <data name="CreateAlternateDataStream" xml:space="preserve">
+    <value>Crea un flux de dades alternatiu</value>
+  </data>
+  <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
+    <value>Crea un flux de dades alternatiu per als elements seleccionats</value>
+  </data>
+  <data name="EnterDataStreamName" xml:space="preserve">
+    <value>Introduïu el nom del flux de dades</value>
+  </data>
+  <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
+    <value>S'ha produït un error en crear el flux de dades alternatiu</value>
+  </data>
+  <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
+    <value>Tingueu en compte que els fluxos de dades alternatius només funcionen en unitats formatades com a NTFS.</value>
+  </data>
+  <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
+    <value>Actualment, els fluxos de dades alternatius estan ocults</value>
+  </data>
+  <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
+    <value>Voleu mostrar fluxos de dades alternatius? Podeu modificar aquesta configuració en qualsevol moment des de la pàgina de configuració de fitxers i carpetes.</value>
+  </data>
+  <data name="ManageTags" xml:space="preserve">
+    <value>Gestiona les etiquetes</value>
   </data>
 </root>

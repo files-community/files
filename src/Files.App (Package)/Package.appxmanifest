@@ -16,7 +16,7 @@
     <Identity
         Name="FilesDev"
         Publisher="CN=Files"
-        Version="3.7.11.0" />
+        Version="3.8.1.0" />
 
     <Properties>
         <DisplayName>Files - Dev</DisplayName>
@@ -119,12 +119,26 @@
                 </uap3:Extension>
 
                 <uap:Extension Category="windows.protocol">
+                    <!--  This is kept for backward compatibility.  -->
                     <uap:Protocol ReturnResults="none" Name="files-uwp" />
+                </uap:Extension>
+
+                <uap:Extension Category="windows.protocol">
+                    <!--  This is kept for backward compatibility.  -->
+                    <uap:Protocol ReturnResults="none" Name="files" />
+                </uap:Extension>
+
+                <uap:Extension Category="windows.protocol">
+                    <!--  This value changes based on the build branch by CI (files-stable, files-preview, files-dev).  -->
+                    <uap:Protocol ReturnResults="none" Name="files-dev" />
                 </uap:Extension>
 
                 <uap5:Extension Category="windows.appExecutionAlias">
                     <uap5:AppExecutionAlias>
+                        <!--  This is kept for backward compatibility.  -->
                         <uap5:ExecutionAlias Alias="files.exe" />
+                        <!--  This value changes based on the build branch by CI (files-stable, files-preview, files-dev).  -->
+                        <uap5:ExecutionAlias Alias="files-dev.exe" />
                     </uap5:AppExecutionAlias>
                 </uap5:Extension>
 
@@ -146,6 +160,7 @@
                             <uap:FileType>.tar</uap:FileType>
                             <uap:FileType>.jar</uap:FileType>
                             <uap:FileType>.mrpack</uap:FileType>
+                            <uap:FileType>.gz</uap:FileType>
                         </uap:SupportedFileTypes>
                         <uap:Logo>assets\archives\ExtensionIcon.png</uap:Logo>
                     </uap:FileTypeAssociation>

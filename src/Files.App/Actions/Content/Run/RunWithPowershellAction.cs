@@ -31,7 +31,7 @@ namespace Files.App.Actions
 
 		public Task ExecuteAsync(object? parameter = null)
 		{
-			return Win32Helper.RunPowershellCommandAsync($"{context.ShellPage?.SlimContentPage?.SelectedItem?.ItemPath}", PowerShellExecutionOptions.None);
+			return Win32Helper.RunPowershellCommandAsync($"& '{context.ShellPage?.SlimContentPage?.SelectedItem?.ItemPath}'", PowerShellExecutionOptions.None);
 		}
 
 		private void Context_PropertyChanged(object? sender, PropertyChangedEventArgs e)

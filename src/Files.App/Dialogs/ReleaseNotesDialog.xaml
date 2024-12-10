@@ -17,6 +17,7 @@
 	<ContentDialog.Resources>
 		<ResourceDictionary>
 			<Thickness x:Key="ContentDialogPadding">0</Thickness>
+			<x:Double x:Key="ContentDialogMaxWidth">1100</x:Double>
 		</ResourceDictionary>
 	</ContentDialog.Resources>
 
@@ -60,21 +61,14 @@
 			</Button>
 		</Grid>
 
-		<!--  Markdown Content  -->
-		<ScrollViewer
+		<!--  WebView  -->
+		<WebView2
+			x:Name="BlogPostWebView"
 			Grid.Row="1"
-			MinWidth="440"
-			MinHeight="200"
-			Padding="20,0,20,20"
-			HorizontalScrollMode="Auto"
-			VerticalScrollMode="Auto">
-			<controls:MarkdownTextBlock
-				x:Name="ReleaseNotesMarkdownTextBlock"
-				Background="Transparent"
-				LinkClicked="ReleaseNotesMarkdownTextBlock_LinkClicked"
-				ListGutterWidth="16"
-				Text="{x:Bind ViewModel.ReleaseNotesMadrkdown, Mode=OneWay}" />
-		</ScrollViewer>
+			HorizontalAlignment="Stretch"
+			VerticalAlignment="Stretch"
+			CoreWebView2Initialized="BlogPostWebView_CoreWebView2Initialized"
+			Source="{x:Bind ViewModel.BlogPostUrl, Mode=OneWay}" />
 
 		<!--  Footer  -->
 		<Border

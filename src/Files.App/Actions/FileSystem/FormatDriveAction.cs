@@ -1,37 +1,37 @@
 // Copyright (c) 2024 Files Community
 // Licensed under the MIT License. See the LICENSE.
 
-using Files.App.Utils.Shell;
-
 namespace Files.App.Actions
 {
-	internal sealed class FormatDriveAction : ObservableObject, IAction
+	internal class FormatDriveAction : ObservableObject, IAction
 	{
-		private readonly IContentPageContext context;
+		private readonly IContentPageContext context = Ioc.Default.GetRequiredService<IContentPageContext>();
 
-		private readonly DrivesViewModel drivesViewModel;
+		private readonly DrivesViewModel drivesViewModel = Ioc.Default.GetRequiredService<DrivesViewModel>();
 
 		public string Label
-			=> "FormatDriveText".GetLocalizedResource();
+			=> Strings.FormatDriveText.GetLocalizedResource();
 
 		public string Description
-			=> "FormatDriveDescription".GetLocalizedResource();
+			=> Strings.FormatDriveDescription.GetLocalizedResource();
 
-		public bool IsExecutable =>
+		public virtual bool IsExecutable =>
 			context.HasItem &&
 			!context.HasSelection &&
-			(drivesViewModel.Drives.Cast<DriveItem>().FirstOrDefault(x =>
-				string.Equals(x.Path, context.Folder?.ItemPath))?.MenuOptions.ShowFormatDrive ?? false);
+			drivesViewModel.Drives
+				.Cast<DriveItem>()
+				.FirstOrDefault(x => string.Equals(x.Path, context.Folder?.ItemPath)) is DriveItem driveItem &&
+				!(driveItem.Type == DriveType.Network || string.Equals(context.Folder?.ItemPath, $@"{Constants.UserEnvironmentPaths.SystemDrivePath}\", StringComparison.OrdinalIgnoreCase));
+
+		public virtual bool IsAccessibleGlobally
+			=> true;
 
 		public FormatDriveAction()
 		{
-			context = Ioc.Default.GetRequiredService<IContentPageContext>();
-			drivesViewModel = Ioc.Default.GetRequiredService<DrivesViewModel>();
-
 			context.PropertyChanged += Context_PropertyChanged;
 		}
 
-		public Task ExecuteAsync(object? parameter = null)
+		public virtual Task ExecuteAsync(object? parameter = null)
 		{
 			return Win32Helper.OpenFormatDriveDialog(context.Folder?.ItemPath ?? string.Empty);
 		}

@@ -34,9 +34,9 @@ namespace Files.App.Utils.Git
 
 		private static readonly PullOptions _pullOptions = new();
 
-		private static readonly string _clientId = AppLifecycleHelper.AppEnvironment is AppEnvironment.Store or AppEnvironment.Stable or AppEnvironment.Preview
-				? CLIENT_ID_SECRET
-				: string.Empty;
+		private static readonly string _clientId = AppLifecycleHelper.AppEnvironment is AppEnvironment.Dev
+				? string.Empty
+				: CLIENT_ID_SECRET;
 
 		private static readonly SemaphoreSlim GitOperationSemaphore = new SemaphoreSlim(1, 1);
 

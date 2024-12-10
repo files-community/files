@@ -162,7 +162,7 @@ STDAPICALL CFilesOpenDialog::Show(HWND hwndOwner)
 	PWSTR pszPath = NULL;
 	WCHAR szBuf[MAX_PATH];
 	TCHAR args[1024] = { 0 };
-	ExpandEnvironmentStringsW(L"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\files.exe", szBuf, MAX_PATH - 1);
+	ExpandEnvironmentStringsW(L"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\files-dev.exe", szBuf, MAX_PATH - 1);
 
 	HANDLE closeEvent = CreateEvent(NULL, FALSE, FALSE, TEXT("FILEDIALOG"));
 
@@ -177,7 +177,7 @@ STDAPICALL CFilesOpenDialog::Show(HWND hwndOwner)
 		swprintf(args, _countof(args) - 1, L"\"%s\" -outputpath \"%s\"", szBuf, _outputPath.c_str());
 	}
 
-	std::wstring uriWithArgs = L"files-uwp:?cmd=" + str2wstr(wstring_to_utf8_hex(args));
+	std::wstring uriWithArgs = L"files-dev:?cmd=" + str2wstr(wstring_to_utf8_hex(args));
 	ShExecInfo.lpFile = uriWithArgs.c_str();
 	ShExecInfo.nShow = SW_SHOW;
 	ShellExecuteEx(&ShExecInfo);
