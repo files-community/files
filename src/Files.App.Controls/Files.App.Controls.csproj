@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
@@ -14,6 +14,33 @@
         <DefineConstants Condition="'$(Configuration)' != 'Debug'">TRACE;RELEASE;NETFX_CORE</DefineConstants>
         <Optimize Condition="'$(Configuration)' != 'Debug'">true</Optimize>
     </PropertyGroup>
+
+	<PropertyGroup>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Files UI Controls</Title>
+		<Authors>yaira, files-community, mdta</Authors>
+		<Company>Files Community</Company>
+		<Copyright>Copyright (c) 2024 Files Community</Copyright>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/files-community/Files</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>files, files-community</PackageTags>
+		<Description>Stunningly designed UI controls to enhance the experience of organizing files and folders.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<!--Version>{version}</Version>-->
+		<PackageProjectUrl>https://files.community</PackageProjectUrl>
+		<PackageIcon>StoreLogo.scale-400.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\Files.App (Package)\Assets\AppTiles\Release\StoreLogo.scale-400.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.WinUI.UI" Version="7.1.2" />
