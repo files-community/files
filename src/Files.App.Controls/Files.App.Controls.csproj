@@ -18,7 +18,7 @@
 	<PropertyGroup>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>Files UI Controls</Title>
-		<Authors>yaira, files-community, mdta</Authors>
+		<Authors>files-community</Authors>
 		<Company>Files Community</Company>
 		<Copyright>Copyright (c) 2024 Files Community</Copyright>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
