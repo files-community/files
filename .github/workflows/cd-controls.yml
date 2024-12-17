@@ -1,0 +1,70 @@
+# Copyright (c) 2024 Files Community
+# Licensed under the MIT License. See the LICENSE.
+
+# Abstract:
+#  Deploys the Files UI Controls library to NuGet
+#
+# Workflow:
+#  1. Restore and build Files UI Controls
+#  2. Generate a NuGet package and symbols
+#  3. Publish the artifacts to NuGet
+
+name: Files CD (UI Controls)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    environment: Deployments
+    strategy:
+      fail-fast: false
+    env:
+      SOLUTION_NAME:              'Files.sln'
+      CONFIGURATION:              'Release' # It's not necessary to use a matrix as the package method will always be Release
+      WORKING_DIR:                '${{ github.workspace }}' # D:\a\Files\Files\
+      PROJECT_DIR:                '${{ github.workspace }}\src\Files.App.Controls'
+      PACKAGE_PROJECT_PATH:       '${{ github.workspace }}\src\Files.App.Controls\Files.App.Controls.csproj'
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v4
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        global-json-file: global.json
+  
+    - name: Use Windows SDK Preview
+      shell: cmd
+      run: |
+        for /f %%a in ('dir /b /a:d %localappdata%\Microsoft\VisualStudio\17*') do echo UsePreviews=True>%localappdata%\Microsoft\VisualStudio\%%a\sdk.txt
+
+    - name: Extract Version from Package.appxmanifest
+      id: extract_version
+      shell: pwsh
+      run: |
+        $xml = [xml](Get-Content Package.appxmanifest)
+        $version = $xml.Package.Identity.Version
+        Write-Output "Found package version, $version"
+        echo "::set-output name=version::$version"
+
+    - name: Restore NuGet
+      shell: pwsh
+      run: 'dotnet restore $env:PACKAGE_PROJECT_PATH'
+
+    - name: Build Files UI Controls
+      run: dotnet build ${{ matrix.project }}.csproj --configuration Release --no-restore
+
+    - name: Package Files UI Controls
+      run: dotnet pack ${{ PACKAGE_PROJECT_PATH }}.csproj --configuration Release --no-build -o ./output -p:Version=${{ steps.extract_version.outputs.version }}
+
+    - name: Publish package to NuGet
+      run: dotnet nuget push ./output/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
