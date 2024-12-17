@@ -295,6 +295,8 @@ namespace Files.App.Helpers.ContextFlyouts
 					{
 						button.KeyboardAccelerators.Add(item.KeyboardAccelerator);
 						button.KeyboardAcceleratorTextOverride = item.KeyboardAcceleratorTextOverride;
+						// Fixes #16193: VirtualKey does not support OEM keys (e.g "ò")
+						button.KeyboardAcceleratorPlacementMode = Microsoft.UI.Xaml.Input.KeyboardAcceleratorPlacementMode.Hidden;
 					}
 				}
 			}
