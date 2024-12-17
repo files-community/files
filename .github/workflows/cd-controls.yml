@@ -31,6 +31,7 @@ jobs:
       WORKING_DIR:                '${{ github.workspace }}' # D:\a\Files\Files\
       PROJECT_DIR:                '${{ github.workspace }}\src\Files.App.Controls'
       PACKAGE_PROJECT_PATH:       '${{ github.workspace }}\src\Files.App.Controls\Files.App.Controls.csproj'
+      PACKAGE_MANIFEST_PATH:      '${{ github.workspace }}\src\Files.App (Package)\Package.appxmanifest'
 
     steps:
     - name: Checkout the repository
@@ -53,7 +54,7 @@ jobs:
       id: extract_version
       shell: pwsh
       run: |
-        $xml = [xml](Get-Content $env:PROJECT_DIR\Package.appxmanifest)
+        $xml = [xml](Get-Content $env:PACKAGE_MANIFEST_PATH)
         $version = $xml.Package.Identity.Version
         Write-Output "Found package version, $version"
         echo "::set-output name=version::$version"
