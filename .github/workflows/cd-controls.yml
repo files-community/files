@@ -22,7 +22,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    environment: Deployments
+    #environment: Deployments
     strategy:
       fail-fast: false
     env:
