@@ -53,7 +53,7 @@ jobs:
       id: extract_version
       shell: pwsh
       run: |
-        $xml = [xml](Get-Content Package.appxmanifest)
+        $xml = [xml](Get-Content $env:PROJECT_DIR\Package.appxmanifest)
         $version = $xml.Package.Identity.Version
         Write-Output "Found package version, $version"
         echo "::set-output name=version::$version"
