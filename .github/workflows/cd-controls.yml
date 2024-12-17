@@ -64,7 +64,7 @@ jobs:
       run: dotnet restore ${{ env.PACKAGE_PROJECT_PATH }}
 
     - name: Build Files UI Controls
-      run: dotnet build ${{ matrix.project }}.csproj --configuration Release --no-restore
+      run: dotnet build ${{ env.PACKAGE_PROJECT_PATH }}.csproj --configuration Release --no-restore
 
     - name: Package Files UI Controls
       run: dotnet pack ${{ env.PACKAGE_PROJECT_PATH }}.csproj --configuration Release --no-build -o ./output -p:Version=${{ steps.extract_version.outputs.version }}
