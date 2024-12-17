@@ -64,10 +64,10 @@ jobs:
       run: dotnet restore ${{ env.PACKAGE_PROJECT_PATH }}
 
     - name: Build Files UI Controls
-      run: dotnet build ${{ env.PACKAGE_PROJECT_PATH }}.csproj --configuration Release --no-restore
+      run: dotnet build ${{ env.PACKAGE_PROJECT_PATH }} --configuration Release --no-restore
 
     - name: Package Files UI Controls
-      run: dotnet pack ${{ env.PACKAGE_PROJECT_PATH }}.csproj --configuration Release --no-build -o ./output -p:Version=${{ steps.extract_version.outputs.version }}
+      run: dotnet pack ${{ env.PACKAGE_PROJECT_PATH }} --configuration Release --no-build -o ./output -p:Version=${{ steps.extract_version.outputs.version }}
 
     - name: Publish package to NuGet
       run: dotnet nuget push ./output/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
