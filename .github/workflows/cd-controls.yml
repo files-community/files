@@ -16,6 +16,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
