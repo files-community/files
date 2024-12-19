@@ -103,19 +103,25 @@ namespace Files.App.Utils.Cloud
 				};
 			}
 
+			// Log the contents of the root_preferences database to the debug output.
 			await Inspect(database, "SELECT * FROM roots", "root_preferences db, roots table");
 			await Inspect(database, "SELECT * FROM media", "root_preferences db, media table");
 			await Inspect(database, "SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY 1", "root_preferences db, all tables");
 
-			var registryPath = App.AppModel.GoogleDrivePath;
-			if (registryPath.Equals(string.Empty))
-				yield break;
-			yield return new CloudProvider(CloudProviders.GoogleDrive)
-			{
-				Name = "Google Drive",
-				SyncFolder = registryPath,
-				IconData = iconFile is not null ? await iconFile.ToByteArrayAsync() : null
-			};
+			// Query the Windows Registry for the base Google Drive path and time the query.
+			var sw = Stopwatch.StartNew();
+			var googleDrivePath = GetRegistryBasePath() ?? string.Empty;
+			sw.Stop();
+			Debug.WriteLine($"Google Drive path registry check took {sw.Elapsed} seconds.");
+
+			// Add "My Drive" to the base GD path and return the resulting cloud provider.
+			if (AddMyDriveToPathAndValidate(ref googleDrivePath))
+				yield return new CloudProvider(CloudProviders.GoogleDrive)
+				{
+					Name = "Google Drive",
+					SyncFolder = googleDrivePath,
+					IconData = iconFile is not null ? await iconFile.ToByteArrayAsync() : null
+				};
 		}
 
 		private static async Task Inspect(SqliteConnection database, string sqlCommand, string targetDescription)
@@ -175,8 +181,8 @@ namespace Files.App.Utils.Cloud
 				.RootElement.EnumerateObject()
 				.FirstOrDefault();
 
-			// A default JsonProperty struct has an "Undefined" Value#ValueKind and throws an
-			// error if you try to call EnumerateArray on its Value.
+			// A default `JsonProperty` struct has an Undefined `Value.ValueKind` and throws an
+			// error if you try to call `EnumerateArray` on its `Value`.
 			if (googleDriveRegValJsonProperty.Value.ValueKind == JsonValueKind.Undefined)
 			{
 				_logger.LogWarning($"Root element of Google Drive registry value for value name '{_googleDriveRegValName}' was empty.");
@@ -269,7 +275,8 @@ namespace Files.App.Utils.Cloud
 						si.Name?.Equals("My Drive") ?? false) as ShellLink)?.TargetPath
 				?? string.Empty);
 
-			Debug.WriteLine("SHELL FOLDER LOGGING");
+			var callingMethod = new StackFrame(1).GetMethod();
+			Debug.WriteLine($"SHELL FOLDER LOGGING (Context: `{callingMethod?.Name}` in `{callingMethod?.DeclaringType}`)");
 			rootFolder?.ForEach(si => Debug.WriteLine(si.Name));
 
 			if (!string.IsNullOrEmpty(myDriveFolder))

@@ -20,19 +20,9 @@ namespace Files.App.Services
 		{
 			var list = DriveInfo.GetDrives();
 			var pCloudDrivePath = App.AppModel.PCloudDrivePath;
-
-			var sw = Stopwatch.StartNew();
-			var googleDrivePath = GoogleDriveCloudDetector.GetRegistryBasePath();
-			sw.Stop();
-			Debug.WriteLine($"In RemovableDrivesService: Time elapsed for Google Drive registry check: {sw.Elapsed}");
-			var googleDrivePathWithMyDrive = googleDrivePath ?? string.Empty;
-			var gdPathIsValid = GoogleDriveCloudDetector.AddMyDriveToPathAndValidate(ref googleDrivePathWithMyDrive);
-			App.AppModel.GoogleDrivePath = gdPathIsValid ? googleDrivePathWithMyDrive : string.Empty;
-
 			foreach (var drive in list)
 			{
 				var driveLabel = DriveHelpers.GetExtendedDriveLabel(drive);
-				Debug.WriteLine($"In RemovableDrivesService: Drive {drive.Name} has ExtendedDriveLabel `{driveLabel}`");
 				// We don't want cloud drives to appear in a plain "Drives" section.
 				if (driveLabel.Equals("Google Drive") || drive.Name.Equals(pCloudDrivePath))
 					continue;
