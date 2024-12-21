@@ -28,6 +28,7 @@ jobs:
     env:
       SOLUTION_NAME:              'Files.sln'
       CONFIGURATION:              'Release' # It's not necessary to use a matrix as the package method will always be Release
+      PLATFORM:                   'x64'
       WORKING_DIR:                '${{ github.workspace }}' # D:\a\Files\Files\
       PROJECT_DIR:                '${{ github.workspace }}\src\Files.App.Controls'
       PACKAGE_PROJECT_PATH:       '${{ github.workspace }}\src\Files.App.Controls\Files.App.Controls.csproj'
@@ -61,10 +62,18 @@ jobs:
 
     - name: Restore NuGet
       shell: pwsh
-      run: dotnet restore ${{ env.PACKAGE_PROJECT_PATH }}
+      run: |
+        msbuild $env:PACKAGE_PROJECT_PATH `
+        -t:Restore `
+        -p:Platform=$env:PLATFORM `
+        -p:Configuration=$env:CONFIGURATION `
 
     - name: Build Files UI Controls
-      run: dotnet build ${{ env.PACKAGE_PROJECT_PATH }} --configuration Release --no-restore
+      run: |
+        msbuild "$env:PACKAGE_PROJECT_PATH" `
+        -t:Build `
+        -p:Platform=$env:PLATFORM `
+        -p:Configuration=$env:CONFIGURATION
 
     - name: Package Files UI Controls
       run: dotnet pack ${{ env.PACKAGE_PROJECT_PATH }} --configuration Release --no-build -o ./output -p:Version=${{ steps.extract_version.outputs.version }}
