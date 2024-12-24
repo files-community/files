@@ -25,7 +25,7 @@
 		<RepositoryUrl>https://github.com/files-community/Files</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>files, files-community</PackageTags>
-		<Description>Elevate your WinUI applications with our collection of custom-built controls, crafted specifically to address our needs in Files. These controls are provided "as is," with no guaranteed support, but we hope they prove useful to the developer community.</Description>
+		<Description>Elevate your WinUI applications with our collection of custom-built controls, crafted specifically to address our needs in Files. These controls are provided "as is", with no guaranteed support, but we hope they prove useful to the developer community.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<IncludeSymbols>True</IncludeSymbols>
