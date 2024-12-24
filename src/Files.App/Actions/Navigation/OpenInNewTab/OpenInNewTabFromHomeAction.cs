@@ -23,7 +23,7 @@ namespace Files.App.Actions
 			if (await DriveHelpers.CheckEmptyDrive(HomePageContext.RightClickedItem!.Path))
 				return;
 
-			await NavigationHelpers.OpenPathInNewTab(HomePageContext.RightClickedItem!.Path ?? string.Empty, false);
+			await NavigationHelpers.OpenPathInNewTab(HomePageContext.RightClickedItem!.Path ?? string.Empty);
 		}
 
 		protected override void Context_PropertyChanged(object? sender, PropertyChangedEventArgs e)

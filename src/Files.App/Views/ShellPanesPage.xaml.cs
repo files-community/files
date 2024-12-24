@@ -646,7 +646,8 @@ namespace Files.App.Views
 
 		private void Pane_PointerPressed(object sender, PointerRoutedEventArgs e)
 		{
-			(sender as UIElement)?.Focus(FocusState.Pointer);
+			if (sender != ActivePane && sender is IShellPage shellPage && shellPage.SlimContentPage is not ColumnsLayoutPage)
+				(sender as UIElement)?.Focus(FocusState.Pointer);
 		}
 
 		private void Pane_GotFocus(object sender, RoutedEventArgs e)

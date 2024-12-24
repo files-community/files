@@ -154,9 +154,9 @@ namespace Files.App.ViewModels
 					// add last session tabs to closed tabs stack if those tabs are not about to be opened
 					if (!UserSettingsService.AppSettingsService.RestoreTabsOnStartup && !UserSettingsService.GeneralSettingsService.ContinueLastSessionOnStartUp && UserSettingsService.GeneralSettingsService.LastSessionTabList != null)
 					{
-						var items = new TabBarItemParameter[UserSettingsService.GeneralSettingsService.LastSessionTabList.Count];
-						for (int i = 0; i < items.Length; i++)
-							items[i] = TabBarItemParameter.Deserialize(UserSettingsService.GeneralSettingsService.LastSessionTabList[i]);
+						var items = UserSettingsService.GeneralSettingsService.LastSessionTabList
+							.Where(tab => !string.IsNullOrEmpty(tab))
+							.Select(tab => TabBarItemParameter.Deserialize(tab)).ToArray();
 
 						BaseTabBar.PushRecentTab(items);
 					}

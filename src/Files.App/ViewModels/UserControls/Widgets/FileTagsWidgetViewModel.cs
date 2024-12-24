@@ -68,15 +68,15 @@ namespace Files.App.ViewModels.UserControls.Widgets
 			{
 				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewTabFromHomeAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab && CommandManager.OpenInNewTabFromHomeAction.IsExecutable
 				}.Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewWindowFromHomeAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow && CommandManager.OpenInNewWindowFromHomeAction.IsExecutable
 				}.Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(CommandManager.OpenInNewPaneFromHomeAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane && CommandManager.OpenInNewPaneFromHomeAction.IsExecutable
 				}.Build(),
 				new()
 				{

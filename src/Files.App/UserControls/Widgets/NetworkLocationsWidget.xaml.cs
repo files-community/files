@@ -38,7 +38,7 @@ namespace Files.App.UserControls.Widgets
 			if (await DriveHelpers.CheckEmptyDrive(path))
 				return;
 
-			await NavigationHelpers.OpenPathInNewTab(path, false);
+			await NavigationHelpers.OpenPathInNewTab(path);
 		}
 
 		private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e)

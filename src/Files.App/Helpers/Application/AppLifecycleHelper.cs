@@ -133,6 +133,7 @@ namespace Files.App.Helpers
 		public static IHost ConfigureHost()
 		{
 			var builder = Host.CreateDefaultBuilder()
+				.UseContentRoot(Package.Current.InstalledLocation.Path)
 				.UseEnvironment(AppLifecycleHelper.AppEnvironment.ToString())
 				.ConfigureLogging(builder => builder
 					.ClearProviders()

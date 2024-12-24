@@ -409,15 +409,15 @@ namespace Files.App.Data.Factories
 				new ContextMenuFlyoutItemViewModelBuilder(Commands.OpenFileLocation).Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(Commands.OpenInNewTabAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab && Commands.OpenInNewTabAction.IsExecutable
 				}.Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(Commands.OpenInNewWindowAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow && Commands.OpenInNewWindowAction.IsExecutable
 				}.Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(Commands.OpenInNewPaneAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane && Commands.OpenInNewPaneAction.IsExecutable
 				}.Build(),
 				new ContextMenuFlyoutItemViewModel()
 				{

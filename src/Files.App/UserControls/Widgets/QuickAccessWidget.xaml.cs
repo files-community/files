@@ -26,7 +26,7 @@ namespace Files.App.UserControls.Widgets
 				button.Tag.ToString() is not string path)
 				return;
 
-			await NavigationHelpers.OpenPathInNewTab(path, false);
+			await NavigationHelpers.OpenPathInNewTab(path);
 		}
 
 		private async void Button_Click(object sender, RoutedEventArgs e)

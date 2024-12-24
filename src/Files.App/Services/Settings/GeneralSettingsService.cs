@@ -77,6 +77,12 @@ namespace Files.App.Services.Settings
 			set => Set(value);
 		}
 
+		public bool AlwaysSwitchToNewlyOpenedTab
+		{
+			get => Get(false);
+			set => Set(value);
+		}
+
 		public bool ShowQuickAccessWidget
 		{
 			get => Get(true);

@@ -240,5 +240,14 @@ namespace Files.App.Controls
 		{
 			UpdateVisualStates();
 		}
+
+		private void OnIconColorChanged()
+		{
+			if (GetTemplateChild(OutlineIconPath) is Path outlinePath)
+				outlinePath.Fill = (Brush)this.GetValue(ColorProperty);
+
+			if (GetTemplateChild(FilledIconPath) is Path fillPath)
+				fillPath.Fill = (Brush)this.GetValue(ColorProperty);
+		}
 	}
 }
