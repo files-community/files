@@ -4016,6 +4016,9 @@
   <data name="Total" xml:space="preserve">
     <value>Total</value>
   </data>
+  <data name="SettingsTerminalIntegration" xml:space="preserve">
+    <value>Enable Terminal integration</value>
+  </data>
   <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
     <value>Always switch focus to newly created tab</value>
   </data>

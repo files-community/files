@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 using Files.App.Data.Commands;
+using Files.App.Utils.Terminal;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
@@ -11,6 +12,8 @@ namespace Files.App.UserControls
 	{
 		public ICommandManager Commands { get; } = Ioc.Default.GetRequiredService<ICommandManager>();
 
+		public MainPageViewModel MainPageViewModel { get; } = Ioc.Default.GetRequiredService<MainPageViewModel>();
+		
 		public StatusBarViewModel? StatusBarViewModel
 		{
 			get => (StatusBarViewModel)GetValue(StatusBarViewModelProperty);
@@ -76,6 +79,16 @@ namespace Files.App.UserControls
 
 			BranchesFlyout.Hide();
 			await StatusBarViewModel.ExecuteDeleteBranch(((BranchItem)((Button)sender).DataContext).Name);
+		}
+
+		private void TerminalCloseButton_Click(object sender, RoutedEventArgs e)
+		{
+			MainPageViewModel.TerminalCloseCommand.Execute(((Button)sender).Tag.ToString());
+		}
+
+		private void ShellProfileList_ItemClick(object sender, ItemClickEventArgs e)
+		{
+			MainPageViewModel.TerminalAddCommand.Execute((ShellProfile)e.ClickedItem);
 		}
 	}
 }

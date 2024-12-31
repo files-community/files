@@ -46,6 +46,10 @@
         <Content Update="Assets\Resources\**">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
+        <Content Include="Utils\Terminal\UI\bundle.js" />
+        <Content Include="Utils\Terminal\UI\index.html" />
+        <Content Include="Utils\Terminal\UI\style.css" />
+        <Content Include="Utils\Terminal\UI\xterm.css" />
         <Content Update="Assets\FilesOpenDialog\SetFilesAsDefault.reg">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>

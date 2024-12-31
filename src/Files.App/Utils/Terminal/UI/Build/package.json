@@ -1,0 +1,26 @@
+{
+  "name": "fluent-terminal-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "xcopy /y /s node_modules\\xterm\\css\\xterm.css ..\\ && xcopy /y /s src\\style.css ..\\ && xcopy /y /s src\\index.html ..\\ && npx webpack --config webpack.config.js"
+  },
+  "author": "FS Apps",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "ts-loader": "^8.0.7",
+    "typescript": "^4.0.5",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "xterm": "^4.18.0",
+    "xterm-addon-fit": "^0.5.0",
+    "xterm-addon-search": "^0.8.0",
+    "xterm-addon-serialize": "^0.6.2",
+    "xterm-addon-unicode11": "^0.3.0",
+    "xterm-addon-web-links": "^0.5.1"
+  }
+}

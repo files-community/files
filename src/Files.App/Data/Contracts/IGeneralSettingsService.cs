@@ -256,6 +256,11 @@ namespace Files.App.Data.Contracts
 		bool ShowSystemTrayIcon { get; set; }
 
 		/// <summary>
+		/// Gets or sets a value indicating whether to enable terminal integration.
+		/// </summary>
+		bool IsTerminalIntegrationEnabled { get; set; }
+
+		/// <summary>
 		/// Gets or sets a value indicating the default option to resolve conflicts.
 		/// </summary>
 		FileNameConflictResolveOptionType ConflictsResolveOption { get; set; }

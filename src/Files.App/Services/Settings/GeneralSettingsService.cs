@@ -315,6 +315,12 @@ namespace Files.App.Services.Settings
 			set => Set(value);
 		}
 
+		public bool IsTerminalIntegrationEnabled
+		{
+			get => Get(false);
+			set => Set(value);
+		}
+
 		public FileNameConflictResolveOptionType ConflictsResolveOption
 		{
 			get => (FileNameConflictResolveOptionType)Get((long)FileNameConflictResolveOptionType.GenerateNewName);

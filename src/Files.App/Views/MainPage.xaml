@@ -184,6 +184,7 @@
 							MinHeight="100" />
 						<RowDefinition Height="Auto" />
 						<RowDefinition x:Name="PaneRow" Height="Auto" />
+						<RowDefinition x:Name="TerminalRow" Height="0" />
 						<RowDefinition Height="Auto" MinHeight="8" />
 					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
@@ -238,15 +239,44 @@
 						Loaded="PreviewPane_Loaded"
 						Unloaded="PreviewPane_Unloaded" />
 
+					<!--  Terminal  -->
+					<ContentPresenter
+						x:Name="TerminalControl"
+						Grid.Row="4"
+						Grid.ColumnSpan="3"
+						Margin="0,4,0,4"
+						Content="{x:Bind ViewModel.ActiveTerminal, Mode=OneWay}"
+						Visibility="{x:Bind ViewModel.IsTerminalViewOpen, Mode=OneWay}" />
+
 					<!--  Status Bar  -->
 					<uc:StatusBar
 						x:Name="StatusBar"
-						Grid.Row="4"
+						Grid.Row="5"
 						Grid.ColumnSpan="3"
 						x:Load="False"
 						ShowInfoText="{x:Bind SidebarAdaptiveViewModel.PaneHolder.ActivePaneOrColumn.InstanceViewModel.IsPageTypeNotHome, Mode=OneWay}"
 						Visibility="{x:Bind SidebarAdaptiveViewModel.PaneHolder.ActivePaneOrColumn.InstanceViewModel.IsPageTypeNotHome, Mode=OneWay}" />
 
+					<i:Interaction.Behaviors>
+						<icore:DataTriggerBehavior
+							Binding="{x:Bind ViewModel.IsTerminalViewOpen, Mode=OneWay}"
+							ComparisonCondition="Equal"
+							Value="True">
+							<icore:ChangePropertyAction
+								PropertyName="Height"
+								TargetObject="{Binding ElementName=TerminalRow}"
+								Value="0.5*" />
+						</icore:DataTriggerBehavior>
+						<icore:DataTriggerBehavior
+							Binding="{x:Bind ViewModel.IsTerminalViewOpen, Mode=OneWay}"
+							ComparisonCondition="Equal"
+							Value="False">
+							<icore:ChangePropertyAction
+								PropertyName="Height"
+								TargetObject="{Binding ElementName=TerminalRow}"
+								Value="0" />
+						</icore:DataTriggerBehavior>
+					</i:Interaction.Behaviors>
 				</Grid>
 			</sidebar:SidebarView.InnerContent>
 		</sidebar:SidebarView>

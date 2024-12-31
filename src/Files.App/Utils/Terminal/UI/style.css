@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    -ms-content-zooming: none;
+}
+
+#terminal-container {
+    width: 100%;
+    height: 100%;
+}
+
+.xterm .xterm-viewport {
+    background-color: transparent !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow-y: auto !important;
+    touch-action: pan-y;
+    -ms-touch-action: pan-y;
+}
+
+.terminal {
+    background: transparent !important;
+}

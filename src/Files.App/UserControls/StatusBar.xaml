@@ -7,6 +7,7 @@
 	xmlns:converters="using:Files.App.Converters"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:data="using:Files.App.Data.Items"
+	xmlns:datamodels="using:Files.App.Data.Models"
 	xmlns:helpers="using:Files.App.Helpers"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:usercontrols="using:Files.App.UserControls"
@@ -105,6 +106,7 @@
 	<Grid Padding="8,0,0,0">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition />
+			<ColumnDefinition Width="Auto" />
 			<ColumnDefinition Width="Auto" />
 			<ColumnDefinition Width="Auto" />
 		</Grid.ColumnDefinitions>
@@ -384,6 +386,142 @@
 				</Flyout>
 			</Button.Flyout>
 		</Button>
+
+		<StackPanel
+			x:Name="TerminalPanel"
+			Grid.Column="3"
+			VerticalAlignment="Center"
+			x:Load="{x:Bind MainPageViewModel.IsTerminalIntegrationEnabled, Mode=OneWay}"
+			Orientation="Horizontal"
+			Spacing="4">
+
+			<Button
+				x:Name="SyncFolderUp"
+				Height="24"
+				Padding="8,0,8,0"
+				VerticalAlignment="Center"
+				x:Load="{x:Bind MainPageViewModel.IsTerminalViewOpen, Mode=OneWay}"
+				Background="Transparent"
+				BorderBrush="Transparent"
+				Command="{x:Bind MainPageViewModel.TerminalSyncUpCommand}">
+				<Button.Content>
+					<FontIcon FontSize="12" Glyph="&#xE110;" />
+				</Button.Content>
+			</Button>
+
+			<Button
+				x:Name="SyncFolderDown"
+				Height="24"
+				Padding="8,0,8,0"
+				VerticalAlignment="Center"
+				x:Load="{x:Bind MainPageViewModel.IsTerminalViewOpen, Mode=OneWay}"
+				Background="Transparent"
+				BorderBrush="Transparent"
+				Command="{x:Bind MainPageViewModel.TerminalSyncDownCommand}">
+				<Button.Content>
+					<FontIcon FontSize="12" Glyph="&#xE74B;" />
+				</Button.Content>
+			</Button>
+
+			<SplitButton
+				x:Name="ToggleTerminal"
+				Height="24"
+				Padding="8,0,8,0"
+				VerticalAlignment="Center"
+				AutomationProperties.Name="Toggle terminal"
+				Background="Transparent"
+				BorderBrush="Transparent"
+				Command="{x:Bind MainPageViewModel.TerminalToggleCommand}">
+				<SplitButton.Content>
+					<StackPanel Orientation="Horizontal" Spacing="8">
+						<FontIcon FontSize="12" Glyph="&#xE756;" />
+						<TextBlock Text="Terminal" />
+					</StackPanel>
+				</SplitButton.Content>
+				<SplitButton.Flyout>
+					<Flyout Placement="Top">
+						<Grid
+							Width="200"
+							Height="160"
+							Margin="-16">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+
+							<!--  Header  -->
+							<Grid
+								Grid.Row="0"
+								Padding="4,8,8,8"
+								Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+								BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+								BorderThickness="0,0,0,1">
+
+								<SplitButton
+									Height="24"
+									Padding="8,0"
+									HorizontalAlignment="Center"
+									Command="{x:Bind MainPageViewModel.TerminalAddCommand, Mode=OneWay}">
+									<SplitButton.Content>
+										<TextBlock FontSize="12">
+											<Run Text="Add" />
+											<Run Text="{x:Bind MainPageViewModel.TerminalSelectedProfile.Name, Mode=OneWay}" />
+										</TextBlock>
+									</SplitButton.Content>
+									<SplitButton.Flyout>
+										<Flyout>
+											<ListView
+												x:Name="ShellProfileList"
+												Margin="-16"
+												Padding="4"
+												DisplayMemberPath="Name"
+												IsItemClickEnabled="True"
+												ItemClick="ShellProfileList_ItemClick"
+												ItemsSource="{x:Bind MainPageViewModel.TerminalProfiles, Mode=OneWay}"
+												SelectionMode="None" />
+										</Flyout>
+									</SplitButton.Flyout>
+								</SplitButton>
+							</Grid>
+
+							<ListView
+								Grid.Row="1"
+								Padding="4"
+								Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+								IsItemClickEnabled="True"
+								ItemsSource="{x:Bind MainPageViewModel.Terminals, Mode=OneWay}"
+								SelectedIndex="{x:Bind MainPageViewModel.SelectedTerminal, Mode=TwoWay}"
+								SelectionMode="Single">
+								<ListView.ItemTemplate>
+									<DataTemplate x:DataType="datamodels:TerminalModel">
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="*" />
+												<ColumnDefinition Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<TextBlock
+												VerticalAlignment="Center"
+												Text="{x:Bind Name, Mode=OneWay}"
+												TextTrimming="CharacterEllipsis" />
+											<Button
+												Grid.Column="1"
+												AutomationProperties.Name="{helpers:ResourceString Name=Close}"
+												Background="Transparent"
+												BorderBrush="Transparent"
+												Click="TerminalCloseButton_Click"
+												Tag="{x:Bind Id}"
+												ToolTipService.ToolTip="{helpers:ResourceString Name=Close}">
+												<FontIcon FontSize="12" Glyph="&#xE74D;" />
+											</Button>
+										</Grid>
+									</DataTemplate>
+								</ListView.ItemTemplate>
+							</ListView>
+						</Grid>
+					</Flyout>
+				</SplitButton.Flyout>
+			</SplitButton>
+		</StackPanel>
 
 	</Grid>
 </UserControl>
