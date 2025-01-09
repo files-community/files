@@ -23,7 +23,8 @@ namespace Files.App.Services
 			foreach (var drive in list)
 			{
 				var driveLabel = DriveHelpers.GetExtendedDriveLabel(drive);
-				// We don't want cloud drives to appear in a plain "Drives" section.
+				// Cloud Drive Filter If (CDFI)
+				// We don't want cloud drives to appear in the plain "Drives" sections.
 				if (driveLabel.Equals("Google Drive") || drive.Name.Equals(pCloudDrivePath))
 					continue;
 
@@ -31,13 +32,13 @@ namespace Files.App.Services
 				if (res.ErrorCode is FileSystemStatusCode.Unauthorized)
 				{
 					App.Logger.LogWarning($"{res.ErrorCode}: Attempting to add the device, {drive.Name},"
-					                      + " failed at the StorageFolder initialization step. This device will be ignored.");
+						+ " failed at the StorageFolder initialization step. This device will be ignored.");
 					continue;
 				}
 				else if (!res)
 				{
 					App.Logger.LogWarning($"{res.ErrorCode}: Attempting to add the device, {drive.Name},"
-					                      + " failed at the StorageFolder initialization step. This device will be ignored.");
+						+ " failed at the StorageFolder initialization step. This device will be ignored.");
 					continue;
 				}
 

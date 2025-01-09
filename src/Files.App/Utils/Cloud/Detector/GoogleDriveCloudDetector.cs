@@ -114,14 +114,15 @@ namespace Files.App.Utils.Cloud
 			sw.Stop();
 			Debug.WriteLine($"Google Drive path registry check took {sw.Elapsed} seconds.");
 
-			// Add "My Drive" to the base GD path and return the resulting cloud provider.
-			if (AddMyDriveToPathAndValidate(ref googleDrivePath))
-				yield return new CloudProvider(CloudProviders.GoogleDrive)
-				{
-					Name = "Google Drive",
-					SyncFolder = googleDrivePath,
-					IconData = iconFile is not null ? await iconFile.ToByteArrayAsync() : null
-				};
+			// Add "My Drive" to the base GD path; validate; return the resulting cloud provider.
+			if (!AddMyDriveToPathAndValidate(ref googleDrivePath))
+				yield break;
+			yield return new CloudProvider(CloudProviders.GoogleDrive)
+			{
+				Name = "Google Drive",
+				SyncFolder = googleDrivePath,
+				IconData = iconFile is not null ? await iconFile.ToByteArrayAsync() : null
+			};
 		}
 
 		private static async Task Inspect(SqliteConnection database, string sqlCommand, string targetDescription)
@@ -264,7 +265,7 @@ namespace Files.App.Utils.Cloud
 			return await FilesystemTasks.Wrap(() => StorageFile.GetFileFromPathAsync(iconPath).AsTask());
 		}
 
-		public static bool AddMyDriveToPathAndValidate(ref string path)
+		private static bool AddMyDriveToPathAndValidate(ref string path)
 		{ 
 			// If `path` contains a shortcut named "My Drive", store its target in `shellFolderBaseFirst`.
 			// This happens when "My Drive syncing options" is set to "Mirror files".
@@ -275,8 +276,7 @@ namespace Files.App.Utils.Cloud
 						si.Name?.Equals("My Drive") ?? false) as ShellLink)?.TargetPath
 				?? string.Empty);
 
-			var callingMethod = new StackFrame(1).GetMethod();
-			Debug.WriteLine($"SHELL FOLDER LOGGING (Context: `{callingMethod?.Name}` in `{callingMethod?.DeclaringType}`)");
+			Debug.WriteLine("SHELL FOLDER LOGGING");
 			rootFolder?.ForEach(si => Debug.WriteLine(si.Name));
 
 			if (!string.IsNullOrEmpty(myDriveFolder))
