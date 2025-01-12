@@ -171,6 +171,11 @@ namespace Files.App.Utils.Cloud
 			return googleDriveRegValueJson;
 		}
 
+		/// <summary>
+        /// Get the base file system path for Google Drive from the Registry.
+        /// For advanced "Google Drive for desktop" settings reference, see:
+        /// https://support.google.com/a/answer/7644837
+		/// </summary>
 		public static string? GetRegistryBasePath()
 		{
 			var googleDriveRegValJson = GetGoogleDriveRegValJson();
