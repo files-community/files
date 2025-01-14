@@ -289,7 +289,7 @@
     <value>Cấp quyền</value>
   </data>
   <data name="WelcomeDialogTextBlock.Text" xml:space="preserve">
-    <value>Trước khi bắt đầu, ứng dụng phải được cấp quyền hiển thị các tệp. Ứng dụng sẽ tự động mở cửa số Cài đặt để bạn thực hiện cấp quyền này. Sau khi hoàn tất, bạn sẽ cần khởi động lại ứng dụng. </value>
+    <value>Trước khi bắt đầu, bạn cần phải cấp quyền hiển thị các tệp. Ứng dụng sẽ tự động mở cửa số Cài đặt để bạn thực hiện cấp quyền truy cập này. Sau khi hoàn tất, bạn sẽ cần khởi động lại ứng dụng. </value>
   </data>
   <data name="Display" xml:space="preserve">
     <value>Hiển thị</value>
@@ -1080,13 +1080,13 @@
     <value>Bật/Tắt ngăn chi tiết</value>
   </data>
   <data name="ToggleDetailsPaneDescription" xml:space="preserve">
-    <value>Chuyển đổi ẩn/hiện ngăn chi tiết để xem các thuộc tính cơ bản của tệp</value>
+    <value>Ẩn hoặc hiện ngăn chi tiết để xem các thuộc tính cơ bản của tệp</value>
   </data>
   <data name="ToggleInfoPane" xml:space="preserve">
     <value>Bật/Tắt ngăn thông tin</value>
   </data>
   <data name="ToggleInfoPaneDescription" xml:space="preserve">
-    <value>Chuyển đổi ẩn/hiện ngăn thông tin để xem chi tiết hoặc xem trước tệp</value>
+    <value>Ẩn hoặc hiện ngăn thông tin để xem chi tiết hoặc xem trước tệp</value>
   </data>
   <data name="ToggleToolbar" xml:space="preserve">
     <value>Bật/Tắt thanh công cụ</value>
@@ -1584,7 +1584,7 @@
     <value>Ghi thuộc tính mở rộng</value>
   </data>
   <data name="SecurityAdvancedInheritedConvert.Text" xml:space="preserve">
-    <value>Chuyển đổi quyền được kế thừa thành quyền tách biệt</value>
+    <value>Chuyển quyền được kế thừa thành quyền tách biệt</value>
   </data>
   <data name="SecurityAdvancedInheritedEnable.Text" xml:space="preserve">
     <value>Bật kế thừa quyền</value>
@@ -1837,6 +1837,18 @@
   </data>
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Gửi yêu cầu khởi động lại chương trình</value>
+  </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
   </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Chạy với quyền quản trị viên</value>
@@ -2195,6 +2207,9 @@
   <data name="WhatsNew" xml:space="preserve">
     <value>Có gì mới</value>
   </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Mở nội dung bản cập nhật</value>
+  </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Tạo lối tắt ở vị trí này yêu cầu quyền quản trị viên</value>
   </data>
@@ -2373,7 +2388,7 @@
     <value>Mở trang trợ giúp trực tuyến trong trình duyệt</value>
   </data>
   <data name="ToggleFullScreenDescription" xml:space="preserve">
-    <value>Chuyển đổi bật/tắt toàn màn hình</value>
+    <value>Bật hoặc tắt chế độ toàn màn hình</value>
   </data>
   <data name="EnterCompactOverlayDescription" xml:space="preserve">
     <value>Mở cửa sổ dạng thu gọn</value>
@@ -2382,25 +2397,25 @@
     <value>Thoát cửa sổ dạng thu gọn</value>
   </data>
   <data name="ToggleCompactOverlayDescription" xml:space="preserve">
-    <value>Chuyển đổi bật/tắt cửa sổ dạng thu gọn</value>
+    <value>Bật hoặc tắt cửa sổ dạng thu gọn</value>
   </data>
   <data name="SearchDescription" xml:space="preserve">
     <value>Đặt tiêu điểm vào hộp tìm kiếm</value>
   </data>
   <data name="ToggleShowHiddenItemsDescription" xml:space="preserve">
-    <value>Chuyển đổi ẩn/hiện khoản mục bị ẩn</value>
+    <value>Ẩn hoặc hiện khoản mục bị ẩn</value>
   </data>
   <data name="ToggleDotFilesSettingDescription" xml:space="preserve">
-    <value>Chuyển đổi ẩn/hiện tệp có tên bắt đầu bằng dấu chấm</value>
+    <value>Ẩn hoặc hiện tệp có tên bắt đầu bằng dấu chấm</value>
   </data>
   <data name="ToggleShowFileExtensionsDescription" xml:space="preserve">
-    <value>Chuyển đổi ẩn/hiện phần mở rộng tệp</value>
+    <value>Ẩn hoặc hiện phần mở rộng tệp</value>
   </data>
   <data name="TogglePreviewPaneDescription" xml:space="preserve">
-    <value>Chuyển đổi ẩn/hiện ngăn xem trước để xem nhanh nội dung tệp</value>
+    <value>Ẩn hoặc hiện ngăn xem trước để xem nhanh nội dung tệp</value>
   </data>
   <data name="ToggleSidebarDescription" xml:space="preserve">
-    <value>Chuyển đổi ẩn/hiện thanh bên</value>
+    <value>Ẩn hoặc hiện thanh bên</value>
   </data>
   <data name="CopyItemDescription" xml:space="preserve">
     <value>Sao chép khoản mục vào bộ nhớ tạm</value>
@@ -3013,7 +3028,7 @@
     <value>Ngày</value>
   </data>
   <data name="ToggleGroupByDateUnitDescription" xml:space="preserve">
-    <value>Chuyển đổi ẩn/hiện đơn vị khi nhóm theo ngày tháng</value>
+    <value>Ẩn hoặc hiện đơn vị khi nhóm theo ngày tháng</value>
   </data>
   <data name="ToggleGroupingUnit" xml:space="preserve">
     <value>Ẩn/Hiện đơn vị nhóm</value>
@@ -3977,6 +3992,9 @@
   <data name="BulkRename" xml:space="preserve">
     <value>Đổi tên hàng loạt</value>
   </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Nén nội dung</value>
+  </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
     <value>Hiện tuỳ chọn tạo luồng dữ liệu phụ</value>
   </data>
@@ -4003,5 +4021,37 @@
   </data>
   <data name="ManageTags" xml:space="preserve">
     <value>Quản lý nhãn</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Khả dụng</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Tổng</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Luôn đặt tiêu điểm vào thẻ mới</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Ẩn/Hiện ngăn tạm</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Ẩn hoặc hiện ngăn tạm</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Hiện nút ẩn/hiện ngăn tạm trên thanh địa chỉ</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Ngăn tạm</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Loại bỏ tất cả</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Loại bỏ khỏi ngăn tạm</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Thêm vào ngăn tạm</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

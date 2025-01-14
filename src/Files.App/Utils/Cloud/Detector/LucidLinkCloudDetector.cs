@@ -1,9 +1,7 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
-using Files.App.Utils.Cloud;
 using System.IO;
-using System.Text.Json;
 using Windows.Storage;
 
 namespace Files.App.Utils.Cloud
@@ -13,25 +11,34 @@ namespace Files.App.Utils.Cloud
 	/// </summary>
 	public sealed class LucidLinkCloudDetector : AbstractCloudDetector
 	{
+		private readonly string iconPath = Path.Combine(Environment.GetEnvironmentVariable("ProgramFiles"), "Lucid", "resources", "Logo.ico");
+
 		protected override async IAsyncEnumerable<ICloudProvider> GetProviders()
 		{
-			string jsonPath = Path.Combine(Environment.GetEnvironmentVariable("UserProfile"), ".lucid", "app.json");
+			string volumePath = Path.Combine(Constants.UserEnvironmentPaths.SystemDrivePath, "Volumes");
 
-			var configFile = await StorageFile.GetFileFromPathAsync(jsonPath);
-			using var jsonFile = JsonDocument.Parse(await FileIO.ReadTextAsync(configFile));
-			var jsonElem = jsonFile.RootElement;
-
-			if (jsonElem.TryGetProperty("filespaces", out JsonElement filespaces))
+			if (Directory.Exists(volumePath))
 			{
-				foreach (JsonElement inner in filespaces.EnumerateArray())
+				foreach (string directory in Directory.GetDirectories(volumePath))
 				{
-					string syncFolder = inner.GetProperty("filespaceName").GetString();
+					await foreach (var provider in GetProvidersFromDirectory(directory))
+					{
+						yield return provider;
+					}
+				}
+			}
+		}
 
-					string[] orgNameFilespaceName = syncFolder.Split(".");
-					string path = Path.Combine($@"{Constants.UserEnvironmentPaths.SystemDrivePath}\Volumes", orgNameFilespaceName[1], orgNameFilespaceName[0]);
-					string filespaceName = orgNameFilespaceName[0];
+		private async IAsyncEnumerable<ICloudProvider> GetProvidersFromDirectory(string directory)
+		{
+			foreach (string subDirectory in Directory.GetDirectories(directory))
+			{
+				if (Win32Helper.HasFileAttribute(subDirectory, System.IO.FileAttributes.ReparsePoint))
+				{
+					string[] orgNameFilespaceName = subDirectory.Split("\\");
+					string path = Path.Combine($@"{Constants.UserEnvironmentPaths.SystemDrivePath}\Volumes", orgNameFilespaceName[^2], orgNameFilespaceName[^1]);
+					string filespaceName = orgNameFilespaceName[^1];
 
-					string iconPath = Path.Combine(Environment.GetEnvironmentVariable("ProgramFiles"), "Lucid", "resources", "Logo.ico");
 					StorageFile iconFile = await FilesystemTasks.Wrap(() => StorageFile.GetFileFromPathAsync(iconPath).AsTask());
 
 					yield return new CloudProvider(CloudProviders.LucidLink)
@@ -40,6 +47,13 @@ namespace Files.App.Utils.Cloud
 						SyncFolder = path,
 						IconData = iconFile is not null ? await iconFile.ToByteArrayAsync() : null,
 					};
+				}
+				else
+				{
+					await foreach (var provider in GetProvidersFromDirectory(subDirectory))
+					{
+						yield return provider;
+					}
 				}
 			}
 		}

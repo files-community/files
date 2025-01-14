@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.Core.Storage;
 using Files.Core.Storage.Storables;
@@ -13,15 +13,12 @@ namespace Files.App.Data.Contracts
 		/// <inheritdoc/>
 		public async Task<IImage?> GetIconAsync(IStorable storable, CancellationToken cancellationToken)
 		{
-			if (storable is not ILocatableStorable locatableStorable)
-				return null;
-
-			var iconData = await FileThumbnailHelper.LoadIconFromPathAsync(locatableStorable.Path, 24u, ThumbnailMode.ListView, ThumbnailOptions.ResizeThumbnail);
+			var iconData = await FileThumbnailHelper.GetIconAsync(storable.Id, Constants.ShellIconSizes.Small, storable is IFolder, IconOptions.ReturnIconOnly | IconOptions.UseCurrentScale);
 			if (iconData is null)
 				return null;
 
 			var bitmapImage = await iconData.ToBitmapAsync();
-			return new BitmapImageModel(bitmapImage);
+			return bitmapImage is null ? null : new BitmapImageModel(bitmapImage);
 		}
 
 		public async Task<IImage?> GetImageModelFromDataAsync(byte[] rawData)

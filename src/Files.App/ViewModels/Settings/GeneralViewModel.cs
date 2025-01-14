@@ -1,11 +1,8 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using System.Collections.Specialized;
-using System.Globalization;
-using Windows.Globalization;
 using Windows.Storage;
-using Windows.Storage.Pickers;
 using Windows.System;
 using static Files.App.Helpers.MenuFlyoutHelper;
 using DispatcherQueue = Microsoft.UI.Dispatching.DispatcherQueue;
@@ -314,6 +311,20 @@ namespace Files.App.ViewModels.Settings
 				if (value != UserSettingsService.GeneralSettingsService.AlwaysOpenDualPaneInNewTab)
 				{
 					UserSettingsService.GeneralSettingsService.AlwaysOpenDualPaneInNewTab = value;
+
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		public bool AlwaysSwitchToNewlyOpenedTab
+		{
+			get => UserSettingsService.GeneralSettingsService.AlwaysSwitchToNewlyOpenedTab;
+			set
+			{
+				if (value != UserSettingsService.GeneralSettingsService.AlwaysSwitchToNewlyOpenedTab)
+				{
+					UserSettingsService.GeneralSettingsService.AlwaysSwitchToNewlyOpenedTab = value;
 
 					OnPropertyChanged();
 				}

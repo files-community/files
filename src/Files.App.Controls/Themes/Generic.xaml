@@ -1,27 +1,34 @@
-<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:local="using:Files.App.Controls">
 
-
 	<ResourceDictionary.MergedDictionaries>
-
 		<XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
 
-		<!--#region StorageControls-->
-		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Storage/StorageRing/StorageRing.ThemeResources.xaml" />
-		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Storage/StorageRing/StorageRing.xaml" />
-		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Storage/StorageBar/StorageBar.ThemeResources.xaml" />
-		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Storage/StorageBar/StorageBar.xaml" />
+		<!--#region Theme Dictionaries-->
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/ThemedIcon/ThemedIcon.ThemeResources.xaml" />
+
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Toolbar/Toolbar.ThemeResources.xaml" />
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Toolbar/ToolbarSeparator/ToolbarSeparator.ThemeResources.xaml" />
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Toolbar/ToolbarButton/ToolbarButton.ThemeResources.xaml" />
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Toolbar/ToolbarToggleButton/ToolbarToggleButton.ThemeResources.xaml" />
 		<!--#endregion-->
 
 		<!--#region ThemedIcon-->
-		<ResourceDictionary Source="ms-appx:///Files.App.Controls/ThemedIcon/ThemedIcon.ThemeResources.xaml" />
-
 		<ResourceDictionary Source="ms-appx:///Files.App.Controls/ThemedIcon/ThemedIcon.xaml" />
 		<ResourceDictionary Source="ms-appx:///Files.App.Controls/ThemedIcon/ThemedIconLayer/ThemedIconLayer.xaml" />
-		<!--  Icon Style Sets  -->
+		<!--#endregion-->
+
+		<!--#region ToolbarButtons-->
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Toolbar/Toolbar.xaml" />
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Toolbar/ToolbarSeparator/ToolbarSeparator.xaml" />
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Toolbar/ToolbarButton/ToolbarButton.xaml" />
+		<ResourceDictionary Source="ms-appx:///Files.App.Controls/Toolbar/ToolbarToggleButton/ToolbarToggleButton.xaml" />
+		<!--#endregion-->
+
+		<!--#region  ThemedIcon Styles-->
 		<ResourceDictionary Source="ms-appx:///Files.App.Controls/ThemedIcon/Styles/Icons.Common.xaml" />
 		<ResourceDictionary Source="ms-appx:///Files.App.Controls/ThemedIcon/Styles/Icons.New.xaml" />
 		<ResourceDictionary Source="ms-appx:///Files.App.Controls/ThemedIcon/Styles/Icons.Open.xaml" />

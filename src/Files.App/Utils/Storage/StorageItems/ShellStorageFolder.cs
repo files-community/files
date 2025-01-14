@@ -1,11 +1,12 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.FileProperties;
 using Windows.Storage.Search;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace Files.App.Utils.Storage
 {
@@ -15,6 +16,7 @@ namespace Files.App.Utils.Storage
 		public string Arguments { get; }
 		public string WorkingDirectory { get; }
 		public bool RunAsAdmin { get; }
+		public SHOW_WINDOW_CMD ShowWindowCommand { get; set; }
 
 		public ShortcutStorageFolder(ShellLinkItem item) : base(item)
 		{
@@ -22,6 +24,7 @@ namespace Files.App.Utils.Storage
 			Arguments = item.Arguments;
 			WorkingDirectory = item.WorkingDirectory;
 			RunAsAdmin = item.RunAsAdmin;
+			ShowWindowCommand = item.ShowWindowCommand;
 		}
 	}
 

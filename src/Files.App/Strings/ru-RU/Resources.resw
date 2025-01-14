@@ -199,7 +199,7 @@
     <value>О приложении</value>
   </data>
   <data name="OpenSource" xml:space="preserve">
-    <value>Об исходном коде</value>
+    <value>Открытый исходный код</value>
   </data>
   <data name="DateFormat" xml:space="preserve">
     <value>Формат даты</value>
@@ -298,7 +298,7 @@
     <value>Введите название элемента</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Создать: {0}</value>
+    <value>Создать новый: {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Светлая</value>
@@ -364,7 +364,7 @@
     <value>Не удается открыть свойства этого файла</value>
   </data>
   <data name="CannotAccessPropertiesContent" xml:space="preserve">
-    <value>Файл, к которому Вы пытаетесь получить доступ, возможно, был перемещён или удалён.</value>
+    <value>Файл, который вы пытаетесь открыть, либо был перемещён, либо удалён.</value>
   </data>
   <data name="FileNotFoundDialog.Title" xml:space="preserve">
     <value>Файл не найден</value>
@@ -379,7 +379,7 @@
     <value>Файл, к которому вы пытаетесь получить доступ, в настоящее время используется {0}</value>
   </data>
   <data name="FileInUseDialog.Text" xml:space="preserve">
-    <value>Файл, к которому вы пытаетесь получить доступ, в настоящее время используется другим приложением</value>
+    <value>Файл, который вы пытаетесь открыть, сейчас используется другим приложением</value>
   </data>
   <data name="FileInUseDialog.Title" xml:space="preserve">
     <value>Файл используется</value>
@@ -1041,7 +1041,7 @@
     <value>Показать опцию копирования пути</value>
   </data>
   <data name="ShowCreateFolderWithSelection" xml:space="preserve">
-    <value>Показать опцию создания папки с выделением</value>
+    <value>Показать опцию создания папки из выделенных элементов</value>
   </data>
   <data name="ShowCreateShortcut" xml:space="preserve">
     <value>Показать опцию создания ярлыка</value>
@@ -1284,7 +1284,7 @@
     <value>Конфликт {0, plural, one {имени файла} other {имён фалов}}</value>
   </data>
   <data name="CopyItemsDialogSubtitle" xml:space="preserve">
-    <value>{0, plural, one {Один элемени будет скопирован} few {# элемента будет скопировано} other {# элементов будет скопировано}}</value>
+    <value>{0, plural, one {Один элемент будет скопирован} few {# элемента будет скопировано} other {# элементов будет скопировано}}</value>
   </data>
   <data name="DeleteItemsDialogPermanentlyDeleteCheckBox.Content" xml:space="preserve">
     <value>Удалить безвозвратно</value>
@@ -1299,7 +1299,7 @@
     <value>Сгенерировать новое имя</value>
   </data>
   <data name="CreateFolderWithSelection" xml:space="preserve">
-    <value>Создать папку из выбранных элементов</value>
+    <value>Создать папку из выделенных элементов</value>
   </data>
   <data name="ItemType" xml:space="preserve">
     <value>Тип:</value>
@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Регистрация программы для перезапуска</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Запустить от имени администратора</value>
   </data>
@@ -2010,7 +2022,7 @@
     <value>Хотели бы вы оценить Files?</value>
   </data>
   <data name="SetAsBackgroundFlyout" xml:space="preserve">
-    <value>Сделать фоном рабочего стола</value>
+    <value>Установить как фон</value>
   </data>
   <data name="SetAsBackground" xml:space="preserve">
     <value>Сделать фоном рабочего стола</value>
@@ -2194,6 +2206,9 @@
   </data>
   <data name="WhatsNew" xml:space="preserve">
     <value>Из нового</value>
+  </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Открыть информацию о релизе</value>
   </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Создание ярлыка в этом месте требует права администратора</value>
@@ -2388,19 +2403,19 @@
     <value>Перейти в окно поиска</value>
   </data>
   <data name="ToggleShowHiddenItemsDescription" xml:space="preserve">
-    <value>Вкл/Выкл отображение скрытых элементов</value>
+    <value>Включить/выключить отображение скрытых элементов</value>
   </data>
   <data name="ToggleDotFilesSettingDescription" xml:space="preserve">
     <value>Отображать файлы начинающиеся с точки</value>
   </data>
   <data name="ToggleShowFileExtensionsDescription" xml:space="preserve">
-    <value>Вкл/Выкл отображение скрытых элементов</value>
+    <value>Включить/выключить отображение форматов файлов</value>
   </data>
   <data name="TogglePreviewPaneDescription" xml:space="preserve">
     <value>Переключить панель предпросмотра для просмотра превью файла</value>
   </data>
   <data name="ToggleSidebarDescription" xml:space="preserve">
-    <value>Вкл/Выкл отображение боковой панели</value>
+    <value>Включить/выключить отображение боковой панели</value>
   </data>
   <data name="CopyItemDescription" xml:space="preserve">
     <value>Копировать элемент(ы) в буфер обмена</value>
@@ -3124,7 +3139,7 @@
     <value>Удалённые</value>
   </data>
   <data name="ImproveTranslation" xml:space="preserve">
-    <value>Translate on Crowdin</value>
+    <value>Помочь с переводом на Crowdin</value>
   </data>
   <data name="GitFetch" xml:space="preserve">
     <value>Fetch</value>
@@ -3966,7 +3981,7 @@
     <value>Перейти на главную страницу</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Показать кнопку Главной в адресной строке</value>
+    <value>Показать кнопку "Домой" в адресной строке</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>Панели инструментов</value>
@@ -3976,6 +3991,9 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Массовое переименование</value>
+  </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Сжать</value>
   </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
     <value>Показать опцию создания альтернативного потока данных</value>
@@ -4003,5 +4021,37 @@
   </data>
   <data name="ManageTags" xml:space="preserve">
     <value>Управление метками</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Доступно</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Всего</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Всегда переключать фокус на только что созданную вкладку</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Переключить панель полки</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Переключить видимость панели полки</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Показать переключатель панели полки в адресной строке</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Полка</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Очистить элементы</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Убрать из полки</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Добавить на полку</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

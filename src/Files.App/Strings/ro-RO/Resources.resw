@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Înregistrați acest program pentru repornire</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Rulare ca administrator</value>
   </data>
@@ -2194,6 +2206,9 @@
   </data>
   <data name="WhatsNew" xml:space="preserve">
     <value>Ce e nou</value>
+  </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Deschideți Notele de Lansare</value>
   </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Crearea unei comenzi rapide în această locație necesită privilegii de administrator</value>
@@ -3966,7 +3981,7 @@
     <value>Navigați spre pagina principală</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Afișați Pagina Principală în bara de adresă</value>
+    <value>Afișați butonul Pornire în bara de adresă</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>Bare de Instrumente</value>
@@ -3976,6 +3991,9 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Redenumire în masă</value>
+  </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Comprimați conținutul</value>
   </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
     <value>Afișați opțiunea pentru a crea un flux alternativ de date</value>
@@ -4003,5 +4021,37 @@
   </data>
   <data name="ManageTags" xml:space="preserve">
     <value>Gestionare etichete</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Disponibil</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Comutați întotdeauna focalizarea la fila nou creată</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Comutare panou raft</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Comutați vizibilitatea panoului raft</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Afișați comutatorul pentru panoul raft în bara de adresă</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Raft</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Eliminare elemente</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Eliminare din raft</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Adăugare la raft</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

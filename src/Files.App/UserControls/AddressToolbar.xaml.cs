@@ -1,15 +1,15 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
-using System.Windows.Input;
 using Microsoft.UI.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
-using Windows.System;
 using Microsoft.UI.Xaml.Navigation;
+using System.Windows.Input;
+using Windows.System;
 using FocusManager = Microsoft.UI.Xaml.Input.FocusManager;
 
 namespace Files.App.UserControls
@@ -73,10 +73,18 @@ namespace Files.App.UserControls
 			ViewModel.IsEditModeEnabled = true;
 		}
 
-		private void VisiblePath_KeyDown(object _, KeyRoutedEventArgs e)
+		private async void VisiblePath_KeyDown(object _, KeyRoutedEventArgs e)
 		{
 			if (e.Key is VirtualKey.Escape)
 				ViewModel.IsEditModeEnabled = false;
+
+			if (e.Key is VirtualKey.Tab)
+			{
+				ViewModel.IsEditModeEnabled = false;
+				// Delay to ensure clickable path is ready to be focused
+				await Task.Delay(10);
+				ClickablePath.Focus(FocusState.Keyboard);
+			}
 		}
 		private void VisiblePath_LostFocus(object _, RoutedEventArgs e)
 		{
@@ -153,7 +161,7 @@ namespace Files.App.UserControls
 			await AddHistoryItemsAsync(shellPage.ForwardStack, ForwardHistoryFlyout.Items, false);
 		}
 
-		private async Task AddHistoryItemsAsync(IEnumerable<PageStackEntry> items, IList<MenuFlyoutItemBase> destination, bool isBackMode)
+		private async Task AddHistoryItemsAsync(IEnumerable<PageStackEntry> items, IList<MenuFlyoutItemBase> flyoutItems, bool isBackMode)
 		{
 			// This may not seem performant, however it's the most viable trade-off to make.
 			// Instead of constantly keeping track of back/forward stack and performing lookups
@@ -161,27 +169,39 @@ namespace Files.App.UserControls
 			// There's also a high chance the user might not use the feature at all in which case
 			// the former approach would just waste extra performance gain
 
-			destination.Clear();
+			flyoutItems.Clear();
 			foreach (var item in items.Reverse())
 			{
 				if (item.Parameter is not NavigationArguments args || args.NavPathParam is null)
 					continue;
 
-				var imageSource = await NavigationHelpers.GetIconForPathAsync(args.NavPathParam);
 				var fileName = SystemIO.Path.GetFileName(args.NavPathParam);
 
 				// The fileName is empty if the path is (root) drive path
 				if (string.IsNullOrEmpty(fileName))
 					fileName = args.NavPathParam;
 
-				destination.Add(new MenuFlyoutItem()
+				var flyoutItem = new MenuFlyoutItem
 				{
-					Icon = new ImageIcon() { Source = imageSource },
+					Icon = new FontIcon { Glyph = "\uE8B7" }, // Use font icon as placeholder
 					Text = fileName,
 					Command = historyItemClickedCommand,
 					CommandParameter = new ToolbarHistoryItemModel(item, isBackMode)
-				});
+				};
+
+				flyoutItems?.Add(flyoutItem);
+
+				// Start loading the thumbnail in the background
+				_ = LoadFlyoutItemIconAsync(flyoutItem, args.NavPathParam);
 			}
+		}
+
+		private async Task LoadFlyoutItemIconAsync(MenuFlyoutItem flyoutItem, string path)
+		{
+			var imageSource = await NavigationHelpers.GetIconForPathAsync(path);
+
+			if (imageSource is not null)
+				flyoutItem.Icon = new ImageIcon { Source = imageSource };
 		}
 
 		private void HistoryItemClicked(ToolbarHistoryItemModel? itemModel)
@@ -215,6 +235,16 @@ namespace Files.App.UserControls
 				// Navigate forward
 				shellPage.Forward_Click();
 			}
+		}
+
+		private void ClickablePath_GettingFocus(UIElement sender, GettingFocusEventArgs args)
+		{
+			if (args.InputDevice != FocusInputDeviceKind.Keyboard)
+				return;
+
+			var previousControl = args.OldFocusedElement as FrameworkElement;
+			if (previousControl?.Name == nameof(HomeButton) || previousControl?.Name == nameof(Refresh))
+				ViewModel.IsEditModeEnabled = true;
 		}
 	}
 }

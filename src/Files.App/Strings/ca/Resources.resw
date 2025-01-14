@@ -253,7 +253,7 @@
     <value>Enganxa</value>
   </data>
   <data name="PasteShortcut" xml:space="preserve">
-    <value>Enganxa drecera</value>
+    <value>Enganxa la drecera</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Nou</value>
@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Registrar aquest programa per a reinici</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Executa com a administrador</value>
   </data>
@@ -2194,6 +2206,9 @@
   </data>
   <data name="WhatsNew" xml:space="preserve">
     <value>Novetats</value>
+  </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Obre les notes de la versió</value>
   </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>La creació d'una drecera en aquesta ubicació requereix privilegis d'administrador</value>
@@ -3966,7 +3981,7 @@
     <value>Aneu a la pàgina d'inici</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Mostra l'Inici a la barra d'adreces</value>
+    <value>Mostra el botó d'inici a la barra d'adreces</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>Barra d'eines</value>
@@ -3976,6 +3991,9 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Canvi de nom en bloc</value>
+  </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Comprimeix el contingut</value>
   </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
     <value>Mostra l'opció per crear un flux de dades alternatiu</value>
@@ -4003,5 +4021,37 @@
   </data>
   <data name="ManageTags" xml:space="preserve">
     <value>Gestiona les etiquetes</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Disponible</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Canvia sempre el focus a la pestanya creada recentment</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Commuta el panell del prestatge</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Commuta la visibilitat del panell del prestatge</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Mostra la commutació del panell de prestatges a la barra d'adreces</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Prestatge</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Esborra els elements</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Elimina del prestatge</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Afegeix al prestatge</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

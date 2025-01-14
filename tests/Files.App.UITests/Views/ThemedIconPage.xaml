@@ -1,4 +1,4 @@
-<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <Page
 	x:Class="Files.App.UITests.Views.ThemedIconPage"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -13,7 +13,7 @@
 		<ResourceDictionary>
 			<Style
 				x:Key="IconTest"
-				BasedOn="{StaticResource App.ThemedIcons.AltDataStream}"
+				BasedOn="{StaticResource App.ThemedIcons.AppUpdatedBox}"
 				TargetType="controls:ThemedIcon">
 				<Setter Property="IconSize" Value="16" />
 				<Setter Property="Width" Value="16" />

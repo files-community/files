@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using CommunityToolkit.WinUI.UI;
 using Files.App.Controls;
@@ -22,6 +22,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.System;
+using WinRT;
 using static Files.App.Helpers.PathNormalization;
 using DispatcherQueueTimer = Microsoft.UI.Dispatching.DispatcherQueueTimer;
 using SortDirection = Files.App.Data.Enums.SortDirection;
@@ -481,7 +482,6 @@ namespace Files.App.Views.Layouts
 					{
 						Query = navigationArguments.SearchQuery,
 						Folder = navigationArguments.SearchPathParam,
-						ThumbnailSize = InstanceViewModel!.FolderSettings.GetRoundedIconSize(),
 					};
 
 					_ = ParentShellPageInstance.ShellViewModel.SearchAsync(searchInstance);
@@ -999,13 +999,8 @@ namespace Files.App.Views.Layouts
 				{
 					var iddo = shellItemList[0].Parent.GetChildrenUIObjects<IDataObject>(HWND.NULL, shellItemList);
 					shellItemList.ForEach(x => x.Dispose());
-
-					var format = System.Windows.Forms.DataFormats.GetFormat("Shell IDList Array");
-					if (iddo.TryGetData<byte[]>((uint)format.Id, out var data))
-					{
-						var mem = new MemoryStream(data).AsRandomAccessStream();
-						e.Data.SetData(format.Name, mem);
-					}
+					var dataObjectProvider = e.Data.As<Shell32.IDataObjectProvider>();
+					dataObjectProvider.SetDataObject(iddo);
 				}
 				else
 				{
@@ -1208,7 +1203,7 @@ namespace Files.App.Views.Layouts
 					args.RegisterUpdateCallback(callbackPhase, async (s, c) =>
 					{
 						await ParentShellPageInstance!.ShellViewModel.LoadExtendedItemPropertiesAsync(listedItem);
-						if (ParentShellPageInstance.ShellViewModel.EnabledGitProperties is not GitProperties.None && listedItem is GitItem gitItem)
+						if (ParentShellPageInstance.ShellViewModel.EnabledGitProperties is not GitProperties.None && listedItem is IGitItem gitItem)
 							await ParentShellPageInstance.ShellViewModel.LoadGitPropertiesAsync(gitItem);
 					});
 				}

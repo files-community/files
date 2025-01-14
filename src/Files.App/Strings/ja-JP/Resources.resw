@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>このプログラムを再起動するために登録する</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>管理者として実行</value>
   </data>
@@ -2194,6 +2206,9 @@
   </data>
   <data name="WhatsNew" xml:space="preserve">
     <value>更新情報</value>
+  </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>更新履歴を開く</value>
   </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>この場所にショートカットを作成するには管理者権限が必要です</value>
@@ -3966,7 +3981,7 @@
     <value>ホーム ページに移動する</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>アドレス バーに [ホーム] ボタンを表示する</value>
+    <value>アドレス バーにホーム ボタンを表示する</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>ツールバー</value>
@@ -3976,6 +3991,9 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>名前を一括して変更</value>
+  </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>内容を圧縮</value>
   </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
     <value>[代替データ ストリームの作成] オプションを表示する</value>
@@ -4003,5 +4021,37 @@
   </data>
   <data name="ManageTags" xml:space="preserve">
     <value>タグの管理</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>利用可能</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>常に新しく作成したタブに表示を切り替える</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>シェルフ ウィンドウの表示を切り替える</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>シェルフ ウィンドウの表示を切り替える</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>アドレス バーにシェルフ ウィンドウの切り替えボタンを表示する</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>シェルフ</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>項目をクリア</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>シェルフから削除</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>シェルフに追加</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

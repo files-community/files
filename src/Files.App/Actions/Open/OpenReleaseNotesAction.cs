@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+﻿// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using CommunityToolkit.WinUI.Helpers;
 
@@ -14,6 +14,9 @@ namespace Files.App.Actions
 
 		public string Description
 			=> Strings.WhatsNewDescription.GetLocalizedResource();
+
+		public RichGlyph Glyph
+			=> new(themedIconStyle: "App.ThemedIcons.AppUpdatedBox");
 
 		public bool IsExecutable
 			=> UpdateService.AreReleaseNotesAvailable;

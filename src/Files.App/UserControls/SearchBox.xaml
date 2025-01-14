@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <UserControl
 	x:Class="Files.App.UserControls.SearchBox"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -48,8 +48,8 @@
 				Spacing="8"
 				Tag="{x:Bind ItemPath}">
 				<Grid
-					Width="24"
-					Height="24"
+					Width="16"
+					Height="16"
 					Tag="ItemImage">
 					<Border
 						x:Name="Picture"
@@ -57,14 +57,15 @@
 						VerticalAlignment="Stretch"
 						x:Load="{x:Bind LoadFileIcon, Mode=OneWay}">
 						<Image
-							Width="24"
-							Height="24"
+							Width="16"
+							Height="16"
 							Source="{x:Bind FileImage, Mode=OneWay}"
 							Stretch="Uniform" />
 					</Border>
 					<FontIcon
 						x:Name="EmptyIconGlyph"
 						x:Load="{x:Bind NeedsPlaceholderGlyph, Mode=OneWay}"
+						FontSize="14"
 						Glyph="{x:Bind IsRecentSearch, Mode=OneTime, Converter={StaticResource SearchSuggestionGlyphConverter}}" />
 				</Grid>
 				<TextBlock VerticalAlignment="Center" Text="{x:Bind Name}" />
@@ -98,6 +99,12 @@
 		<AutoSuggestBox.KeyboardAccelerators>
 			<KeyboardAccelerator Key="Escape" Invoked="SearchRegion_Escaped" />
 		</AutoSuggestBox.KeyboardAccelerators>
+
+		<AutoSuggestBox.ItemContainerStyle>
+			<Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="ListViewItem">
+				<Setter Property="MinHeight" Value="36" />
+			</Style>
+		</AutoSuggestBox.ItemContainerStyle>
 	</AutoSuggestBox>
 
 </UserControl>

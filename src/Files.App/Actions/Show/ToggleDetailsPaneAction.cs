@@ -1,37 +1,35 @@
-﻿// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+﻿// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 namespace Files.App.Actions
 {
-	internal sealed class ToggleDetailsPaneAction : ObservableObject, IToggleAction
+	internal sealed class ToggleDetailsPaneAction : ObservableObject, IAction
 	{
-		private readonly InfoPaneViewModel viewModel;
+		private readonly InfoPaneViewModel infoPaneViewModel = Ioc.Default.GetRequiredService<InfoPaneViewModel>();
 		private readonly IInfoPaneSettingsService infoPaneSettingsService = Ioc.Default.GetRequiredService<IInfoPaneSettingsService>();
 
 		public string Label
-			=> "ToggleDetailsPane".GetLocalizedResource();
+			=> Strings.ToggleDetailsPane.GetLocalizedResource();
 
 		public string Description
-			=> "ToggleDetailsPaneDescription".GetLocalizedResource();
+			=> Strings.ToggleDetailsPaneDescription.GetLocalizedResource();
 
 		public RichGlyph Glyph
 			=> new(themedIconStyle: "App.ThemedIcons.PanelRight");
 
-		public HotKey HotKey
-			=> new(Keys.D, KeyModifiers.CtrlAlt);
+		public bool IsAccessibleGlobally
+			=> false;
 
-		public bool IsOn
-			=> viewModel.IsEnabled;
+		public bool IsExecutable
+			=> infoPaneViewModel.IsEnabled;
 
 		public ToggleDetailsPaneAction()
 		{
-			viewModel = Ioc.Default.GetRequiredService<InfoPaneViewModel>();
-			viewModel.PropertyChanged += ViewModel_PropertyChanged;
+			infoPaneViewModel.PropertyChanged += ViewModel_PropertyChanged;
 		}
 
 		public Task ExecuteAsync(object? parameter = null)
 		{
-			viewModel.IsEnabled = true;
 			infoPaneSettingsService.SelectedTab = InfoPaneTabs.Details;
 
 			return Task.CompletedTask;
@@ -40,7 +38,7 @@ namespace Files.App.Actions
 		private void ViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
 		{
 			if (e.PropertyName is nameof(InfoPaneViewModel.IsEnabled))
-				OnPropertyChanged(nameof(IsOn));
+				OnPropertyChanged(nameof(IsExecutable));
 		}
 	}
 }

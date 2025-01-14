@@ -127,7 +127,7 @@
     <value>Kopiér sti med anførselstegn</value>
   </data>
   <data name="CopyItemPathWithQuotes" xml:space="preserve">
-    <value>Copy selected item path with quotes</value>
+    <value>Kopiér sti til det valgte element med anførselstegn</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>Gennemse</value>
@@ -253,7 +253,7 @@
     <value>Indsæt</value>
   </data>
   <data name="PasteShortcut" xml:space="preserve">
-    <value>Paste shortcut</value>
+    <value>Indsæt genvej</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Ny</value>
@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Registrér dette program til genstart</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Kør som administrator</value>
   </data>
@@ -1947,7 +1959,7 @@
     <value>Luk andre faner</value>
   </data>
   <data name="CloseAllTabs" xml:space="preserve">
-    <value>Close all tabs</value>
+    <value>Luk alle faner</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>Musik</value>
@@ -2195,6 +2207,9 @@
   <data name="WhatsNew" xml:space="preserve">
     <value>Nyheder</value>
   </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Åbn Udgivelsesnoter</value>
+  </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Genvejsoprettelse på denne placering kræver administratorprivilegier</value>
   </data>
@@ -2409,10 +2424,10 @@
     <value>Kopiér stien til markerede emner til udklipsholderen</value>
   </data>
   <data name="CopyItemPathDescription" xml:space="preserve">
-    <value>Copy path of selected items to the clipboard</value>
+    <value>Kopiér sti til markerede elementer til udklipsholderen</value>
   </data>
   <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
-    <value>Copy path of selected items with quotes to the clipboard</value>
+    <value>Kopiér sti til valgte elementer med anførselstegn til udklipsholderen</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Kopiér stien til markerede emner med anførselstegn til udklipsholderen</value>
@@ -2424,7 +2439,7 @@
     <value>Indsæt emne(r) fra udklipsholder i den aktuelle mappe</value>
   </data>
   <data name="PasteShortcutDescription" xml:space="preserve">
-    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
+    <value>Indsæt element(er) fra udklipsholder til nuværende mappe som genveje</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Indsæt emne(r) fra udklipsholder i den valgte mappe</value>
@@ -2706,7 +2721,7 @@
     <value>Luk faner undtagen valgte fane</value>
   </data>
   <data name="CloseAllTabsDescription" xml:space="preserve">
-    <value>Close all tabs including the current tab</value>
+    <value>Luk alle faner inklusive den nuværende fane</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Gendan senest lukkede fane</value>
@@ -2724,10 +2739,10 @@
     <value>Luk aktiv rude</value>
   </data>
   <data name="FocusOtherPane" xml:space="preserve">
-    <value>Focus other pane</value>
+    <value>Fokuser på anden rude</value>
   </data>
   <data name="FocusOtherPaneDescription" xml:space="preserve">
-    <value>Switch focus to the non active pane</value>
+    <value>Skift fokus til den ikke-aktive rude</value>
   </data>
   <data name="ToggleSidebar" xml:space="preserve">
     <value>Slå sidebjælken til/fra</value>
@@ -3109,13 +3124,13 @@
     <value>Åbn egenskaber</value>
   </data>
   <data name="OpenClassicProperties" xml:space="preserve">
-    <value>Open File Explorer properties</value>
+    <value>Åbn egenskaber for Stifinder</value>
   </data>
   <data name="OpenPropertiesDescription" xml:space="preserve">
     <value>Åbn egenskabsvindue</value>
   </data>
   <data name="OpenClassicPropertiesDescription" xml:space="preserve">
-    <value>Open File Explorer properties window</value>
+    <value>Åbn egenskabsvinduet for Stifinder</value>
   </data>
   <data name="Locals" xml:space="preserve">
     <value>Standarder</value>
@@ -3912,19 +3927,19 @@
     <comment>Setting that controls if the toolbar is shown in the main view</comment>
   </data>
   <data name="TabActions" xml:space="preserve">
-    <value>Tab actions menu</value>
+    <value>Fanehandlingsmenu</value>
   </data>
   <data name="AddVerticalPane" xml:space="preserve">
-    <value>Add vertical pane</value>
+    <value>Tilføj lodret rude</value>
   </data>
   <data name="AddVerticalPaneDescription" xml:space="preserve">
-    <value>Add a vertical pane</value>
+    <value>Tilføj en lodret rude</value>
   </data>
   <data name="AddHorizontalPane" xml:space="preserve">
-    <value>Add horizontal pane</value>
+    <value>Tilføj vandret rude</value>
   </data>
   <data name="AddHorizontalPaneDescription" xml:space="preserve">
-    <value>Add a horizontal pane</value>
+    <value>Tilføj en vandret rude</value>
   </data>
   <data name="ArrangePanesVertically" xml:space="preserve">
     <value>Arranger lodret</value>
@@ -3936,19 +3951,19 @@
     <value>Arranger vandret</value>
   </data>
   <data name="ArrangePanesHorizontallyDescription" xml:space="preserve">
-    <value>Arrange panes horizontally</value>
+    <value>Arranger ruderne lodret</value>
   </data>
   <data name="AddPane" xml:space="preserve">
-    <value>Add pane</value>
+    <value>Tilføj rude</value>
   </data>
   <data name="ShowTabActions" xml:space="preserve">
     <value>Vis knap for fanehandlinger i titellinjen</value>
   </data>
   <data name="ArrangePanes" xml:space="preserve">
-    <value>Arrange panes</value>
+    <value>Arranger ruder</value>
   </data>
   <data name="DefaultPaneArrangement" xml:space="preserve">
-    <value>Default pane arrangement</value>
+    <value>Standardplacering af ruder</value>
   </data>
   <data name="Horizontal" xml:space="preserve">
     <value>Vandret</value>
@@ -3966,7 +3981,7 @@
     <value>Gå til startsiden</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Vis Hjem i adresselinje</value>
+    <value>Show home button in address bar</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>Værktøjslinjer</value>
@@ -3977,31 +3992,66 @@
   <data name="BulkRename" xml:space="preserve">
     <value>Masseomdøb</value>
   </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Komprimer indhold</value>
+  </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
-    <value>Show option to create alternate data stream</value>
+    <value>Vis valgmulighed for at oprette alternativ datastrøm</value>
   </data>
   <data name="CreateAlternateDataStream" xml:space="preserve">
-    <value>Create alternate data stream</value>
+    <value>Opret alternativ datastrøm</value>
   </data>
   <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
-    <value>Create alternate data stream for the selected item(s)</value>
+    <value>Opret en alternativ datastrøm for de(t) valgte element(er)</value>
   </data>
   <data name="EnterDataStreamName" xml:space="preserve">
-    <value>Enter data stream name</value>
+    <value>Indtast navn på datastrøm</value>
   </data>
   <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
-    <value>There was an error creating the alternate data stream</value>
+    <value>Der opstod en fejl ved oprettelsen af den alternative datastrøm</value>
   </data>
   <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
-    <value>Please note that alternate data streams only work on drives formatted as NTFS.</value>
+    <value>Bemærk, at alternative datastrømme kun fungerer på NTFS-formaterede drev.</value>
   </data>
   <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
-    <value>Alternate data streams are currently hidden</value>
+    <value>Alternative datastrømme er i øjeblikket skjult</value>
   </data>
   <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
-    <value>Would you like to display alternate data streams? You can modify this setting anytime from the files and folders settings page.</value>
+    <value>Vil du gerne vise alternative datastrømme? Du kan altid ændre denne indstilling fra indstillingssiden for filer og mapper.</value>
   </data>
   <data name="ManageTags" xml:space="preserve">
     <value>Manage tags</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Tilgængelig</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>I alt</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Skift altid fokus til den nyoprettede fane</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Toggle the shelf pane</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Toggle the shelf pane visibility</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Show shelf pane toggle in address bar</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Shelf</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Clear items</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Remove from shelf</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Add to shelf</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

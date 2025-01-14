@@ -1,0 +1,156 @@
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="using:Files.App.Controls"
+	xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+
+	<Style BasedOn="{StaticResource DefaultToolbarButtonStyle}" TargetType="local:ToolbarButton" />
+
+	<Style x:Key="DefaultToolbarButtonStyle" TargetType="local:ToolbarButton">
+		<Setter Property="Background" Value="{ThemeResource ToolbarButtonBackground}" />
+		<Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+		<Setter Property="Foreground" Value="{ThemeResource ToolbarButtonForeground}" />
+		<Setter Property="BorderBrush" Value="{ThemeResource ToolbarButtonBorderBrush}" />
+		<Setter Property="BorderThickness" Value="{ThemeResource ToolbarButtonBorderThemeThickness}" />
+		<Setter Property="Padding" Value="{StaticResource ToolbarButtonPadding}" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+		<Setter Property="FontWeight" Value="Normal" />
+		<Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+		<Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+		<Setter Property="FocusVisualMargin" Value="-3" />
+		<Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+		<Setter Property="ToolTipService.Placement" Value="Bottom" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:ToolbarButton">
+					<Grid
+						x:Name="GridRoot"
+						MinWidth="{TemplateBinding MinWidth}"
+						MinHeight="{TemplateBinding MinHeight}"
+						Padding="{TemplateBinding Padding}"
+						muxc:AnimatedIcon.State="Normal"
+						AutomationProperties.AccessibilityView="Raw"
+						Background="{TemplateBinding Background}"
+						BackgroundSizing="{TemplateBinding BackgroundSizing}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="{TemplateBinding CornerRadius}"
+						ToolTipService.Placement="{TemplateBinding ToolTipService.Placement}"
+						ToolTipService.ToolTip="{TemplateBinding Label}">
+						<ContentPresenter
+							xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+							x:Name="PART_ContentPresenter"
+							HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+							muxc:AnimatedIcon.State="Normal"
+							AutomationProperties.AccessibilityView="Raw"
+							Content="{TemplateBinding Content}"
+							ContentTemplate="{TemplateBinding ContentTemplate}"
+							ContentTransitions="{TemplateBinding ContentTransitions}"
+							Foreground="{TemplateBinding Foreground}"
+							IsTabStop="False"
+							Visibility="Collapsed" />
+
+						<local:ThemedIcon
+							x:Name="PART_ThemedIcon"
+							Width="{TemplateBinding IconSize}"
+							Height="{TemplateBinding IconSize}"
+							IconSize="{TemplateBinding IconSize}"
+							IsFocusEngagementEnabled="False"
+							IsTabStop="False"
+							Opacity="1"
+							Style="{TemplateBinding ThemedIcon}" />
+
+						<VisualStateManager.VisualStateGroups>
+
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal" />
+								<VisualState x:Name="PointerOver">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridRoot" Storyboard.TargetProperty="Background">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonBackgroundPointerOver}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentPresenter" Storyboard.TargetProperty="Foreground">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonForegroundPointerOver}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridRoot" Storyboard.TargetProperty="BorderBrush">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonBorderBrushPointerOver}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+									<VisualState.Setters>
+										<Setter Target="PART_ContentPresenter.(muxc:AnimatedIcon.State)" Value="PointerOver" />
+									</VisualState.Setters>
+								</VisualState>
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridRoot" Storyboard.TargetProperty="Background">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonBackgroundPressed}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentPresenter" Storyboard.TargetProperty="Foreground">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonForegroundPressed}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ThemedIcon" Storyboard.TargetProperty="Opacity">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="0.75" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridRoot" Storyboard.TargetProperty="BorderBrush">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonBorderBrushPressed}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+									<VisualState.Setters>
+										<Setter Target="PART_ContentPresenter.(muxc:AnimatedIcon.State)" Value="Pressed" />
+									</VisualState.Setters>
+								</VisualState>
+								<VisualState x:Name="Disabled">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridRoot" Storyboard.TargetProperty="Background">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonBackgroundDisabled}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentPresenter" Storyboard.TargetProperty="Foreground">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonForegroundDisabled}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="GridRoot" Storyboard.TargetProperty="BorderBrush">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ToolbarButtonBorderBrushDisabled}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+									<VisualState.Setters>
+										<!--  DisabledVisual Should be handled by the control, not the animated icon.  -->
+										<Setter Target="PART_ContentPresenter.(muxc:AnimatedIcon.State)" Value="Normal" />
+										<Setter Target="PART_ThemedIcon.IsEnabled" Value="False" />
+									</VisualState.Setters>
+								</VisualState>
+							</VisualStateGroup>
+
+							<VisualStateGroup x:Name="ContentStates">
+								<VisualState x:Name="HasContent">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentPresenter" Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ThemedIcon" Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="HasNoContent">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentPresenter" Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_ThemedIcon" Storyboard.TargetProperty="Visibility">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

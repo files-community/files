@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Microsoft.Extensions.Logging;
 using Microsoft.UI;
@@ -70,7 +70,7 @@ namespace Files.App
 						if (ppm.IsEmpty())
 							rootFrame.Navigate(typeof(MainPage), null, new SuppressNavigationTransitionInfo());
 						else
-							await InitializeFromCmdLineArgsAsync(rootFrame, ppm);
+							await InitializeFromCmdLineArgsAsync(rootFrame, ppm, Environment.CurrentDirectory);
 					}
 					else if (rootFrame.Content is null || rootFrame.Content is SplashScreenPage || !MainPageViewModel.AppInstances.Any())
 					{
@@ -131,7 +131,7 @@ namespace Files.App
 								if (ppm.IsEmpty())
 									rootFrame.Navigate(typeof(MainPage), null, new SuppressNavigationTransitionInfo());
 								else
-									await InitializeFromCmdLineArgsAsync(rootFrame, ppm);
+									await InitializeFromCmdLineArgsAsync(rootFrame, ppm, Environment.CurrentDirectory);
 								break;
 							default:
 								rootFrame.Navigate(typeof(MainPage), null, new SuppressNavigationTransitionInfo());

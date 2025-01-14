@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.Services.SizeProvider;
 using Files.Shared.Helpers;
@@ -122,7 +122,7 @@ namespace Files.App.ViewModels
 				{
 					filesAndFolders.ToList().ForEach(async item =>
 					{
-						if (item is GitItem gitItem &&
+						if (item is IGitItem gitItem &&
 							(!gitItem.StatusPropertiesInitialized && value is GitProperties.All or GitProperties.Status
 							|| !gitItem.CommitPropertiesInitialized && value is GitProperties.All or GitProperties.Commit))
 						{
@@ -1273,7 +1273,7 @@ namespace Files.App.ViewModels
 			return WindowsSecurityService.IsElevationRequired(item.IsShortcut ? ((ShortcutItem)item).TargetPath : item.ItemPath);
 		}
 
-		public async Task LoadGitPropertiesAsync(GitItem gitItem)
+		public async Task LoadGitPropertiesAsync(IGitItem gitItem)
 		{
 			var getStatus = EnabledGitProperties is GitProperties.All or GitProperties.Status && !gitItem.StatusPropertiesInitialized;
 			var getCommit = EnabledGitProperties is GitProperties.All or GitProperties.Commit && !gitItem.CommitPropertiesInitialized;
@@ -2585,7 +2585,7 @@ namespace Files.App.ViewModels
 					await dispatcherQueue.EnqueueOrInvokeAsync(() => item.ItemDateModifiedReal = item.ItemDateModifiedReal);
 				if (item is RecycleBinItem recycleBinItem && (isFormatChange || IsDateDiff(recycleBinItem.ItemDateDeletedReal)))
 					await dispatcherQueue.EnqueueOrInvokeAsync(() => recycleBinItem.ItemDateDeletedReal = recycleBinItem.ItemDateDeletedReal);
-				if (item is GitItem gitItem && gitItem.GitLastCommitDate is DateTimeOffset offset && (isFormatChange || IsDateDiff(offset)))
+				if (item is IGitItem gitItem && gitItem.GitLastCommitDate is DateTimeOffset offset && (isFormatChange || IsDateDiff(offset)))
 					await dispatcherQueue.EnqueueOrInvokeAsync(() => gitItem.GitLastCommitDate = gitItem.GitLastCommitDate);
 			});
 		}

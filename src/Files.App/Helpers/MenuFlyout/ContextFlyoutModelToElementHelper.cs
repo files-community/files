@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.UserControls.Menus;
 using Microsoft.UI.Xaml;
@@ -295,6 +295,8 @@ namespace Files.App.Helpers.ContextFlyouts
 					{
 						button.KeyboardAccelerators.Add(item.KeyboardAccelerator);
 						button.KeyboardAcceleratorTextOverride = item.KeyboardAcceleratorTextOverride;
+						// Fixes #16193: VirtualKey does not support OEM keys (e.g "�")
+						button.KeyboardAcceleratorPlacementMode = Microsoft.UI.Xaml.Input.KeyboardAcceleratorPlacementMode.Hidden;
 					}
 				}
 			}

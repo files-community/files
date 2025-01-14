@@ -1,5 +1,5 @@
-# Copyright (c) 2024 Files Community
-# Licensed under the MIT License. See the LICENSE.
+# Copyright (c) Files Community
+# Licensed under the MIT License.
 
 param(
     [string]$Branch = "", # This has to correspond with one of the AppEnvironment enum values
@@ -80,6 +80,12 @@ elseif ($Branch -eq "StorePreview")
         (Get-Content $_ -Raw | ForEach-Object -Process { $_ -replace "Assets\\AppTiles\\Dev", "Assets\AppTiles\Preview" }) | `
         Set-Content $_ -NoNewline `
     }
+
+    Get-ChildItem $WorkingDir -Include *.cs, *.cpp -recurse | ForEach-Object -Process `
+    { `
+        (Get-Content $_ -Raw | ForEach-Object -Process { $_ -replace "files-dev", "files-preview" }) | `
+        Set-Content $_ -NoNewline `
+    }
 }
 elseif ($Branch -eq "SideloadStable")
 {
@@ -121,8 +127,8 @@ elseif ($Branch -eq "StoreStable")
     $xmlDoc.Package.Capabilities.RemoveChild($pm)
 
     # Update app protocol and execution alias
-    $ap.SetAttribute("Name", "files");
-    $aea.RemoveChild($aea.FirstChild); # Avoid duplication
+    $ap.SetAttribute("Name", "files-stable");
+    $ea.SetAttribute("Alias", "files-stable.exe");
 
     # Save modified Package.appxmanifest
     $xmlDoc.Save($PackageManifestPath)
@@ -135,7 +141,7 @@ elseif ($Branch -eq "StoreStable")
 
     Get-ChildItem $WorkingDir -Include *.cs, *.cpp -recurse | ForEach-Object -Process `
     { `
-        (Get-Content $_ -Raw | ForEach-Object -Process { $_ -replace "files-dev", "files" }) | `
+        (Get-Content $_ -Raw | ForEach-Object -Process { $_ -replace "files-dev", "files-stable" }) | `
         Set-Content $_ -NoNewline `
     }
 }

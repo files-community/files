@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Registrar este programa para reiniciar</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Ejecutar como administrador</value>
   </data>
@@ -2194,6 +2206,9 @@
   </data>
   <data name="WhatsNew" xml:space="preserve">
     <value>Novedades</value>
+  </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Abrir notas de la versión</value>
   </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Crear un acceso directo en esta ubicación requiere privilegios de administrador</value>
@@ -3966,7 +3981,7 @@
     <value>Ir a la página de inicio</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Mostrar al inicio en la barra de direcciones</value>
+    <value>Mostrar el botón de inicio en la barra de direcciones</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>Barras de herramientas</value>
@@ -3976,6 +3991,9 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Renombrar en masa</value>
+  </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Comprimir contenido</value>
   </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
     <value>Mostrar opción para crear flujo de datos alternativos</value>
@@ -4002,6 +4020,38 @@
     <value>¿Le gustaría mostrar flujos de datos alternativos? Puede modificar esta configuración en cualquier momento desde la página de configuración de archivos y carpetas.</value>
   </data>
   <data name="ManageTags" xml:space="preserve">
-    <value>Manage tags</value>
+    <value>Administrar etiquetas</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Disponible</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Cambiar siempre el foco a la pestaña recién creada</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Mostrar/Ocultar el panel estante</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Cambiar la visibilidad del panel estante</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Mostrar interruptor del panel estante en la barra de direcciones</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Estante</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Borrar Elementos</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Eliminar del estante</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Añadir al estante</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

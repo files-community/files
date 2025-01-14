@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <vm:BasePropertiesPage
 	x:Class="Files.App.Views.Properties.ShortcutPage"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -136,6 +136,14 @@
 					x:Load="{x:Bind ViewModel.ShortcutItemWorkingDirVisibility, Mode=OneWay}"
 					Text="{x:Bind ViewModel.ShortcutItemWorkingDirEditedValue, Mode=TwoWay}" />
 			</Grid>
+
+			<settingsuc:SettingsBlockControl
+				x:Name="WindowArgsSetting"
+				Title="{helpers:ResourceString Name=StartWindow}"
+				HorizontalAlignment="Stretch"
+				x:Load="{x:Bind ViewModel.ShortcutItemWindowArgsVisibility, Mode=OneWay}">
+				<ComboBox ItemsSource="{x:Bind ViewModel.ShowWindowCommandTypes.Values, Mode=OneWay}" SelectedItem="{x:Bind ViewModel.SelectedShowWindowCommand, Mode=TwoWay}" />
+			</settingsuc:SettingsBlockControl>
 
 			<settingsuc:SettingsBlockControl
 				x:Name="RunAsAdminCheckbox"

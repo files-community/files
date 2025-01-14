@@ -449,7 +449,7 @@
     <comment>ICU format for plurals, more information here: https://support.crowdin.com/icu-message-syntax/#plural</comment>
   </data>
   <data name="Items" xml:space="preserve">
-    <value>{0, plural, other {項目}}</value>
+    <value>{0, plural, other { 個項目}}</value>
     <comment>ICU format for plurals, more information here: https://support.crowdin.com/icu-message-syntax/#plural</comment>
   </data>
   <data name="Yes" xml:space="preserve">
@@ -1032,7 +1032,7 @@
     <value>移除</value>
   </data>
   <data name="SettingsMultitaskingAlwaysOpenDualPane" xml:space="preserve">
-    <value>在開啟索引標籤時打開分割畫面</value>
+    <value>在開啟索引標籤時啟用分割畫面</value>
   </data>
   <data name="ShowOpenInNewPane" xml:space="preserve">
     <value>顯示「在分割畫面開啟資料夾」選項</value>
@@ -1089,7 +1089,7 @@
     <value>開啟資料視窗以查看詳細資料/預覽視窗</value>
   </data>
   <data name="ToggleToolbar" xml:space="preserve">
-    <value>開啟/關閉工具欄</value>
+    <value>開啟/關閉工具列</value>
   </data>
   <data name="DetailsPanePreviewNotAvaliableText" xml:space="preserve">
     <value>無法預覽</value>
@@ -1245,10 +1245,10 @@
     <value>開啟儲存空間感知器</value>
   </data>
   <data name="OpenStorageSenseDescription" xml:space="preserve">
-    <value>Open the Storage Sense page in Windows Settings</value>
+    <value>在Windows設定中開啟「儲存空間感知器」</value>
   </data>
   <data name="Cleanup" xml:space="preserve">
-    <value>Cleanup</value>
+    <value>清理</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>複製</value>
@@ -1725,7 +1725,7 @@
     <value>欄</value>
   </data>
   <data name="Tiles" xml:space="preserve">
-    <value>磁磚（並排）</value>
+    <value>並排</value>
   </data>
   <data name="OpenFoldersInNewTab" xml:space="preserve">
     <value>在新索引標籤開啟資料夾</value>
@@ -1761,7 +1761,7 @@
     <value>檔案標籤</value>
   </data>
   <data name="SettingsOpenItemsWithOneClick" xml:space="preserve">
-    <value>透過點擊打開檔案</value>
+    <value>按一下即可開啟檔案</value>
   </data>
   <data name="FolderPath" xml:space="preserve">
     <value>資料夾路徑</value>
@@ -1837,6 +1837,18 @@
   </data>
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>註冊此程式以重新啟動</value>
+  </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
   </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>以系統管理員身分執行</value>
@@ -1998,16 +2010,16 @@
     <value>Ctrl + Shift + 7</value>
   </data>
   <data name="ShowAlternateStreams" xml:space="preserve">
-    <value>顯示備用資料流程</value>
+    <value>顯示替代資料流</value>
   </data>
   <data name="Behaviors" xml:space="preserve">
     <value>行為</value>
   </data>
   <data name="ReviewFiles" xml:space="preserve">
-    <value>評論本軟體</value>
+    <value>評價這個軟體</value>
   </data>
   <data name="ReviewFilesContent" xml:space="preserve">
-    <value>您想要在商店中評論本軟體嗎？</value>
+    <value>您想要在商店中評價本軟體嗎？</value>
   </data>
   <data name="SetAsBackgroundFlyout" xml:space="preserve">
     <value>設為背景</value>
@@ -2082,7 +2094,7 @@
     <value>還原</value>
   </data>
   <data name="ShortcutCannotBeOpened" xml:space="preserve">
-    <value>無法打開捷徑</value>
+    <value>無法開啟捷徑</value>
   </data>
   <data name="DeleteShortcutDescription" xml:space="preserve">
     <value>找不到捷徑指向的目標 {0} ，您要刪除此捷徑嗎？</value>
@@ -2195,6 +2207,9 @@
   <data name="WhatsNew" xml:space="preserve">
     <value>有什麼新消息？</value>
   </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>開啟版本資訊</value>
+  </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>在此位置建立捷徑需要系統管理員權限</value>
   </data>
@@ -2280,7 +2295,7 @@
     <value>顯示隱藏項目</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>格式</value>
+    <value>格式化</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>幫助</value>
@@ -2571,13 +2586,13 @@
     <value>切換至詳細資訊檢視</value>
   </data>
   <data name="LayoutTilesDescription" xml:space="preserve">
-    <value>切換至磁磚檢視</value>
+    <value>切換至並排檢視</value>
   </data>
   <data name="LayoutListDescription" xml:space="preserve">
-    <value>切換至列表檢視</value>
+    <value>切換至清單檢視</value>
   </data>
   <data name="List" xml:space="preserve">
-    <value>列表</value>
+    <value>清單</value>
   </data>
   <data name="Grid" xml:space="preserve">
     <value>圖示</value>
@@ -2589,7 +2604,7 @@
     <value>切換至欄檢視</value>
   </data>
   <data name="LayoutAdaptiveDescription" xml:space="preserve">
-    <value>自動切換檢視</value>
+    <value>自動切換版面配置</value>
   </data>
   <data name="SortByNameDescription" xml:space="preserve">
     <value>按名稱排序</value>
@@ -2619,10 +2634,10 @@
     <value>按刪除日期排序</value>
   </data>
   <data name="SortAscendingDescription" xml:space="preserve">
-    <value>依升序將項目排序</value>
+    <value>依遞增將項目排序</value>
   </data>
   <data name="SortDescendingDescription" xml:space="preserve">
-    <value>依降序將項目排序</value>
+    <value>依遞減將項目排序</value>
   </data>
   <data name="ToggleSortDirectionDescription" xml:space="preserve">
     <value>切換項目的排序方向</value>
@@ -2661,13 +2676,13 @@
     <value>按資料夾路徑對項目分組</value>
   </data>
   <data name="GroupAscendingDescription" xml:space="preserve">
-    <value>遞增排列分類</value>
+    <value>依遞增將分組排序</value>
   </data>
   <data name="GroupDescendingDescription" xml:space="preserve">
-    <value>遞減排列分類</value>
+    <value>依遞減將分組排序</value>
   </data>
   <data name="ToggleGroupDirectionDescription" xml:space="preserve">
-    <value>切換分類排序方向</value>
+    <value>切換分組排序方向</value>
   </data>
   <data name="NewTabDescription" xml:space="preserve">
     <value>開啟新索引標籤</value>
@@ -2727,7 +2742,7 @@
     <value>切換焦點到另一個分割畫面</value>
   </data>
   <data name="FocusOtherPaneDescription" xml:space="preserve">
-    <value>切換焦點到未作用中的分割畫面</value>
+    <value>切換焦點到另一個未聚焦分割畫面</value>
   </data>
   <data name="ToggleSidebar" xml:space="preserve">
     <value>開啟/關閉側邊欄</value>
@@ -2909,11 +2924,11 @@
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.MediaVolumeDown" xml:space="preserve">
-    <value>減少音量</value>
+    <value>調低音量</value>
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Key.MediaVolumeUp" xml:space="preserve">
-    <value>增加音量</value>
+    <value>調高音量</value>
     <comment>Key name for hotkeys in menus. Use abbreviation if possible.</comment>
   </data>
   <data name="Change" xml:space="preserve">
@@ -2977,7 +2992,7 @@
     <value>新增項目</value>
   </data>
   <data name="SecurityNoAccessControlEntriesText" xml:space="preserve">
-    <value>沒有群組或使用者擁有全縣存取此檔案，但是，該檔案的擁有者可以授予權限。</value>
+    <value>沒有群組或使用者擁有權限存取此檔案。但是，該檔案的擁有者可以授予權限。</value>
   </data>
   <data name="OpenFileLocationDescription" xml:space="preserve">
     <value>開啟項目位置</value>
@@ -2992,10 +3007,10 @@
     <value>播放所選取的媒體檔</value>
   </data>
   <data name="UndoDescription" xml:space="preserve">
-    <value>復原上次檔案的動作</value>
+    <value>復原上次檔案的操作</value>
   </data>
   <data name="RedoDescription" xml:space="preserve">
-    <value>重做上次檔案的動作</value>
+    <value>重做上次檔案的操作</value>
   </data>
   <data name="Location" xml:space="preserve">
     <value>位置：</value>
@@ -3010,10 +3025,10 @@
     <value>月</value>
   </data>
   <data name="Day" xml:space="preserve">
-    <value>天</value>
+    <value>日</value>
   </data>
   <data name="ToggleGroupByDateUnitDescription" xml:space="preserve">
-    <value>切換按日期分組為單位</value>
+    <value>切換按日期分組的單位</value>
   </data>
   <data name="ToggleGroupingUnit" xml:space="preserve">
     <value>切換分組單位</value>
@@ -3034,7 +3049,7 @@
     <value>按建立日期之年對項目分組</value>
   </data>
   <data name="GroupByDateDeletedDayDescription" xml:space="preserve">
-    <value>按刪除日期將項目分組</value>
+    <value>按刪除日期之日將項目分組</value>
   </data>
   <data name="GroupByDateDeletedMonthDescription" xml:space="preserve">
     <value>按刪除日期之月對項目分組</value>
@@ -3043,7 +3058,7 @@
     <value>按刪除日期之年對項目分組</value>
   </data>
   <data name="GroupByDateModifiedDayDescription" xml:space="preserve">
-    <value>按修改日期的天數分組</value>
+    <value>按修改日期之日將項目分組</value>
   </data>
   <data name="GroupByDateModifiedMonthDescription" xml:space="preserve">
     <value>按修改日期之月對項目分組</value>
@@ -3055,10 +3070,10 @@
     <value>點擊「進階權限」來繼續</value>
   </data>
   <data name="SecurityRequireReadPermissions" xml:space="preserve">
-    <value>您必須擁有讀取權限才能查看此項目的屬性。</value>
+    <value>您必須擁有讀取權限才能查看此項目的內容。</value>
   </data>
   <data name="SecuritySuggestToTakeOwnership" xml:space="preserve">
-    <value>要嘗試取得此項目的擁有權（包括查看其屬性的權限），請點擊上方的「變更」。</value>
+    <value>要嘗試取得此項目的擁有權（包括查看其內容的權限），請點擊上方的「變更」。</value>
   </data>
   <data name="SecurityUnableToDisplayPermissions" xml:space="preserve">
     <value>無法顯示權限</value>
@@ -3067,7 +3082,7 @@
     <value>將我的變更保留在「{0}」</value>
   </data>
   <data name="DiscardChanges" xml:space="preserve">
-    <value>放棄變更</value>
+    <value>捨棄變更</value>
   </data>
   <data name="BringChanges" xml:space="preserve">
     <value>將我的變更帶入「{0}」</value>
@@ -3106,16 +3121,16 @@
     <value>使用目前選擇的項目建立資料夾</value>
   </data>
   <data name="OpenProperties" xml:space="preserve">
-    <value>打開屬性</value>
+    <value>打開內容</value>
   </data>
   <data name="OpenClassicProperties" xml:space="preserve">
     <value>開啟檔案總管屬性</value>
   </data>
   <data name="OpenPropertiesDescription" xml:space="preserve">
-    <value>打開屬性視窗</value>
+    <value>開啟內容視窗</value>
   </data>
   <data name="OpenClassicPropertiesDescription" xml:space="preserve">
-    <value>開啟 Windows 檔案總管的屬性視窗</value>
+    <value>開啟 Windows 檔案總管的內容視窗</value>
   </data>
   <data name="Locals" xml:space="preserve">
     <value>本地</value>
@@ -3173,10 +3188,10 @@
     <value>壓克力</value>
   </data>
   <data name="Mica" xml:space="preserve">
-    <value>Mica</value>
+    <value>柔光背景(Mica)</value>
   </data>
   <data name="MicaAlt" xml:space="preserve">
-    <value>更清晰的雲母</value>
+    <value>效能柔光背景(Mica Alt)</value>
   </data>
   <data name="BackdropMaterial" xml:space="preserve">
     <value>背景質感</value>
@@ -3206,7 +3221,7 @@
     <value>登入 GitHub</value>
   </data>
   <data name="ConnectGitHubDescription" xml:space="preserve">
-    <value>在下面的網址欄輸入輸入以下驗證碼，即可開始使用 GitHub 儲存庫。</value>
+    <value>在下面的連結中輸入以下驗證碼，即可開始使用 GitHub 儲存庫。</value>
   </data>
   <data name="CannotReachGitHubError" xml:space="preserve">
     <value>Files 目前無法連線至 GitHub。</value>
@@ -3221,7 +3236,7 @@
     <value>在 VS Code 中開啟儲存庫</value>
   </data>
   <data name="OpenRepoInVSCodeDescription" xml:space="preserve">
-    <value>在 Visual Studio Code 中打開 Git 儲存庫的根目錄</value>
+    <value>在 Visual Studio Code 中開啟 Git 儲存庫的根目錄</value>
   </data>
   <data name="CopyCode" xml:space="preserve">
     <value>複製代碼</value>
@@ -3628,7 +3643,7 @@
     <value>確定要永久刪除分支 "{0}" 嗎?</value>
   </data>
   <data name="ConnectedToGitHub" xml:space="preserve">
-    <value>已成功連接至 GitHub</value>
+    <value>已登入至 GitHub</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>登出</value>
@@ -3712,7 +3727,7 @@
     <value>問題與討論</value>
   </data>
   <data name="TilesViewSizeInfo" xml:space="preserve">
-    <value>磁磚（並排）模式下無法調整大小</value>
+    <value>並排模式下無法調整大小</value>
   </data>
   <data name="Compact" xml:space="preserve">
     <value>緊湊</value>
@@ -3908,7 +3923,7 @@
     <value>狀態：</value>
   </data>
   <data name="ShowToolbar" xml:space="preserve">
-    <value>顯示工具欄</value>
+    <value>顯示工具列</value>
     <comment>Setting that controls if the toolbar is shown in the main view</comment>
   </data>
   <data name="TabActions" xml:space="preserve">
@@ -3966,10 +3981,10 @@
     <value>前往首頁</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>在路徑欄顯示首頁鍵</value>
+    <value>Show home button in address bar</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
-    <value>工具欄</value>
+    <value>工具列</value>
   </data>
   <data name="UserID" xml:space="preserve">
     <value>使用者 ID</value>
@@ -3977,31 +3992,66 @@
   <data name="BulkRename" xml:space="preserve">
     <value>批次重新命名</value>
   </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>壓縮內容</value>
+  </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
-    <value>顯示「建立 Alternate Data Stream」的選項</value>
+    <value>顯示「建立替代資料流」的選項</value>
   </data>
   <data name="CreateAlternateDataStream" xml:space="preserve">
-    <value>建立 Alternate Data Stream</value>
+    <value>建立替代資料流</value>
   </data>
   <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
-    <value>為選取的項目建立 Alternate Data Stream</value>
+    <value>為選取的項目建立替代資料流</value>
   </data>
   <data name="EnterDataStreamName" xml:space="preserve">
     <value>輸入 Data Stream 名稱</value>
   </data>
   <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
-    <value>建立 Alternate Data Stream 時發生錯誤</value>
+    <value>建立替代資料流時發生錯誤</value>
   </data>
   <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
-    <value>請注意，Alternate Data Stream只適用於NTFS系統</value>
+    <value>請注意，替代資料流 (Alternate Data Stream) 只適用於NTFS系統</value>
   </data>
   <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
-    <value>目前 Alternate Data Stream 為隱藏狀態</value>
+    <value>目前的替代資料流為隱藏狀態</value>
   </data>
   <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
-    <value>是否要顯示 Alternate Data Stream? 您隨時可以在「設定 &gt; 檔案與資料夾」中更改設定</value>
+    <value>是否要顯示替代資料流 (Alternate Data Stream)? 您隨時可以在「設定 &gt; 檔案與資料夾」中更改設定</value>
   </data>
   <data name="ManageTags" xml:space="preserve">
-    <value>Manage tags</value>
+    <value>管理標籤</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>可用的</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>總計</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>一律切換焦點到新建立的分頁</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Toggle the shelf pane</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Toggle the shelf pane visibility</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Show shelf pane toggle in address bar</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Shelf</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Clear items</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Remove from shelf</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Add to shelf</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

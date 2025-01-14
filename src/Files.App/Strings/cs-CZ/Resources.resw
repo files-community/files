@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Registrovat tento program pro restart</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Spustit jako správce</value>
   </data>
@@ -2195,6 +2207,9 @@
   <data name="WhatsNew" xml:space="preserve">
     <value>Co je nového</value>
   </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Otevřít poznámky o vydání</value>
+  </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Vytvoření zástupce v tomto umístění vyžaduje oprávnění správce</value>
   </data>
@@ -2391,10 +2406,10 @@
     <value>Přepnout zobrazení skrytých položek</value>
   </data>
   <data name="ToggleDotFilesSettingDescription" xml:space="preserve">
-    <value>Přepne zobrazení skrytých položek</value>
+    <value>Přepnout zobrazení skrytých položek</value>
   </data>
   <data name="ToggleShowFileExtensionsDescription" xml:space="preserve">
-    <value>Určuje, zda se zobrazí přípony souborů</value>
+    <value>Přepnout zobrazení přípon souborů</value>
   </data>
   <data name="TogglePreviewPaneDescription" xml:space="preserve">
     <value>Přepnout panel pro zobrazení náhledu souboru</value>
@@ -2634,7 +2649,7 @@
     <value>Seřadit položky dle názvu</value>
   </data>
   <data name="GroupByDateModifiedDescription" xml:space="preserve">
-    <value>Seřadit položky dle data úpravy</value>
+    <value>Seřadit položky dle data úprav</value>
   </data>
   <data name="GroupByDateCreatedDescription" xml:space="preserve">
     <value>Seřadit položky dle data vytvoření</value>
@@ -3661,13 +3676,13 @@
     <value>Nejprve řadit soubory</value>
   </data>
   <data name="SortFilesFirstDescription" xml:space="preserve">
-    <value>Nejprve řadit soubory, poté složky</value>
+    <value>Nejprve seřadit soubory, poté složky</value>
   </data>
   <data name="SortFoldersFirst" xml:space="preserve">
     <value>Nejprve řadit složky</value>
   </data>
   <data name="SortFoldersFirstDescription" xml:space="preserve">
-    <value>Nejprve řadit složky, poté soubory</value>
+    <value>Nejprve seřadit složky, poté soubory</value>
   </data>
   <data name="SortPriority" xml:space="preserve">
     <value>Seřadit dle priority</value>
@@ -3977,6 +3992,9 @@
   <data name="BulkRename" xml:space="preserve">
     <value>Hromadně přejmenovat</value>
   </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Komprimovat obsah</value>
+  </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
     <value>Zobrazit možnost vytvoření alternativního datového toku</value>
   </data>
@@ -4003,5 +4021,37 @@
   </data>
   <data name="ManageTags" xml:space="preserve">
     <value>Správa štítků</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Dostupné</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Celkem</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Vždy přepnout na nově vytvořenou kartu</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Toggle the shelf pane</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Toggle the shelf pane visibility</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Show shelf pane toggle in address bar</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Shelf</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Clear items</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Remove from shelf</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Add to shelf</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

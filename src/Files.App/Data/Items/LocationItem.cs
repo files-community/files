@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.Controls;
 using Microsoft.UI.Xaml;
@@ -128,9 +128,14 @@ namespace Files.App.Data.Items
 
 		public async void RefreshSpaceUsed(object? sender, FileSystemEventArgs e)
 		{
-			await MainWindow.Instance.DispatcherQueue.EnqueueOrInvokeAsync(() =>
+			await RefreshSpaceUsedAsync();
+		}
+
+		private Task RefreshSpaceUsedAsync()
+		{
+			return MainWindow.Instance.DispatcherQueue.EnqueueOrInvokeAsync(async () =>
 			{
-				SpaceUsed = StorageTrashBinService.GetSize();
+				SpaceUsed = await Task.Run(() => StorageTrashBinService.GetSize());
 			});
 		}
 
@@ -152,10 +157,10 @@ namespace Files.App.Data.Items
 
 		public RecycleBinLocationItem()
 		{
-			SpaceUsed = StorageTrashBinService.GetSize();
-
 			StorageTrashBinService.Watcher.ItemAdded += RefreshSpaceUsed;
 			StorageTrashBinService.Watcher.ItemDeleted += RefreshSpaceUsed;
+
+			_ = RefreshSpaceUsedAsync();
 		}
 	}
 }

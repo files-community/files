@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using CommunityToolkit.WinUI.Helpers;
 using Files.App.Helpers.Application;
@@ -198,6 +198,7 @@ namespace Files.App
 			// Save application state and stop any background activity
 			IUserSettingsService userSettingsService = Ioc.Default.GetRequiredService<IUserSettingsService>();
 			StatusCenterViewModel statusCenterViewModel = Ioc.Default.GetRequiredService<StatusCenterViewModel>();
+			ICommandManager commandManager = Ioc.Default.GetRequiredService<ICommandManager>();
 
 			// A Workaround for the crash (#10110)
 			if (_LastOpenedFlyout?.IsOpen ?? false)
@@ -209,7 +210,10 @@ namespace Files.App
 			}
 
 			// Save the current tab list in case it was overwriten by another instance
-			AppLifecycleHelper.SaveSessionTabs();
+			if (userSettingsService.GeneralSettingsService.ContinueLastSessionOnStartUp || userSettingsService.AppSettingsService.RestoreTabsOnStartup)
+				AppLifecycleHelper.SaveSessionTabs();
+			else
+				await commandManager.CloseAllTabs.ExecuteAsync();
 
 			if (OutputPath is not null)
 			{

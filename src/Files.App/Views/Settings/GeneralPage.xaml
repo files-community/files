@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <Page
 	x:Class="Files.App.Views.Settings.GeneralPage"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -185,6 +185,7 @@
 				</local:SettingsBlockControl.ExpandableContent>
 			</local:SettingsBlockControl>
 
+			<!--  Dual Pane  -->
 			<local:SettingsBlockControl Title="{helpers:ResourceString Name=SettingsMultitaskingAlwaysOpenDualPane}" HorizontalAlignment="Stretch">
 				<local:SettingsBlockControl.Icon>
 					<FontIcon Glyph="&#xE89F;" />
@@ -205,6 +206,19 @@
 				</local:SettingsBlockControl.ExpandableContent>
 			</local:SettingsBlockControl>
 
+			<!--  Switch to new tab  -->
+			<local:SettingsBlockControl Title="{helpers:ResourceString Name=AlwaysSwitchToNewlyOpenedTab}" HorizontalAlignment="Stretch">
+				<local:SettingsBlockControl.Icon>
+					<FontIcon Glyph="&#xE8AB;" />
+				</local:SettingsBlockControl.Icon>
+				<ToggleSwitch
+					x:Name="AlwaysSwitchToNewlyOpenedTab"
+					AutomationProperties.Name="{helpers:ResourceString Name=AlwaysSwitchToNewlyOpenedTab}"
+					IsOn="{x:Bind ViewModel.AlwaysSwitchToNewlyOpenedTab, Mode=TwoWay}"
+					Style="{StaticResource RightAlignedToggleSwitchStyle}" />
+			</local:SettingsBlockControl>
+
+			<!--  Widgets  -->
 			<local:SettingsBlockControl Title="{helpers:ResourceString Name=Widgets}" HorizontalAlignment="Stretch">
 				<local:SettingsBlockControl.Icon>
 					<FontIcon Glyph="&#xF246;" />

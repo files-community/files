@@ -127,7 +127,7 @@
     <value>Копіювати шлях у лапках</value>
   </data>
   <data name="CopyItemPathWithQuotes" xml:space="preserve">
-    <value>Copy selected item path with quotes</value>
+    <value>Скопіювати шлях до виділеного елементу з лапками</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>Вибрати</value>
@@ -253,7 +253,7 @@
     <value>Вставити</value>
   </data>
   <data name="PasteShortcut" xml:space="preserve">
-    <value>Paste shortcut</value>
+    <value>Вставити ярлик</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Створити</value>
@@ -298,7 +298,7 @@
     <value>Введіть назву елемента</value>
   </data>
   <data name="CreateNewItemTitle" xml:space="preserve">
-    <value>Create new {0}</value>
+    <value>Створити новий {0}</value>
   </data>
   <data name="LightTheme" xml:space="preserve">
     <value>Світла</value>
@@ -1245,10 +1245,10 @@
     <value>Відкрити Сховище Даних</value>
   </data>
   <data name="OpenStorageSenseDescription" xml:space="preserve">
-    <value>Open the Storage Sense page in Windows Settings</value>
+    <value>Відкрити сторінку Сховища Даних у Налаштуваннях Windows</value>
   </data>
   <data name="Cleanup" xml:space="preserve">
-    <value>Cleanup</value>
+    <value>Очистити</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Копіювати</value>
@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Зареєструйте цю програму для перезавантаження</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Запуск від імені адміністратора</value>
   </data>
@@ -1947,7 +1959,7 @@
     <value>Закрити інші вкладки</value>
   </data>
   <data name="CloseAllTabs" xml:space="preserve">
-    <value>Close all tabs</value>
+    <value>Закрити всі вкладки</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>Музика</value>
@@ -2195,6 +2207,9 @@
   <data name="WhatsNew" xml:space="preserve">
     <value>Що нового</value>
   </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Відкрити Примітки щодо випуску</value>
+  </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Створення ярлика у цьому місці потребує прав адміністратора</value>
   </data>
@@ -2409,10 +2424,10 @@
     <value>Копіювати шлях до вибраних елементів в буфер обміну</value>
   </data>
   <data name="CopyItemPathDescription" xml:space="preserve">
-    <value>Copy path of selected items to the clipboard</value>
+    <value>Скопіювати шлях до вибраних елементів у буфер обміну</value>
   </data>
   <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
-    <value>Copy path of selected items with quotes to the clipboard</value>
+    <value>Скопіювати шлях до вибраних елементів з лапками у буфер обміну</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>Копіювати шлях до вибраних елементів з лапок в буфер обміну</value>
@@ -2424,7 +2439,7 @@
     <value>Вставити елемент(и) з буфера обміну до поточної папки</value>
   </data>
   <data name="PasteShortcutDescription" xml:space="preserve">
-    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
+    <value>Вставити елемент(и) з буфера обміну до поточної папки як ярлики</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Вставити елемент(и) з буфера обміну до вибраної папки</value>
@@ -2706,7 +2721,7 @@
     <value>Закрити вкладки, окрім вибраної вкладки</value>
   </data>
   <data name="CloseAllTabsDescription" xml:space="preserve">
-    <value>Close all tabs including the current tab</value>
+    <value>Закрити всі вкладки, включаючи поточну вкладку</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Повторно відкрити закриту вкладку</value>
@@ -3966,7 +3981,7 @@
     <value>Перейти до головної сторінки</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Показати головну панель в адресному рядку</value>
+    <value>Show home button in address bar</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>Панелі інструментів</value>
@@ -3977,31 +3992,66 @@
   <data name="BulkRename" xml:space="preserve">
     <value>Масове перейменування</value>
   </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Стиснути вміст</value>
+  </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
-    <value>Show option to create alternate data stream</value>
+    <value>Показати опцію створення альтернативного потоку даних</value>
   </data>
   <data name="CreateAlternateDataStream" xml:space="preserve">
-    <value>Create alternate data stream</value>
+    <value>Створити альтернативний потік даних</value>
   </data>
   <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
-    <value>Create alternate data stream for the selected item(s)</value>
+    <value>Створити альтернативний потік даних для вибраних елементу(ів)</value>
   </data>
   <data name="EnterDataStreamName" xml:space="preserve">
-    <value>Enter data stream name</value>
+    <value>Введіть назву потоку даних</value>
   </data>
   <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
-    <value>There was an error creating the alternate data stream</value>
+    <value>Виникла помилка при створенні альтернативного потоку даних</value>
   </data>
   <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
-    <value>Please note that alternate data streams only work on drives formatted as NTFS.</value>
+    <value>Зверніть увагу, що альтернативні потоки даних працюють тільки на дисках, форматованих як NTFS.</value>
   </data>
   <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
-    <value>Alternate data streams are currently hidden</value>
+    <value>Альтернативні потоки даних наразі приховані</value>
   </data>
   <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
-    <value>Would you like to display alternate data streams? You can modify this setting anytime from the files and folders settings page.</value>
+    <value>Чи бажаєте Ви показувати альтернативні потоки даних? Ви можете змінити це налаштування в будь-який час зі сторінки налаштувань файлів і каталогів.</value>
   </data>
   <data name="ManageTags" xml:space="preserve">
-    <value>Manage tags</value>
+    <value>Керувати тегами</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Доступно</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Загалом</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Завжди перемикати фокус на новостворену вкладку</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Toggle the shelf pane</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Toggle the shelf pane visibility</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Show shelf pane toggle in address bar</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Полиця</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Очистити елементи</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Вилучити з полиці</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Add to shelf</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

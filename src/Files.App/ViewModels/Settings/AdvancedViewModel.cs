@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
@@ -292,7 +292,7 @@ namespace Files.App.ViewModels.Settings
 			set => SetProperty(ref isSetAsOpenFileDialog, value);
 		}
 
-		public bool CanShowSetAsOpenFileDialog
+		public bool IsAppEnvironmentDev
 		{
 			get => AppLifecycleHelper.AppEnvironment is AppEnvironment.Dev;
 		}

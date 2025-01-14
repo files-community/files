@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+﻿// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using System.IO;
 
@@ -21,7 +21,7 @@ namespace Files.App.Actions
 		public bool IsExecutable =>
 			context.ShellPage is not null &&
 			context.HasSelection &&
-			context.SelectedItem is ShortcutItem;
+			context.SelectedItem is IShortcutItem;
 
 		public OpenFileLocationAction()
 		{

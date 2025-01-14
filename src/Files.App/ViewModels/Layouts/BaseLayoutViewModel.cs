@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
@@ -64,9 +64,9 @@ namespace Files.App.ViewModels.Layouts
 				_associatedInstance.SlimContentPage.IsMiddleClickToScrollEnabled = true;
 
 				if (Item.IsShortcut)
-					await NavigationHelpers.OpenPathInNewTab(((e.OriginalSource as FrameworkElement)?.DataContext as ShortcutItem)?.TargetPath ?? Item.ItemPath, false);
+					await NavigationHelpers.OpenPathInNewTab(((e.OriginalSource as FrameworkElement)?.DataContext as ShortcutItem)?.TargetPath ?? Item.ItemPath);
 				else
-					await NavigationHelpers.OpenPathInNewTab(Item.ItemPath, false);
+					await NavigationHelpers.OpenPathInNewTab(Item.ItemPath);
 			}
 		}
 

@@ -1,0 +1,32 @@
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="using:Files.App.Controls">
+
+	<Style BasedOn="{StaticResource DefaultToolbarSeparatorStyle}" TargetType="local:ToolbarSeparator" />
+
+	<Style x:Key="DefaultToolbarSeparatorStyle" TargetType="local:ToolbarSeparator">
+		<Setter Property="Foreground" Value="{ThemeResource ToolbarSeparatorForeground}" />
+		<Setter Property="Padding" Value="{ThemeResource ToolbarSeparatorMargin}" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="IsFocusEngagementEnabled" Value="False" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:ToolbarSeparator">
+					<Grid x:Name="RootGrid">
+						<Rectangle
+							Width="{StaticResource ToolbarSeparatorWidth}"
+							Margin="{TemplateBinding Padding}"
+							VerticalAlignment="Stretch"
+							Fill="{TemplateBinding Foreground}"
+							RadiusX="{StaticResource ToolbarSeparatorCornerRadius}"
+							RadiusY="{StaticResource ToolbarSeparatorCornerRadius}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+
+	</Style>
+
+</ResourceDictionary>

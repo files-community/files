@@ -1080,13 +1080,13 @@
     <value>Mostrar/ocultar painel de detalhes</value>
   </data>
   <data name="ToggleDetailsPaneDescription" xml:space="preserve">
-    <value>Alternar painel de detalhes para ver as propriedades básicas do ficheiro</value>
+    <value>Mostrar/ocultar detalhes para ver as propriedades do ficheiro</value>
   </data>
   <data name="ToggleInfoPane" xml:space="preserve">
     <value>Mostrar/ocultar painel de informações</value>
   </data>
   <data name="ToggleInfoPaneDescription" xml:space="preserve">
-    <value>Alternar painel de informações para ver os painéis detalhes ou de pré-visualização</value>
+    <value>Mostrar/ocultar painel de informações para ver os detalhes ou pré-visualização</value>
   </data>
   <data name="ToggleToolbar" xml:space="preserve">
     <value>Mostrar/ocultar barra de ferramentas</value>
@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Registar este programa para reiniciar</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Executar como administrador</value>
   </data>
@@ -2194,6 +2206,9 @@
   </data>
   <data name="WhatsNew" xml:space="preserve">
     <value>Novidades</value>
+  </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Notas da versão</value>
   </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Criar um atalho neste local requer privilégios de administrador</value>
@@ -3966,7 +3981,7 @@
     <value>Ir para a página inicial</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Mostrar botão Início na barra de endereços</value>
+    <value>Mostrar botão Início na barra de endereço</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>Barras de ferramentas</value>
@@ -3976,6 +3991,9 @@
   </data>
   <data name="BulkRename" xml:space="preserve">
     <value>Mudar nome em lote</value>
+  </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Comprimir conteúdo</value>
   </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
     <value>Mostrar opção para criar fluxo de dados alternativo</value>
@@ -4003,5 +4021,37 @@
   </data>
   <data name="ManageTags" xml:space="preserve">
     <value>Gerir etiquetas</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Disponível</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>Trocar foco para o separador mais recente</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Mostrar/ocultar painel Estante</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Alternar exibição do painel Estante</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Mostrar botão para alternar o painel Estante na barra de endereço</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Estante</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Limpar itens</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Remover da estante</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Adicionar à estante</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

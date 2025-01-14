@@ -1,5 +1,5 @@
-// Copyright(c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright(c) Files Community
+// Licensed under the MIT License.
 
 using Files.Shared.Helpers;
 using Microsoft.UI.Dispatching;
@@ -65,7 +65,9 @@ namespace Files.App.ViewModels.Properties
 			ViewModel.ShortcutItemWorkingDir = shortcutItem.WorkingDirectory;
 			ViewModel.ShortcutItemWorkingDirVisibility = Item.IsLinkItem || shortcutItem.IsSymLink ? false : true;
 			ViewModel.ShortcutItemArguments = shortcutItem.Arguments;
+			ViewModel.ShowWindowCommand = shortcutItem.ShowWindowCommand;
 			ViewModel.ShortcutItemArgumentsVisibility = Item.IsLinkItem || shortcutItem.IsSymLink ? false : true;
+			ViewModel.ShortcutItemWindowArgsVisibility = Item.IsLinkItem || shortcutItem.IsSymLink ? false : true;
 
 			if (isApplication)
 				ViewModel.RunAsAdmin = shortcutItem.RunAsAdmin;
@@ -293,11 +295,12 @@ namespace Files.App.ViewModels.Properties
 				case nameof(ViewModel.RunAsAdmin):
 				case nameof(ViewModel.ShortcutItemPath):
 				case nameof(ViewModel.ShortcutItemWorkingDir):
+				case nameof(ViewModel.ShowWindowCommand):
 				case nameof(ViewModel.ShortcutItemArguments):
 					if (string.IsNullOrWhiteSpace(ViewModel.ShortcutItemPath))
 						return;
 
-					await FileOperationsHelpers.CreateOrUpdateLinkAsync(Item.ItemPath, ViewModel.ShortcutItemPath, ViewModel.ShortcutItemArguments, ViewModel.ShortcutItemWorkingDir, ViewModel.RunAsAdmin);
+					await FileOperationsHelpers.CreateOrUpdateLinkAsync(Item.ItemPath, ViewModel.ShortcutItemPath, ViewModel.ShortcutItemArguments, ViewModel.ShortcutItemWorkingDir, ViewModel.RunAsAdmin, ViewModel.ShowWindowCommand);
 
 					break;
 			}

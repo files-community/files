@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.Dialogs;
 using Microsoft.Extensions.Logging;
@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace Files.App.Helpers
 {
@@ -245,17 +246,13 @@ namespace Files.App.Helpers
 		/// <summary>
 		/// Updates ListedItem properties for a shortcut
 		/// </summary>
-		/// <param name="item"></param>
-		/// <param name="targetPath"></param>
-		/// <param name="arguments"></param>
-		/// <param name="workingDir"></param>
-		/// <param name="runAsAdmin"></param>
-		public static void UpdateShortcutItemProperties(ShortcutItem item, string targetPath, string arguments, string workingDir, bool runAsAdmin)
+		public static void UpdateShortcutItemProperties(IShortcutItem item, string targetPath, string arguments, string workingDir, bool runAsAdmin, SHOW_WINDOW_CMD showWindowCommand)
 		{
 			item.TargetPath = Environment.ExpandEnvironmentVariables(targetPath);
 			item.Arguments = arguments;
 			item.WorkingDirectory = workingDir;
 			item.RunAsAdmin = runAsAdmin;
+			item.ShowWindowCommand = showWindowCommand;
 		}
 
 		public async static Task<StorageCredential> RequestPassword(IPasswordProtectedItem sender)

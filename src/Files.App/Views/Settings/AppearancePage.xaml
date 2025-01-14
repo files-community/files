@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <Page
 	x:Class="Files.App.Views.Settings.AppearancePage"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -267,6 +267,18 @@
 								AutomationProperties.AutomationControlType="Custom"
 								AutomationProperties.Name="{helpers:ResourceString Name=ShowHomeButton}"
 								IsOn="{x:Bind ViewModel.ShowHomeButton, Mode=TwoWay}"
+								Style="{StaticResource RightAlignedToggleSwitchStyle}" />
+						</local:SettingsBlockControl>
+
+						<!--  Show shelf pane toggle button  -->
+						<local:SettingsBlockControl
+							x:Name="ShowShelfPaneSetting"
+							Title="{helpers:ResourceString Name=ShowShelfPaneButtonInAddressBar}"
+							HorizontalAlignment="Stretch"
+							x:Load="{x:Bind ViewModel.IsAppEnvironmentDev}">
+							<ToggleSwitch
+								AutomationProperties.Name="{helpers:ResourceString Name=ShowShelfPaneButtonInAddressBar}"
+								IsOn="{x:Bind ViewModel.ShowShelfPaneToggleButton, Mode=TwoWay}"
 								Style="{StaticResource RightAlignedToggleSwitchStyle}" />
 						</local:SettingsBlockControl>
 

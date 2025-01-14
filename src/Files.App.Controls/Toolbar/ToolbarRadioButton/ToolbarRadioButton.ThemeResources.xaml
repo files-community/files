@@ -1,0 +1,20 @@
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="using:Files.App.Controls"
+	xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
+
+	<ResourceDictionary.MergedDictionaries>
+		<XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<ResourceDictionary.ThemeDictionaries>
+		<ResourceDictionary x:Key="Default" />
+
+		<ResourceDictionary x:Key="HighContrast" />
+
+		<ResourceDictionary x:Key="Light" />
+	</ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>

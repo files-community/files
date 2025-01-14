@@ -1,5 +1,5 @@
 ﻿// Copyright (c) 2023 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Licensed under the MIT License.
 
 using Files.Core.Storage.Storables;
 using System.Collections.Specialized;

@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.Shared.Helpers;
 using Microsoft.Extensions.Logging;
@@ -193,7 +193,8 @@ namespace Files.App.Utils.Storage
 						TargetPath = linkFolder.TargetPath,
 						Arguments = linkFolder.Arguments,
 						WorkingDirectory = linkFolder.WorkingDirectory,
-						RunAsAdmin = linkFolder.RunAsAdmin
+						RunAsAdmin = linkFolder.RunAsAdmin,
+						ShowWindowCommand = linkFolder.ShowWindowCommand
 					};
 				}
 				else if (folder is BinStorageFolder binFolder)
@@ -293,6 +294,7 @@ namespace Files.App.Utils.Storage
 						Arguments = linkFile.Arguments,
 						WorkingDirectory = linkFile.WorkingDirectory,
 						RunAsAdmin = linkFile.RunAsAdmin,
+						ShowWindowCommand = linkFile.ShowWindowCommand,
 						IsUrl = isUrl,
 					};
 				}

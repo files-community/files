@@ -1,0 +1,78 @@
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="using:Files.App.Controls"
+	xmlns:primitives="using:Files.App.Controls.Primitives">
+
+	<Style BasedOn="{StaticResource DefaultToolbarStyle}" TargetType="local:Toolbar" />
+
+	<Style x:Key="DefaultToolbarStyle" TargetType="local:Toolbar">
+		<Setter Property="Background" Value="{ThemeResource ToolbarBackgroundBrush}" />
+		<Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
+		<Setter Property="BorderBrush" Value="{ThemeResource ToolbarBorderBrush}" />
+		<Setter Property="BorderThickness" Value="{ThemeResource ToolbarBorderThickness}" />
+		<Setter Property="CornerRadius" Value="{ThemeResource ToolbarCornerRadius}" />
+		<Setter Property="Padding" Value="{ThemeResource ToolbarInnerPadding}" />
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:Toolbar">
+
+					<Border
+						x:Name="RootBorder"
+						Padding="{TemplateBinding Padding}"
+						Background="{TemplateBinding Background}"
+						BackgroundSizing="{TemplateBinding BackgroundSizing}"
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="{TemplateBinding CornerRadius}">
+
+						<Grid x:Name="RootGrid">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition x:Name="OverflowColumn" Width="Auto" />
+							</Grid.ColumnDefinitions>
+
+							<!--  Stack Panel is a placeholder to be replaced with the ItemsRepeater  -->
+							<ItemsRepeater
+								x:Name="PART_ItemsRepeater"
+								Grid.Column="0"
+								HorizontalAlignment="Stretch"
+								VerticalAlignment="Stretch"
+								ItemTemplate="{TemplateBinding ItemTemplate}"
+								ItemsSource="{TemplateBinding Items}"
+								TabFocusNavigation="Local"
+								Visibility="Visible">
+								<ItemsRepeater.Layout>
+									<StackLayout Orientation="Horizontal" Spacing="{ThemeResource ToolbarItemSpacing}" />
+								</ItemsRepeater.Layout>
+							</ItemsRepeater>
+
+							<StackPanel
+								x:Name="OverflowStackPanel"
+								Grid.Column="1"
+								Orientation="Horizontal"
+								Spacing="{ThemeResource ToolbarItemSpacing}"
+								Visibility="Visible">
+
+								<local:ToolbarSeparator />
+
+								<local:ToolbarButton
+									MinWidth="40"
+									MinHeight="32"
+									IconSize="16"
+									Label="Overflow Button"
+									ThemedIcon="{StaticResource App.ThemedIcons.More}" />
+
+							</StackPanel>
+						</Grid>
+
+					</Border>
+
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

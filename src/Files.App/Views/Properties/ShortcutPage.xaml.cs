@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.ViewModels.Properties;
 
@@ -28,13 +28,15 @@ namespace Files.App.Views.Properties
 			ViewModel.ShortcutItemPath = ViewModel.ShortcutItemPathEditedValue;
 			ViewModel.ShortcutItemWorkingDir = ViewModel.ShortcutItemWorkingDirEditedValue;
 			ViewModel.ShortcutItemArguments = ViewModel.ShortcutItemArgumentsEditedValue;
+			ViewModel.ShowWindowCommand = ViewModel.ShowWindowCommandEditedValue;
 
 			await MainWindow.Instance.DispatcherQueue.EnqueueOrInvokeAsync(() =>
 				UIFilesystemHelpers.UpdateShortcutItemProperties(shortcutItem,
 				ViewModel.ShortcutItemPath,
 				ViewModel.ShortcutItemArguments,
 				ViewModel.ShortcutItemWorkingDir,
-				ViewModel.RunAsAdmin)
+				ViewModel.RunAsAdmin,
+				ViewModel.ShowWindowCommand)
 			);
 
 			return true;

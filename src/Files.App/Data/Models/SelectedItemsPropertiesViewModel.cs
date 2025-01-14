@@ -1,10 +1,11 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.ViewModels.Properties;
 using Files.Shared.Helpers;
 using System.Windows.Input;
 using TagLib;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace Files.App.Data.Models
 {
@@ -526,7 +527,6 @@ namespace Files.App.Data.Models
 
 		public SelectedItemsPropertiesViewModel()
 		{
-
 		}
 
 		private bool isSelectedItemImage = false;
@@ -634,6 +634,13 @@ namespace Files.App.Data.Models
 		{
 			get => shortcutItemArgumentsVisibility;
 			set => SetProperty(ref shortcutItemArgumentsVisibility, value);
+		}
+		
+		private bool shortcutItemWindowArgsVisibility = false;
+		public bool ShortcutItemWindowArgsVisibility
+		{
+			get => shortcutItemWindowArgsVisibility;
+			set => SetProperty(ref shortcutItemWindowArgsVisibility, value);
 		}
 
 		private RelayCommand shortcutItemOpenLinkCommand;
@@ -780,6 +787,56 @@ namespace Files.App.Data.Models
 		{
 			get => runAsAdminEnabled;
 			set => SetProperty(ref runAsAdminEnabled, value);
+		}
+
+		private static readonly IReadOnlyDictionary<SHOW_WINDOW_CMD, string> showWindowCommandTypes = new Dictionary<SHOW_WINDOW_CMD, string>
+		{
+			{ SHOW_WINDOW_CMD.SW_NORMAL, Strings.NormalWindow.GetLocalizedResource() },
+			{ SHOW_WINDOW_CMD.SW_SHOWMINNOACTIVE, Strings.Minimized.GetLocalizedResource() },
+			{ SHOW_WINDOW_CMD.SW_MAXIMIZE, Strings.Maximized.GetLocalizedResource() }
+		}.AsReadOnly();
+
+		/// <summary>
+		/// The available show window command types.
+		/// </summary>
+		public IReadOnlyDictionary<SHOW_WINDOW_CMD, string> ShowWindowCommandTypes { get => showWindowCommandTypes; }
+
+		/// <summary>
+		/// The localized string of the currently selected ShowWindowCommand.
+		/// This value can be used for display in the UI.
+		/// </summary>
+		public string SelectedShowWindowCommand
+		{
+			get => ShowWindowCommandTypes.GetValueOrDefault(ShowWindowCommandEditedValue)!;
+			set => ShowWindowCommandEditedValue = ShowWindowCommandTypes.First(e => e.Value == value).Key;
+		}
+
+		private SHOW_WINDOW_CMD showWindowCommand;
+		/// <summary>
+		/// The current <see cref="SHOW_WINDOW_CMD"/> property of the item.
+		/// </summary>
+		public SHOW_WINDOW_CMD ShowWindowCommand
+		{
+			get => showWindowCommand;
+			set
+			{
+				if (SetProperty(ref showWindowCommand, value))
+					ShowWindowCommandEditedValue = value;
+			}
+		}
+
+		private SHOW_WINDOW_CMD showWindowCommandEditedValue;
+		/// <summary>
+		/// The edited <see cref="SHOW_WINDOW_CMD"/> property of the item.
+		/// </summary>
+		public SHOW_WINDOW_CMD ShowWindowCommandEditedValue
+		{
+			get => showWindowCommandEditedValue;
+			set
+			{
+				if (SetProperty(ref showWindowCommandEditedValue, value))
+					OnPropertyChanged(nameof(SelectedShowWindowCommand));
+			}
 		}
 
 		private bool isPropertiesLoaded;

@@ -1,5 +1,5 @@
-# Copyright (c) 2024 Files Community
-# Licensed under the MIT License. See the LICENSE.
+# Copyright (c) Files Community
+# Licensed under the MIT License.
 
 # Abstract:
 #  Deploys Files Preview (Sideload).
@@ -36,6 +36,7 @@ jobs:
       PACKAGE_PROJECT_DIR:        'src\Files.App (Package)'
       PACKAGE_PROJECT_PATH:       'src\Files.App (Package)\Files.Package.wapproj'
       PACKAGE_MANIFEST_PATH:      'src\Files.App (Package)\Package.appxmanifest'
+      LAUNCHER_PROJECT_PATH:      'src\Files.App.Launcher\Files.App.Launcher.vcxproj'
       TEST_PROJECT_PATH:          'tests\Files.InteractionTests\Files.InteractionTests.csproj'
       APP_INSTALLER_SIDELOAD_URL: 'https://cdn.files.community/files/preview/'
 
@@ -85,6 +86,13 @@ jobs:
         -p:Platform=$env:PLATFORM `
         -p:Configuration=$env:CONFIGURATION `
         -p:PublishReadyToRun=true
+
+    - name: Build launcher project
+      shell: pwsh
+      run: |
+        msbuild "$env:LAUNCHER_PROJECT_PATH" `
+        -p:Platform=$env:PLATFORM `
+        -p:Configuration=$env:CONFIGURATION
 
     - name: Build & package Files
       shell: pwsh

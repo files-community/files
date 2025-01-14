@@ -1,10 +1,11 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <UserControl
 	x:Class="Files.App.UserControls.AddressToolbar"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
 	xmlns:contract8Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,8)"
+	xmlns:controls="using:Files.App.Controls"
 	xmlns:converters="using:Files.App.Converters"
 	xmlns:converters1="using:CommunityToolkit.WinUI.UI.Converters"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -277,6 +278,7 @@
 					<Button.ContextFlyout>
 						<MenuFlyout
 							x:Name="BackHistoryFlyout"
+							AreOpenCloseAnimationsEnabled="False"
 							Opening="BackHistoryFlyout_Opening"
 							Placement="BottomEdgeAlignedLeft"
 							ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -306,6 +308,7 @@
 					<Button.ContextFlyout>
 						<MenuFlyout
 							x:Name="ForwardHistoryFlyout"
+							AreOpenCloseAnimationsEnabled="False"
 							Opening="ForwardHistoryFlyout_Opening"
 							Placement="BottomEdgeAlignedLeft"
 							ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -428,6 +431,7 @@
 				BorderBrush="{ThemeResource ControlElevationBorderBrush}"
 				BorderThickness="1"
 				CornerRadius="{StaticResource ControlCornerRadius}"
+				GettingFocus="ClickablePath_GettingFocus"
 				PointerPressed="ManualPathEntryItem_Click"
 				Visibility="{x:Bind converters:MultiBooleanConverter.OrNotConvertToVisibility(ShowSearchBox, ViewModel.IsSearchBoxVisible), Mode=OneWay}">
 				<Grid.ColumnDefinitions>
@@ -466,7 +470,10 @@
 				Visibility="{x:Bind converters:MultiBooleanConverter.OrConvertToVisibility(ShowSearchBox, ViewModel.IsSearchBoxVisible), Mode=OneWay}" />
 
 			<!--  Right Side Action Buttons  -->
-			<StackPanel Grid.Column="3" Orientation="Horizontal">
+			<StackPanel
+				Grid.Column="3"
+				Orientation="Horizontal"
+				Spacing="4">
 
 				<!--  Mini Search Button  -->
 				<Button
@@ -481,6 +488,25 @@
 					Visibility="Collapsed">
 					<FontIcon FontSize="14" Glyph="{x:Bind ViewModel.SearchButtonGlyph, Mode=OneWay}" />
 				</Button>
+
+				<!--  Shelf Pane  -->
+				<ToggleButton
+					x:Name="ShelfPaneToggleButton"
+					Width="36"
+					Height="32"
+					Padding="0"
+					x:Load="{x:Bind ViewModel.ShowShelfPaneToggleButton, Mode=OneWay}"
+					AccessKeyInvoked="Button_AccessKeyInvoked"
+					AutomationProperties.Name="{x:Bind ViewModel.Commands.ToggleShelfPane.Label}"
+					Background="Transparent"
+					BorderBrush="Transparent"
+					IsChecked="{x:Bind Commands.ToggleShelfPane.IsOn, Mode=TwoWay}"
+					ToolTipService.ToolTip="{x:Bind ViewModel.Commands.ToggleShelfPane.LabelWithHotKey, Mode=OneWay}">
+					<controls:ThemedIcon
+						Width="16"
+						Height="16"
+						Style="{StaticResource App.ThemedIcons.Shelf}" />
+				</ToggleButton>
 
 				<!--  Status Center  -->
 				<Button
@@ -559,12 +585,13 @@
 					ToolTipService.ToolTip="{helpers:ResourceString Name=UpdateFiles}">
 					<Grid>
 						<!--  Icon  -->
-						<FontIcon
+						<controls:ThemedIcon
 							x:Name="UpdateIcon"
+							Width="16"
+							Height="16"
 							x:Load="{x:Bind ViewModel.IsUpdating, Mode=OneWay, Converter={StaticResource BoolNegationConverter}}"
-							FontSize="14"
-							Foreground="{ThemeResource SystemAccentColor}"
-							Glyph="&#xE896;" />
+							IsFilled="True"
+							Style="{StaticResource App.ThemedIcons.AppUpdateAvailable}" />
 
 						<!--  Progress  -->
 						<ProgressRing
@@ -589,10 +616,10 @@
 					Style="{StaticResource AddressToolbarButtonStyle}"
 					ToolTipService.ToolTip="{x:Bind ViewModel.Commands.OpenReleaseNotes.LabelWithHotKey}"
 					Visibility="{x:Bind ViewModel.Commands.OpenReleaseNotes.IsExecutable, Mode=OneWay}">
-					<FontIcon
-						FontSize="14"
-						Foreground="{ThemeResource SystemAccentColor}"
-						Glyph="&#xF133;" />
+					<controls:ThemedIcon
+						Width="16"
+						Height="16"
+						Style="{StaticResource App.ThemedIcons.AppUpdatedBox}" />
 				</Button>
 
 				<!--  Open the Settings dialog  -->

@@ -1,0 +1,17 @@
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="using:Files.App.Controls">
+
+	<Style BasedOn="{StaticResource DefaultToolbarSplitButtonStyle}" TargetType="local:ToolbarSplitButton" />
+
+	<Style x:Key="DefaultToolbarSplitButtonStyle" TargetType="local:ToolbarSplitButton">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="local:ToolbarSplitButton" />
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Microsoft.Extensions.Logging;
 using System.IO;
@@ -21,10 +21,10 @@ namespace Files.App.Utils.Storage
 		private const uint defaultStepSize = 500;
 
 		public string? Query { get; set; }
+
 		public string? Folder { get; set; }
 
 		public uint MaxItemCount { get; set; } = 0; // 0: no limit
-		public uint ThumbnailSize { get; set; } = 24;
 
 		private uint UsedMaxItemCount => MaxItemCount > 0 ? MaxItemCount : uint.MaxValue;
 
@@ -345,10 +345,14 @@ namespace Files.App.Utils.Storage
 			ListedItem listedItem = null;
 			var isHidden = ((FileAttributes)findData.dwFileAttributes & FileAttributes.Hidden) == FileAttributes.Hidden;
 			var isFolder = ((FileAttributes)findData.dwFileAttributes & FileAttributes.Directory) == FileAttributes.Directory;
+			Win32PInvoke.FileTimeToSystemTime(ref findData.ftLastWriteTime, out Win32PInvoke.SYSTEMTIME systemModifiedTimeOutput);
+			Win32PInvoke.FileTimeToSystemTime(ref findData.ftCreationTime, out Win32PInvoke.SYSTEMTIME systemCreatedTimeOutput);
+
 			if (!isFolder)
 			{
 				string itemFileExtension = null;
 				string itemType = null;
+				long fileSize = Win32FindDataExtensions.GetSize(findData);
 				if (findData.cFileName.Contains('.', StringComparison.Ordinal))
 				{
 					itemFileExtension = Path.GetExtension(itemPath);
@@ -360,11 +364,15 @@ namespace Files.App.Utils.Storage
 					PrimaryItemAttribute = StorageItemTypes.File,
 					ItemNameRaw = findData.cFileName,
 					ItemPath = itemPath,
+					ItemDateModifiedReal = systemModifiedTimeOutput.ToDateTime(),
+					ItemDateCreatedReal = systemCreatedTimeOutput.ToDateTime(),
 					IsHiddenItem = isHidden,
 					LoadFileIcon = false,
 					FileExtension = itemFileExtension,
 					ItemType = itemType,
-					Opacity = isHidden ? Constants.UI.DimItemOpacity : 1
+					Opacity = isHidden ? Constants.UI.DimItemOpacity : 1,
+					FileSize = fileSize.ToSizeString(),
+					FileSizeBytes = fileSize,
 				};
 			}
 			else
@@ -376,26 +384,36 @@ namespace Files.App.Utils.Storage
 						PrimaryItemAttribute = StorageItemTypes.Folder,
 						ItemNameRaw = findData.cFileName,
 						ItemPath = itemPath,
+						ItemDateModifiedReal = systemModifiedTimeOutput.ToDateTime(),
+						ItemDateCreatedReal = systemCreatedTimeOutput.ToDateTime(),
 						IsHiddenItem = isHidden,
 						LoadFileIcon = false,
 						Opacity = isHidden ? Constants.UI.DimItemOpacity : 1
 					};
 				}
 			}
+
 			if (listedItem is not null && MaxItemCount > 0) // Only load icon for searchbox suggestions
 			{
-				_ = FileThumbnailHelper.LoadIconFromPathAsync(listedItem.ItemPath, ThumbnailSize, ThumbnailMode.ListView, ThumbnailOptions.ResizeThumbnail, isFolder)
+				_ = FileThumbnailHelper.GetIconAsync(
+					listedItem.ItemPath,
+					Constants.ShellIconSizes.Small,
+					isFolder,
+					IconOptions.ReturnIconOnly | IconOptions.UseCurrentScale)
 					.ContinueWith((t) =>
 					{
 						if (t.IsCompletedSuccessfully && t.Result is not null)
 						{
 							_ = FilesystemTasks.Wrap(() => MainWindow.Instance.DispatcherQueue.EnqueueOrInvokeAsync(async () =>
 							{
-								listedItem.FileImage = await t.Result.ToBitmapAsync();
+								var bitmapImage = await t.Result.ToBitmapAsync();
+								if (bitmapImage is not null)
+									listedItem.FileImage = bitmapImage;
 							}, Microsoft.UI.Dispatching.DispatcherQueuePriority.Low));
 						}
 					});
 			}
+
 			return listedItem;
 		}
 

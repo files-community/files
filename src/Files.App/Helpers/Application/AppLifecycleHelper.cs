@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+﻿// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using CommunityToolkit.WinUI.Helpers;
 using Files.App.Helpers.Application;
@@ -133,6 +133,7 @@ namespace Files.App.Helpers
 		public static IHost ConfigureHost()
 		{
 			var builder = Host.CreateDefaultBuilder()
+				.UseContentRoot(Package.Current.InstalledLocation.Path)
 				.UseEnvironment(AppLifecycleHelper.AppEnvironment.ToString())
 				.ConfigureLogging(builder => builder
 					.ClearProviders()

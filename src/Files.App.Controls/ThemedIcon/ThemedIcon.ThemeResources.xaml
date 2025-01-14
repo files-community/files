@@ -1,14 +1,12 @@
-<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:local="using:Files.App.Controls">
 
-
 	<ResourceDictionary.MergedDictionaries>
 		<XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
 	</ResourceDictionary.MergedDictionaries>
-
 
 	<ResourceDictionary.ThemeDictionaries>
 
@@ -31,38 +29,10 @@
 			<StaticResource x:Key="ThemedIconCriticalBackgroundBrush" ResourceKey="SystemFillColorCriticalBackgroundBrush" />
 			<StaticResource x:Key="ThemedIconCautionBackgroundBrush" ResourceKey="SystemFillColorCautionBackgroundBrush" />
 			<StaticResource x:Key="ThemedIconSuccessBackgroundBrush" ResourceKey="SystemFillColorSuccessBackgroundBrush" />
-			<StaticResource x:Key="ThemedIconNeutralBackgroundBrush" ResourceKey="SolidBackgroundFillColorQuarternaryBrush" />
+			<StaticResource x:Key="ThemedIconNeutralBackgroundBrush" ResourceKey="SystemFillColorNeutralBackgroundBrush" />
 
 			<x:Boolean x:Key="ThemedIconHighContrast">False</x:Boolean>
 		</ResourceDictionary>
-
-
-
-		<ResourceDictionary x:Key="HighContrast">
-			<Color x:Key="ThemedIconBaseColor">#FF000000</Color>
-			<Color x:Key="ThemedIconAltColor">#00000000</Color>
-
-			<StaticResource x:Key="ThemedIconBaseBrush" ResourceKey="SystemColorButtonTextColorBrush" />
-			<StaticResource x:Key="ThemedIconAltBrush" ResourceKey="SystemColorButtonFaceColorBrush" />
-			<StaticResource x:Key="ThemedIconAccentBrush" ResourceKey="SystemColorHighlightColorBrush" />
-			<StaticResource x:Key="ThemedIconAccentContrastBrush" ResourceKey="SystemColorHighlightTextColorBrush" />
-			<StaticResource x:Key="ThemedIconDisabledBrush" ResourceKey="SystemColorGrayTextColorBrush" />
-			<StaticResource x:Key="ThemedIconDisabledToggleBrush" ResourceKey="SystemColorHighlightTextColorBrush" />
-
-			<StaticResource x:Key="ThemedIconCriticalBrush" ResourceKey="SystemColorHighlightColorBrush" />
-			<StaticResource x:Key="ThemedIconCautionBrush" ResourceKey="SystemColorHighlightColorBrush" />
-			<StaticResource x:Key="ThemedIconSuccessBrush" ResourceKey="SystemColorHighlightColorBrush" />
-			<StaticResource x:Key="ThemedIconNeutralBrush" ResourceKey="SystemColorHighlightColorBrush" />
-
-			<StaticResource x:Key="ThemedIconCriticalBackgroundBrush" ResourceKey="SystemColorWindowColorBrush" />
-			<StaticResource x:Key="ThemedIconCautionBackgroundBrush" ResourceKey="SystemColorWindowColorBrush" />
-			<StaticResource x:Key="ThemedIconSuccessBackgroundBrush" ResourceKey="SystemColorWindowColorBrush" />
-			<StaticResource x:Key="ThemedIconNeutralBackgroundBrush" ResourceKey="SolidBackgroundFillColorBaseBrush" />
-
-			<x:Boolean x:Key="ThemedIconHighContrast">True</x:Boolean>
-		</ResourceDictionary>
-
-
 
 		<ResourceDictionary x:Key="Light">
 			<Color x:Key="ThemedIconBaseColor">#DB161616</Color>
@@ -83,9 +53,33 @@
 			<StaticResource x:Key="ThemedIconCriticalBackgroundBrush" ResourceKey="SystemFillColorCriticalBackgroundBrush" />
 			<StaticResource x:Key="ThemedIconCautionBackgroundBrush" ResourceKey="SystemFillColorCautionBackgroundBrush" />
 			<StaticResource x:Key="ThemedIconSuccessBackgroundBrush" ResourceKey="SystemFillColorSuccessBackgroundBrush" />
-			<StaticResource x:Key="ThemedIconNeutralBackgroundBrush" ResourceKey="SolidBackgroundFillColorQuarternaryBrush" />
+			<StaticResource x:Key="ThemedIconNeutralBackgroundBrush" ResourceKey="SystemFillColorNeutralBackgroundBrush" />
 
 			<x:Boolean x:Key="ThemedIconHighContrast">False</x:Boolean>
+		</ResourceDictionary>
+
+		<ResourceDictionary x:Key="HighContrast">
+			<Color x:Key="ThemedIconBaseColor">#FF000000</Color>
+			<Color x:Key="ThemedIconAltColor">#00000000</Color>
+
+			<StaticResource x:Key="ThemedIconBaseBrush" ResourceKey="SystemColorButtonTextColorBrush" />
+			<StaticResource x:Key="ThemedIconAltBrush" ResourceKey="SystemColorButtonFaceColorBrush" />
+			<StaticResource x:Key="ThemedIconAccentBrush" ResourceKey="SystemColorHighlightColorBrush" />
+			<StaticResource x:Key="ThemedIconAccentContrastBrush" ResourceKey="SystemColorHighlightTextColorBrush" />
+			<StaticResource x:Key="ThemedIconDisabledBrush" ResourceKey="SystemColorGrayTextColorBrush" />
+			<StaticResource x:Key="ThemedIconDisabledToggleBrush" ResourceKey="SystemColorHighlightTextColorBrush" />
+
+			<StaticResource x:Key="ThemedIconCriticalBrush" ResourceKey="SystemColorHighlightColorBrush" />
+			<StaticResource x:Key="ThemedIconCautionBrush" ResourceKey="SystemColorHighlightColorBrush" />
+			<StaticResource x:Key="ThemedIconSuccessBrush" ResourceKey="SystemColorHighlightColorBrush" />
+			<StaticResource x:Key="ThemedIconNeutralBrush" ResourceKey="SystemColorHighlightColorBrush" />
+
+			<StaticResource x:Key="ThemedIconCriticalBackgroundBrush" ResourceKey="SystemColorWindowColorBrush" />
+			<StaticResource x:Key="ThemedIconCautionBackgroundBrush" ResourceKey="SystemColorWindowColorBrush" />
+			<StaticResource x:Key="ThemedIconSuccessBackgroundBrush" ResourceKey="SystemColorWindowColorBrush" />
+			<StaticResource x:Key="ThemedIconNeutralBackgroundBrush" ResourceKey="SystemColorWindowColorBrush" />
+
+			<x:Boolean x:Key="ThemedIconHighContrast">True</x:Boolean>
 		</ResourceDictionary>
 
 	</ResourceDictionary.ThemeDictionaries>

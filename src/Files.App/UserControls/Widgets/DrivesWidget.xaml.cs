@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -38,7 +38,7 @@ namespace Files.App.UserControls.Widgets
 			if (await DriveHelpers.CheckEmptyDrive(path))
 				return;
 
-			await NavigationHelpers.OpenPathInNewTab(path, false);
+			await NavigationHelpers.OpenPathInNewTab(path);
 		}
 
 		private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e)

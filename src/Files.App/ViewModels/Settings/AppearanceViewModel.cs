@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using CommunityToolkit.WinUI.Helpers;
 using Microsoft.UI.Xaml;
@@ -314,6 +314,25 @@ namespace Files.App.ViewModels.Settings
 					OnPropertyChanged();
 				}
 			}
+		}
+
+		public bool ShowShelfPaneToggleButton
+		{
+			get => UserSettingsService.AppearanceSettingsService.ShowShelfPaneToggleButton;
+			set
+			{
+				if (value != UserSettingsService.AppearanceSettingsService.ShowShelfPaneToggleButton)
+				{
+					UserSettingsService.AppearanceSettingsService.ShowShelfPaneToggleButton = value;
+
+					OnPropertyChanged();
+				}
+			}
+		}
+
+		public bool IsAppEnvironmentDev
+		{
+			get => AppLifecycleHelper.AppEnvironment is AppEnvironment.Dev;
 		}
 	}
 }

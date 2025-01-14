@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.ViewModels.Properties;
 using Files.Shared.Helpers;
@@ -10,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using Windows.Storage;
+using Windows.Win32.UI.WindowsAndMessaging;
 
 #pragma warning disable CS0618 // Type or member is obsolete
 
@@ -405,13 +406,13 @@ namespace Files.App.Utils
 
 		public bool IsFolder => PrimaryItemAttribute is StorageItemTypes.Folder;
 		public bool IsRecycleBinItem => this is RecycleBinItem;
-		public bool IsShortcut => this is ShortcutItem;
+		public bool IsShortcut => this is IShortcutItem;
 		public bool IsLibrary => this is LibraryItem;
 		public bool IsLinkItem => IsShortcut && ((ShortcutItem)this).IsUrl;
 		public bool IsFtpItem => this is FtpItem;
 		public bool IsArchive => this is ZipItem;
 		public bool IsAlternateStream => this is AlternateStreamItem;
-		public bool IsGitItem => this is GitItem;
+		public bool IsGitItem => this is IGitItem;
 		public virtual bool IsExecutable => !IsFolder && FileExtensionHelpers.IsExecutableFile(ItemPath);
 		public virtual bool IsScriptFile => FileExtensionHelpers.IsScriptFile(ItemPath);
 		public bool IsPinned => App.QuickAccessManager.Model.PinnedFolders.Contains(itemPath);
@@ -507,7 +508,7 @@ namespace Files.App.Utils
 		};
 	}
 
-	public sealed class ShortcutItem : ListedItem
+	public sealed class ShortcutItem : ListedItem, IShortcutItem
 	{
 		public ShortcutItem(string folderRelativeId) : base(folderRelativeId)
 		{
@@ -526,6 +527,7 @@ namespace Files.App.Utils
 		public string Arguments { get; set; }
 		public string WorkingDirectory { get; set; }
 		public bool RunAsAdmin { get; set; }
+		public SHOW_WINDOW_CMD ShowWindowCommand { get; set; }
 		public bool IsUrl { get; set; }
 		public bool IsSymLink { get; set; }
 		public override bool IsExecutable => FileExtensionHelpers.IsExecutableFile(TargetPath, true);
@@ -602,7 +604,7 @@ namespace Files.App.Utils
 		}
 	}
 
-	public sealed class GitItem : ListedItem
+	public class GitItem : ListedItem, IGitItem
 	{
 		private volatile int statusPropertiesInitialized = 0;
 		public bool StatusPropertiesInitialized
@@ -677,5 +679,133 @@ namespace Files.App.Utils
 			get => _GitLastCommitFullSha;
 			set => SetProperty(ref _GitLastCommitFullSha, value);
 		}
+	}
+	public sealed class GitShortcutItem : GitItem, IShortcutItem
+	{
+		private volatile int statusPropertiesInitialized = 0;
+		public bool StatusPropertiesInitialized
+		{
+			get => statusPropertiesInitialized == 1;
+			set => Interlocked.Exchange(ref statusPropertiesInitialized, value ? 1 : 0);
+		}
+
+		private volatile int commitPropertiesInitialized = 0;
+		public bool CommitPropertiesInitialized
+		{
+			get => commitPropertiesInitialized == 1;
+			set => Interlocked.Exchange(ref commitPropertiesInitialized, value ? 1 : 0);
+		}
+
+		private Style? _UnmergedGitStatusIcon;
+		public Style? UnmergedGitStatusIcon
+		{
+			get => _UnmergedGitStatusIcon;
+			set => SetProperty(ref _UnmergedGitStatusIcon, value);
+		}
+
+		private string? _UnmergedGitStatusName;
+		public string? UnmergedGitStatusName
+		{
+			get => _UnmergedGitStatusName;
+			set => SetProperty(ref _UnmergedGitStatusName, value);
+		}
+
+		private DateTimeOffset? _GitLastCommitDate;
+		public DateTimeOffset? GitLastCommitDate
+		{
+			get => _GitLastCommitDate;
+			set
+			{
+				SetProperty(ref _GitLastCommitDate, value);
+				GitLastCommitDateHumanized = value is DateTimeOffset dto ? dateTimeFormatter.ToShortLabel(dto) : "";
+			}
+		}
+
+		private string? _GitLastCommitDateHumanized;
+		public string? GitLastCommitDateHumanized
+		{
+			get => _GitLastCommitDateHumanized;
+			set => SetProperty(ref _GitLastCommitDateHumanized, value);
+		}
+
+		private string? _GitLastCommitMessage;
+		public string? GitLastCommitMessage
+		{
+			get => _GitLastCommitMessage;
+			set => SetProperty(ref _GitLastCommitMessage, value);
+		}
+
+		private string? _GitCommitAuthor;
+		public string? GitLastCommitAuthor
+		{
+			get => _GitCommitAuthor;
+			set => SetProperty(ref _GitCommitAuthor, value);
+		}
+
+		private string? _GitLastCommitSha;
+		public string? GitLastCommitSha
+		{
+			get => _GitLastCommitSha;
+			set => SetProperty(ref _GitLastCommitSha, value);
+		}
+
+		private string? _GitLastCommitFullSha;
+		public string? GitLastCommitFullSha
+		{
+			get => _GitLastCommitFullSha;
+			set => SetProperty(ref _GitLastCommitFullSha, value);
+		}
+
+		public string TargetPath { get; set; }
+
+		public override string Name
+			=> IsSymLink ? base.Name : Path.GetFileNameWithoutExtension(ItemNameRaw); // Always hide extension for shortcuts
+
+		public string Arguments { get; set; }
+		public string WorkingDirectory { get; set; }
+		public bool RunAsAdmin { get; set; }
+		public SHOW_WINDOW_CMD ShowWindowCommand { get; set; }
+		public bool IsUrl { get; set; }
+		public bool IsSymLink { get; set; }
+		public override bool IsExecutable => FileExtensionHelpers.IsExecutableFile(TargetPath, true);
+	}
+	public interface IGitItem
+	{
+		public bool StatusPropertiesInitialized { get ; set; }
+		public bool CommitPropertiesInitialized { get; set; }
+
+		public Style? UnmergedGitStatusIcon{ get; set; }
+
+		public string? UnmergedGitStatusName{ get; set; }
+
+		public DateTimeOffset? GitLastCommitDate{ get; set; }
+
+		public string? GitLastCommitDateHumanized{ get; set; }
+
+		public string? GitLastCommitMessage{ get; set; }
+
+		public string? GitLastCommitAuthor{ get; set; }
+
+		public string? GitLastCommitSha{ get; set; }
+
+		public string? GitLastCommitFullSha{ get; set; }
+
+		public string ItemPath
+		{
+			get;
+			set;
+		}
+	}
+	public interface IShortcutItem
+	{
+		public string TargetPath { get; set; }
+		public string Name { get; }
+		public string Arguments { get; set; }
+		public string WorkingDirectory { get; set; }
+		public bool RunAsAdmin { get; set; }
+		public SHOW_WINDOW_CMD ShowWindowCommand { get; set; }
+		public bool IsUrl { get; set; }
+		public bool IsSymLink { get; set; }
+		public bool IsExecutable { get; }
 	}
 }

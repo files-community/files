@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <Package
     xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
     xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
@@ -16,7 +16,7 @@
     <Identity
         Name="FilesDev"
         Publisher="CN=Files"
-        Version="3.8.1.0" />
+        Version="3.8.12.0" />
 
     <Properties>
         <DisplayName>Files - Dev</DisplayName>
@@ -119,24 +119,12 @@
                 </uap3:Extension>
 
                 <uap:Extension Category="windows.protocol">
-                    <!--  This is kept for backward compatibility.  -->
-                    <uap:Protocol ReturnResults="none" Name="files-uwp" />
-                </uap:Extension>
-
-                <uap:Extension Category="windows.protocol">
-                    <!--  This is kept for backward compatibility.  -->
-                    <uap:Protocol ReturnResults="none" Name="files" />
-                </uap:Extension>
-
-                <uap:Extension Category="windows.protocol">
                     <!--  This value changes based on the build branch by CI (files-stable, files-preview, files-dev).  -->
                     <uap:Protocol ReturnResults="none" Name="files-dev" />
                 </uap:Extension>
 
                 <uap5:Extension Category="windows.appExecutionAlias">
                     <uap5:AppExecutionAlias>
-                        <!--  This is kept for backward compatibility.  -->
-                        <uap5:ExecutionAlias Alias="files.exe" />
                         <!--  This value changes based on the build branch by CI (files-stable, files-preview, files-dev).  -->
                         <uap5:ExecutionAlias Alias="files-dev.exe" />
                     </uap5:AppExecutionAlias>

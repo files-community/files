@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+﻿// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 namespace Files.App.Actions
 {
@@ -23,7 +23,7 @@ namespace Files.App.Actions
 			if (await DriveHelpers.CheckEmptyDrive(HomePageContext.RightClickedItem!.Path))
 				return;
 
-			await NavigationHelpers.OpenPathInNewTab(HomePageContext.RightClickedItem!.Path ?? string.Empty, false);
+			await NavigationHelpers.OpenPathInNewTab(HomePageContext.RightClickedItem!.Path ?? string.Empty);
 		}
 
 		protected override void Context_PropertyChanged(object? sender, PropertyChangedEventArgs e)

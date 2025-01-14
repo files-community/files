@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <UserControl
 	x:Class="Files.App.UserControls.InnerNavigationToolbar"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -65,17 +65,6 @@
 			<ColumnDefinition Width="*" />
 			<ColumnDefinition Width="Auto" />
 		</Grid.ColumnDefinitions>
-
-		<!--  Home page header  -->
-		<TextBlock
-			x:Name="HomePageHeaderTextBlock"
-			Grid.Column="0"
-			Margin="18,0,0,0"
-			HorizontalAlignment="Left"
-			VerticalAlignment="Center"
-			x:Load="{x:Bind ViewModel.InstanceViewModel.IsPageTypeNotHome, Converter={StaticResource BoolNegationConverter}, Mode=OneWay}"
-			Style="{StaticResource App.Theme.SubtitleTextBlockStyle}"
-			Text="{helpers:ResourceString Name=Home}" />
 
 		<!--  Context Commands  -->
 		<CommandBar
@@ -1133,9 +1122,9 @@
 									<ColumnDefinition Width="Auto" />
 								</Grid.ColumnDefinitions>
 								<Grid.RowDefinitions>
-									<RowDefinition MinHeight="30" />
-									<RowDefinition MinHeight="30" />
-									<RowDefinition MinHeight="30" />
+									<RowDefinition Height="Auto" />
+									<RowDefinition Height="Auto" />
+									<RowDefinition Height="Auto" />
 								</Grid.RowDefinitions>
 
 								<!--  Show Hidden Files  -->
@@ -1175,22 +1164,25 @@
 
 								<!--  Adaptive Layout  -->
 								<TextBlock
+									x:Name="AdaptiveLayoutTextBlock"
 									Grid.Row="2"
 									Grid.Column="0"
 									VerticalAlignment="Center"
+									x:Load="{x:Bind Commands.LayoutAdaptive.IsExecutable, Mode=OneWay}"
 									Text="{x:Bind Commands.LayoutAdaptive.Label}" />
 
 								<ToggleSwitch
+									x:Name="AdaptiveLayoutToggleSwitch"
 									Grid.Row="2"
 									Grid.Column="1"
 									HorizontalAlignment="Right"
+									x:Load="{x:Bind Commands.LayoutAdaptive.IsExecutable, Mode=OneWay}"
 									AutomationProperties.Name="{x:Bind Commands.LayoutAdaptive.AutomationName}"
 									IsEnabled="{x:Bind Commands.LayoutAdaptive.IsExecutable, Mode=OneWay}"
 									IsOn="{x:Bind Commands.LayoutAdaptive.IsOn, Mode=TwoWay}"
 									Rotation="1"
 									Style="{StaticResource RightAlignedToggleSwitchStyle}"
 									ToolTipService.ToolTip="{x:Bind Commands.LayoutAdaptive.LabelWithHotKey, Mode=OneWay}" />
-
 							</Grid>
 
 						</StackPanel>

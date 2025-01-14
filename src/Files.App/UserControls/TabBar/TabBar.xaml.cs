@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using CommunityToolkit.WinUI.UI;
 using Microsoft.UI.Xaml;
@@ -358,15 +358,19 @@ namespace Files.App.UserControls.TabBar
 			}
 		}
 
-		private void DragAreaRectangle_Loaded(object sender, RoutedEventArgs e)
+		private async void DragAreaRectangle_Loaded(object sender, RoutedEventArgs e)
 		{
-			double scaleAdjustment = DragAreaRectangle.XamlRoot.RasterizationScale;
-			double titleBarInset = ((FilePropertiesHelpers.FlowDirectionSettingIsRightToLeft
-				? MainWindow.Instance.AppWindow.TitleBar.LeftInset
-				: MainWindow.Instance.AppWindow.TitleBar.RightInset) / scaleAdjustment) + 40;
+			if (HorizontalTabView.ActualWidth <= 0 && TabBarAddNewTabButton.Width <= 0)
+				await Task.Delay(100);
 
-			HorizontalTabView.Measure(new(HorizontalTabView.ActualWidth - TabBarAddNewTabButton.Width - titleBarInset, HorizontalTabView.ActualHeight));
-			RightPaddingColumn.Width = new(titleBarInset >= 0 ? titleBarInset : 0);
+			var titleBarInset = ((FilePropertiesHelpers.FlowDirectionSettingIsRightToLeft
+				? MainWindow.Instance.AppWindow.TitleBar.LeftInset
+				: MainWindow.Instance.AppWindow.TitleBar.RightInset) / DragAreaRectangle.XamlRoot.RasterizationScale) + 40;
+
+			RightPaddingColumn.Width = new(titleBarInset > 40 ? titleBarInset : 138);
+			HorizontalTabView.Measure(new(
+				HorizontalTabView.ActualWidth - TabBarAddNewTabButton.Width - titleBarInset,
+				HorizontalTabView.ActualHeight));
 		}
 	}
 }

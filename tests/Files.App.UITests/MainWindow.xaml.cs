@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.UITests.Views;
 using Microsoft.UI.Xaml;
@@ -30,6 +30,9 @@ namespace Files.App.UITests
 			{
 				case "ThemedIconPage":
 					MainFrame.Navigate(typeof(ThemedIconPage));
+					break;
+				case "ToolbarPage":
+					MainFrame.Navigate(typeof(ToolbarPage));
 					break;
 				case "StorageControlsPage":
 					MainFrame.Navigate(typeof(StorageControlsPage));

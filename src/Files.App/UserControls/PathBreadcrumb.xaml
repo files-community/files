@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <UserControl
 	x:Class="Files.App.UserControls.PathBreadcrumb"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -94,8 +94,9 @@
 						<Button.Flyout>
 							<MenuFlyout
 								x:Name="ExpandMenuFlyout"
+								AreOpenCloseAnimationsEnabled="False"
 								Closed="PathBoxItemFlyout_Closed"
-								Opened="PathBoxItemFlyout_Opened"
+								Opening="PathBoxItemFlyout_Opening"
 								Placement="BottomEdgeAlignedLeft"
 								ScrollViewer.VerticalScrollBarVisibility="Auto"
 								ScrollViewer.VerticalScrollMode="Auto">
@@ -135,7 +136,7 @@
 		IsItemClickEnabled="True"
 		ItemTemplateSelector="{StaticResource PathBreadcrumbItemSelector}"
 		ItemsSource="{x:Bind ViewModel.PathComponents, Mode=OneWay}"
-		KeyDown="PathBoxItem_KeyDown"
+		PreviewKeyDown="PathBoxItem_PreviewKeyDown"
 		ScrollViewer.HorizontalScrollBarVisibility="Hidden"
 		ScrollViewer.HorizontalScrollMode="Enabled"
 		ScrollViewer.VerticalScrollBarVisibility="Disabled"

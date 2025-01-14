@@ -1,5 +1,5 @@
-﻿// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+﻿// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 namespace Files.App.Data.Contracts
 {
@@ -61,6 +61,11 @@ namespace Files.App.Data.Contracts
 		bool AlwaysOpenDualPaneInNewTab { get; set; }
 
 		/// <summary>
+		/// Gets or sets a value indicating whether or not to always switch to newly opened tab.
+		/// </summary>
+		bool AlwaysSwitchToNewlyOpenedTab { get; set; }
+
+		/// <summary>
 		/// Gets or sets a value indicating whether or not to display the quick access widget.
 		/// </summary>
 		bool ShowQuickAccessWidget { get; set; }
@@ -114,7 +119,7 @@ namespace Files.App.Data.Contracts
 		/// Gets or sets a value indicating if the favorites section should be visible.
 		/// </summary>
 		bool ShowPinnedSection { get; set; }
-		
+
 		/// <summary>
 		/// Gets or sets a value indicating if the favorites section should be expanded.
 		/// </summary>
@@ -244,7 +249,7 @@ namespace Files.App.Data.Contracts
 		/// Gets or sets a value indicating whether or not to leave app running in the background.
 		/// </summary>
 		bool LeaveAppRunning { get; set; }
-		
+
 		/// <summary>
 		/// Gets or sets a value indicating whether or not to show Files in the system tray.
 		/// </summary>
@@ -284,5 +289,10 @@ namespace Files.App.Data.Contracts
 		/// Gets or sets a value indicating the default arrangement for Dual Pane.
 		/// </summary>
 		ShellPaneArrangement ShellPaneArrangementOption { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether or not to show the shelf pane.
+		/// </summary>
+		bool ShowShelfPane { get; set; }
 	}
 }

@@ -1,8 +1,9 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <Page
 	x:Class="Files.App.Views.MainPage"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:converters="using:Files.App.Converters"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:helpers="using:Files.App.Helpers"
 	xmlns:i="using:Microsoft.Xaml.Interactivity"
@@ -192,6 +193,7 @@
 							MinWidth="208" />
 						<ColumnDefinition Width="Auto" />
 						<ColumnDefinition x:Name="PaneColumn" Width="Auto" />
+						<ColumnDefinition x:Name="ShelfPaneColumn" Width="Auto" />
 					</Grid.ColumnDefinitions>
 
 					<!--  File Navigation Toolbar  -->
@@ -205,7 +207,7 @@
 						ShowPreviewPaneButton="{x:Bind ViewModel.ShouldPreviewPaneBeDisplayed, Mode=OneWay}"
 						ShowViewControlButton="{x:Bind ViewModel.ShouldViewControlBeDisplayed, Mode=OneWay}"
 						TabIndex="2"
-						Visibility="{x:Bind ViewModel.ShowToolbar, Mode=OneWay}" />
+						Visibility="{x:Bind converters:MultiBooleanConverter.AndConvertToVisibility(SidebarAdaptiveViewModel.PaneHolder.ActivePaneOrColumn.InstanceViewModel.IsPageTypeNotHome, ViewModel.ShowToolbar), Mode=OneWay}" />
 
 					<!--  Page Content  -->
 					<ContentPresenter
@@ -246,6 +248,14 @@
 						ShowInfoText="{x:Bind SidebarAdaptiveViewModel.PaneHolder.ActivePaneOrColumn.InstanceViewModel.IsPageTypeNotHome, Mode=OneWay}"
 						Visibility="{x:Bind SidebarAdaptiveViewModel.PaneHolder.ActivePaneOrColumn.InstanceViewModel.IsPageTypeNotHome, Mode=OneWay}" />
 
+					<!--  Shelf Pane  -->
+					<uc:ShelfPane
+						x:Name="ShelfPane"
+						Grid.Row="0"
+						Grid.RowSpan="5"
+						Grid.Column="3"
+						Margin="4,0,0,8"
+						x:Load="{x:Bind ViewModel.ShowShelfPane, Mode=OneWay}" />
 				</Grid>
 			</sidebar:SidebarView.InnerContent>
 		</sidebar:SidebarView>

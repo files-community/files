@@ -1,4 +1,4 @@
-<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <Window
 	x:Class="Files.App.UITests.MainWindow"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -74,6 +74,7 @@
 					</NavigationViewItem.Icon>
 					<NavigationViewItem.MenuItems>
 						<NavigationViewItem Content="ThemedIcon" Tag="ThemedIconPage" />
+						<NavigationViewItem Content="Toolbar" Tag="ToolbarPage" />
 						<NavigationViewItem Content="Storage Controls" Tag="StorageControlsPage" />
 					</NavigationViewItem.MenuItems>
 				</NavigationViewItem>

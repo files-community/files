@@ -127,7 +127,7 @@
     <value>Útvonal másolása idézőjelekkel</value>
   </data>
   <data name="CopyItemPathWithQuotes" xml:space="preserve">
-    <value>Copy selected item path with quotes</value>
+    <value>Kiválasztott elem útvonalának másolása idézőjelekkel</value>
   </data>
   <data name="Browse" xml:space="preserve">
     <value>Tallózás</value>
@@ -253,7 +253,7 @@
     <value>Beillesztés</value>
   </data>
   <data name="PasteShortcut" xml:space="preserve">
-    <value>Paste shortcut</value>
+    <value>Parancsikon beillesztése</value>
   </data>
   <data name="BaseLayoutContextFlyoutNew.Label" xml:space="preserve">
     <value>Új</value>
@@ -1245,10 +1245,10 @@
     <value>Tárterületsegéd megnyitása</value>
   </data>
   <data name="OpenStorageSenseDescription" xml:space="preserve">
-    <value>Open the Storage Sense page in Windows Settings</value>
+    <value>Nyissa meg a Tárolási érzék oldalát a Windows-beállításokban</value>
   </data>
   <data name="Cleanup" xml:space="preserve">
-    <value>Cleanup</value>
+    <value>Tisztítás</value>
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Másolás</value>
@@ -1838,6 +1838,18 @@
   <data name="CompatibilityRegisterThisProgramForRestart" xml:space="preserve">
     <value>Regisztráld ezt a programot az újraindításhoz</value>
   </data>
+  <data name="StartWindow" xml:space="preserve">
+    <value>Start window</value>
+  </data>
+  <data name="NormalWindow" xml:space="preserve">
+    <value>Normal window</value>
+  </data>
+  <data name="Minimized" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="Maximized" xml:space="preserve">
+    <value>Maximized</value>
+  </data>
   <data name="RunAsAdministrator" xml:space="preserve">
     <value>Futtatás rendszergazdaként</value>
   </data>
@@ -1947,7 +1959,7 @@
     <value>Többi lap bezárása</value>
   </data>
   <data name="CloseAllTabs" xml:space="preserve">
-    <value>Close all tabs</value>
+    <value>Összes lap bezárása</value>
   </data>
   <data name="Music" xml:space="preserve">
     <value>Zene</value>
@@ -2195,6 +2207,9 @@
   <data name="WhatsNew" xml:space="preserve">
     <value>Újdonságok</value>
   </data>
+  <data name="WhatsNewDescription" xml:space="preserve">
+    <value>Változások megnyitása</value>
+  </data>
   <data name="CannotCreateShortcutDialogTitle" xml:space="preserve">
     <value>Rendszergazdai jogosultságok szükségesek parancsikon lérehozásához ezen a helyen</value>
   </data>
@@ -2280,7 +2295,7 @@
     <value>Rejtett fájlok és mappák</value>
   </data>
   <data name="FormatDriveText" xml:space="preserve">
-    <value>Formátum</value>
+    <value>Formázás</value>
   </data>
   <data name="Help" xml:space="preserve">
     <value>Súgó</value>
@@ -2409,10 +2424,10 @@
     <value>A kiválasztott elemek elérési útjának másolása a vágólapra</value>
   </data>
   <data name="CopyItemPathDescription" xml:space="preserve">
-    <value>Copy path of selected items to the clipboard</value>
+    <value>A kijelölt elemek útvonalának másolása a vágólapra</value>
   </data>
   <data name="CopyItemPathWithQuotesDescription" xml:space="preserve">
-    <value>Copy path of selected items with quotes to the clipboard</value>
+    <value>A kijelölt elemek útvonalának másolása idézőjelekkel a vágólapra</value>
   </data>
   <data name="CopyPathWithQuotesDescription" xml:space="preserve">
     <value>A kiválasztott elemek elérési útjának másolása a vágólapra idézőjelekkel</value>
@@ -2424,7 +2439,7 @@
     <value>Elem(ek) beillesztése a vágólapról az aktuális mappába</value>
   </data>
   <data name="PasteShortcutDescription" xml:space="preserve">
-    <value>Paste item(s) from clipboard to current folder as shortcuts</value>
+    <value>Elem(ek) beillesztése a vágólapról az aktuális mappába parancsikonként</value>
   </data>
   <data name="PasteItemToSelectionDescription" xml:space="preserve">
     <value>Elem(ek) beillesztése a vágólapról a kiválasztott mappába</value>
@@ -2706,7 +2721,7 @@
     <value>A kiválasztotton kívüli lapok bezárása</value>
   </data>
   <data name="CloseAllTabsDescription" xml:space="preserve">
-    <value>Close all tabs including the current tab</value>
+    <value>Az összes lap bezárása, beleértve az aktuális lapot is</value>
   </data>
   <data name="ReopenClosedTabDescription" xml:space="preserve">
     <value>Utolsó bezárt lap újranyitása</value>
@@ -3966,7 +3981,7 @@
     <value>Navigálás a kezdőlapra</value>
   </data>
   <data name="ShowHomeButton" xml:space="preserve">
-    <value>Kezdőlap megjelenítése a címsorban</value>
+    <value>Show home button in address bar</value>
   </data>
   <data name="Toolbars" xml:space="preserve">
     <value>Eszköztárak</value>
@@ -3977,31 +3992,66 @@
   <data name="BulkRename" xml:space="preserve">
     <value>Csoportos átnevezés</value>
   </data>
+  <data name="CompressContents" xml:space="preserve">
+    <value>Tartalom tömörítése</value>
+  </data>
   <data name="ShowCreateAlternateDataStream" xml:space="preserve">
-    <value>Show option to create alternate data stream</value>
+    <value>Alternatív adatfolyam létrehozásának lehetősége</value>
   </data>
   <data name="CreateAlternateDataStream" xml:space="preserve">
-    <value>Create alternate data stream</value>
+    <value>Alternatív adatfolyam létrehozása</value>
   </data>
   <data name="CreateAlternateDataStreamDescription" xml:space="preserve">
-    <value>Create alternate data stream for the selected item(s)</value>
+    <value>Alternatív adatfolyam létrehozása a kiválasztott elem(ek) számára</value>
   </data>
   <data name="EnterDataStreamName" xml:space="preserve">
-    <value>Enter data stream name</value>
+    <value>Adatfolyam nevének megadása</value>
   </data>
   <data name="ErrorCreatingDataStreamTitle" xml:space="preserve">
-    <value>There was an error creating the alternate data stream</value>
+    <value>Hiba történt az alternatív adatfolyam létrehozásában</value>
   </data>
   <data name="ErrorCreatingDataStreamDescription" xml:space="preserve">
-    <value>Please note that alternate data streams only work on drives formatted as NTFS.</value>
+    <value>Felhívjuk figyelmét, hogy az alternatív adatfolyamok csak NTFS formátumú meghajtókon működnek.</value>
   </data>
   <data name="DataStreamsAreHiddenTitle" xml:space="preserve">
-    <value>Alternate data streams are currently hidden</value>
+    <value>Az alternatív adatfolyamok jelenleg rejtve vannak</value>
   </data>
   <data name="DataStreamsAreHiddenDescription" xml:space="preserve">
-    <value>Would you like to display alternate data streams? You can modify this setting anytime from the files and folders settings page.</value>
+    <value>Szeretne alternatív adatfolyamokat megjeleníteni? Ezt a beállítást bármikor módosíthatja a fájlok és mappák beállításai oldalon.</value>
   </data>
   <data name="ManageTags" xml:space="preserve">
-    <value>Manage tags</value>
+    <value>Címkék kezelése</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Elérhető</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Összesen</value>
+  </data>
+  <data name="AlwaysSwitchToNewlyOpenedTab" xml:space="preserve">
+    <value>A fókusz mindig az újonnan létrehozott lapra váltson</value>
+  </data>
+  <data name="ToggleShelfPane" xml:space="preserve">
+    <value>Toggle the shelf pane</value>
+  </data>
+  <data name="ToggleShelfPaneDescription" xml:space="preserve">
+    <value>Toggle the shelf pane visibility</value>
+  </data>
+  <data name="ShowShelfPaneButtonInAddressBar" xml:space="preserve">
+    <value>Show shelf pane toggle in address bar</value>
+  </data>
+  <data name="Shelf" xml:space="preserve">
+    <value>Shelf</value>
+    <comment>'Shelf' refers to the Shelf Pane feature, where users can conveniently drag and drop files for quick access and perform bulk actions with ease.</comment>
+  </data>
+  <data name="ClearItems" xml:space="preserve">
+    <value>Clear items</value>
+  </data>
+  <data name="RemoveFromShelf" xml:space="preserve">
+    <value>Remove from shelf</value>
+  </data>
+  <data name="AddToShelf" xml:space="preserve">
+    <value>Add to shelf</value>
+    <comment>Tooltip that displays when dragging items to the Shelf Pane</comment>
   </data>
 </root>

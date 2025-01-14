@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using CommunityToolkit.WinUI.UI;
 using Files.App.ViewModels.Layouts;
@@ -138,7 +138,7 @@ namespace Files.App.Views.Layouts
 			await ParentShellPageInstance.ShellViewModel.LoadExtendedItemPropertiesAsync(ParentShellPageInstance.SlimContentPage.SelectedItem);
 
 			if (ParentShellPageInstance.ShellViewModel.EnabledGitProperties is not GitProperties.None &&
-				ParentShellPageInstance.SlimContentPage.SelectedItem is GitItem gitItem)
+				ParentShellPageInstance.SlimContentPage.SelectedItem is IGitItem gitItem)
 			{
 				await ParentShellPageInstance.ShellViewModel.LoadGitPropertiesAsync(gitItem);
 			}
@@ -161,7 +161,7 @@ namespace Files.App.Views.Layouts
 			{
 				await Task.WhenAll(ParentShellPageInstance.SlimContentPage.SelectedItems.Select(item =>
 				{
-					if (item is GitItem gitItem)
+					if (item is IGitItem gitItem)
 						return ParentShellPageInstance.ShellViewModel.LoadGitPropertiesAsync(gitItem);
 
 					return Task.CompletedTask;

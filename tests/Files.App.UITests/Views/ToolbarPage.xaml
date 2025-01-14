@@ -1,0 +1,352 @@
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
+<Page
+	x:Class="Files.App.UITests.Views.ToolbarPage"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
+	xmlns:controls="using:Files.App.Controls"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:Files.App.UITests.Views"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+	mc:Ignorable="d">
+
+	<Page.Resources>
+
+		<Style x:Key="StackPanelControlTestingStyle" TargetType="StackPanel">
+			<Setter Property="Padding" Value="16,16,16,24" />
+			<Setter Property="Background" Value="{ThemeResource LayerFillColorDefaultBrush}" />
+			<Setter Property="BorderBrush" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
+			<Setter Property="BorderThickness" Value="1,0,0,0" />
+			<Setter Property="CornerRadius" Value="0,8,8,0" />
+			<Setter Property="Spacing" Value="24" />
+		</Style>
+
+
+		<Style x:Key="GridExampleControlStyle" TargetType="Grid">
+			<Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}" />
+			<Setter Property="BorderBrush" Value="{ThemeResource DividerStrokeColorDefaultBrush}" />
+			<Setter Property="BorderThickness" Value="1" />
+			<Setter Property="CornerRadius" Value="{ThemeResource OverlayCornerRadius}" />
+		</Style>
+
+		<Style
+			x:Key="TextExampleCaptionStyle"
+			BasedOn="{StaticResource CaptionTextBlockStyle}"
+			TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{ThemeResource TextFillColorSecondaryBrush}" />
+			<Setter Property="Margin" Value="24,24,24,0" />
+			<Setter Property="FontWeight" Value="Normal" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+	</Page.Resources>
+
+	<Grid Padding="36" RowSpacing="24">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<StackPanel Spacing="8">
+			<TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Toolbar" />
+			<TextBlock
+				Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+				Style="{StaticResource CaptionTextBlockStyle}"
+				Text="Files.App.Controls" />
+		</StackPanel>
+
+
+
+
+		<StackPanel Grid.Row="1" Spacing="24">
+
+			<!--#region CommandBar-->
+			<StackPanel Spacing="8">
+
+				<TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="CommandBar (for comparison)" />
+
+				<Grid Style="{StaticResource GridExampleControlStyle}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="320" />
+					</Grid.ColumnDefinitions>
+
+					<CommandBar
+						Grid.Column="0"
+						Width="Auto"
+						Margin="48"
+						DefaultLabelPosition="Collapsed"
+						IsOpen="False">
+						<AppBarButton Icon="Cut" Label="Cut" />
+						<AppBarButton Icon="Copy" Label="Copy" />
+						<AppBarSeparator />
+						<AppBarToggleButton
+							Icon="DockRight"
+							IsChecked="True"
+							Label="Dock right"
+							LabelPosition="Default" />
+						<AppBarButton Icon="DockLeft" Label="Dock left" />
+						<CommandBar.SecondaryCommands>
+							<AppBarButton Icon="Tag" Label="Tag">
+								<AppBarButton.KeyboardAccelerators>
+									<KeyboardAccelerator Key="I" Modifiers="Control" />
+								</AppBarButton.KeyboardAccelerators>
+							</AppBarButton>
+						</CommandBar.SecondaryCommands>
+					</CommandBar>
+
+					<StackPanel
+						Grid.Column="1"
+						Orientation="Vertical"
+						Style="{StaticResource StackPanelControlTestingStyle}" />
+
+				</Grid>
+			</StackPanel>
+			<!--#endregion-->
+
+
+
+
+			<!--#region Toolbar-->
+			<StackPanel Spacing="8">
+
+				<TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Toolbar" />
+
+				<Grid Style="{StaticResource GridExampleControlStyle}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="320" />
+					</Grid.ColumnDefinitions>
+
+
+					<controls:Toolbar
+						x:Name="testToolbar"
+						Grid.Column="0"
+						Margin="48"
+						HorizontalAlignment="Stretch"
+						ToolbarSize="Medium">
+
+						<controls:Toolbar.Items>
+							<controls:ToolbarItem
+								IconSize="16"
+								ItemType="Button"
+								Label="Xaml Label 1"
+								OverflowBehavior="Auto"
+								ThemedIcon="{StaticResource App.ThemedIcons.Cut}" />
+							<controls:ToolbarItem
+								IconSize="16"
+								ItemType="Button"
+								Label="Xaml Label 2"
+								OverflowBehavior="Auto"
+								ThemedIcon="{StaticResource App.ThemedIcons.Copy}">
+								<controls:ToolbarItem.SubItems>
+									<controls:ToolbarItem
+										IconSize="16"
+										ItemType="Button"
+										Label="Xaml Label 2a"
+										OverflowBehavior="Always"
+										ThemedIcon="{StaticResource App.ThemedIcons.TagEdit}" />
+								</controls:ToolbarItem.SubItems>
+							</controls:ToolbarItem>
+							<controls:ToolbarItem ItemType="Separator" OverflowBehavior="Auto" />
+							<controls:ToolbarItem
+								IconSize="16"
+								IsChecked="True"
+								ItemType="ToggleButton"
+								Label="Xaml Label 3"
+								OverflowBehavior="Auto"
+								ThemedIcon="{StaticResource App.ThemedIcons.PanelLeft}" />
+							<controls:ToolbarItem
+								IconSize="16"
+								ItemType="ToggleButton"
+								Label="Xaml Label 4"
+								OverflowBehavior="Never"
+								ThemedIcon="{StaticResource App.ThemedIcons.PanelRight}" />
+						</controls:Toolbar.Items>
+
+						<controls:Toolbar.ItemTemplate>
+							<DataTemplate x:DataType="controls:IToolbarItemSet">
+								<ContentPresenter Content="{x:Bind}" />
+							</DataTemplate>
+						</controls:Toolbar.ItemTemplate>
+					</controls:Toolbar>
+
+
+					<StackPanel
+						Grid.Column="1"
+						Orientation="Vertical"
+						Style="{StaticResource StackPanelControlTestingStyle}" />
+
+				</Grid>
+			</StackPanel>
+			<!--#endregion-->
+
+
+
+
+			<!--#region Toolbar Button-->
+			<StackPanel Spacing="8">
+
+				<TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Toolbar Button" />
+
+				<Grid Style="{StaticResource GridExampleControlStyle}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="320" />
+					</Grid.ColumnDefinitions>
+
+					<StackPanel
+						Grid.Column="1"
+						Orientation="Vertical"
+						Style="{StaticResource StackPanelControlTestingStyle}" />
+
+					<StackPanel
+						Margin="48"
+						Orientation="Horizontal"
+						Spacing="4">
+						<controls:ToolbarButton
+							MinWidth="40"
+							MinHeight="32"
+							IconSize="16"
+							Label="Button text 001"
+							ThemedIcon="{StaticResource App.ThemedIcons.RunAs.Elevated}" />
+
+						<controls:ToolbarButton
+							MinWidth="40"
+							MinHeight="32"
+							IconSize="16"
+							IsEnabled="False"
+							Label="Button text 002"
+							ThemedIcon="{StaticResource App.ThemedIcons.RunAs.Elevated}" />
+
+						<controls:ToolbarSeparator />
+
+						<controls:ToolbarButton
+							MinWidth="40"
+							MinHeight="32"
+							IconSize="16"
+							Label="Button text 003">
+							<controls:ToolbarButton.Content>
+								<AnimatedIcon Width="16" Height="16">
+									<AnimatedIcon.Source>
+										<animatedvisuals:AnimatedSettingsVisualSource />
+									</AnimatedIcon.Source>
+									<AnimatedIcon.FallbackIconSource>
+										<SymbolIconSource Symbol="Find" />
+									</AnimatedIcon.FallbackIconSource>
+								</AnimatedIcon>
+							</controls:ToolbarButton.Content>
+						</controls:ToolbarButton>
+
+					</StackPanel>
+
+				</Grid>
+			</StackPanel>
+			<!--#endregion-->
+
+
+
+
+			<!--#region Toolbar ToggleButton-->
+			<StackPanel Spacing="8">
+
+				<TextBlock Style="{StaticResource BodyStrongTextBlockStyle}" Text="Toolbar ToggleButton" />
+
+				<Grid Style="{StaticResource GridExampleControlStyle}">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="320" />
+					</Grid.ColumnDefinitions>
+
+					<StackPanel
+						Grid.Column="1"
+						Orientation="Vertical"
+						Style="{StaticResource StackPanelControlTestingStyle}" />
+
+					<StackPanel
+						Margin="48"
+						Orientation="Horizontal"
+						Spacing="4">
+
+						<controls:ToolbarToggleButton
+							Width="40"
+							Height="32"
+							IconSize="16"
+							Label="Button text 1"
+							ThemedIcon="{StaticResource App.ThemedIcons.New.Folder}" />
+
+						<controls:ToolbarToggleButton
+							Width="40"
+							Height="32"
+							IconSize="16"
+							IsEnabled="False"
+							Label="Button text 2"
+							ThemedIcon="{StaticResource App.ThemedIcons.New.Folder}" />
+
+						<controls:ToolbarSeparator />
+
+						<controls:ToolbarToggleButton
+							Width="40"
+							Height="32"
+							IconSize="16"
+							IsChecked="True"
+							Label="Button text 3"
+							ThemedIcon="{StaticResource App.ThemedIcons.New.Folder}" />
+
+						<controls:ToolbarToggleButton
+							Width="40"
+							Height="32"
+							IconSize="16"
+							IsChecked="True"
+							IsEnabled="False"
+							Label="Button text 4"
+							ThemedIcon="{StaticResource App.ThemedIcons.New.Folder}" />
+
+						<controls:ToolbarSeparator />
+
+						<controls:ToolbarToggleButton
+							Width="40"
+							Height="32"
+							IconSize="16"
+							Label="Button text 5">
+							<controls:ToolbarToggleButton.Content>
+								<AnimatedIcon Width="16" Height="16">
+									<AnimatedIcon.Source>
+										<animatedvisuals:AnimatedSettingsVisualSource />
+									</AnimatedIcon.Source>
+									<AnimatedIcon.FallbackIconSource>
+										<SymbolIconSource Symbol="Find" />
+									</AnimatedIcon.FallbackIconSource>
+								</AnimatedIcon>
+							</controls:ToolbarToggleButton.Content>
+						</controls:ToolbarToggleButton>
+
+						<controls:ToolbarToggleButton
+							Width="40"
+							Height="32"
+							IconSize="16"
+							IsChecked="True"
+							Label="Button text 6">
+							<controls:ToolbarToggleButton.Content>
+								<AnimatedIcon Width="16" Height="16">
+									<AnimatedIcon.Source>
+										<animatedvisuals:AnimatedSettingsVisualSource />
+									</AnimatedIcon.Source>
+									<AnimatedIcon.FallbackIconSource>
+										<SymbolIconSource Symbol="Find" />
+									</AnimatedIcon.FallbackIconSource>
+								</AnimatedIcon>
+							</controls:ToolbarToggleButton.Content>
+						</controls:ToolbarToggleButton>
+
+					</StackPanel>
+
+				</Grid>
+			</StackPanel>
+			<!--#endregion-->
+
+		</StackPanel>
+	</Grid>
+</Page>

@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.Services.SizeProvider;
 using Files.Shared.Helpers;
@@ -275,26 +275,50 @@ namespace Files.App.Utils.Storage
 			if (isSymlink)
 			{
 				var targetPath = Win32Helper.ParseSymLink(itemPath);
-
-				return new ShortcutItem(null)
+				if (isGitRepo)
 				{
-					PrimaryItemAttribute = StorageItemTypes.File,
-					FileExtension = itemFileExtension,
-					IsHiddenItem = isHidden,
-					Opacity = opacity,
-					FileImage = null,
-					LoadFileIcon = itemThumbnailImgVis,
-					ItemNameRaw = itemName,
-					ItemDateModifiedReal = itemModifiedDate,
-					ItemDateAccessedReal = itemLastAccessDate,
-					ItemDateCreatedReal = itemCreatedDate,
-					ItemType = "Shortcut".GetLocalizedResource(),
-					ItemPath = itemPath,
-					FileSize = itemSize,
-					FileSizeBytes = itemSizeBytes,
-					TargetPath = targetPath,
-					IsSymLink = true
-				};
+					return new GitShortcutItem()
+					{
+						PrimaryItemAttribute = StorageItemTypes.File,
+						FileExtension = itemFileExtension,
+						IsHiddenItem = isHidden,
+						Opacity = opacity,
+						FileImage = null,
+						LoadFileIcon = itemThumbnailImgVis,
+						ItemNameRaw = itemName,
+						ItemDateModifiedReal = itemModifiedDate,
+						ItemDateAccessedReal = itemLastAccessDate,
+						ItemDateCreatedReal = itemCreatedDate,
+						ItemType = "Shortcut".GetLocalizedResource(),
+						ItemPath = itemPath,
+						FileSize = itemSize,
+						FileSizeBytes = itemSizeBytes,
+						TargetPath = targetPath,
+						IsSymLink = true,
+					};
+				}
+				else
+				{
+					return new ShortcutItem(null)
+					{
+						PrimaryItemAttribute = StorageItemTypes.File,
+						FileExtension = itemFileExtension,
+						IsHiddenItem = isHidden,
+						Opacity = opacity,
+						FileImage = null,
+						LoadFileIcon = itemThumbnailImgVis,
+						ItemNameRaw = itemName,
+						ItemDateModifiedReal = itemModifiedDate,
+						ItemDateAccessedReal = itemLastAccessDate,
+						ItemDateCreatedReal = itemCreatedDate,
+						ItemType = "Shortcut".GetLocalizedResource(),
+						ItemPath = itemPath,
+						FileSize = itemSize,
+						FileSizeBytes = itemSizeBytes,
+						TargetPath = targetPath,
+						IsSymLink = true
+					};
+				}
 			}
 			else if (FileExtensionHelpers.IsShortcutOrUrlFile(findData.cFileName))
 			{
@@ -304,28 +328,58 @@ namespace Files.App.Utils.Storage
 				if (shInfo is null)
 					return null;
 
-				return new ShortcutItem(null)
+				if (isGitRepo)
 				{
-					PrimaryItemAttribute = shInfo.IsFolder ? StorageItemTypes.Folder : StorageItemTypes.File,
-					FileExtension = itemFileExtension,
-					IsHiddenItem = isHidden,
-					Opacity = opacity,
-					FileImage = null,
-					LoadFileIcon = !shInfo.IsFolder && itemThumbnailImgVis,
-					ItemNameRaw = itemName,
-					ItemDateModifiedReal = itemModifiedDate,
-					ItemDateAccessedReal = itemLastAccessDate,
-					ItemDateCreatedReal = itemCreatedDate,
-					ItemType = isUrl ? "ShortcutWebLinkFileType".GetLocalizedResource() : "Shortcut".GetLocalizedResource(),
-					ItemPath = itemPath,
-					FileSize = itemSize,
-					FileSizeBytes = itemSizeBytes,
-					TargetPath = shInfo.TargetPath,
-					Arguments = shInfo.Arguments,
-					WorkingDirectory = shInfo.WorkingDirectory,
-					RunAsAdmin = shInfo.RunAsAdmin,
-					IsUrl = isUrl,
-				};
+					return new GitShortcutItem()
+					{
+						PrimaryItemAttribute = shInfo.IsFolder ? StorageItemTypes.Folder : StorageItemTypes.File,
+						FileExtension = itemFileExtension,
+						IsHiddenItem = isHidden,
+						Opacity = opacity,
+						FileImage = null,
+						LoadFileIcon = !shInfo.IsFolder && itemThumbnailImgVis,
+						ItemNameRaw = itemName,
+						ItemDateModifiedReal = itemModifiedDate,
+						ItemDateAccessedReal = itemLastAccessDate,
+						ItemDateCreatedReal = itemCreatedDate,
+						ItemType = isUrl ? "ShortcutWebLinkFileType".GetLocalizedResource() : "Shortcut".GetLocalizedResource(),
+						ItemPath = itemPath,
+						FileSize = itemSize,
+						FileSizeBytes = itemSizeBytes,
+						TargetPath = shInfo.TargetPath,
+						Arguments = shInfo.Arguments,
+						WorkingDirectory = shInfo.WorkingDirectory,
+						RunAsAdmin = shInfo.RunAsAdmin,
+						ShowWindowCommand = shInfo.ShowWindowCommand,
+						IsUrl = isUrl,
+					};
+				}
+				else
+				{
+					return new ShortcutItem(null)
+					{
+						PrimaryItemAttribute = shInfo.IsFolder ? StorageItemTypes.Folder : StorageItemTypes.File,
+						FileExtension = itemFileExtension,
+						IsHiddenItem = isHidden,
+						Opacity = opacity,
+						FileImage = null,
+						LoadFileIcon = !shInfo.IsFolder && itemThumbnailImgVis,
+						ItemNameRaw = itemName,
+						ItemDateModifiedReal = itemModifiedDate,
+						ItemDateAccessedReal = itemLastAccessDate,
+						ItemDateCreatedReal = itemCreatedDate,
+						ItemType = isUrl ? "ShortcutWebLinkFileType".GetLocalizedResource() : "Shortcut".GetLocalizedResource(),
+						ItemPath = itemPath,
+						FileSize = itemSize,
+						FileSizeBytes = itemSizeBytes,
+						TargetPath = shInfo.TargetPath,
+						Arguments = shInfo.Arguments,
+						WorkingDirectory = shInfo.WorkingDirectory,
+						RunAsAdmin = shInfo.RunAsAdmin,
+						ShowWindowCommand = shInfo.ShowWindowCommand,
+						IsUrl = isUrl,
+					};
+				}
 			}
 			else if (App.LibraryManager.TryGetLibrary(itemPath, out LibraryLocationItem library))
 			{

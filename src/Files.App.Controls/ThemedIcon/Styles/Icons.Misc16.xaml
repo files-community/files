@@ -1,4 +1,4 @@
-<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -266,6 +266,38 @@
 						LayerSize="16"
 						LayerType="Accent"
 						PathData="M10,9v5c0,1.1-0.9,2-2,2H2c-1.1,0-2-0.9-2-2V9c0-1.1,0.9-2,2-2h6C9.1,7,10,7.9,10,9zM9,9c0-0.6-0.4-1-1-1H2C1.4,8,1,8.4,1,9v5c0,0.6,0.4,1,1,1h6c0.6,0,1-0.4,1-1V9z" />
+				</local:ThemedIconLayers>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+	<Style
+		x:Key="App.ThemedIcons.Shelf"
+		BasedOn="{StaticResource DefaultThemedIconStyle}"
+		TargetType="local:ThemedIcon">
+
+
+		<Setter Property="IconSize" Value="16" />
+
+		<Setter Property="OutlineIconData" Value="m4.15,8.15c-.2.2-.2.51,0,.71l3,3c.2.2.51.2.71,0l3-3c.2-.2.2-.51,0-.71-.2-.2-.51-.2-.71,0l-2.15,2.15V.5C8,.22,7.78,0,7.5,0s-.5.22-.5.5v9.79l-2.15-2.15c-.2-.2-.51-.2-.71,0ZM9,1.15v1.02c2.87.68,5,3.25,5,6.33,0,3.59-2.91,6.5-6.5,6.5S1,12.09,1,8.5c0-3.07,2.13-5.65,5-6.33v-1.02C2.58,1.85,0,4.87,0,8.5c0,4.14,3.36,7.5,7.5,7.5s7.5-3.36,7.5-7.5c0-3.63-2.58-6.66-6-7.35Z" />
+		<Setter Property="FilledIconData" Value="m4.2,8.25c-.28.31-.26.78.05,1.06l2.75,2.5c.29.26.72.26,1.01,0l2.75-2.5c.31-.28.33-.75.05-1.06-.28-.31-.75-.33-1.06-.05l-1.5,1.36V.75C8.25.34,7.91,0,7.5,0s-.75.34-.75.75v8.8l-1.5-1.36c-.31-.28-.78-.26-1.06.05ZM9.25,1.21v1.55c2.46.75,4.25,3.04,4.25,5.74,0,3.31-2.69,6-6,6S1.5,11.81,1.5,8.5c0-2.7,1.79-4.99,4.25-5.74v-1.55C2.45,1.99,0,4.96,0,8.5c0,4.14,3.36,7.5,7.5,7.5s7.5-3.36,7.5-7.5c0-3.54-2.45-6.51-5.75-7.29Z" />
+
+		<Setter Property="Layers">
+			<Setter.Value>
+				<local:ThemedIconLayers>
+					<local:ThemedIconLayer
+						LayerSize="16"
+						LayerType="Alt"
+						PathData="m6,1.66v6.22l-.44-.44c-.59-.59-1.54-.59-2.12,0-.59.59-.59,1.54,0,2.12l3,3c.59.59,1.54.59,2.12,0l3-3c.59-.59.59-1.54,0-2.12-.59-.59-1.54-.59-2.12,0l-.44.44V1.66c3.15.69,5.5,3.49,5.5,6.84,0,3.87-3.13,7-7,7S.5,12.37.5,8.5C.5,5.15,2.85,2.35,6,1.66Z" />
+					<local:ThemedIconLayer
+						LayerSize="16"
+						LayerType="Base"
+						PathData="m6,1.15C2.58,1.85,0,4.87,0,8.5c0,4.14,3.36,7.5,7.5,7.5s7.5-3.36,7.5-7.5c0-3.63-2.58-6.66-6-7.35v1.02c2.87.68,5,3.25,5,6.33,0,3.59-2.91,6.5-6.5,6.5S1,12.09,1,8.5c0-3.07,2.13-5.65,5-6.33v-1.02Z" />
+					<local:ThemedIconLayer
+						LayerSize="16"
+						LayerType="Accent"
+						PathData="m7.5,0c.28,0,.5.22.5.5v9.79l2.15-2.15c.2-.2.51-.2.71,0,.2.2.2.51,0,.71l-3,3c-.2.2-.51.2-.71,0l-3-3c-.2-.2-.2-.51,0-.71.2-.2.51-.2.71,0l2.15,2.15V.5c0-.28.22-.5.5-.5Z" />
 				</local:ThemedIconLayers>
 			</Setter.Value>
 		</Setter>

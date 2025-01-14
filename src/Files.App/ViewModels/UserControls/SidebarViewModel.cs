@@ -1,5 +1,5 @@
-// Copyright (c) 2024 Files Community
-// Licensed under the MIT License. See the LICENSE.
+// Copyright (c) Files Community
+// Licensed under the MIT License.
 
 using Files.App.Helpers.ContextFlyouts;
 using Files.App.UserControls.Sidebar;
@@ -761,7 +761,7 @@ namespace Files.App.ViewModels.UserControls
 				middleClickPressed) &&
 				navigationControlItem.Path is not null)
 			{
-				await NavigationHelpers.OpenPathInNewTab(navigationControlItem.Path, false);
+				await NavigationHelpers.OpenPathInNewTab(navigationControlItem.Path);
 				return;
 			}
 
@@ -961,15 +961,15 @@ namespace Files.App.ViewModels.UserControls
 				}.Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(Commands.OpenInNewTabFromSidebarAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewTab && Commands.OpenInNewTabFromSidebarAction.IsExecutable
 				}.Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(Commands.OpenInNewWindowFromSidebarAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewWindow && Commands.OpenInNewWindowFromSidebarAction.IsExecutable
 				}.Build(),
 				new ContextMenuFlyoutItemViewModelBuilder(Commands.OpenInNewPaneFromSidebarAction)
 				{
-					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane
+					IsVisible = UserSettingsService.GeneralSettingsService.ShowOpenInNewPane && Commands.OpenInNewPaneFromSidebarAction.IsExecutable
 				}.Build(),
 				new ContextMenuFlyoutItemViewModel()
 				{
@@ -1214,22 +1214,19 @@ namespace Files.App.ViewModels.UserControls
 
 			args.RawEvent.Handled = true;
 
-			// Comment out the code for dropping to Tags section as it is currently not supported.
+			var storageItems = await Utils.Storage.FilesystemHelpers.GetDraggedStorageItems(args.DroppedItem);
 
-			//var storageItems = await Utils.Storage.FilesystemHelpers.GetDraggedStorageItems(args.DroppedItem);
-
-			//if (!storageItems.Any())
-			//{
-			args.RawEvent.AcceptedOperation = DataPackageOperation.None;
-			//}
-			//else
-			//{
-			//	args.RawEvent.DragUIOverride.IsCaptionVisible = true;
-			//	args.RawEvent.DragUIOverride.Caption = string.Format("LinkToFolderCaptionText".GetLocalizedResource(), tagItem.Text);
-			//	args.RawEvent.AcceptedOperation = DataPackageOperation.Link;
-			//}
+			if (!storageItems.Any(x => !string.IsNullOrEmpty(x.Path)))
+			{
+				args.RawEvent.AcceptedOperation = DataPackageOperation.None;
+			}
+			else
+			{
+				args.RawEvent.DragUIOverride.IsCaptionVisible = true;
+				args.RawEvent.DragUIOverride.Caption = string.Format("LinkToFolderCaptionText".GetLocalizedResource(), tagItem.Text);
+				args.RawEvent.AcceptedOperation = DataPackageOperation.Link;
+			}
 		}
-
 
 		public async Task HandleItemDroppedAsync(ItemDroppedEventArgs args)
 		{
@@ -1237,11 +1234,8 @@ namespace Files.App.ViewModels.UserControls
 				await HandleLocationItemDroppedAsync(locationItem, args);
 			else if (args.DropTarget is DriveItem driveItem)
 				await HandleDriveItemDroppedAsync(driveItem, args);
-
-			// Comment out the code for dropping to Tags section as it is currently not supported.
-
-			//else if (args.DropTarget is FileTagItem fileTagItem)
-			//	await HandleTagItemDroppedAsync(fileTagItem, args);
+			else if (args.DropTarget is FileTagItem fileTagItem)
+				await HandleTagItemDroppedAsync(fileTagItem, args);
 		}
 
 		private async Task HandleLocationItemDroppedAsync(LocationItem locationItem, ItemDroppedEventArgs args)
@@ -1269,18 +1263,20 @@ namespace Files.App.ViewModels.UserControls
 			return FilesystemHelpers.PerformOperationTypeAsync(args.RawEvent.AcceptedOperation, args.RawEvent.DataView, driveItem.Path, false, true);
 		}
 
-		// TODO: This method effectively does nothing. We need to implement the functionality for dropping to Tags section.
 		private async Task HandleTagItemDroppedAsync(FileTagItem fileTagItem, ItemDroppedEventArgs args)
 		{
 			var storageItems = await Utils.Storage.FilesystemHelpers.GetDraggedStorageItems(args.DroppedItem);
+			var dbInstance = FileTagsHelper.GetDbInstance();
 			foreach (var item in storageItems.Where(x => !string.IsNullOrEmpty(x.Path)))
 			{
-				var listedItem = new ListedItem(null)
+				var filesTags = FileTagsHelper.ReadFileTag(item.Path);
+				if (!filesTags.Contains(fileTagItem.FileTag.Uid))
 				{
-					ItemPath = item.Path,
-					FileFRN = await FileTagsHelper.GetFileFRN(item.Item),
-					FileTags = [fileTagItem.FileTag.Uid]
-				};
+					filesTags = [.. filesTags, fileTagItem.FileTag.Uid];
+					var fileFRN = await FileTagsHelper.GetFileFRN(item.Item);
+					dbInstance.SetTags(item.Path, fileFRN, filesTags);
+					FileTagsHelper.WriteFileTag(item.Path, filesTags);
+				}
 			}
 		}
 

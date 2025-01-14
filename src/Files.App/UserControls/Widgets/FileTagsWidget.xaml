@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <UserControl
 	x:Class="Files.App.UserControls.Widgets.FileTagsWidget"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -16,6 +16,11 @@
 	<UserControl.Resources>
 		<converters:StringToBrushConverter x:Key="StringToBrushConverter" />
 		<converters:ImageModelToImageConverter x:Key="ImageModelToImageConverter" />
+
+		<!--  Override border on GridViewItem  -->
+		<Thickness x:Key="GridViewItemSelectedBorderThickness">0</Thickness>
+		<SolidColorBrush x:Key="GridViewItemSelectedInnerBorderBrush" Color="Transparent" />
+		<SolidColorBrush x:Key="GridViewItemPointerOverBorderBrush" Color="Transparent" />
 	</UserControl.Resources>
 
 	<!--  Collection of containers  -->
@@ -124,6 +129,7 @@
 						DesiredWidth="180"
 						IsItemClickEnabled="True"
 						ItemClick="FileTagItem_ItemClick"
+						ItemContainerTransitions="{x:Null}"
 						ItemsSource="{x:Bind Tags}"
 						RightTapped="AdaptiveGridView_RightTapped"
 						ScrollViewer.VerticalScrollBarVisibility="Hidden"
@@ -132,6 +138,7 @@
 
 						<wctcontrols:AdaptiveGridView.ItemContainerStyle>
 							<Style BasedOn="{StaticResource DefaultGridViewItemStyle}" TargetType="GridViewItem">
+								<Setter Property="MinHeight" Value="32" />
 								<Setter Property="Padding" Value="8,0" />
 							</Style>
 						</wctcontrols:AdaptiveGridView.ItemContainerStyle>
@@ -150,8 +157,8 @@
 									<!--  Icon  -->
 									<Image
 										Grid.Column="0"
-										Width="20"
-										Height="20"
+										Width="16"
+										Height="16"
 										VerticalAlignment="Center"
 										Source="{x:Bind Icon, Mode=OneWay, Converter={StaticResource ImageModelToImageConverter}}" />
 

@@ -1,4 +1,4 @@
-﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+﻿<!--  Copyright (c) Files Community. Licensed under the MIT License.  -->
 <Page
 	x:Class="Files.App.Views.Settings.AdvancedPage"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -169,7 +169,7 @@
 				x:Name="ReplaceOpenFileDialogSetting"
 				Title="{helpers:ResourceString Name=SettingsSetAsOpenDialog}"
 				HorizontalAlignment="Stretch"
-				x:Load="{x:Bind ViewModel.CanShowSetAsOpenFileDialog}">
+				x:Load="{x:Bind ViewModel.IsAppEnvironmentDev}">
 				<local:SettingsBlockControl.Icon>
 					<FontIcon Glyph="&#xE8E5;" />
 				</local:SettingsBlockControl.Icon>
