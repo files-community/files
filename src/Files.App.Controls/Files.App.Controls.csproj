@@ -15,6 +15,33 @@
         <Optimize Condition="'$(Configuration)' != 'Debug'">true</Optimize>
     </PropertyGroup>
 
+	<PropertyGroup>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Files UI Controls</Title>
+		<Authors>files-community</Authors>
+		<Company>Files Community</Company>
+		<Copyright>Copyright (c) 2024 Files Community</Copyright>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/files-community/Files</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>files, files-community, winui, winappsdk</PackageTags>
+		<Description>Elevate your WinUI applications with our collection of custom-built controls, crafted specifically to address our needs in Files. These controls are provided "as is", with no guaranteed support, but we hope they prove useful to the developer community.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<!--Version>{version}</Version>-->
+		<PackageProjectUrl>https://files.community</PackageProjectUrl>
+		<PackageIcon>StoreLogo.scale-400.png</PackageIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\Files.App (Package)\Assets\AppTiles\Release\StoreLogo.scale-400.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.WinUI.UI" Version="7.1.2" />
         <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.250108004" />
@@ -24,6 +51,13 @@
     <ItemGroup>
         <ProjectReference Include="..\Files.Shared\Files.Shared.csproj" />
         <ProjectReference Include="..\Files.Core.SourceGenerator\Files.Core.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>
