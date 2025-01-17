@@ -103,17 +103,24 @@ namespace Files.App.Utils.Cloud
 				};
 			}
 
+			// Log the contents of the root_preferences database to the debug output.
 			await Inspect(database, "SELECT * FROM roots", "root_preferences db, roots table");
 			await Inspect(database, "SELECT * FROM media", "root_preferences db, media table");
 			await Inspect(database, "SELECT name FROM sqlite_master WHERE type = 'table' ORDER BY 1", "root_preferences db, all tables");
 
-			var registryPath = App.AppModel.GoogleDrivePath;
-			if (!AddMyDriveToPathAndValidate(ref registryPath))
+			// Query the Windows Registry for the base Google Drive path and time the query.
+			var sw = Stopwatch.StartNew();
+			var googleDrivePath = GetRegistryBasePath() ?? string.Empty;
+			sw.Stop();
+			Debug.WriteLine($"Google Drive path registry check took {sw.Elapsed} seconds.");
+
+			// Add "My Drive" to the base GD path; validate; return the resulting cloud provider.
+			if (!AddMyDriveToPathAndValidate(ref googleDrivePath))
 				yield break;
 			yield return new CloudProvider(CloudProviders.GoogleDrive)
 			{
 				Name = "Google Drive",
-				SyncFolder = registryPath,
+				SyncFolder = googleDrivePath,
 				IconData = iconFile is not null ? await iconFile.ToByteArrayAsync() : null
 			};
 		}
@@ -164,6 +171,11 @@ namespace Files.App.Utils.Cloud
 			return googleDriveRegValueJson;
 		}
 
+		/// <summary>
+        /// Get the base file system path for Google Drive from the Registry.
+        /// For advanced "Google Drive for desktop" settings reference, see:
+        /// https://support.google.com/a/answer/7644837
+		/// </summary>
 		public static string? GetRegistryBasePath()
 		{
 			var googleDriveRegValJson = GetGoogleDriveRegValJson();
@@ -175,8 +187,8 @@ namespace Files.App.Utils.Cloud
 				.RootElement.EnumerateObject()
 				.FirstOrDefault();
 
-			// A default JsonProperty struct has an "Undefined" Value#ValueKind and throws an
-			// error if you try to call EnumerateArray on its Value.
+			// A default `JsonProperty` struct has an Undefined `Value.ValueKind` and throws an
+			// error if you try to call `EnumerateArray` on its `Value`.
 			if (googleDriveRegValJsonProperty.Value.ValueKind == JsonValueKind.Undefined)
 			{
 				_logger.LogWarning($"Root element of Google Drive registry value for value name '{_googleDriveRegValName}' was empty.");
