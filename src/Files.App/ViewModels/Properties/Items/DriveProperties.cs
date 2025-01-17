@@ -83,7 +83,28 @@ namespace Files.App.ViewModels.Properties
 				string capacity = "System.Capacity";
 				string fileSystem = "System.Volume.FileSystem";
 
-				var properties = await diskRoot.Properties.RetrievePropertiesAsync([freeSpace, capacity, fileSystem]);
+
+				IDictionary<string, object>? properties = null;
+				bool propsAssigned = false;
+				if (string.IsNullOrEmpty(diskRoot.Path) && Drive.Path.StartsWith(@"\\?\", StringComparison.Ordinal))
+				{
+					var systemFolder = (await diskRoot.GetFoldersAsync())[0];
+					if (systemFolder != null)
+					{
+						properties = await systemFolder.Properties.RetrievePropertiesAsync([freeSpace, capacity, fileSystem])
+							.AsTask().WithTimeoutAsync(TimeSpan.FromSeconds(5));
+						propsAssigned = properties is not null;
+					}
+				}
+
+				if (!propsAssigned)
+				{
+					properties = await diskRoot.Properties.RetrievePropertiesAsync([freeSpace, capacity, fileSystem])
+						.AsTask().WithTimeoutAsync(TimeSpan.FromSeconds(5));
+				}
+
+				if (properties is null)
+					return;
 
 				ViewModel.DriveCapacityValue = (ulong)properties[capacity];
 				ViewModel.DriveFreeSpaceValue = (ulong)properties[freeSpace];

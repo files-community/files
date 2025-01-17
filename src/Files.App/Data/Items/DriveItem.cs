@@ -6,6 +6,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Windows.Storage;
+using Windows.Storage.Provider;
 using Windows.Storage.Streams;
 using ByteSize = ByteSizeLib.ByteSize;
 
@@ -278,7 +279,37 @@ namespace Files.App.Data.Items
 		{
 			try
 			{
-				var properties = await Root.Properties.RetrievePropertiesAsync(["System.FreeSpace", "System.Capacity", "System.Volume.FileSystem"])
+
+				// Double check version
+				//IDictionary<string, object>? properties = null;
+				//bool propsAssigned = false;
+				//if (string.IsNullOrEmpty(Root.Path) && Path.StartsWith(@"\\?\", StringComparison.Ordinal))
+				//{
+				//	var systemFolder = ;
+				//	if (systemFolder != null)
+				//	{
+				//		properties = await systemFolder.Properties.RetrievePropertiesAsync(["System.FreeSpace", "System.Capacity", "System.Volume.FileSystem"])
+				//			.AsTask().WithTimeoutAsync(TimeSpan.FromSeconds(5));
+				//		propsAssigned = properties is not null;
+				//	}
+				//}
+
+				//if (!propsAssigned)
+				//{
+				//	properties = await Root.Properties.RetrievePropertiesAsync(["System.FreeSpace", "System.Capacity", "System.Volume.FileSystem"])
+				//		.AsTask().WithTimeoutAsync(TimeSpan.FromSeconds(5));
+				//}
+				//----------------------------------------------
+
+				var propertiesSource = Root;
+				if (string.IsNullOrEmpty(Root.Path) &&
+					Path.StartsWith(@"\\?\", StringComparison.Ordinal) &&
+					(await Root.GetFoldersAsync())[0] is StorageFolder systemFolder)
+				{
+					propertiesSource = systemFolder;
+				}
+
+				var properties = await propertiesSource.Properties.RetrievePropertiesAsync(["System.FreeSpace", "System.Capacity", "System.Volume.FileSystem"])
 					.AsTask().WithTimeoutAsync(TimeSpan.FromSeconds(5));
 
 				if (properties is not null && properties["System.Capacity"] is not null && properties["System.FreeSpace"] is not null)
