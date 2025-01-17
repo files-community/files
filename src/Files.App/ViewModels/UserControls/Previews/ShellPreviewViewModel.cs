@@ -249,11 +249,11 @@ namespace Files.App.ViewModels.Previews
 					(uint)Marshal.SizeOf(dwAttrib));
 
 				if (isOfficePreview)
-					PInvoke.SetWindowLongPtr(new((nint)hwnd), WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, 0);
+					PInvoke.SetWindowLongPlat(new((nint)hwnd), WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, 0);
 			}
 			else
 			{
-				PInvoke.SetWindowLongPtr(new((nint)hwnd), WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, (nint)(WINDOW_EX_STYLE.WS_EX_LAYERED | WINDOW_EX_STYLE.WS_EX_COMPOSITED));
+				PInvoke.SetWindowLongPlat(new((nint)hwnd), WINDOW_LONG_PTR_INDEX.GWL_EXSTYLE, (nint)(WINDOW_EX_STYLE.WS_EX_LAYERED | WINDOW_EX_STYLE.WS_EX_COMPOSITED));
 
 				var dwAttrib = Convert.ToUInt32(true);
 

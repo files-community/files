@@ -99,6 +99,7 @@ SendMessage
 IsWindowVisible
 COPYDATASTRUCT
 SetWindowLongPtr
+SetWindowLong
 GetDpiForWindow
 CallWindowProc
 MINMAXINFO

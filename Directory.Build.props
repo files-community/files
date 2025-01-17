@@ -1,0 +1,14 @@
+﻿<!--  Copyright (c) 2024 Files Community. Licensed under the MIT License. See the LICENSE.  -->
+<Project>
+
+    <PropertyGroup Condition="'$(MSBuildProjectExtension)' == '.csproj'">
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>x86;x64;arm64</Platforms>
+        <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>enable</Nullable>
+        <DefineConstants>$(DefineConstants);$(Platform)</DefineConstants>
+        <Optimize Condition="'$(Configuration)' != 'Debug'">true</Optimize>
+    </PropertyGroup>
+
+</Project>

@@ -6,13 +6,6 @@
         <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
         <UseWinUI>true</UseWinUI>
         <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
-        <Nullable>enable</Nullable>
-        <Configurations>Debug;Release</Configurations>
-        <Platforms>x86;x64;arm64</Platforms>
-        <RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
-        <DefineConstants Condition="'$(Configuration)' == 'Debug'">TRACE;DEBUG;NETFX_CORE</DefineConstants>
-        <DefineConstants Condition="'$(Configuration)' != 'Debug'">TRACE;RELEASE;NETFX_CORE</DefineConstants>
-        <Optimize Condition="'$(Configuration)' != 'Debug'">true</Optimize>
     </PropertyGroup>
 
     <ItemGroup>

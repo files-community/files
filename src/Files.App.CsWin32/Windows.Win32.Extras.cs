@@ -17,4 +17,16 @@ namespace Windows.Win32
 		[UnmanagedFunctionPointer(CallingConvention.Winapi)]
 		public delegate LRESULT WNDPROC(HWND hWnd, uint msg, WPARAM wParam, LPARAM lParam);
 	}
+
+	public static partial class PInvoke
+	{
+		public static nint SetWindowLongPlat(HWND hWnd, UI.WindowsAndMessaging.WINDOW_LONG_PTR_INDEX nIndex, nint dwNewLong)
+		{
+#if x86
+			return SetWindowLong(hWnd, nIndex, (int)dwNewLong);
+#else
+			return SetWindowLongPtr(hWnd, nIndex, dwNewLong);
+#endif
+		}
+	}
 }

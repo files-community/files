@@ -102,7 +102,7 @@ namespace Files.App.Data.Items
 
 			_newWndProc = new(NewWindowProc);
 			var pNewWndProc = Marshal.GetFunctionPointerForDelegate(_newWndProc);
-			var pOldWndProc = PInvoke.SetWindowLongPtr(new(WindowHandle), WINDOW_LONG_PTR_INDEX.GWL_WNDPROC, pNewWndProc);
+			var pOldWndProc = PInvoke.SetWindowLongPlat(new(WindowHandle), WINDOW_LONG_PTR_INDEX.GWL_WNDPROC, pNewWndProc);
 			_oldWndProc = Marshal.GetDelegateForFunctionPointer<WNDPROC>(pOldWndProc);
 
 			Closed += WindowEx_Closed;
