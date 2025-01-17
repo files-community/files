@@ -10,8 +10,11 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Input;
 using System.IO;
 using System.Windows.Input;
+using Vanara.PInvoke;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.DataTransfer.DragDrop;
 using Windows.UI.Text;
+using WinRT;
 using FocusManager = Microsoft.UI.Xaml.Input.FocusManager;
 
 namespace Files.App.ViewModels.UserControls
@@ -360,6 +363,10 @@ namespace Files.App.ViewModels.UserControls
 					TimeSpan.FromMilliseconds(Constants.DragAndDrop.HoverToOpenTimespan), false);
 				}
 			}
+
+			// Check if this is a right-button drag operation and store into the dataobject
+			if (e.Modifiers.HasFlag(DragDropModifiers.RightButton))
+				e.DataView.As<Shell32.IDataObjectProvider>().GetDataObject().SetData<bool>("dragRightButton", true);
 
 			// In search page
 			if (!FilesystemHelpers.HasDraggedStorageItems(e.DataView) || string.IsNullOrEmpty(pathBoxItem.Path))

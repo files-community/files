@@ -7,10 +7,12 @@ using Microsoft.UI.Xaml.Input;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Input;
+using Vanara.PInvoke;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.DataTransfer.DragDrop;
 using Windows.Storage;
 using Windows.System;
+using WinRT;
 
 namespace Files.App.ViewModels.Layouts
 {
@@ -100,6 +102,10 @@ namespace Files.App.ViewModels.Layouts
 				return;
 			}
 
+			// Check if this is a right-button drag operation and store into the dataobject
+			if (e.Modifiers.HasFlag(DragDropModifiers.RightButton))
+				e.DataView.As<Shell32.IDataObjectProvider>().GetDataObject().SetData<bool>("dragRightButton", true);
+
 			if (FilesystemHelpers.HasDraggedStorageItems(e.DataView))
 			{
 				e.Handled = true;
@@ -187,7 +193,16 @@ namespace Files.App.ViewModels.Layouts
 
 				try
 				{
-					await _associatedInstance.FilesystemHelpers.PerformOperationTypeAsync(e.AcceptedOperation, e.DataView, _associatedInstance.ShellViewModel.WorkingDirectory, false, true);
+					e.DataView.As<Shell32.IDataObjectProvider>().GetDataObject().TryGetData<bool>(User32.RegisterClipboardFormat("dragRightButton"), out var isRightButtonDrag);
+
+					if (isRightButtonDrag)
+					{
+						SafetyExtensions.IgnoreExceptions(() => ShellContextFlyoutFactory.InvokeRightButtonDropMenu(_associatedInstance.ShellViewModel.WorkingDirectory, e.DataView, e.AcceptedOperation));
+					}
+					else
+					{
+						await _associatedInstance.FilesystemHelpers.PerformOperationTypeAsync(e.AcceptedOperation, e.DataView, _associatedInstance.ShellViewModel.WorkingDirectory, false, true);
+					}
 					await _associatedInstance.RefreshIfNoWatcherExistsAsync();
 				}
 				finally

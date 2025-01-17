@@ -9,9 +9,11 @@ using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Vanara.PInvoke;
 using Windows.Foundation.Metadata;
 using Windows.System;
 using Windows.UI.Core;
+using WinRT;
 using DispatcherQueueTimer = Microsoft.UI.Dispatching.DispatcherQueueTimer;
 
 namespace Files.App.Views.Shells
@@ -417,7 +419,16 @@ namespace Files.App.Views.Shells
 
 		protected async void ShellPage_PathBoxItemDropped(object sender, PathBoxItemDroppedEventArgs e)
 		{
-			await FilesystemHelpers.PerformOperationTypeAsync(e.AcceptedOperation, e.Package, e.Path, false, true);
+			e.Package.As<Shell32.IDataObjectProvider>().GetDataObject().TryGetData<bool>(User32.RegisterClipboardFormat("dragRightButton"), out var isRightButtonDrag);
+
+			if (isRightButtonDrag)
+			{
+				SafetyExtensions.IgnoreExceptions(() => ShellContextFlyoutFactory.InvokeRightButtonDropMenu(e.Path, e.Package, e.AcceptedOperation));
+			}
+			else
+			{
+				await FilesystemHelpers.PerformOperationTypeAsync(e.AcceptedOperation, e.Package, e.Path, false, true);
+			}
 			e.SignalEvent?.Set();
 		}
 

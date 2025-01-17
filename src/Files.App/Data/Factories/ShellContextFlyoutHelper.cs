@@ -9,10 +9,13 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Imaging;
 using System.IO;
+using Vanara.PInvoke;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.Win32;
 using Windows.Win32.UI.WindowsAndMessaging;
+using WinRT;
 
 namespace Files.App.Helpers
 {
@@ -415,6 +418,21 @@ namespace Files.App.Helpers
 					flyoutSubItem.Visibility = Visibility.Visible;
 				}
 			}
+		}
+
+		public static void InvokeRightButtonDropMenu(string folderPath, DataPackageView dataView, DataPackageOperation acceptedOperation)
+		{
+			using var sf = new Vanara.Windows.Shell.ShellItem(folderPath);
+			if (!sf.IsFolder)
+				return;
+
+			PInvoke.GetCursorPos(out var dropPoint);
+
+			var dataObjectProvider = dataView.As<Shell32.IDataObjectProvider>();
+			var iddo = dataObjectProvider.GetDataObject();
+			var dropTarget = sf.GetHandler<Ole32.IDropTarget>(Shell32.BHID.BHID_SFViewObject);
+			dropTarget.DragEnter(iddo, MouseButtonState.MK_RBUTTON, new() { X = dropPoint.X, Y = dropPoint.Y }, (Ole32.DROPEFFECT)acceptedOperation);
+			dropTarget.Drop(iddo, MouseButtonState.MK_RBUTTON, new() { X = dropPoint.X, Y = dropPoint.Y }, (Ole32.DROPEFFECT)acceptedOperation);
 		}
 	}
 }
