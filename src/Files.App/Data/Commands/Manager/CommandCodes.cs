@@ -133,7 +133,7 @@ namespace Files.App.Data.Commands
 		LayoutIncreaseSize,
 		LayoutDetails,
 		LayoutList,
-		LayoutTiles,
+		LayoutCards,
 		LayoutGrid,
 		LayoutColumns,
 		LayoutAdaptive,

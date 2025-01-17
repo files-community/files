@@ -19,8 +19,8 @@ namespace Files.App.Converters
 					=> LocalizedEnumDescriptionFactory.Get(Enum.Parse<DetailsViewSizeKind>(stringValue)),
 				"ListViewSizeKind"
 					=> LocalizedEnumDescriptionFactory.Get(Enum.Parse<ListViewSizeKind>(stringValue)),
-				"TilesViewSizeKind"
-					=> LocalizedEnumDescriptionFactory.Get(Enum.Parse<TilesViewSizeKind>(stringValue)),
+				"CardsViewSizeKind"
+					=> LocalizedEnumDescriptionFactory.Get(Enum.Parse<CardsViewSizeKind>(stringValue)),
 				"GridViewSizeKind"
 					=> LocalizedEnumDescriptionFactory.Get(Enum.Parse<GridViewSizeKind>(stringValue)),
 				"ColumnsViewSizeKind"

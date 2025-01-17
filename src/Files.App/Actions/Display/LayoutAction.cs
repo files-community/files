@@ -39,16 +39,16 @@ namespace Files.App.Actions
 			=> new(Keys.Number2, KeyModifiers.CtrlShift);
 	}
 
-	internal sealed class LayoutTilesAction : ToggleLayoutAction
+	internal sealed class LayoutCardsAction : ToggleLayoutAction
 	{
 		protected override LayoutTypes LayoutType
-			=> LayoutTypes.Tiles;
+			=> LayoutTypes.Cards;
 
 		public override string Label
-			=> "Tiles".GetLocalizedResource();
+			=> Strings.Cards.GetLocalizedResource();
 
 		public override string Description
-			=> "LayoutTilesDescription".GetLocalizedResource();
+			=> Strings.LayoutCardsDescription.GetLocalizedResource();
 
 		public override RichGlyph Glyph
 			=> new(themedIconStyle: "App.ThemedIcons.IconLayout.Tiles");
@@ -190,6 +190,7 @@ namespace Files.App.Actions
 			ContentPageContext.ShellPage?.InstanceViewModel.FolderSettings.LayoutMode is FolderLayoutModes layoutMode &&
 			((layoutMode is FolderLayoutModes.DetailsView && UserSettingsService.LayoutSettingsService.DetailsViewSize > DetailsViewSizeKind.Compact) ||
 			(layoutMode is FolderLayoutModes.ListView && UserSettingsService.LayoutSettingsService.ListViewSize > ListViewSizeKind.Compact) ||
+			(layoutMode is FolderLayoutModes.CardsView && UserSettingsService.LayoutSettingsService.CardsViewSize > CardsViewSizeKind.Small) ||
 			(layoutMode is FolderLayoutModes.GridView && UserSettingsService.LayoutSettingsService.GridViewSize > GridViewSizeKind.Small) ||
 			(layoutMode is FolderLayoutModes.ColumnView && UserSettingsService.LayoutSettingsService.ColumnsViewSize > ColumnsViewSizeKind.Compact));
 
@@ -217,6 +218,7 @@ namespace Files.App.Actions
 				case nameof(ILayoutSettingsService.ListViewSize):
 				case nameof(ILayoutSettingsService.GridViewSize):
 				case nameof(ILayoutSettingsService.ColumnsViewSize):
+				case nameof(ILayoutSettingsService.CardsViewSize):
 					OnPropertyChanged(nameof(IsExecutable));
 					break;
 			}
@@ -234,7 +236,9 @@ namespace Files.App.Actions
 					if (UserSettingsService.LayoutSettingsService.ListViewSize > ListViewSizeKind.Compact)
 						UserSettingsService.LayoutSettingsService.ListViewSize -= 1;
 					break;
-				case FolderLayoutModes.TilesView:
+				case FolderLayoutModes.CardsView:
+					if (UserSettingsService.LayoutSettingsService.CardsViewSize > CardsViewSizeKind.Small)
+						UserSettingsService.LayoutSettingsService.CardsViewSize -= 1; 
 					break;
 				case FolderLayoutModes.GridView:
 					if (UserSettingsService.LayoutSettingsService.GridViewSize > GridViewSizeKind.Small)
@@ -274,6 +278,7 @@ namespace Files.App.Actions
 			ContentPageContext.ShellPage?.InstanceViewModel.FolderSettings.LayoutMode is FolderLayoutModes layoutMode && 
 			((layoutMode is FolderLayoutModes.DetailsView && UserSettingsService.LayoutSettingsService.DetailsViewSize < DetailsViewSizeKind.ExtraLarge) ||
 			(layoutMode is FolderLayoutModes.ListView && UserSettingsService.LayoutSettingsService.ListViewSize < ListViewSizeKind.ExtraLarge) ||
+			(layoutMode is FolderLayoutModes.CardsView && UserSettingsService.LayoutSettingsService.CardsViewSize < CardsViewSizeKind.ExtraLarge) ||
 			(layoutMode is FolderLayoutModes.GridView && UserSettingsService.LayoutSettingsService.GridViewSize < GridViewSizeKind.ExtraLarge) ||
 			(layoutMode is FolderLayoutModes.ColumnView && UserSettingsService.LayoutSettingsService.ColumnsViewSize < ColumnsViewSizeKind.ExtraLarge));
 
@@ -318,7 +323,9 @@ namespace Files.App.Actions
 					if (UserSettingsService.LayoutSettingsService.ListViewSize < ListViewSizeKind.ExtraLarge)
 						UserSettingsService.LayoutSettingsService.ListViewSize += 1;
 					break;
-				case FolderLayoutModes.TilesView:
+				case FolderLayoutModes.CardsView:
+					if (UserSettingsService.LayoutSettingsService.CardsViewSize < CardsViewSizeKind.ExtraLarge)
+						UserSettingsService.LayoutSettingsService.CardsViewSize += 1;
 					break;
 				case FolderLayoutModes.GridView:
 					if (UserSettingsService.LayoutSettingsService.GridViewSize < GridViewSizeKind.ExtraLarge)

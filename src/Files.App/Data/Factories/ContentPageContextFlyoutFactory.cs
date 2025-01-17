@@ -122,7 +122,7 @@ namespace Files.App.Data.Factories
 						{
 							IsToggle = true
 						}.Build(),
-						new ContextMenuFlyoutItemViewModelBuilder(Commands.LayoutTiles)
+						new ContextMenuFlyoutItemViewModelBuilder(Commands.LayoutCards)
 						{
 							IsToggle = true
 						}.Build(),

@@ -10,7 +10,7 @@ namespace Files.App.Data.Factories
 	{
 		private static Dictionary<DetailsViewSizeKind, string> DetailsViewSizeKinds { get; } = [];
 		private static Dictionary<ListViewSizeKind, string> ListViewSizeKinds { get; } = [];
-		private static Dictionary<TilesViewSizeKind, string> TilesViewSizeKinds { get; } = [];
+		private static Dictionary<CardsViewSizeKind, string> CardsViewSizeKinds { get; } = [];
 		private static Dictionary<GridViewSizeKind, string> GridViewSizeKinds { get; } = [];
 		private static Dictionary<ColumnsViewSizeKind, string> ColumnsViewSizeKinds { get; } = [];
 
@@ -44,14 +44,17 @@ namespace Files.App.Data.Factories
 			return stringValue;
 		}
 
-		public static string Get(TilesViewSizeKind value)
+		public static string Get(CardsViewSizeKind value)
 		{
-			if (TilesViewSizeKinds.Count == 0)
+			if (CardsViewSizeKinds.Count == 0)
 			{
-				TilesViewSizeKinds.Add(TilesViewSizeKind.Small, "Small".GetLocalizedResource());
+				CardsViewSizeKinds.Add(CardsViewSizeKind.Small, Strings.Small.GetLocalizedResource());
+				CardsViewSizeKinds.Add(CardsViewSizeKind.Medium, Strings.Medium.GetLocalizedResource());
+				CardsViewSizeKinds.Add(CardsViewSizeKind.Large, Strings.Large.GetLocalizedResource());
+				CardsViewSizeKinds.Add(CardsViewSizeKind.ExtraLarge, Strings.ExtraLarge.GetLocalizedResource());
 			}
 
-			var stringValue = TilesViewSizeKinds.GetValueOrDefault(value)!;
+			var stringValue = CardsViewSizeKinds.GetValueOrDefault(value)!;
 			return stringValue;
 		}
 

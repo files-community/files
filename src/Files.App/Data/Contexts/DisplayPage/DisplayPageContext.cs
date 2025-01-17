@@ -29,8 +29,8 @@ namespace Files.App.Data.Contexts
 					case LayoutTypes.List:
 						viewModel.ToggleLayoutModeList(true);
 						break;
-					case LayoutTypes.Tiles:
-						viewModel.ToggleLayoutModeTiles(true);
+					case LayoutTypes.Cards:
+						viewModel.ToggleLayoutModeCards(true);
 						break;
 					case LayoutTypes.Grid:
 						viewModel.ToggleLayoutModeGridView(true);
@@ -230,7 +230,7 @@ namespace Files.App.Data.Contexts
 			{
 				FolderLayoutModes.DetailsView => LayoutTypes.Details,
 				FolderLayoutModes.ListView => LayoutTypes.List,
-				FolderLayoutModes.TilesView => LayoutTypes.Tiles,
+				FolderLayoutModes.CardsView => LayoutTypes.Cards,
 				FolderLayoutModes.GridView => LayoutTypes.Grid,
 				FolderLayoutModes.ColumnView => LayoutTypes.Columns,
 				_ => throw new InvalidEnumArgumentException(),
