@@ -9,7 +9,7 @@ body:
     attributes:
       value: |
         > [!TIP]
-        >Have you checked for similar feature requests? There's a possibility your suggestion is already being tracked. Please do a thorough search before creating a new issue.
+        > Have you checked for similar feature requests? There's a possibility your suggestion is already being tracked. Please do a thorough search before creating a new issue.
 
   # Description
   - type: textarea
@@ -25,7 +25,7 @@ body:
       value: |
         ---
 
-        Please include a list changes required to make this improvement. A good rule of thumb is to start your proposal with no more than 7 high-level requirements.
+        What will need to change in order for this feature to be implemented? A good rule of thumb is to start your proposal with no more than 7 high-level requirements.
 
   # Requirements
   - type: textarea
@@ -46,16 +46,6 @@ body:
       label: Files Version
       description: Which version of Files are you using? To copy your Files version, access it from Settings -> About -> Copy -> Files version.
       placeholder: 'e.g. 2.0.36.0'
-    validations:
-      required: true
-
-  # Windows Version
-  - type: input
-    id: windows_version
-    attributes:
-      label: Windows Version
-      description: Which version of Windows are you using? To copy your Windows version, access it from Settings -> About -> Copy -> Windows version.
-      placeholder: "e.g. 10.0.22621.1848"
     validations:
       required: true
 
