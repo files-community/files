@@ -83,7 +83,7 @@ namespace Files.App.ViewModels.Properties
 				{
 					try
 					{
-						using (var stream = File.OpenRead(_item.ItemPath))
+						await using (var stream = File.OpenRead(_item.ItemPath))
 						{
 							hashInfoItem.HashValue = hashInfoItem.Algorithm switch
 							{

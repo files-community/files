@@ -204,8 +204,8 @@ namespace Files.App.Utils.Shell
 								if (!hFileSrc.IsInvalid && !hFileDst.IsInvalid)
 								{
 									// Copy ADS to temp folder and open
-									using (var inStream = new FileStream(hFileSrc.DangerousGetHandle(), FileAccess.Read))
-									using (var outStream = new FileStream(hFileDst.DangerousGetHandle(), FileAccess.Write))
+									await using (var inStream = new FileStream(hFileSrc.DangerousGetHandle(), FileAccess.Read))
+									await using (var outStream = new FileStream(hFileDst.DangerousGetHandle(), FileAccess.Write))
 									{
 										await inStream.CopyToAsync(outStream);
 										await outStream.FlushAsync();

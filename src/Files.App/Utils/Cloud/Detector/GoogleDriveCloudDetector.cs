@@ -38,9 +38,9 @@ namespace Files.App.Utils.Cloud
 
 			// Build the connection and sql command
 			SQLitePCL.Batteries_V2.Init();
-			using var database = new SqliteConnection($"Data Source='{syncDbPath}'");
-			using var cmdRoot = new SqliteCommand("SELECT * FROM roots", database);
-			using var cmdMedia = new SqliteCommand("SELECT * FROM media WHERE fs_type=10", database);
+			await using var database = new SqliteConnection($"Data Source='{syncDbPath}'");
+			await using var cmdRoot = new SqliteCommand("SELECT * FROM roots", database);
+			await using var cmdMedia = new SqliteCommand("SELECT * FROM media WHERE fs_type=10", database);
 
 			// Open the connection and execute the command
 			database.Open();

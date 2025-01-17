@@ -171,13 +171,13 @@ namespace Files.App.Utils.Storage
 
 				if (destFolder is ICreateFileWithStream cwsf)
 				{
-					using var inStream = await ftpClient.OpenRead(FtpPath, token: cancellationToken);
+					await using var inStream = await ftpClient.OpenRead(FtpPath, token: cancellationToken);
 					return await cwsf.CreateFileAsync(inStream, desiredNewName, option.Convert());
 				}
 				else
 				{
 					BaseStorageFile file = await destFolder.CreateFileAsync(desiredNewName, option.Convert());
-					using var stream = await file.OpenStreamForWriteAsync();
+					await using var stream = await file.OpenStreamForWriteAsync();
 					return await ftpClient.DownloadStream(stream, FtpPath, token: cancellationToken) ? file : null;
 				}
 			}, ((IPasswordProtectedItem)this).RetryWithCredentialsAsync));
@@ -279,7 +279,7 @@ namespace Files.App.Utils.Storage
 					return;
 				}
 
-				using (var outStream = request.AsStreamForWrite())
+				await using (var outStream = request.AsStreamForWrite())
 				{
 					await ftpClient.DownloadStream(outStream, FtpPath);
 					await outStream.FlushAsync();

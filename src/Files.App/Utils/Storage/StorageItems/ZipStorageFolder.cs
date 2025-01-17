@@ -312,14 +312,15 @@ namespace Files.App.Utils.Storage
 
 				using (var ms = new MemoryStream())
 				{
-					using (var archiveStream = await OpenZipFileAsync(FileAccessMode.Read))
+					await using (var archiveStream = await OpenZipFileAsync(FileAccessMode.Read))
 					{
 						SevenZipCompressor compressor = new SevenZipCompressor() { CompressionMode = CompressionMode.Append };
 						compressor.SetFormatFromExistingArchive(archiveStream);
 						var fileName = IO.Path.GetRelativePath(containerPath, zipDesiredName);
 						await compressor.CompressStreamDictionaryAsync(archiveStream, new Dictionary<string, Stream>() { { fileName, null } }, Credentials.Password, ms);
 					}
-					using (var archiveStream = await OpenZipFileAsync(FileAccessMode.ReadWrite))
+
+					await using (var archiveStream = await OpenZipFileAsync(FileAccessMode.ReadWrite))
 					{
 						ms.Position = 0;
 						await ms.CopyToAsync(archiveStream);
@@ -363,7 +364,7 @@ namespace Files.App.Utils.Storage
 					}
 					using (var ms = new MemoryStream())
 					{
-						using (var archiveStream = await OpenZipFileAsync(FileAccessMode.Read))
+						await using (var archiveStream = await OpenZipFileAsync(FileAccessMode.Read))
 						{
 							SevenZipCompressor compressor = new SevenZipCompressor() { CompressionMode = CompressionMode.Append };
 							compressor.SetFormatFromExistingArchive(archiveStream);
@@ -373,7 +374,8 @@ namespace Files.App.Utils.Storage
 								IO.Path.Combine(folderDes, IO.Path.GetRelativePath(folderKey, x.Key)))));
 							await compressor.ModifyArchiveAsync(archiveStream, entriesMap, Credentials.Password, ms);
 						}
-						using (var archiveStream = await OpenZipFileAsync(FileAccessMode.ReadWrite))
+
+						await using (var archiveStream = await OpenZipFileAsync(FileAccessMode.ReadWrite))
 						{
 							ms.Position = 0;
 							await ms.CopyToAsync(archiveStream);
@@ -414,14 +416,15 @@ namespace Files.App.Utils.Storage
 					}
 					using (var ms = new MemoryStream())
 					{
-						using (var archiveStream = await OpenZipFileAsync(FileAccessMode.Read))
+						await using (var archiveStream = await OpenZipFileAsync(FileAccessMode.Read))
 						{
 							SevenZipCompressor compressor = new SevenZipCompressor() { CompressionMode = CompressionMode.Append };
 							compressor.SetFormatFromExistingArchive(archiveStream);
 							var entriesMap = new Dictionary<int, string>(index.Select(x => new KeyValuePair<int, string>(x.Index, null)));
 							await compressor.ModifyArchiveAsync(archiveStream, entriesMap, Credentials.Password, ms);
 						}
-						using (var archiveStream = await OpenZipFileAsync(FileAccessMode.ReadWrite))
+
+						await using (var archiveStream = await OpenZipFileAsync(FileAccessMode.ReadWrite))
 						{
 							ms.Position = 0;
 							await ms.CopyToAsync(archiveStream);
@@ -544,7 +547,7 @@ namespace Files.App.Utils.Storage
 			return SafetyExtensions.IgnoreExceptions(async () =>
 			{
 				using var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite);
-				using var stream = fileStream.AsStream();
+				await using var stream = fileStream.AsStream();
 				return await InitArchive(stream, format);
 			});
 		}
@@ -624,14 +627,15 @@ namespace Files.App.Utils.Storage
 
 				using (var ms = new MemoryStream())
 				{
-					using (var archiveStream = await OpenZipFileAsync(FileAccessMode.Read))
+					await using (var archiveStream = await OpenZipFileAsync(FileAccessMode.Read))
 					{
 						SevenZipCompressor compressor = new SevenZipCompressor() { CompressionMode = CompressionMode.Append };
 						compressor.SetFormatFromExistingArchive(archiveStream);
 						var fileName = IO.Path.GetRelativePath(containerPath, zipDesiredName);
 						await compressor.CompressStreamDictionaryAsync(archiveStream, new Dictionary<string, Stream>() { { fileName, contents } }, Credentials.Password, ms);
 					}
-					using (var archiveStream = await OpenZipFileAsync(FileAccessMode.ReadWrite))
+
+					await using (var archiveStream = await OpenZipFileAsync(FileAccessMode.ReadWrite))
 					{
 						ms.Position = 0;
 						await ms.CopyToAsync(archiveStream);

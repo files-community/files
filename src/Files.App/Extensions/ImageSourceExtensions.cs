@@ -20,7 +20,7 @@ namespace Files.App.Extensions
 				return null;
 			}
 
-			using var readStream = stream.AsStreamForRead();
+			await using var readStream = stream.AsStreamForRead();
 
 			return await readStream.ToByteArrayAsync();
 		}

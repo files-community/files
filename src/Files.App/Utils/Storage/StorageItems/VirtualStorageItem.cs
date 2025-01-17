@@ -87,7 +87,7 @@ namespace Files.App.Utils.Storage
 		{
 			try
 			{
-				using (var stream = request.AsStreamForWrite())
+				await using (var stream = request.AsStreamForWrite())
 				{
 					await stream.FlushAsync();
 				}

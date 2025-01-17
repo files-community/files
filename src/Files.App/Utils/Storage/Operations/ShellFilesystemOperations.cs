@@ -61,7 +61,7 @@ namespace Files.App.Utils.Storage
 
 			var operationID = Guid.NewGuid().ToString();
 
-			using var r = cancellationToken.Register(CancelOperation, operationID, false);
+			await using var r = cancellationToken.Register(CancelOperation, operationID, false);
 
 			var sourceReplace = sourceNoSkip.Zip(collisionsNoSkip, (src, coll) => new { src, coll }).Where(item => item.coll == FileNameConflictResolveOptionType.ReplaceExisting).Select(item => item.src);
 			var destinationReplace = destinationNoSkip.Zip(collisionsNoSkip, (src, coll) => new { src, coll }).Where(item => item.coll == FileNameConflictResolveOptionType.ReplaceExisting).Select(item => item.src);
@@ -371,7 +371,7 @@ namespace Files.App.Utils.Storage
 			}
 
 			var operationID = Guid.NewGuid().ToString();
-			using var r = cancellationToken.Register(CancelOperation, operationID, false);
+			await using var r = cancellationToken.Register(CancelOperation, operationID, false);
 
 			var (success, response) = await FileOperationsHelpers.DeleteItemAsync(deleteFilePaths.ToArray(), permanently, MainWindow.Instance.WindowHandle.ToInt64(), asAdmin, progress, operationID);
 
@@ -483,7 +483,7 @@ namespace Files.App.Utils.Storage
 			var collisionsNoSkip = collisions.Where(c => c != FileNameConflictResolveOptionType.Skip);
 			var operationID = Guid.NewGuid().ToString();
 
-			using var r = cancellationToken.Register(CancelOperation, operationID, false);
+			await using var r = cancellationToken.Register(CancelOperation, operationID, false);
 
 			var sourceReplace = sourceNoSkip.Zip(collisionsNoSkip, (src, coll) => new { src, coll }).Where(item => item.coll == FileNameConflictResolveOptionType.ReplaceExisting).Select(item => item.src);
 			var destinationReplace = destinationNoSkip.Zip(collisionsNoSkip, (src, coll) => new { src, coll }).Where(item => item.coll == FileNameConflictResolveOptionType.ReplaceExisting).Select(item => item.src);
@@ -736,7 +736,7 @@ namespace Files.App.Utils.Storage
 			StatusCenterItemProgressModel fsProgress = new(progress, true, FileSystemStatusCode.InProgress);
 			fsProgress.Report();
 			var operationID = Guid.NewGuid().ToString();
-			using var r = cancellationToken.Register(CancelOperation, operationID, false);
+			await using var r = cancellationToken.Register(CancelOperation, operationID, false);
 
 			var moveResult = new ShellOperationResult();
 			var (status, response) = await FileOperationsHelpers.MoveItemAsync(source.Select(s => s.Path).ToArray(), [.. destination], false, MainWindow.Instance.WindowHandle.ToInt64(), asAdmin, progress, operationID);
