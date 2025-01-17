@@ -58,5 +58,10 @@ namespace Files.App.Data.Contracts
 		/// Focuses the other pane.
 		/// </summary>
 		public void FocusOtherPane();
+
+		/// <summary>
+		/// Updates the layout of open panes.
+		/// </summary>
+		public void UpdatePanesLayout();
 	}
 }

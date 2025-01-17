@@ -225,6 +225,22 @@ namespace Files.App.Helpers
 			};
 		}
 
+		public void UpdateGroupAndSortOptions(string? path)
+		{
+			if (string.IsNullOrWhiteSpace(path))
+				return;
+
+			var preferencesItem = GetLayoutPreferencesForPath(path);
+			if (preferencesItem is null)
+				return;
+
+			DirectorySortOption = preferencesItem.DirectorySortOption;
+			DirectorySortDirection = preferencesItem.DirectorySortDirection;
+			DirectoryGroupOption = preferencesItem.DirectoryGroupOption;
+			DirectoryGroupByDateUnit = preferencesItem.DirectoryGroupByDateUnit;
+			DirectoryGroupDirection = preferencesItem.DirectoryGroupDirection;
+		}
+
 		public bool IsPathUsingDefaultLayout(string? path)
 		{
 			return UserSettingsService.LayoutSettingsService.SyncFolderPreferencesAcrossDirectories ||
