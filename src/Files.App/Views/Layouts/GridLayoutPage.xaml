@@ -442,7 +442,7 @@
 					Padding="0"
 					HorizontalAlignment="Left"
 					VerticalAlignment="Stretch"
-					Background="Transparent"
+					Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
 					ColumnSpacing="4"
 					IsRightTapEnabled="True"
 					Loaded="Grid_Loaded"
@@ -502,6 +502,7 @@
 						Grid.ColumnSpan="2"
 						Width="{Binding ElementName=PageRoot, Path=CardsViewIconBoxWidth, Mode=OneWay}"
 						Height="{Binding ElementName=PageRoot, Path=CardsViewIconBoxHeight, Mode=OneWay}"
+						Background="{ThemeResource SystemFillColorNeutralBackgroundBrush}"
 						Opacity="{x:Bind Opacity, Mode=OneWay}"
 						Tag="ItemImage">
 
