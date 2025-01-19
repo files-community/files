@@ -37,6 +37,8 @@
 			x:Name="RecentFilesListView"
 			HorizontalAlignment="Stretch"
 			VerticalAlignment="Stretch"
+			CanDragItems="True"
+			DragItemsStarting="RecentFilesListView_DragItemsStarting"
 			IsItemClickEnabled="True"
 			IsRightTapEnabled="True"
 			ItemClick="RecentFilesListView_ItemClick"
