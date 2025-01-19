@@ -8,7 +8,7 @@ namespace Files.App.Data.Contexts
 		None,
 		Details,
 		List,
-		Tiles,
+		Cards,
 		Grid,
 		Columns,
 		Adaptive,

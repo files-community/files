@@ -587,8 +587,8 @@ namespace Files.App.Views.Layouts
 				case FolderLayoutModes.ListView:
 					parent.FolderSettings.ToggleLayoutModeList(true);
 					break;
-				case FolderLayoutModes.TilesView:
-					parent.FolderSettings.ToggleLayoutModeTiles(true);
+				case FolderLayoutModes.CardsView:
+					parent.FolderSettings.ToggleLayoutModeCards(true);
 					break;
 				case FolderLayoutModes.GridView:
 					parent.FolderSettings.ToggleLayoutModeGridView(true);

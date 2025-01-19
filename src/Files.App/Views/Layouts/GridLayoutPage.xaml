@@ -433,16 +433,16 @@
 			</UserControl>
 		</DataTemplate>
 
-		<!--  Tiles View  -->
-		<DataTemplate x:Name="TilesBrowserTemplate" x:DataType="filesystem:ListedItem">
+		<!--  Cards View  -->
+		<DataTemplate x:Name="CardsBrowserTemplate" x:DataType="filesystem:ListedItem">
 			<UserControl>
 				<Grid
-					Width="{Binding ElementName=PageRoot, Path=ItemWidthTilesView, Mode=OneWay}"
-					MaxHeight="68"
+					Width="{Binding ElementName=PageRoot, Path=CardsViewItemWidth, Mode=OneWay}"
+					Height="{Binding ElementName=PageRoot, Path=CardsViewItemHeight, Mode=OneWay}"
 					Padding="0"
 					HorizontalAlignment="Left"
 					VerticalAlignment="Stretch"
-					Background="Transparent"
+					Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
 					ColumnSpacing="4"
 					IsRightTapEnabled="True"
 					Loaded="Grid_Loaded"
@@ -498,14 +498,17 @@
 						Unchecked="ItemSelected_Unchecked" />
 
 					<Grid
-						Grid.Column="1"
-						Height="60"
-						Margin="0,4,0,4"
+						Grid.Column="0"
+						Grid.ColumnSpan="2"
+						Width="{Binding ElementName=PageRoot, Path=CardsViewIconBoxWidth, Mode=OneWay}"
+						Height="{Binding ElementName=PageRoot, Path=CardsViewIconBoxHeight, Mode=OneWay}"
+						Background="{ThemeResource SystemFillColorNeutralBackgroundBrush}"
 						Opacity="{x:Bind Opacity, Mode=OneWay}"
 						Tag="ItemImage">
 
 						<ContentPresenter
 							x:Name="PictureBorder"
+							Height="{Binding ElementName=PageRoot, Path=CardsViewIconSize, Mode=OneWay}"
 							HorizontalAlignment="Center"
 							VerticalAlignment="Center"
 							x:Load="{x:Bind LoadFileIcon, Mode=OneWay}"
@@ -513,7 +516,6 @@
 							CornerRadius="{StaticResource GridViewThumbnailCornerRadius}">
 							<Image
 								x:Name="Picture"
-								Width="60"
 								Source="{x:Bind FileImage, Mode=OneWay}"
 								Stretch="Uniform" />
 						</ContentPresenter>
@@ -521,8 +523,8 @@
 						<!--  Loading indicator  -->
 						<uc:Shimmer
 							x:Name="TypeUnknownGlyph"
-							Width="60"
-							Height="60"
+							Width="{Binding ElementName=PageRoot, Path=CardsViewIconSize, Mode=OneWay}"
+							Height="{Binding ElementName=PageRoot, Path=CardsViewIconSize, Mode=OneWay}"
 							x:Load="{x:Bind NeedsPlaceholderGlyph, Mode=OneWay}" />
 
 						<Image

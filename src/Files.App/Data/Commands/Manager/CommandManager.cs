@@ -132,7 +132,7 @@ namespace Files.App.Data.Commands
 		public IRichCommand LayoutIncreaseSize => commands[CommandCodes.LayoutIncreaseSize];
 		public IRichCommand LayoutDetails => commands[CommandCodes.LayoutDetails];
 		public IRichCommand LayoutList => commands[CommandCodes.LayoutList];
-		public IRichCommand LayoutTiles => commands[CommandCodes.LayoutTiles];
+		public IRichCommand LayoutCards=> commands[CommandCodes.LayoutCards];
 		public IRichCommand LayoutGrid => commands[CommandCodes.LayoutGrid];
 		public IRichCommand LayoutColumns => commands[CommandCodes.LayoutColumns];
 		public IRichCommand LayoutAdaptive => commands[CommandCodes.LayoutAdaptive];
@@ -336,7 +336,7 @@ namespace Files.App.Data.Commands
 			[CommandCodes.LayoutIncreaseSize] = new LayoutIncreaseSizeAction(),
 			[CommandCodes.LayoutDetails] = new LayoutDetailsAction(),
 			[CommandCodes.LayoutList] = new LayoutListAction(),
-			[CommandCodes.LayoutTiles] = new LayoutTilesAction(),
+			[CommandCodes.LayoutCards] = new LayoutCardsAction(),
 			[CommandCodes.LayoutGrid] = new LayoutGridAction(),
 			[CommandCodes.LayoutColumns] = new LayoutColumnsAction(),
 			[CommandCodes.LayoutAdaptive] = new LayoutAdaptiveAction(),
